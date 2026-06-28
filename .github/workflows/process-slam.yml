@@ -6,15 +6,16 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
   issues: write
 
 jobs:
-  create-pr:
+  apply-changes:
     if: contains(github.event.issue.labels.*.name, 'add-slam')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Verify submitter is allowed
         id: auth
@@ -49,35 +50,39 @@ jobs:
         if: steps.auth.outputs.allowed == 'true'
         run: python scripts/add_slam_from_issue.py /tmp/issue-body.md
 
+      - name: Sync static JSON
+        if: steps.auth.outputs.allowed == 'true'
+        run: mkdir -p static/data && cp data/achievements.json static/data/achievements.json
+
       - name: Validate updated data
         if: steps.auth.outputs.allowed == 'true'
         run: python scripts/validate_data.py
 
-      - name: Create pull request
+      - name: Commit and push to main
         if: steps.auth.outputs.allowed == 'true'
-        id: cpr
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: data/slam-${{ github.event.issue.number }}
-          commit-message: "data: add slam from issue #${{ github.event.issue.number }}"
-          title: "Add slam: issue #${{ github.event.issue.number }}"
-          body: |
-            Automated PR from issue #${{ github.event.issue.number }}.
-
-            Review the JSON diff, then merge (auto-merge if labeled).
-          labels: auto-merge
+        id: push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/achievements.json static/data/achievements.json
+          if git diff --staged --quiet; then
+            echo "No file changes produced from this issue."
+            exit 1
+          fi
+          git commit -m "data: add slam from issue #${{ github.event.issue.number }}"
+          git push origin main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Comment on issue
-        if: steps.auth.outputs.allowed == 'true' && steps.cpr.outputs.pull-request-number != ''
+        if: steps.auth.outputs.allowed == 'true' && steps.push.outputs.sha != ''
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Created PR #${{ steps.cpr.outputs.pull-request-number }}. It will auto-merge after validation passes."
+          gh issue comment "${{ github.event.issue.number }}" --body "✅ Slam data committed to \`main\` (${{ steps.push.outputs.sha }}). Site will redeploy in ~1 minute."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on failure
         if: failure() && steps.auth.outputs.allowed == 'true'
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Failed to process this submission. Please check field values and try again, or edit \`data/achievements.json\` manually."
+          gh issue comment "${{ github.event.issue.number }}" --body "Failed to process this submission. Please check field values and try again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

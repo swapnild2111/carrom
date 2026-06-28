@@ -73,7 +73,9 @@ Add co-admins by appending their GitHub username to `allowedUsers` in [`data/adm
 
 > **Note:** OAuth “Login with GitHub” does not work on static sites — GitHub blocks the browser token exchange (CORS). PAT auth is the supported method.
 
-Submissions create a GitHub Issue → Action opens a PR → auto-merge → site redeploys.
+Submissions create a GitHub Issue → Action validates and commits to `main` → site redeploys.
+
+Ensure repo **Settings → Actions → General → Workflow permissions** is set to **Read and write permissions**.
 
 ## Workflows
 
