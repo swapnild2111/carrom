@@ -19,7 +19,7 @@ jobs:
       - name: Verify submitter is allowed
         id: auth
         run: |
-          AUTHOR="${{ github.event.issue.author.login }}"
+          AUTHOR="${{ github.event.issue.user.login }}"
           if ! jq -e --arg u "$AUTHOR" '.allowedUsers | index($u)' data/admin-allowlist.json > /dev/null; then
             echo "allowed=false" >> "$GITHUB_OUTPUT"
             gh issue comment "${{ github.event.issue.number }}" --body "⛔ **Not processed** — \`$AUTHOR\` is not on the admin allowlist."
