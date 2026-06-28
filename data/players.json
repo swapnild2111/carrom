@@ -2,9 +2,9 @@
   "year": 2025,
   "lastUpdated": "2026-06-28",
   "summary": {
-    "players": 142,
-    "withClub": 1,
-    "withDistrict": 73,
+    "players": 143,
+    "withClub": 2,
+    "withDistrict": 74,
     "withTotalSlams": 49,
     "withCircuitSlams": 73,
     "withEventSlams": 72,
@@ -8283,6 +8283,39 @@
         "podiumCount": 1,
         "dataCompleteness": [
           "ranking"
+        ],
+        "ranks": {
+          "combined": null,
+          "totalSlams": null,
+          "circuitSlams": null
+        }
+      },
+      "displayOrder": 999
+    },
+    {
+      "id": "swapnil",
+      "name": "swapnil",
+      "aliases": [],
+      "profile": {
+        "club": "sai",
+        "district": "thane",
+        "gender": "male",
+        "locations": []
+      },
+      "achievements": {
+        "totalSlams": null,
+        "circuitSlams": null,
+        "eventSlams": null,
+        "podiums": []
+      },
+      "analytics": {
+        "combinedSlamCount": 0,
+        "whiteSlamShare": null,
+        "winRate": null,
+        "lossRate": null,
+        "podiumCount": 0,
+        "dataCompleteness": [
+          "profile"
         ],
         "ranks": {
           "combined": null,

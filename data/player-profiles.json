@@ -1,4 +1,13 @@
 {
   "lastUpdated": "2026-06-28",
-  "players": []
+  "players": [
+    {
+      "name": "swapnil",
+      "club": "sai",
+      "district": "thane",
+      "gender": "male",
+      "aliases": [],
+      "notes": null
+    }
+  ]
 }
