@@ -2,9 +2,13 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "CarromAchievements",
   "type": "object",
-  "required": ["lastUpdated", "players", "slams"],
+  "required": ["year", "lastUpdated", "players", "tournaments", "slamMatrix", "slamEvents"],
   "additionalProperties": false,
   "properties": {
+    "year": {
+      "type": "integer",
+      "minimum": 2000
+    },
     "lastUpdated": {
       "type": "string",
       "format": "date"
@@ -13,15 +17,34 @@
       "type": "array",
       "items": { "$ref": "#/$defs/player" }
     },
-    "slams": {
+    "tournaments": {
       "type": "array",
-      "items": { "$ref": "#/$defs/slam" }
+      "items": { "$ref": "#/$defs/tournament" }
+    },
+    "slamMatrix": {
+      "type": "object",
+      "required": ["white", "black"],
+      "additionalProperties": false,
+      "properties": {
+        "white": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/matrixRow" }
+        },
+        "black": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/matrixRow" }
+        }
+      }
+    },
+    "slamEvents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/slamEvent" }
     }
   },
   "$defs": {
     "player": {
       "type": "object",
-      "required": ["id", "name", "displayOrder"],
+      "required": ["id", "name", "gender", "district", "displayOrder", "totals"],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -32,20 +55,80 @@
           "type": "string",
           "minLength": 1
         },
+        "gender": {
+          "type": "string",
+          "enum": ["male", "female"]
+        },
+        "district": {
+          "type": "string",
+          "minLength": 1
+        },
         "displayOrder": {
           "type": "integer",
           "minimum": 1
+        },
+        "totals": {
+          "type": "object",
+          "required": ["white", "black"],
+          "additionalProperties": false,
+          "properties": {
+            "white": { "type": "integer", "minimum": 0 },
+            "black": { "type": "integer", "minimum": 0 }
+          }
         }
       }
     },
-    "slam": {
+    "tournament": {
       "type": "object",
-      "required": ["id", "playerId", "slamType", "format", "tournament", "date"],
+      "required": ["id", "name"],
       "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^slam-[0-9]+$"
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "matrixRow": {
+      "type": "object",
+      "required": ["playerId", "counts"],
+      "additionalProperties": false,
+      "properties": {
+        "playerId": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "matchDetail": {
+      "type": "object",
+      "required": ["number", "set", "board"],
+      "additionalProperties": false,
+      "properties": {
+        "number": { "type": "integer", "minimum": 1 },
+        "set": { "type": "integer", "minimum": 1 },
+        "board": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "slamEvent": {
+      "type": "object",
+      "required": ["id", "playerId", "slamType", "district"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^evt-[0-9]+$"
         },
         "playerId": {
           "type": "string",
@@ -55,17 +138,19 @@
           "type": "string",
           "enum": ["white", "black"]
         },
-        "format": {
-          "type": "string",
-          "enum": ["singles", "doubles"]
+        "tournamentId": {
+          "type": ["string", "null"],
+          "pattern": "^[a-z0-9-]+$"
         },
-        "tournament": {
+        "district": {
           "type": "string",
           "minLength": 1
         },
-        "date": {
-          "type": "string",
-          "format": "date"
+        "match": {
+          "oneOf": [
+            { "$ref": "#/$defs/matchDetail" },
+            { "type": "null" }
+          ]
         },
         "notes": {
           "type": "string"

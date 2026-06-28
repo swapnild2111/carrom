@@ -1,98 +1,64 @@
 # Carrom Slam Achievements
 
-Static Hugo site tracking **white slams** and **black slams** in singles and doubles tournaments.
+Static Hugo site tracking **white slams** and **black slams** across Maharashtra state tournaments.
 
 **Live site:** https://swapnild2111.github.io/carrom/
 
-## Data model
+## Data model (mirrors Excel workbook)
 
-All achievement data lives in [`data/achievements.json`](data/achievements.json):
+All data lives in [`data/achievements.json`](data/achievements.json):
 
-| Field | Description |
-|-------|-------------|
-| `players` | Registered players with display order |
-| `slams` | Individual slam records (one entry per slam) |
+| Section | Excel sheet | Purpose |
+|---------|-------------|---------|
+| `players` | White slam / Black slam | Name, gender, district, totals |
+| `tournaments` | Matrix column headers | Tournament names |
+| `slamMatrix.white` / `.black` | White slam / Black slam | Player × tournament **counts** |
+| `slamEvents` | white / black | Match-level log (`Match · Set · Board`) |
 
-Each slam record:
+```json
+{
+  "year": 2025,
+  "players": [{ "id": "...", "name": "...", "gender": "male", "district": "Mumbai", "totals": { "white": 9, "black": 3 } }],
+  "tournaments": [{ "id": "...", "name": "58th Senior Maharashtra State Carrom Championship" }],
+  "slamMatrix": { "white": [{ "playerId": "...", "counts": { "tournament-id": 2 } }], "black": [] },
+  "slamEvents": [{ "id": "evt-001", "playerId": "...", "slamType": "white", "district": "Pune", "match": { "number": 44, "set": 2, "board": 1 } }]
+}
+```
 
-| Field | Values |
-|-------|--------|
-| `slamType` | `white` or `black` |
-| `format` | `singles` or `doubles` |
-| `tournament` | Event name |
-| `date` | `YYYY-MM-DD` |
+## Import from Excel
 
-The leaderboard counts slams per player automatically at build time.
+```bash
+pip install -r scripts/requirements.txt
+python scripts/import_from_excel.py "Carrom records.xlsx"
+python scripts/validate_data.py
+```
+
+Re-run import whenever the Excel file is updated for a new season (adjust `year` in the script if needed).
 
 ## Local development
 
 ```bash
-# Install Hugo: https://gohugo.io/installation/
 hugo server -D
-# Open http://localhost:1313/carrom/
-
-# Validate data
-pip install -r scripts/requirements.txt
-python scripts/validate_data.py
-
-# Production build
-hugo --minify
+# → http://localhost:1313/carrom/
 ```
 
-## Adding a slam (admin handover)
+## Adding a slam (admin)
 
-### Option A — GitHub Issue form (recommended)
+**Issues → New issue → Add slam achievement** — creates a PR that auto-merges after validation.
 
-1. Go to **Issues → New issue → Add slam achievement**
-2. Fill in player, slam type, format, tournament, and date
-3. Submit — a PR is created automatically with label `auto-merge`
-4. After validation passes, the PR merges and the site redeploys (~2 min)
+Or edit `data/achievements.json` directly and open a PR.
 
-### Option B — Edit JSON directly
+## GitHub setup
 
-1. Edit `data/achievements.json` on GitHub or locally
-2. Open a PR — validation runs on the PR
-3. Merge when checks pass
-
-## GitHub setup (one-time)
-
-After pushing this repo to `main`:
-
-1. **Settings → Pages → Build and deployment → Source:** GitHub Actions
-2. **Settings → General → Pull Requests:** enable **Allow auto-merge**
-3. Add the second admin as a **collaborator** on the repo
-4. (Optional) **Settings → Branches → Branch protection** on `main`:
-   - Require PR before merging
-   - Require status check: `validate`
-   - Allow auto-merge
-
-## Project structure
-
-```
-carrom/
-├── config.toml              # Hugo config (baseURL for GitHub Pages)
-├── data/
-│   ├── achievements.json    # Source of truth
-│   └── schema.json          # JSON schema for CI validation
-├── layouts/                 # Hugo templates
-├── static/css/              # Styles
-├── scripts/
-│   ├── validate_data.py     # Schema + referential checks
-│   └── add_slam_from_issue.py
-└── .github/
-    ├── workflows/           # deploy, validate, auto-merge, process-slam
-    └── ISSUE_TEMPLATE/      # Admin submission form
-```
+1. **Settings → Pages → Source:** GitHub Actions
+2. **Settings → Pull Requests:** enable **Allow auto-merge**
+3. Add co-admin as collaborator
 
 ## Workflows
 
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
 | `deploy.yml` | Push to `main` | Build Hugo → GitHub Pages |
-| `validate-data.yml` | PR / push | JSON schema + Hugo build check |
-| `process-slam.yml` | Issue opened (`add-slam`) | Create PR from issue form |
+| `validate-data.yml` | PR / push | JSON schema + Hugo build |
+| `process-slam.yml` | Issue (`add-slam`) | Create PR from issue form |
 | `auto-merge.yml` | PR labeled `auto-merge` | Squash-merge after validation |
-
-## Phase 2 (later)
-
-If the Issue form feels clunky, add a free Cloudflare Worker admin page that creates PRs via the GitHub API. The public site stays on GitHub Pages.

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="intro">
-  <h2>Player Slam Leaderboard</h2>
-  <p>Track white slams and black slams across singles and doubles tournaments.</p>
+  <h2>{{ .Site.Data.achievements.year }} Slam Leaderboard</h2>
+  <p>White and black slam counts across Maharashtra state tournaments — imported from club records.</p>
 </section>
 
 <section class="legend">
@@ -18,7 +18,8 @@
 {{ partial "leaderboard.html" . }}
 
 <section class="recent-slam">
-  <h3>Recent Slams</h3>
+  <h3>Recent Slam Events</h3>
+  <p class="section-note">Match-level log (Match · Set · Board) from tournament records.</p>
   {{ partial "recent-slams.html" . }}
 </section>
 {{ end }}

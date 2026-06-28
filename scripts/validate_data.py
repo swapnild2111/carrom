@@ -33,24 +33,65 @@ def main() -> int:
         return 1
 
     player_ids = {p["id"] for p in data["players"]}
-    slam_ids = set()
-    duplicate_players = len(data["players"]) != len(player_ids)
+    tournament_ids = {t["id"] for t in data["tournaments"]}
 
-    if duplicate_players:
+    if len(data["players"]) != len(player_ids):
         print("Duplicate player ids found.")
         return 1
 
-    for slam in data["slams"]:
-        if slam["id"] in slam_ids:
-            print(f"Duplicate slam id: {slam['id']}")
+    event_ids: set[str] = set()
+    for event in data["slamEvents"]:
+        if event["id"] in event_ids:
+            print(f"Duplicate event id: {event['id']}")
             return 1
-        slam_ids.add(slam["id"])
+        event_ids.add(event["id"])
 
-        if slam["playerId"] not in player_ids:
-            print(f"Slam {slam['id']} references unknown playerId: {slam['playerId']}")
+        if event["playerId"] not in player_ids:
+            print(f"Event {event['id']} references unknown playerId: {event['playerId']}")
             return 1
 
-    print(f"OK: {len(data['players'])} players, {len(data['slams'])} slams")
+        tid = event.get("tournamentId")
+        if tid and tid not in tournament_ids:
+            print(f"Event {event['id']} references unknown tournamentId: {tid}")
+            return 1
+
+    for slam_type in ("white", "black"):
+        for row in data["slamMatrix"][slam_type]:
+            if row["playerId"] not in player_ids:
+                print(f"Matrix row references unknown playerId: {row['playerId']}")
+                return 1
+            for tid, count in row["counts"].items():
+                if tid not in tournament_ids:
+                    print(f"Matrix references unknown tournamentId: {tid}")
+                    return 1
+                if count < 0:
+                    print(f"Negative count for {row['playerId']} / {tid}")
+                    return 1
+
+    # Verify player totals match matrix sums
+    for player in data["players"]:
+        pid = player["id"]
+        for slam_type in ("white", "black"):
+            matrix_total = 0
+            for row in data["slamMatrix"][slam_type]:
+                if row["playerId"] == pid:
+                    matrix_total = sum(row["counts"].values())
+                    break
+            if matrix_total != player["totals"][slam_type]:
+                print(
+                    f"Total mismatch for {player['name']} ({slam_type}): "
+                    f"player.totals={player['totals'][slam_type]}, matrix={matrix_total}"
+                )
+                return 1
+
+    white = sum(p["totals"]["white"] for p in data["players"])
+    black = sum(p["totals"]["black"] for p in data["players"])
+    print(
+        f"OK: {data['year']} — {len(data['players'])} players, "
+        f"{len(data['tournaments'])} tournaments, "
+        f"{len(data['slamEvents'])} events, "
+        f"{white} white / {black} black slams"
+    )
     return 0
 
 

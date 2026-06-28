@@ -3,46 +3,30 @@
 
 <div class="leaderboard">
   <div class="leaderboard-header">
+    <div class="col-rank">#</div>
     <div class="col-player">Player</div>
-    <div class="col-stat" title="White slams in singles">W · Singles</div>
-    <div class="col-stat" title="Black slams in singles">B · Singles</div>
-    <div class="col-stat" title="White slams in doubles">W · Doubles</div>
-    <div class="col-stat" title="Black slams in doubles">B · Doubles</div>
+    <div class="col-district">District</div>
+    <div class="col-stat" title="White slams">White</div>
+    <div class="col-stat" title="Black slams">Black</div>
     <div class="col-total">Total</div>
   </div>
 
   {{ range $players }}
-    {{ $playerId := .id }}
-    {{ $scratch := newScratch }}
-    {{ $scratch.Set "white_singles" 0 }}
-    {{ $scratch.Set "black_singles" 0 }}
-    {{ $scratch.Set "white_doubles" 0 }}
-    {{ $scratch.Set "black_doubles" 0 }}
-
-    {{ range $data.slams }}
-      {{ if eq .playerId $playerId }}
-        {{ if and (eq .slamType "white") (eq .format "singles") }}{{ $scratch.Add "white_singles" 1 }}{{ end }}
-        {{ if and (eq .slamType "black") (eq .format "singles") }}{{ $scratch.Add "black_singles" 1 }}{{ end }}
-        {{ if and (eq .slamType "white") (eq .format "doubles") }}{{ $scratch.Add "white_doubles" 1 }}{{ end }}
-        {{ if and (eq .slamType "black") (eq .format "doubles") }}{{ $scratch.Add "black_doubles" 1 }}{{ end }}
-      {{ end }}
-    {{ end }}
-
-    {{ $ws := $scratch.Get "white_singles" }}
-    {{ $bs := $scratch.Get "black_singles" }}
-    {{ $wd := $scratch.Get "white_doubles" }}
-    {{ $bd := $scratch.Get "black_doubles" }}
-    {{ $total := add (add $ws $bs) (add $wd $bd) }}
-
+    {{ $white := .totals.white }}
+    {{ $black := .totals.black }}
+    {{ $total := add $white $black }}
+    {{ if gt $total 0 }}
     <div class="leaderboard-row">
+      <div class="col-rank">{{ .displayOrder }}</div>
       <div class="col-player">
         <span class="player-name">{{ .name }}</span>
+        <span class="player-meta">{{ .gender | title }}</span>
       </div>
-      <div class="col-stat">{{ if gt $ws 0 }}<span class="count count-white">{{ $ws }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
-      <div class="col-stat">{{ if gt $bs 0 }}<span class="count count-black">{{ $bs }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
-      <div class="col-stat">{{ if gt $wd 0 }}<span class="count count-white">{{ $wd }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
-      <div class="col-stat">{{ if gt $bd 0 }}<span class="count count-black">{{ $bd }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
+      <div class="col-district">{{ .district }}</div>
+      <div class="col-stat">{{ if gt $white 0 }}<span class="count count-white">{{ $white }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
+      <div class="col-stat">{{ if gt $black 0 }}<span class="count count-black">{{ $black }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
       <div class="col-total"><strong>{{ $total }}</strong></div>
     </div>
+    {{ end }}
   {{ end }}
 </div>

@@ -148,7 +148,7 @@ main {
 .leaderboard-header,
 .leaderboard-row {
   display: grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr) 0.75fr;
+  grid-template-columns: 2rem 1.4fr 1fr repeat(2, 0.65fr) 0.55fr;
   gap: 0.5rem;
   padding: 0.85rem 1.25rem;
   align-items: center;
@@ -179,6 +179,44 @@ main {
 
 .player-name {
   font-weight: 600;
+  display: block;
+}
+
+.player-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.col-district {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.col-rank {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.section-note {
+  margin: -0.5rem 0 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.slam-district {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.slam-match {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
 }
 
 .col-stat,
@@ -292,11 +330,26 @@ main {
     padding: 1rem;
   }
 
+  .col-rank {
+    display: none;
+  }
+
   .col-player {
     grid-column: 1 / -1;
     font-size: 1.05rem;
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--border);
+  }
+
+  .col-district::before {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+    content: "District";
   }
 
   .col-stat::before,
@@ -310,13 +363,11 @@ main {
     margin-bottom: 0.2rem;
   }
 
-  .col-stat:nth-child(2)::before { content: "W · Singles"; }
-  .col-stat:nth-child(3)::before { content: "B · Singles"; }
-  .col-stat:nth-child(4)::before { content: "W · Doubles"; }
-  .col-stat:nth-child(5)::before { content: "B · Doubles"; }
+  .col-stat:nth-child(4)::before { content: "White"; }
+  .col-stat:nth-child(5)::before { content: "Black"; }
   .col-total::before { content: "Total"; }
 
-  .slam-date {
+  .slam-match {
     margin-left: 0;
     width: 100%;
   }

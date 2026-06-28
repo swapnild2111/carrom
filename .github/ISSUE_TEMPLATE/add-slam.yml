@@ -1,5 +1,5 @@
 name: Add slam achievement
-description: Record a white or black slam in singles or doubles
+description: Record a white or black slam at a tournament
 title: "[Slam] "
 labels:
   - add-slam
@@ -14,7 +14,25 @@ body:
     attributes:
       label: Player name
       description: Full name as it should appear on the leaderboard
-      placeholder: e.g. Swapnil Deshpande
+      placeholder: e.g. Prashant Suryakant More
+    validations:
+      required: true
+
+  - type: dropdown
+    id: gender
+    attributes:
+      label: Gender
+      options:
+        - male
+        - female
+    validations:
+      required: true
+
+  - type: input
+    id: district
+    attributes:
+      label: District
+      placeholder: e.g. Mumbai, Mumbai Sub, Thane, Pune
     validations:
       required: true
 
@@ -28,36 +46,35 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: tournament_format
-    attributes:
-      label: Tournament format
-      options:
-        - Singles
-        - Doubles
-    validations:
-      required: true
-
   - type: input
     id: tournament_name
     attributes:
       label: Tournament name
-      placeholder: e.g. Spring Club Open 2025
+      placeholder: e.g. 58th Senior Maharashtra State Carrom Championship
     validations:
       required: true
 
   - type: input
-    id: date
+    id: match_number
     attributes:
-      label: Date
-      description: Use YYYY-MM-DD format
-      placeholder: "2025-06-28"
-    validations:
-      required: true
+      label: Match number
+      description: Optional — leave blank if unknown
+      placeholder: "44"
+
+  - type: input
+    id: set_number
+    attributes:
+      label: Set number
+      placeholder: "2"
+
+  - type: input
+    id: board_number
+    attributes:
+      label: Board number
+      placeholder: "1"
 
   - type: textarea
     id: notes
     attributes:
       label: Notes (optional)
-      description: Partner name for doubles, or other context
-      placeholder: Partner name, round info, etc.
+      placeholder: Any extra context

@@ -25,11 +25,6 @@ SLAM_TYPE_MAP = {
     "black": "black",
 }
 
-FORMAT_MAP = {
-    "singles": "singles",
-    "doubles": "doubles",
-}
-
 
 def slugify(name: str) -> str:
     normalized = unicodedata.normalize("NFKD", name.strip().lower())
@@ -55,20 +50,45 @@ def find_player(players: list[dict], name: str) -> dict | None:
     return None
 
 
-def next_slam_id(slams: list[dict]) -> str:
+def find_tournament(tournaments: list[dict], name: str) -> dict | None:
+    target = name.strip().lower()
+    for tournament in tournaments:
+        if tournament["name"].strip().lower() == target:
+            return tournament
+    return None
+
+
+def next_event_id(events: list[dict]) -> str:
     numbers = []
-    for slam in slams:
-        match = re.match(r"slam-(\d+)$", slam["id"])
+    for event in events:
+        match = re.match(r"evt-(\d+)$", event["id"])
         if match:
             numbers.append(int(match.group(1)))
-    next_num = max(numbers, default=0) + 1
-    return f"slam-{next_num:03d}"
+    return f"evt-{max(numbers, default=0) + 1:03d}"
 
 
 def next_display_order(players: list[dict]) -> int:
     if not players:
         return 1
     return max(p["displayOrder"] for p in players) + 1
+
+
+def get_matrix_row(matrix: list[dict], player_id: str) -> dict:
+    for row in matrix:
+        if row["playerId"] == player_id:
+            return row
+    row = {"playerId": player_id, "counts": {}}
+    matrix.append(row)
+    return row
+
+
+def parse_match(fields: dict[str, str]) -> dict | None:
+    number = fields.get("match number", "").strip()
+    set_no = fields.get("set number", "").strip()
+    board = fields.get("board number", "").strip()
+    if not (number and set_no and board):
+        return None
+    return {"number": int(number), "set": int(set_no), "board": int(board)}
 
 
 def main() -> int:
@@ -81,22 +101,18 @@ def main() -> int:
 
     player_name = fields.get("player name", "").strip()
     slam_type_raw = fields.get("slam type", "").strip().lower()
-    format_raw = fields.get("tournament format", "").strip().lower()
-    tournament = fields.get("tournament name", "").strip()
-    date_str = fields.get("date", "").strip()
-    notes = (
-        fields.get("notes (optional)", "")
-        or fields.get("notes", "")
-    ).strip()
+    tournament_name = fields.get("tournament name", "").strip()
+    district = fields.get("district", "").strip()
+    gender_raw = fields.get("gender", "male").strip().lower()
+    notes = (fields.get("notes (optional)", "") or fields.get("notes", "")).strip()
 
     missing = [
         label
         for label, value in [
             ("Player name", player_name),
             ("Slam type", slam_type_raw),
-            ("Tournament format", format_raw),
-            ("Tournament name", tournament),
-            ("Date", date_str),
+            ("Tournament name", tournament_name),
+            ("District", district),
         ]
         if not value
     ]
@@ -109,15 +125,8 @@ def main() -> int:
         print(f"Invalid slam type: {slam_type_raw}")
         return 1
 
-    tournament_format = FORMAT_MAP.get(format_raw)
-    if not tournament_format:
-        print(f"Invalid tournament format: {format_raw}")
-        return 1
-
-    try:
-        date.fromisoformat(date_str)
-    except ValueError:
-        print(f"Invalid date (use YYYY-MM-DD): {date_str}")
+    if gender_raw not in ("male", "female"):
+        print(f"Invalid gender: {gender_raw}")
         return 1
 
     data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
@@ -135,25 +144,39 @@ def main() -> int:
         player = {
             "id": player_id,
             "name": player_name,
+            "gender": gender_raw,
+            "district": district,
             "displayOrder": next_display_order(data["players"]),
+            "totals": {"white": 0, "black": 0},
         }
         data["players"].append(player)
         print(f"Created new player: {player_name} ({player_id})")
 
-    new_slam = {
-        "id": next_slam_id(data["slams"]),
+    tournament = find_tournament(data["tournaments"], tournament_name)
+    if tournament is None:
+        tournament = {"id": slugify(tournament_name), "name": tournament_name}
+        data["tournaments"].append(tournament)
+        print(f"Created new tournament: {tournament_name}")
+
+    match = parse_match(fields)
+    new_event = {
+        "id": next_event_id(data["slamEvents"]),
         "playerId": player["id"],
         "slamType": slam_type,
-        "format": tournament_format,
-        "tournament": tournament,
-        "date": date_str,
+        "tournamentId": tournament["id"],
+        "district": district,
+        "match": match,
         "notes": notes,
     }
-    data["slams"].append(new_slam)
+    data["slamEvents"].append(new_event)
+
+    matrix_row = get_matrix_row(data["slamMatrix"][slam_type], player["id"])
+    matrix_row["counts"][tournament["id"]] = matrix_row["counts"].get(tournament["id"], 0) + 1
+    player["totals"][slam_type] += 1
     data["lastUpdated"] = date.today().isoformat()
 
     DATA_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Added {new_slam['id']} for {player_name}: {slam_type} {tournament_format} at {tournament}")
+    print(f"Added {new_event['id']} for {player_name}: {slam_type} at {tournament_name}")
     return 0
 
 

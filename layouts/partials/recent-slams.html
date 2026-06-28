@@ -4,22 +4,28 @@
   {{ $playerMap = merge $playerMap (dict .id .name) }}
 {{ end }}
 
-{{ $slams := sort $data.slams "date" "desc" }}
+{{ $events := sort $data.slamEvents "id" "desc" }}
 
 <ul class="slam-list">
-  {{ range first 10 $slams }}
-    {{ $playerName := index $playerMap .playerId }}
-    <li class="slam-item">
-      <span class="badge badge-{{ .slamType }}">{{ .slamType | title }}</span>
-      <span class="slam-format">{{ .format }}</span>
-      <span class="slam-player">{{ $playerName }}</span>
-      <span class="slam-tournament">{{ .tournament }}</span>
-      <time class="slam-date" datetime="{{ .date }}">{{ .date }}</time>
-      {{ with .notes }}
-        <span class="slam-notes">{{ . }}</span>
-      {{ end }}
-    </li>
-  {{ else }}
-    <li class="slam-item slam-empty">No slams recorded yet.</li>
+  {{ $shown := 0 }}
+  {{ range $events }}
+    {{ if and .match (lt $shown 15) }}
+      {{ $shown = add $shown 1 }}
+      {{ $playerName := index $playerMap .playerId }}
+      <li class="slam-item">
+        <span class="badge badge-{{ .slamType }}">{{ .slamType | title }}</span>
+        <span class="slam-player">{{ $playerName }}</span>
+        <span class="slam-district">{{ .district }}</span>
+        {{ with .match }}
+          <span class="slam-match">Match {{ .number }} · Set {{ .set }} · Board {{ .board }}</span>
+        {{ end }}
+        {{ with .notes }}
+          <span class="slam-notes">{{ . }}</span>
+        {{ end }}
+      </li>
+    {{ end }}
+  {{ end }}
+  {{ if eq $shown 0 }}
+    <li class="slam-item slam-empty">No match-level slam events recorded yet.</li>
   {{ end }}
 </ul>
