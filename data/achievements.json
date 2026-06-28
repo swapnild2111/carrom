@@ -1,0 +1,44 @@
+{
+  "lastUpdated": "2025-06-28",
+  "players": [
+    {
+      "id": "swapnil-d",
+      "name": "Swapnil Deshpande",
+      "displayOrder": 1
+    },
+    {
+      "id": "rahul-k",
+      "name": "Rahul Kumar",
+      "displayOrder": 2
+    }
+  ],
+  "slams": [
+    {
+      "id": "slam-001",
+      "playerId": "swapnil-d",
+      "slamType": "white",
+      "format": "singles",
+      "tournament": "Spring Club Open 2025",
+      "date": "2025-03-15",
+      "notes": ""
+    },
+    {
+      "id": "slam-002",
+      "playerId": "swapnil-d",
+      "slamType": "black",
+      "format": "doubles",
+      "tournament": "Summer Doubles 2025",
+      "date": "2025-05-20",
+      "notes": "Partner: Amit S."
+    },
+    {
+      "id": "slam-003",
+      "playerId": "rahul-k",
+      "slamType": "white",
+      "format": "singles",
+      "tournament": "Spring Club Open 2025",
+      "date": "2025-03-15",
+      "notes": ""
+    }
+  ]
+}

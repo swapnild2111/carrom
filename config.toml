@@ -1,0 +1,12 @@
+baseURL = "https://swapnild2111.github.io/carrom/"
+title = "Carrom Achievements"
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Carrom player slam achievements — white and black slams in singles and doubles."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

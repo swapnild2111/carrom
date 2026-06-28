@@ -1,0 +1,63 @@
+name: Process slam submission
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-pr:
+    if: contains(github.event.issue.labels.*.name, 'add-slam')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Save issue body
+        run: gh issue view "${{ github.event.issue.number }}" --json body --jq .body > /tmp/issue-body.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update achievements from issue
+        run: python scripts/add_slam_from_issue.py /tmp/issue-body.md
+
+      - name: Validate updated data
+        run: python scripts/validate_data.py
+
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: data/slam-${{ github.event.issue.number }}
+          commit-message: "data: add slam from issue #${{ github.event.issue.number }}"
+          title: "Add slam: issue #${{ github.event.issue.number }}"
+          body: |
+            Automated PR from issue #${{ github.event.issue.number }}.
+
+            Review the JSON diff, then merge (auto-merge if labeled).
+          labels: auto-merge
+
+      - name: Comment on issue
+        if: steps.cpr.outputs.pull-request-number != ''
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "Created PR #${{ steps.cpr.outputs.pull-request-number }}. It will auto-merge after validation passes."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on failure
+        if: failure()
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "Failed to process this submission. Please check field values and try again, or edit \`data/achievements.json\` manually."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

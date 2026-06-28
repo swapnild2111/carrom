@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="intro">
+  <h2>Player Slam Leaderboard</h2>
+  <p>Track white slams and black slams across singles and doubles tournaments.</p>
+</section>
+
+<section class="legend">
+  <div class="legend-item">
+    <span class="badge badge-white">White</span>
+    <span>Pocket all coins including queen in one turn</span>
+  </div>
+  <div class="legend-item">
+    <span class="badge badge-black">Black</span>
+    <span>Pocket all opponent coins including queen in one turn</span>
+  </div>
+</section>
+
+{{ partial "leaderboard.html" . }}
+
+<section class="recent-slam">
+  <h3>Recent Slams</h3>
+  {{ partial "recent-slams.html" . }}
+</section>
+{{ end }}
