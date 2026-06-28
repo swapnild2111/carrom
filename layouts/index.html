@@ -17,8 +17,8 @@
     <div class="info-block">
       <h4>Slam types</h4>
       <ul>
-        <li><span class="badge badge-white">White slam</span> Pocket all coins including the queen in one turn.</li>
-        <li><span class="badge badge-black">Black slam</span> Pocket all opponent coins including the queen in one turn.</li>
+        <li><span class="badge badge-white">White slam</span> Player starts the game and pockets all <strong>white coins</strong>, including the queen.</li>
+        <li><span class="badge badge-black">Black slam</span> Opponent starts the game and loses their turn; then the player pockets all <strong>black coins</strong>, including the queen.</li>
       </ul>
     </div>
     <div class="info-block">
@@ -74,7 +74,7 @@
   {{ partial "leaderboard.html" . }}
 </section>
 
-<script id="achievements-data" type="application/json">{{ $data | jsonify }}</script>
+<script>window.CARROM_CHART_URL = {{ "data/achievements.json" | relURL | jsonify }};</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="{{ "js/charts.js" | relURL }}"></script>
 {{ end }}

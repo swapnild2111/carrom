@@ -26,6 +26,9 @@ jobs:
           hugo-version: "0.139.4"
           extended: false
 
+      - name: Sync chart JSON to static
+        run: mkdir -p static/data && cp data/achievements.json static/data/achievements.json
+
       - name: Build site
         run: hugo --minify
 

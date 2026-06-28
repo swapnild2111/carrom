@@ -125,6 +125,11 @@ def main() -> int:
     data = import_total_slam(xlsx)
     OUTPUT.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    static_copy = ROOT / "static" / "data" / "achievements.json"
+    static_copy.parent.mkdir(parents=True, exist_ok=True)
+    static_copy.write_text(json.dumps(data, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"  Also copied → {static_copy}")
+
     s = data["summary"]
     print(f"Imported {SHEET_NAME} from {xlsx.name} → {OUTPUT}")
     print(f"  Year: {data['year']}")

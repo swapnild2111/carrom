@@ -24,10 +24,29 @@
     },
   };
 
-  function loadData() {
-    const el = document.getElementById("achievements-data");
-    if (!el) return null;
-    return JSON.parse(el.textContent);
+  function parseEmbeddedData(raw) {
+    if (raw == null) return null;
+    if (typeof raw === "object") return raw;
+    if (typeof raw !== "string") return null;
+    try {
+      let data = JSON.parse(raw);
+      if (typeof data === "string") data = JSON.parse(data);
+      return typeof data === "object" ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function loadData() {
+    const embedded = parseEmbeddedData(window.CARROM_DATA);
+    if (embedded) return embedded;
+
+    const url = window.CARROM_CHART_URL;
+    if (!url) return null;
+
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to load chart data (${response.status})`);
+    return response.json();
   }
 
   function topPlayers(players, n = 10) {
@@ -42,9 +61,29 @@
     return `${parts[0]} ${parts[parts.length - 1]}`;
   }
 
-  function initCharts() {
-    const data = loadData();
-    if (!data || typeof Chart === "undefined") return;
+  function showChartFallback(message) {
+    document.querySelectorAll(".chart-wrap").forEach((wrap) => {
+      if (wrap.querySelector(".chart-fallback")) return;
+      const msg = document.createElement("p");
+      msg.className = "chart-fallback";
+      msg.textContent = message;
+      wrap.appendChild(msg);
+    });
+  }
+
+  async function initCharts() {
+    let data;
+    try {
+      data = await loadData();
+    } catch {
+      showChartFallback("Could not load chart data.");
+      return;
+    }
+
+    if (!data || typeof Chart === "undefined") {
+      showChartFallback(data ? "Charts library failed to load." : "Chart data unavailable.");
+      return;
+    }
 
     const top = topPlayers(data.players);
     const labels = top.map((p) => shortName(p.name));
@@ -59,7 +98,7 @@
         labels,
         datasets: [
           {
-            label: "White",
+            label: "White slams",
             data: top.map((p) => p.totals.white),
             backgroundColor: COLORS.whiteBg,
             borderColor: COLORS.white,
@@ -67,7 +106,7 @@
             borderRadius: 4,
           },
           {
-            label: "Black",
+            label: "Black slams",
             data: top.map((p) => p.totals.black),
             backgroundColor: COLORS.blackBg,
             borderColor: COLORS.black,
@@ -100,7 +139,7 @@
     new Chart(document.getElementById("chart-white-black"), {
       type: "doughnut",
       data: {
-        labels: ["White", "Black"],
+        labels: ["White slams", "Black slams"],
         datasets: [
           {
             data: [data.summary.totals.white, data.summary.totals.black],
@@ -130,7 +169,7 @@
         labels: ["Club matches", "State & YouTube"],
         datasets: [
           {
-            label: "White",
+            label: "White slams",
             data: [data.summary.club.white, data.summary.state.white],
             backgroundColor: COLORS.whiteBg,
             borderColor: COLORS.white,
@@ -138,7 +177,7 @@
             borderRadius: 4,
           },
           {
-            label: "Black",
+            label: "Black slams",
             data: [data.summary.club.black, data.summary.state.black],
             backgroundColor: COLORS.blackBg,
             borderColor: COLORS.black,
@@ -189,13 +228,13 @@
             borderRadius: 2,
           },
           {
-            label: "State · White",
+            label: "State/YouTube · White",
             data: top.map((p) => p.slams.state.white),
             backgroundColor: "rgba(167, 139, 250, 0.55)",
             borderRadius: 2,
           },
           {
-            label: "State · Black",
+            label: "State/YouTube · Black",
             data: top.map((p) => p.slams.state.black),
             backgroundColor: "rgba(167, 139, 250, 0.9)",
             borderRadius: 2,
@@ -221,7 +260,9 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCharts);
+    document.addEventListener("DOMContentLoaded", () => {
+      initCharts();
+    });
   } else {
     initCharts();
   }

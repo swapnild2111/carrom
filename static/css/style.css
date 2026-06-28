@@ -301,6 +301,14 @@ main {
   height: 240px;
 }
 
+.chart-fallback {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 /* Leaderboard */
 .leaderboard-section {
   margin-bottom: 2rem;
