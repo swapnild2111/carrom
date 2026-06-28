@@ -1,5 +1,5 @@
 name: Add slam achievement
-description: Record a white or black slam at a tournament
+description: Increment a white or black slam count for a player
 title: "[Slam] "
 labels:
   - add-slam
@@ -7,32 +7,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Submit a new slam record. A pull request will be created automatically and merged after validation.
+        Add one slam to the Total slam leaderboard. A pull request will be created and merged after validation.
 
   - type: input
     id: player_name
     attributes:
       label: Player name
-      description: Full name as it should appear on the leaderboard
-      placeholder: e.g. Prashant Suryakant More
-    validations:
-      required: true
-
-  - type: dropdown
-    id: gender
-    attributes:
-      label: Gender
-      options:
-        - male
-        - female
-    validations:
-      required: true
-
-  - type: input
-    id: district
-    attributes:
-      label: District
-      placeholder: e.g. Mumbai, Mumbai Sub, Thane, Pune
+      placeholder: e.g. Kunal Raut
     validations:
       required: true
 
@@ -46,35 +27,18 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: tournament_name
+  - type: dropdown
+    id: tournament_tier
     attributes:
-      label: Tournament name
-      placeholder: e.g. 58th Senior Maharashtra State Carrom Championship
+      label: Tournament tier
+      options:
+        - Club
+        - State & YouTube
     validations:
       required: true
 
   - type: input
-    id: match_number
+    id: club_name
     attributes:
-      label: Match number
-      description: Optional — leave blank if unknown
-      placeholder: "44"
-
-  - type: input
-    id: set_number
-    attributes:
-      label: Set number
-      placeholder: "2"
-
-  - type: input
-    id: board_number
-    attributes:
-      label: Board number
-      placeholder: "1"
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Notes (optional)
-      placeholder: Any extra context
+      label: Club name (optional)
+      placeholder: e.g. Sai Carrom

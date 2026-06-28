@@ -4,7 +4,7 @@ defaultContentLanguage = "en"
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Carrom player slam achievements — white and black slams in singles and doubles."
+  description = "Carrom total slam records — white and black slams by club and state tier."
 
 [markup]
   [markup.goldmark]

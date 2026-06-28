@@ -1,29 +1,41 @@
 # Carrom Slam Achievements
 
-Static Hugo site tracking **white slams** and **black slams** across Maharashtra state tournaments.
+Static Hugo site for **Total slam** records from the club Excel sheet.
 
 **Live site:** https://swapnild2111.github.io/carrom/
 
-## Data model (mirrors Excel workbook)
+## Data model (Total slam tab)
 
-All data lives in [`data/achievements.json`](data/achievements.json):
-
-| Section | Excel sheet | Purpose |
-|---------|-------------|---------|
-| `players` | White slam / Black slam | Name, gender, district, totals |
-| `tournaments` | Matrix column headers | Tournament names |
-| `slamMatrix.white` / `.black` | White slam / Black slam | Player × tournament **counts** |
-| `slamEvents` | white / black | Match-level log (`Match · Set · Board`) |
+[`data/achievements.json`](data/achievements.json) mirrors the Excel **Total slam** sheet:
 
 ```json
 {
   "year": 2025,
-  "players": [{ "id": "...", "name": "...", "gender": "male", "district": "Mumbai", "totals": { "white": 9, "black": 3 } }],
-  "tournaments": [{ "id": "...", "name": "58th Senior Maharashtra State Carrom Championship" }],
-  "slamMatrix": { "white": [{ "playerId": "...", "counts": { "tournament-id": 2 } }], "black": [] },
-  "slamEvents": [{ "id": "evt-001", "playerId": "...", "slamType": "white", "district": "Pune", "match": { "number": 44, "set": 2, "board": 1 } }]
+  "summary": {
+    "club": { "white": 109, "black": 49 },
+    "state": { "white": 12, "black": 4 },
+    "totals": { "white": 121, "black": 53, "all": 174 }
+  },
+  "players": [
+    {
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "club": null,
+      "slams": {
+        "club": { "white": 22, "black": 7 },
+        "state": { "white": 0, "black": 0 }
+      },
+      "totals": { "white": 22, "black": 7, "all": 29 }
+    }
+  ]
 }
 ```
+
+| JSON field | Excel column |
+|------------|--------------|
+| `slams.club.white` / `.black` | White / Black (Club) |
+| `slams.state.white` / `.black` | White.1 / Black.1 (State and Youtube) |
+| `totals.white` / `.black` / `.all` | Total White / Total Black / Total Slam |
 
 ## Import from Excel
 
@@ -33,7 +45,7 @@ python scripts/import_from_excel.py "Carrom records.xlsx"
 python scripts/validate_data.py
 ```
 
-Re-run import whenever the Excel file is updated for a new season (adjust `year` in the script if needed).
+Imports the **Total slam** sheet only.
 
 ## Local development
 
@@ -44,21 +56,13 @@ hugo server -D
 
 ## Adding a slam (admin)
 
-**Issues → New issue → Add slam achievement** — creates a PR that auto-merges after validation.
-
-Or edit `data/achievements.json` directly and open a PR.
-
-## GitHub setup
-
-1. **Settings → Pages → Source:** GitHub Actions
-2. **Settings → Pull Requests:** enable **Allow auto-merge**
-3. Add co-admin as collaborator
+**Issues → New issue → Add slam achievement** — pick player, slam type (white/black), and tier (Club / State & YouTube).
 
 ## Workflows
 
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| `deploy.yml` | Push to `main` | Build Hugo → GitHub Pages |
-| `validate-data.yml` | PR / push | JSON schema + Hugo build |
-| `process-slam.yml` | Issue (`add-slam`) | Create PR from issue form |
-| `auto-merge.yml` | PR labeled `auto-merge` | Squash-merge after validation |
+| Workflow | Purpose |
+|----------|---------|
+| `deploy.yml` | Hugo → GitHub Pages |
+| `validate-data.yml` | JSON schema + Hugo build |
+| `process-slam.yml` | Issue form → PR |
+| `auto-merge.yml` | Auto-merge labeled PRs |

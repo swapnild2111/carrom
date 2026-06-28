@@ -1,7 +1,29 @@
 {{ define "main" }}
+{{ $data := .Site.Data.achievements }}
+{{ $summary := $data.summary }}
+
 <section class="intro">
-  <h2>{{ .Site.Data.achievements.year }} Slam Leaderboard</h2>
-  <p>White and black slam counts across Maharashtra state tournaments — imported from club records.</p>
+  <h2>{{ $data.year }} Total Slam Records</h2>
+  <p>White and black slam counts split by <strong>Club</strong> and <strong>State &amp; YouTube</strong> tournaments.</p>
+</section>
+
+<section class="stat-cards">
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.totals.all }}</span>
+    <span class="stat-label">Total slams</span>
+  </div>
+  <div class="stat-card stat-white">
+    <span class="stat-value">{{ $summary.totals.white }}</span>
+    <span class="stat-label">White slams</span>
+  </div>
+  <div class="stat-card stat-black">
+    <span class="stat-value">{{ $summary.totals.black }}</span>
+    <span class="stat-label">Black slams</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ len $data.players }}</span>
+    <span class="stat-label">Players</span>
+  </div>
 </section>
 
 <section class="legend">
@@ -13,13 +35,24 @@
     <span class="badge badge-black">Black</span>
     <span>Pocket all opponent coins including queen in one turn</span>
   </div>
+  <div class="legend-item">
+    <span class="badge badge-club">Club</span>
+    <span>Club-level tournaments</span>
+  </div>
+  <div class="legend-item">
+    <span class="badge badge-state">State</span>
+    <span>State &amp; YouTube tournaments</span>
+  </div>
 </section>
 
-{{ partial "leaderboard.html" . }}
+{{ partial "charts.html" . }}
 
-<section class="recent-slam">
-  <h3>Recent Slam Events</h3>
-  <p class="section-note">Match-level log (Match · Set · Board) from tournament records.</p>
-  {{ partial "recent-slams.html" . }}
+<section class="leaderboard-section">
+  <h3>Full Leaderboard</h3>
+  {{ partial "leaderboard.html" . }}
 </section>
+
+<script id="achievements-data" type="application/json">{{ $data | jsonify }}</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="{{ "js/charts.js" | relURL }}"></script>
 {{ end }}

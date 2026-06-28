@@ -5,28 +5,30 @@
   <div class="leaderboard-header">
     <div class="col-rank">#</div>
     <div class="col-player">Player</div>
-    <div class="col-district">District</div>
-    <div class="col-stat" title="White slams">White</div>
-    <div class="col-stat" title="Black slams">Black</div>
-    <div class="col-total">Total</div>
+    <div class="col-club-name">Club</div>
+    <div class="col-stat" title="Club white slams">C·W</div>
+    <div class="col-stat" title="Club black slams">C·B</div>
+    <div class="col-stat" title="State white slams">S·W</div>
+    <div class="col-stat" title="State black slams">S·B</div>
+    <div class="col-stat" title="Total white">W</div>
+    <div class="col-stat" title="Total black">B</div>
+    <div class="col-total">All</div>
   </div>
 
   {{ range $players }}
-    {{ $white := .totals.white }}
-    {{ $black := .totals.black }}
-    {{ $total := add $white $black }}
-    {{ if gt $total 0 }}
     <div class="leaderboard-row">
       <div class="col-rank">{{ .displayOrder }}</div>
       <div class="col-player">
         <span class="player-name">{{ .name }}</span>
-        <span class="player-meta">{{ .gender | title }}</span>
       </div>
-      <div class="col-district">{{ .district }}</div>
-      <div class="col-stat">{{ if gt $white 0 }}<span class="count count-white">{{ $white }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
-      <div class="col-stat">{{ if gt $black 0 }}<span class="count count-black">{{ $black }}</span>{{ else }}<span class="count count-zero">—</span>{{ end }}</div>
-      <div class="col-total"><strong>{{ $total }}</strong></div>
+      <div class="col-club-name">{{ with .club }}{{ . }}{{ else }}<span class="count-zero">—</span>{{ end }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .slams.club.white "type" "white") }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .slams.club.black "type" "black") }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .slams.state.white "type" "white") }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .slams.state.black "type" "black") }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .totals.white "type" "white") }}</div>
+      <div class="col-stat">{{ partial "count-cell.html" (dict "value" .totals.black "type" "black") }}</div>
+      <div class="col-total"><strong>{{ .totals.all }}</strong></div>
     </div>
-    {{ end }}
   {{ end }}
 </div>

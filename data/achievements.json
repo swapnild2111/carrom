@@ -1,3222 +1,1050 @@
 {
   "year": 2025,
   "lastUpdated": "2026-06-28",
+  "summary": {
+    "club": {
+      "white": 109,
+      "black": 49
+    },
+    "state": {
+      "white": 12,
+      "black": 4
+    },
+    "totals": {
+      "white": 121,
+      "black": 53,
+      "all": 174
+    }
+  },
   "players": [
     {
-      "id": "prashant-suryakant-more",
-      "name": "Prashant Suryakant More",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "club": null,
       "displayOrder": 1,
+      "slams": {
+        "club": {
+          "white": 22,
+          "black": 7
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 9,
-        "black": 3
+        "white": 22,
+        "black": 7,
+        "all": 29
       }
     },
     {
-      "id": "sandip-ashok-dive",
-      "name": "Sandip Ashok Dive",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "babu-bhai",
+      "name": "Babu Bhai",
+      "club": null,
       "displayOrder": 2,
+      "slams": {
+        "club": {
+          "white": 6,
+          "black": 9
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 6,
+        "black": 9,
+        "all": 15
+      }
+    },
+    {
+      "id": "harish-bhai",
+      "name": "Harish Bhai",
+      "club": null,
+      "displayOrder": 3,
+      "slams": {
+        "club": {
+          "white": 8,
+          "black": 4
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 8,
-        "black": 1
+        "black": 4,
+        "all": 12
       }
     },
     {
-      "id": "mohd-ghufran",
-      "name": "Mohd. Ghufran",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 3,
-      "totals": {
-        "white": 5,
-        "black": 4
-      }
-    },
-    {
-      "id": "vikas-harish-dharia",
-      "name": "Vikas Harish Dharia",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "sachin-chalwadi",
+      "name": "Sachin Chalwadi",
+      "club": null,
       "displayOrder": 4,
-      "totals": {
-        "white": 6,
-        "black": 0
-      }
-    },
-    {
-      "id": "jitesh-ashok-kadam",
-      "name": "Jitesh Ashok Kadam",
-      "gender": "male",
-      "district": "Mumbai Sub",
-      "displayOrder": 5,
-      "totals": {
-        "white": 6,
-        "black": 0
-      }
-    },
-    {
-      "id": "pankaj-ashok-pawar",
-      "name": "Pankaj Ashok Pawar",
-      "gender": "male",
-      "district": "Thane",
-      "displayOrder": 6,
+      "slams": {
+        "club": {
+          "white": 5,
+          "black": 7
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 5,
-        "black": 1
+        "black": 7,
+        "all": 12
       }
     },
     {
-      "id": "siddhant-mahendra-wadwalkar",
-      "name": "Siddhant Mahendra Wadwalkar",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "anilkumar-singh",
+      "name": "Anilkumar Singh",
+      "club": null,
+      "displayOrder": 5,
+      "slams": {
+        "club": {
+          "white": 9,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 9,
+        "black": 0,
+        "all": 9
+      }
+    },
+    {
+      "id": "mandar-barde",
+      "name": "Mandar Barde",
+      "club": null,
+      "displayOrder": 6,
+      "slams": {
+        "club": {
+          "white": 5,
+          "black": 2
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 5,
+        "black": 2,
+        "all": 7
+      }
+    },
+    {
+      "id": "javed-khan",
+      "name": "Javed Khan",
+      "club": null,
       "displayOrder": 7,
+      "slams": {
+        "club": {
+          "white": 4,
+          "black": 3
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 3
+        "white": 4,
+        "black": 3,
+        "all": 7
       }
     },
     {
-      "id": "abhijit-dattatray-tripankar",
-      "name": "Abhijit Dattatray Tripankar",
-      "gender": "male",
-      "district": "Pune",
+      "id": "sudhir-shinde",
+      "name": "Sudhir Shinde",
+      "club": null,
       "displayOrder": 8,
+      "slams": {
+        "club": {
+          "white": 6,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 3
+        "white": 6,
+        "black": 0,
+        "all": 6
       }
     },
     {
-      "id": "prafull-suryakant-more",
-      "name": "Prafull Suryakant More",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "navnath-kamble",
+      "name": "Navnath Kamble",
+      "club": null,
       "displayOrder": 9,
+      "slams": {
+        "club": {
+          "white": 5,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 3,
-        "black": 0
+        "white": 5,
+        "black": 1,
+        "all": 6
       }
     },
     {
-      "id": "hareshwar-gangaprasad-betvanshi",
-      "name": "Hareshwar Gangaprasad Betvanshi",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "pankaj-pawar",
+      "name": "Pankaj Pawar",
+      "club": null,
       "displayOrder": 10,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 5,
+          "black": 1
+        }
+      },
+      "totals": {
+        "white": 5,
+        "black": 1,
+        "all": 6
+      }
+    },
+    {
+      "id": "swaraj",
+      "name": "Swaraj",
+      "club": null,
+      "displayOrder": 11,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 4
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 2,
+        "black": 4,
+        "all": 6
+      }
+    },
+    {
+      "id": "premkumar-mishra",
+      "name": "Premkumar Mishra",
+      "club": null,
+      "displayOrder": 12,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 2,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 3,
-        "black": 0
+        "black": 1,
+        "all": 4
       }
     },
     {
-      "id": "saurabh-shreekrishna-mate",
-      "name": "Saurabh Shreekrishna Mate",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 11,
-      "totals": {
-        "white": 2,
-        "black": 1
-      }
-    },
-    {
-      "id": "sanjay-baliram-mande",
-      "name": "Sanjay Baliram Mande",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 12,
-      "totals": {
-        "white": 2,
-        "black": 1
-      }
-    },
-    {
-      "id": "nilansh-hiten-chiplunkar",
-      "name": "Nilansh Hiten Chiplunkar",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "kiran-soman",
+      "name": "Kiran Soman",
+      "club": null,
       "displayOrder": 13,
+      "slams": {
+        "club": {
+          "white": 3,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 1
+        "white": 3,
+        "black": 0,
+        "all": 3
       }
     },
     {
-      "id": "yogesh-udaybhan-pardeshi",
-      "name": "Yogesh Udaybhan Pardeshi",
-      "gender": "male",
-      "district": "Pune",
+      "id": "mujeeb-sayyed",
+      "name": "Mujeeb Sayyed",
+      "club": null,
       "displayOrder": 14,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 0
+        },
+        "state": {
+          "white": 1,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 3,
+        "black": 0,
+        "all": 3
+      }
+    },
+    {
+      "id": "shehbazh",
+      "name": "Shehbazh",
+      "club": null,
+      "displayOrder": 15,
+      "slams": {
+        "club": {
+          "white": 3,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 3,
+        "black": 0,
+        "all": 3
+      }
+    },
+    {
+      "id": "taufiq-shaikh",
+      "name": "Taufiq Shaikh",
+      "club": null,
+      "displayOrder": 16,
+      "slams": {
+        "club": {
+          "white": 3,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 3,
+        "black": 0,
+        "all": 3
+      }
+    },
+    {
+      "id": "akshay-dey",
+      "name": "Akshay Dey",
+      "club": null,
+      "displayOrder": 17,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 2,
+        "black": 0,
+        "all": 2
+      }
+    },
+    {
+      "id": "anil-taishetty",
+      "name": "Anil Taishetty",
+      "club": "Sai Carrom",
+      "displayOrder": 18,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 2,
+        "black": 0,
+        "all": 2
+      }
+    },
+    {
+      "id": "saurabh-gulati",
+      "name": "Saurabh Gulati",
+      "club": null,
+      "displayOrder": 19,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 2,
+        "black": 0,
+        "all": 2
+      }
+    },
+    {
+      "id": "suhas-wakankar",
+      "name": "Suhas Wakankar",
+      "club": null,
+      "displayOrder": 20,
+      "slams": {
+        "club": {
+          "white": 2,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
+      "totals": {
+        "white": 2,
+        "black": 0,
+        "all": 2
+      }
+    },
+    {
+      "id": "amol",
+      "name": "Amol",
+      "club": null,
+      "displayOrder": 21,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 2
+        "black": 1,
+        "all": 2
       }
     },
     {
-      "id": "sukhbirsingh-vikram-katnoriya",
-      "name": "Sukhbirsingh Vikram Katnoriya",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 15,
+      "id": "bhavesh-rane",
+      "name": "Bhavesh Rane",
+      "club": null,
+      "displayOrder": 22,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 0
+        "white": 1,
+        "black": 1,
+        "all": 2
       }
     },
     {
-      "id": "rahul-arvind-solanki",
-      "name": "Rahul Arvind Solanki",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 16,
+      "id": "manish-patil",
+      "name": "Manish Patil",
+      "club": null,
+      "displayOrder": 23,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 0
+        "white": 1,
+        "black": 1,
+        "all": 2
       }
     },
     {
-      "id": "omkar-rajan-netke",
-      "name": "Omkar Rajan Netke",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 17,
+      "id": "reylond",
+      "name": "Reylond",
+      "club": null,
+      "displayOrder": 24,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 0
+        "white": 1,
+        "black": 1,
+        "all": 2
       }
     },
     {
-      "id": "omkar-prasanna-tilak",
-      "name": "Omkar Prasanna Tilak",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 18,
+      "id": "satya-arekar",
+      "name": "Satya Arekar",
+      "club": null,
+      "displayOrder": 25,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 2,
-        "black": 0
+        "white": 1,
+        "black": 1,
+        "all": 2
       }
     },
     {
       "id": "zaid-ahmed-farooquee",
       "name": "Zaid Ahmed Farooquee",
-      "gender": "male",
-      "district": "Thane",
-      "displayOrder": 19,
-      "totals": {
-        "white": 1,
-        "black": 1
-      }
-    },
-    {
-      "id": "aayush-bhushan-garud",
-      "name": "Aayush Bhushan Garud",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 20,
-      "totals": {
-        "white": 1,
-        "black": 1
-      }
-    },
-    {
-      "id": "asgar-babamiya-shaikh",
-      "name": "Asgar Babamiya Shaikh",
-      "gender": "male",
-      "district": "Mumbai Sub",
-      "displayOrder": 21,
-      "totals": {
-        "white": 0,
-        "black": 2
-      }
-    },
-    {
-      "id": "yogesh-ashok-dhongade",
-      "name": "Yogesh Ashok Dhongade",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 22,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "vinod-dinkar-kamble",
-      "name": "Vinod Dinkar Kamble",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 23,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "vaibhav-pawar",
-      "name": "Vaibhav Pawar",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 24,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "swapnil-baban-golatkar",
-      "name": "Swapnil Baban Golatkar",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 25,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "suraj-kumbhar",
-      "name": "Suraj Kumbhar",
-      "gender": "male",
-      "district": "Mumbai",
+      "club": null,
       "displayOrder": 26,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 1,
+          "black": 1
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 1,
+        "all": 2
       }
     },
     {
-      "id": "sudhakar-iyer",
-      "name": "Sudhakar Iyer",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "arif-bhai",
+      "name": "Arif Bhai",
+      "club": null,
       "displayOrder": 27,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "shabaz-mohd-nasir-shaikh",
-      "name": "Shabaz Mohd. Nasir Shaikh",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "bhavesh-parmar",
+      "name": "Bhavesh Parmar",
+      "club": null,
       "displayOrder": 28,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 1,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "sanjay-jaywant-mohite",
-      "name": "Sanjay Jaywant Mohite",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "imran-k",
+      "name": "Imran K",
+      "club": null,
       "displayOrder": 29,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "sandeep-jogale",
-      "name": "Sandeep Jogale",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "madhura-devle",
+      "name": "Madhura Devle",
+      "club": null,
       "displayOrder": 30,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "sameer-jabir-ansari",
-      "name": "Sameer Jabir Ansari",
-      "gender": "male",
-      "district": "Thane",
+      "id": "mukesh-mandodare",
+      "name": "Mukesh Mandodare",
+      "club": null,
       "displayOrder": 31,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "salman-salim-khan",
-      "name": "Salman Salim Khan",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "naushad-shaikh",
+      "name": "Naushad Shaikh",
+      "club": null,
       "displayOrder": 32,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 1,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "sairam-chakka",
-      "name": "Sairam Chakka",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "omkar",
+      "name": "Omkar",
+      "club": null,
       "displayOrder": 33,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "sachin-nandu-bandal",
-      "name": "Sachin Nandu Bandal",
-      "gender": "male",
-      "district": "Pune",
+      "id": "parag-desai",
+      "name": "Parag Desai",
+      "club": null,
       "displayOrder": 34,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "rajesh-khedekar",
-      "name": "Rajesh Khedekar",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "pravin-raut",
+      "name": "Pravin Raut",
+      "club": null,
       "displayOrder": 35,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "rahim-karim-khan",
-      "name": "Rahim Karim Khan",
-      "gender": "male",
-      "district": "Pune",
+      "id": "samir-ansari",
+      "name": "Samir Ansari",
+      "club": null,
       "displayOrder": 36,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 1,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "prakash-shyamrao-gaikwad",
-      "name": "Prakash Shyamrao Gaikwad",
-      "gender": "male",
-      "district": "Pune",
+      "id": "shanu-quereshi",
+      "name": "Shanu Quereshi",
+      "club": null,
       "displayOrder": 37,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "prakash-baraskar",
-      "name": "Prakash Baraskar",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "tanmay-mane",
+      "name": "Tanmay Mane",
+      "club": null,
       "displayOrder": 38,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "pauras-kargutkar",
-      "name": "Pauras Kargutkar",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "vaibhav-jadhav",
+      "name": "Vaibhav Jadhav",
+      "club": null,
       "displayOrder": 39,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "niranjan-prabhakar-chari",
-      "name": "Niranjan Prabhakar Chari",
-      "gender": "male",
-      "district": "Palghar",
+      "id": "vaibhav-koregaonkar",
+      "name": "Vaibhav Koregaonkar",
+      "club": null,
       "displayOrder": 40,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "nilesh-s-parab",
-      "name": "Nilesh S Parab",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "vijay",
+      "name": "Vijay",
+      "club": null,
       "displayOrder": 41,
+      "slams": {
+        "club": {
+          "white": 1,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 1,
-        "black": 0
+        "black": 0,
+        "all": 1
       }
     },
     {
-      "id": "naushad-zubair-shaikh",
-      "name": "Naushad Zubair Shaikh",
-      "gender": "male",
-      "district": "Thane",
+      "id": "arif-shaikh",
+      "name": "Arif Shaikh",
+      "club": null,
       "displayOrder": 42,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 1
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "muniyappan-raja",
-      "name": "Muniyappan Raja",
-      "gender": "male",
-      "district": "Mumbai Sub",
+      "id": "darshan",
+      "name": "Darshan",
+      "club": null,
       "displayOrder": 43,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "mitali-bhavesh-pathak",
-      "name": "Mitali Bhavesh Pathak",
-      "gender": "female",
-      "district": "Mumbai",
+      "id": "dharam",
+      "name": "Dharam",
+      "club": null,
       "displayOrder": 44,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "mayur-gajanan-chavan",
-      "name": "Mayur Gajanan Chavan",
-      "gender": "male",
-      "district": "Pune",
+      "id": "imran-memon",
+      "name": "Imran Memon",
+      "club": null,
       "displayOrder": 45,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "manoj-prakash-kamble",
-      "name": "Manoj Prakash Kamble",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "imran-quereshi",
+      "name": "Imran Quereshi",
+      "club": null,
       "displayOrder": 46,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "mangesh-bhalerao",
-      "name": "Mangesh Bhalerao",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "mahesh-shetye",
+      "name": "Mahesh Shetye",
+      "club": null,
       "displayOrder": 47,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 0
+        },
+        "state": {
+          "white": 0,
+          "black": 1
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "jitendra-pandurang-kale",
-      "name": "Jitendra Pandurang Kale",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "pradeep-satam",
+      "name": "Pradeep Satam",
+      "club": null,
       "displayOrder": 48,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
-        "white": 1,
-        "black": 0
+        "white": 0,
+        "black": 1,
+        "all": 1
       }
     },
     {
-      "id": "javed-babu-shaikh",
-      "name": "Javed Babu Shaikh",
-      "gender": "male",
-      "district": "Mumbai",
+      "id": "vakas-shaikh",
+      "name": "Vakas Shaikh",
+      "club": null,
       "displayOrder": 49,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "hidayat-saeedullah-ansari",
-      "name": "Hidayat Saeedullah Ansari",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 50,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "girish-hemant-tambe",
-      "name": "Girish Hemant Tambe",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 51,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "giridhar-shamji-bhoj",
-      "name": "Giridhar Shamji Bhoj",
-      "gender": "male",
-      "district": "Mumbai Sub",
-      "displayOrder": 52,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "francis-fernandes",
-      "name": "Francis Fernandes",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 53,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "fahim-yakub-kazi",
-      "name": "Fahim Yakub Kazi",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 54,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "dinesh-satwa-kedar",
-      "name": "Dinesh Satwa Kedar",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 55,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "dilip-sosa",
-      "name": "Dilip Sosa",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 56,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "bhavesh-kishor-parmar",
-      "name": "Bhavesh Kishor Parmar",
-      "gender": "male",
-      "district": "Thane",
-      "displayOrder": 57,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "amol-ashok-sawardekar",
-      "name": "Amol Ashok Sawardekar",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 58,
-      "totals": {
-        "white": 1,
-        "black": 0
-      }
-    },
-    {
-      "id": "vivek-amit-podar",
-      "name": "Vivek Amit Podar",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 59,
+      "slams": {
+        "club": {
+          "white": 0,
+          "black": 1
+        },
+        "state": {
+          "white": 0,
+          "black": 0
+        }
+      },
       "totals": {
         "white": 0,
-        "black": 1
+        "black": 1,
+        "all": 1
       }
-    },
-    {
-      "id": "sushant-vijay-wairat",
-      "name": "Sushant Vijay Wairat",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 60,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "sanjay-gunvantrai-maniyar",
-      "name": "Sanjay Gunvantrai Maniyar",
-      "gender": "male",
-      "district": "Mumbai Sub",
-      "displayOrder": 61,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "sanjay-ganpat-thite",
-      "name": "Sanjay Ganpat Thite",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 62,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "sajjad-altaf-shaikh",
-      "name": "Sajjad Altaf Shaikh",
-      "gender": "male",
-      "district": "Mumbai Sub",
-      "displayOrder": 63,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "sagar-prakash-waghmare",
-      "name": "Sagar Prakash Waghmare",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 64,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "rudra-bharat-gaware",
-      "name": "Rudra Bharat Gaware",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 65,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "riyaz-akbar-ali",
-      "name": "Riyaz Akbar Ali",
-      "gender": "male",
-      "district": "Ratnagiri",
-      "displayOrder": 66,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "nilesh-ganesh-kori",
-      "name": "Nilesh Ganesh Kori",
-      "gender": "male",
-      "district": "Palghar",
-      "displayOrder": 67,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "nandu-tukaram-sonawane",
-      "name": "Nandu Tukaram Sonawane",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 68,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "mohd-raza",
-      "name": "Mohd. Raza",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 69,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "mahesh-harishchandra-shetye",
-      "name": "Mahesh Harishchandra Shetye",
-      "gender": "male",
-      "district": "Thane",
-      "displayOrder": 70,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "gaurav-ganesh-garde",
-      "name": "Gaurav Ganesh Garde",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 71,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "ashok-sawaji-gaur",
-      "name": "Ashok Sawaji Gaur",
-      "gender": "male",
-      "district": "Mumbai",
-      "displayOrder": 72,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    },
-    {
-      "id": "anil-dilip-mundhe",
-      "name": "Anil Dilip Mundhe",
-      "gender": "male",
-      "district": "Pune",
-      "displayOrder": 73,
-      "totals": {
-        "white": 0,
-        "black": 1
-      }
-    }
-  ],
-  "tournaments": [
-    {
-      "id": "5th-rotary-club-of-mumbai-parleshwar",
-      "name": "5th Rotary Club of Mumbai Parleshwar"
-    },
-    {
-      "id": "16th-shivaji-park-gymkhana",
-      "name": "16th SHIVAJI PARK GYMKHANA"
-    },
-    {
-      "id": "2nd-ghatkopar-jolly-gymkhana",
-      "name": "2nd Ghatkopar Jolly Gymkhana"
-    },
-    {
-      "id": "3rd-guardian-minister-chashak-sindhudurg",
-      "name": "3rd Guardian Minister Chashak Sindhudurg"
-    },
-    {
-      "id": "58th-senior-maharashtra-state-carrom-championship",
-      "name": "58th Senior Maharashtra State Carrom Championship"
-    },
-    {
-      "id": "late-vinayak-nimhan-ex-mla-pune",
-      "name": "Late Vinayak Nimhan (Ex.MLA) Pune"
-    },
-    {
-      "id": "3rd-the-chembur-gymkhana",
-      "name": "3rd The Chembur Gymkhana"
-    },
-    {
-      "id": "9th-mandpeshwar-civic-federation",
-      "name": "9th Mandpeshwar Civic Federation"
-    },
-    {
-      "id": "8th-shree-dattaraj-charitable-trust-nrusinghawadi",
-      "name": "8th SHREE DATTARAJ CHARITABLE TRUST, NRUSINGHAWADI"
-    },
-    {
-      "id": "kshatriya-union-club-vanmali-hall-ac",
-      "name": "Kshatriya Union Club - Vanmali Hall AC"
-    }
-  ],
-  "slamMatrix": {
-    "white": [
-      {
-        "playerId": "prashant-suryakant-more",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "2nd-ghatkopar-jolly-gymkhana": 3,
-          "58th-senior-maharashtra-state-carrom-championship": 2,
-          "9th-mandpeshwar-civic-federation": 1,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "sandip-ashok-dive",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "16th-shivaji-park-gymkhana": 1,
-          "3rd-guardian-minister-chashak-sindhudurg": 1,
-          "3rd-the-chembur-gymkhana": 2,
-          "kshatriya-union-club-vanmali-hall-ac": 2
-        }
-      },
-      {
-        "playerId": "vikas-harish-dharia",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1,
-          "3rd-guardian-minister-chashak-sindhudurg": 2,
-          "late-vinayak-nimhan-ex-mla-pune": 1,
-          "9th-mandpeshwar-civic-federation": 1,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "jitesh-ashok-kadam",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 3,
-          "3rd-the-chembur-gymkhana": 1,
-          "9th-mandpeshwar-civic-federation": 2
-        }
-      },
-      {
-        "playerId": "mohd-ghufran",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "2nd-ghatkopar-jolly-gymkhana": 3
-        }
-      },
-      {
-        "playerId": "pankaj-ashok-pawar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "2nd-ghatkopar-jolly-gymkhana": 1,
-          "58th-senior-maharashtra-state-carrom-championship": 1,
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "hareshwar-gangaprasad-betvanshi",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "prafull-suryakant-more",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 2,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "sanjay-baliram-mande",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1,
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "nilansh-hiten-chiplunkar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2
-        }
-      },
-      {
-        "playerId": "omkar-prasanna-tilak",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1,
-          "8th-shree-dattaraj-charitable-trust-nrusinghawadi": 1
-        }
-      },
-      {
-        "playerId": "saurabh-shreekrishna-mate",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 2
-        }
-      },
-      {
-        "playerId": "siddhant-mahendra-wadwalkar",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 2
-        }
-      },
-      {
-        "playerId": "omkar-rajan-netke",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "rahul-arvind-solanki",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 2
-        }
-      },
-      {
-        "playerId": "sukhbirsingh-vikram-katnoriya",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1,
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "vaibhav-pawar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "sanjay-jaywant-mohite",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "dinesh-satwa-kedar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "sandeep-jogale",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "rajesh-khedekar",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "salman-salim-khan",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "mitali-bhavesh-pathak",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "javed-babu-shaikh",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "girish-hemant-tambe",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "swapnil-baban-golatkar",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "vinod-dinkar-kamble",
-        "counts": {
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "amol-ashok-sawardekar",
-        "counts": {
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "yogesh-ashok-dhongade",
-        "counts": {
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "pauras-kargutkar",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "suraj-kumbhar",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "jitendra-pandurang-kale",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "francis-fernandes",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "nilesh-s-parab",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "mangesh-bhalerao",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "fahim-yakub-kazi",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "manoj-prakash-kamble",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "hidayat-saeedullah-ansari",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "dilip-sosa",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "sudhakar-iyer",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "shabaz-mohd-nasir-shaikh",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "sairam-chakka",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "giridhar-shamji-bhoj",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "prakash-baraskar",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "muniyappan-raja",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "niranjan-prabhakar-chari",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "abhijit-dattatray-tripankar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "aayush-bhushan-garud",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "sachin-nandu-bandal",
-        "counts": {
-          "3rd-guardian-minister-chashak-sindhudurg": 1
-        }
-      },
-      {
-        "playerId": "yogesh-udaybhan-pardeshi",
-        "counts": {
-          "3rd-guardian-minister-chashak-sindhudurg": 1
-        }
-      },
-      {
-        "playerId": "mayur-gajanan-chavan",
-        "counts": {
-          "late-vinayak-nimhan-ex-mla-pune": 1
-        }
-      },
-      {
-        "playerId": "rahim-karim-khan",
-        "counts": {
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "prakash-shyamrao-gaikwad",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "sameer-jabir-ansari",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "bhavesh-kishor-parmar",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "naushad-zubair-shaikh",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "zaid-ahmed-farooquee",
-        "counts": {
-          "3rd-guardian-minister-chashak-sindhudurg": 1
-        }
-      }
-    ],
-    "black": [
-      {
-        "playerId": "abhijit-dattatray-tripankar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "late-vinayak-nimhan-ex-mla-pune": 1
-        }
-      },
-      {
-        "playerId": "sanjay-baliram-mande",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "nilansh-hiten-chiplunkar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "sandip-ashok-dive",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "pankaj-ashok-pawar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "mohd-ghufran",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 2,
-          "16th-shivaji-park-gymkhana": 1,
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "prashant-suryakant-more",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1,
-          "9th-mandpeshwar-civic-federation": 1,
-          "8th-shree-dattaraj-charitable-trust-nrusinghawadi": 1
-        }
-      },
-      {
-        "playerId": "sushant-vijay-wairat",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "saurabh-shreekrishna-mate",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "sanjay-gunvantrai-maniyar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1
-        }
-      },
-      {
-        "playerId": "siddhant-mahendra-wadwalkar",
-        "counts": {
-          "5th-rotary-club-of-mumbai-parleshwar": 1,
-          "2nd-ghatkopar-jolly-gymkhana": 1,
-          "58th-senior-maharashtra-state-carrom-championship": 1
-        }
-      },
-      {
-        "playerId": "mohd-raza",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "rudra-bharat-gaware",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "asgar-babamiya-shaikh",
-        "counts": {
-          "16th-shivaji-park-gymkhana": 1,
-          "3rd-the-chembur-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "aayush-bhushan-garud",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "nandu-tukaram-sonawane",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "sagar-prakash-waghmare",
-        "counts": {
-          "2nd-ghatkopar-jolly-gymkhana": 1
-        }
-      },
-      {
-        "playerId": "nilesh-ganesh-kori",
-        "counts": {
-          "58th-senior-maharashtra-state-carrom-championship": 1
-        }
-      },
-      {
-        "playerId": "anil-dilip-mundhe",
-        "counts": {
-          "58th-senior-maharashtra-state-carrom-championship": 1
-        }
-      },
-      {
-        "playerId": "yogesh-udaybhan-pardeshi",
-        "counts": {
-          "58th-senior-maharashtra-state-carrom-championship": 1,
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "gaurav-ganesh-garde",
-        "counts": {
-          "late-vinayak-nimhan-ex-mla-pune": 1
-        }
-      },
-      {
-        "playerId": "zaid-ahmed-farooquee",
-        "counts": {
-          "late-vinayak-nimhan-ex-mla-pune": 1
-        }
-      },
-      {
-        "playerId": "riyaz-akbar-ali",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "sajjad-altaf-shaikh",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "vivek-amit-podar",
-        "counts": {
-          "9th-mandpeshwar-civic-federation": 1
-        }
-      },
-      {
-        "playerId": "mahesh-harishchandra-shetye",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "sanjay-ganpat-thite",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      },
-      {
-        "playerId": "ashok-sawaji-gaur",
-        "counts": {
-          "kshatriya-union-club-vanmali-hall-ac": 1
-        }
-      }
-    ]
-  },
-  "slamEvents": [
-    {
-      "id": "evt-001",
-      "playerId": "abhijit-dattatray-tripankar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 44,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-002",
-      "playerId": "sanjay-baliram-mande",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 68,
-        "set": 1,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-003",
-      "playerId": "nilansh-hiten-chiplunkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 85,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-004",
-      "playerId": "sudhakar-iyer",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 119,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-005",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 149,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-006",
-      "playerId": "vaibhav-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 163,
-        "set": 3,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-007",
-      "playerId": "hareshwar-gangaprasad-betvanshi",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 180,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-008",
-      "playerId": "shabaz-mohd-nasir-shaikh",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 204,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-009",
-      "playerId": "sanjay-jaywant-mohite",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 205,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-010",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 205,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-011",
-      "playerId": "dinesh-satwa-kedar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 222,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-012",
-      "playerId": "sandeep-jogale",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 227,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-013",
-      "playerId": "sameer-jabir-ansari",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 229,
-        "set": 1,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-014",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 230,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-015",
-      "playerId": "nilansh-hiten-chiplunkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 239,
-        "set": 2,
-        "board": 8
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-016",
-      "playerId": "hareshwar-gangaprasad-betvanshi",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 240,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-017",
-      "playerId": "mohd-ghufran",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 244,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-018",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 245,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-019",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 251,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-020",
-      "playerId": "mohd-ghufran",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 252,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-021",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 256,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-022",
-      "playerId": "omkar-prasanna-tilak",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 262,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-023",
-      "playerId": "niranjan-prabhakar-chari",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Palghar",
-      "match": {
-        "number": 39,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-024",
-      "playerId": "sukhbirsingh-vikram-katnoriya",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 48,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-025",
-      "playerId": "rajesh-khedekar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 54,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-026",
-      "playerId": "salman-salim-khan",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 96,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-027",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 161,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-028",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 173,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-029",
-      "playerId": "sanjay-baliram-mande",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 220,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-030",
-      "playerId": "omkar-rajan-netke",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 222,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-031",
-      "playerId": "bhavesh-kishor-parmar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 228,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-032",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 244,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-033",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 266,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-034",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 266,
-        "set": 3,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-035",
-      "playerId": "sairam-chakka",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 41,
-        "set": 1,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-036",
-      "playerId": "giridhar-shamji-bhoj",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 51,
-        "set": 1,
-        "board": 8
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-037",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 96,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-038",
-      "playerId": "siddhant-mahendra-wadwalkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 153,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-039",
-      "playerId": "naushad-zubair-shaikh",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 155,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-040",
-      "playerId": "prafull-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 169,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-041",
-      "playerId": "saurabh-shreekrishna-mate",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 214,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-042",
-      "playerId": "aayush-bhushan-garud",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 218,
-        "set": 2,
-        "board": 8
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-043",
-      "playerId": "prakash-baraskar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 264,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-044",
-      "playerId": "siddhant-mahendra-wadwalkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 291,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-045",
-      "playerId": "prafull-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 295,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-046",
-      "playerId": "saurabh-shreekrishna-mate",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 306,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-047",
-      "playerId": "javed-babu-shaikh",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 307,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-048",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 308,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-049",
-      "playerId": "girish-hemant-tambe",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 311,
-        "set": 3,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-050",
-      "playerId": "rahul-arvind-solanki",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 315,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-051",
-      "playerId": "mohd-ghufran",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 319,
-        "set": 1,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-052",
-      "playerId": "swapnil-baban-golatkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 319,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-053",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 321,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-054",
-      "playerId": "rahul-arvind-solanki",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 334,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-055",
-      "playerId": "mohd-ghufran",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 334,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-056",
-      "playerId": "mohd-ghufran",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 340,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-057",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 340,
-        "set": 3,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-058",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 53,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-059",
-      "playerId": "sachin-nandu-bandal",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 110,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-060",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 125,
-        "set": 3,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-061",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 138,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-062",
-      "playerId": "zaid-ahmed-farooquee",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 144,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-063",
-      "playerId": "yogesh-udaybhan-pardeshi",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 149,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-064",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 106,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-065",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 138,
-        "set": 1,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-066",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 306,
-        "set": 3,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-067",
-      "playerId": "mayur-gajanan-chavan",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 59,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-068",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 156,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-069",
-      "playerId": "vinod-dinkar-kamble",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 104,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-070",
-      "playerId": "amol-ashok-sawardekar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 138,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-071",
-      "playerId": "yogesh-ashok-dhongade",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 234,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-072",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 266,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-073",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 291,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-074",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 294,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-075",
-      "playerId": "sukhbirsingh-vikram-katnoriya",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 306,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-076",
-      "playerId": "rahim-karim-khan",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 324,
-        "set": 1,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-077",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 68,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-078",
-      "playerId": "pauras-kargutkar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 195,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-079",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 197,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-080",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 223,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-081",
-      "playerId": "suraj-kumbhar",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 227,
-        "set": 1,
-        "board": 8
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-082",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 286,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-083",
-      "playerId": "jitesh-ashok-kadam",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 292,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-084",
-      "playerId": "omkar-prasanna-tilak",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 208,
-        "set": 1,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-085",
-      "playerId": "omkar-rajan-netke",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 126,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-086",
-      "playerId": "jitendra-pandurang-kale",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 170,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-087",
-      "playerId": "muniyappan-raja",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 180,
-        "set": 2,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-088",
-      "playerId": "francis-fernandes",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 193,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-089",
-      "playerId": "nilesh-s-parab",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 198,
-        "set": 1,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-090",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 199,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-091",
-      "playerId": "mangesh-bhalerao",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 237,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-092",
-      "playerId": "fahim-yakub-kazi",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 248,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-093",
-      "playerId": "manoj-prakash-kamble",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 257,
-        "set": 3,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-094",
-      "playerId": "hidayat-saeedullah-ansari",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 268,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-095",
-      "playerId": "dilip-sosa",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 280,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-096",
-      "playerId": "prafull-suryakant-more",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 284,
-        "set": 3,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-097",
-      "playerId": "hareshwar-gangaprasad-betvanshi",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 285,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-098",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 300,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-099",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 300,
-        "set": 3,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-100",
-      "playerId": "vikas-harish-dharia",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 305,
-        "set": 1,
-        "board": 8
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-101",
-      "playerId": "prakash-shyamrao-gaikwad",
-      "slamType": "white",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 309,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-102",
-      "playerId": "sushant-vijay-wairat",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 34,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-103",
-      "playerId": "nilansh-hiten-chiplunkar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 173,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-104",
-      "playerId": "abhijit-dattatray-tripankar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 206,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-105",
-      "playerId": "saurabh-shreekrishna-mate",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 214,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-106",
-      "playerId": "sanjay-gunvantrai-maniyar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 216,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-107",
-      "playerId": "abhijit-dattatray-tripankar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 233,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-108",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 241,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-109",
-      "playerId": "siddhant-mahendra-wadwalkar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 249,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-110",
-      "playerId": "sanjay-baliram-mande",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 254,
-        "set": 3,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-111",
-      "playerId": "pankaj-ashok-pawar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 257,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-112",
-      "playerId": "mohd-ghufran",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 260,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-113",
-      "playerId": "mohd-ghufran",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 262,
-        "set": 3,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-114",
-      "playerId": "mohd-raza",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 56,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-115",
-      "playerId": "rudra-bharat-gaware",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 203,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-116",
-      "playerId": "asgar-babamiya-shaikh",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 235,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-117",
-      "playerId": "mohd-ghufran",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 284,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-118",
-      "playerId": "aayush-bhushan-garud",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 100,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-119",
-      "playerId": "siddhant-mahendra-wadwalkar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 291,
-        "set": 2,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-120",
-      "playerId": "nandu-tukaram-sonawane",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 299,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-121",
-      "playerId": "sagar-prakash-waghmare",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 332,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-122",
-      "playerId": "nilesh-ganesh-kori",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Palghar",
-      "match": {
-        "number": 175,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-123",
-      "playerId": "siddhant-mahendra-wadwalkar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 212,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-124",
-      "playerId": "anil-dilip-mundhe",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 215,
-        "set": 2,
-        "board": 1
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-125",
-      "playerId": "yogesh-udaybhan-pardeshi",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 324,
-        "set": 1,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-126",
-      "playerId": "gaurav-ganesh-garde",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 36,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-127",
-      "playerId": "zaid-ahmed-farooquee",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 165,
-        "set": 3,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-128",
-      "playerId": "abhijit-dattatray-tripankar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 169,
-        "set": 3,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-129",
-      "playerId": "asgar-babamiya-shaikh",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 45,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-130",
-      "playerId": "riyaz-akbar-ali",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Ratnagiri",
-      "match": {
-        "number": 224,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-131",
-      "playerId": "sajjad-altaf-shaikh",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 267,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-132",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 268,
-        "set": 2,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-133",
-      "playerId": "vivek-amit-podar",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 272,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-134",
-      "playerId": "sandip-ashok-dive",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai Sub",
-      "match": {
-        "number": 295,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-135",
-      "playerId": "mohd-ghufran",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 296,
-        "set": 1,
-        "board": 3
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-136",
-      "playerId": "prashant-suryakant-more",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 250,
-        "set": 1,
-        "board": 2
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-137",
-      "playerId": "mahesh-harishchandra-shetye",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Thane",
-      "match": {
-        "number": 233,
-        "set": 2,
-        "board": 6
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-138",
-      "playerId": "sanjay-ganpat-thite",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 242,
-        "set": 2,
-        "board": 5
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-139",
-      "playerId": "ashok-sawaji-gaur",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Mumbai",
-      "match": {
-        "number": 265,
-        "set": 1,
-        "board": 4
-      },
-      "notes": ""
-    },
-    {
-      "id": "evt-140",
-      "playerId": "yogesh-udaybhan-pardeshi",
-      "slamType": "black",
-      "tournamentId": null,
-      "district": "Pune",
-      "match": {
-        "number": 300,
-        "set": 2,
-        "board": 7
-      },
-      "notes": ""
     }
   ]
 }
