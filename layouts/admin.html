@@ -1,0 +1,97 @@
+{{ define "head-extra" }}
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{{ "css/admin.css" | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+{{ $admin := .Site.Params.admin }}
+
+<section class="admin-page">
+  <header class="admin-header">
+    <h2>Player admin</h2>
+    <p class="admin-lead">Sign in with a GitHub token to add or update player profiles. Only allowlisted GitHub accounts can submit.</p>
+  </header>
+
+  <div id="admin-login" class="admin-panel">
+    <p id="admin-login-message">Create a fine-grained token with <strong>Issues: Read and write</strong> on the <code>{{ $admin.githubRepo }}</code> repo, then paste it below.</p>
+    <details class="admin-help">
+      <summary>How to create a token</summary>
+      <ol class="admin-steps">
+        <li>GitHub → Settings → Developer settings → <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">Fine-grained tokens</a></li>
+        <li>Repository access: <strong>Only {{ $admin.githubRepo }}</strong></li>
+        <li>Permissions → Issues: <strong>Read and write</strong></li>
+        <li>Generate and copy the token (shown once)</li>
+      </ol>
+      <p class="admin-help-note">Works on localhost and production. Token stays in this browser tab only (<code>sessionStorage</code>).</p>
+    </details>
+    <form id="admin-token-form" class="admin-form admin-token-form">
+      <div class="form-field">
+        <label for="admin-token">GitHub personal access token</label>
+        <input type="password" id="admin-token" name="token" autocomplete="off" placeholder="github_pat_…" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-admin btn-github">Sign in</button>
+      </div>
+    </form>
+    <p id="admin-login-error" class="admin-status admin-status--error" hidden></p>
+  </div>
+
+  <div id="admin-denied" class="admin-panel admin-panel-error" hidden>
+    <h3>Access denied</h3>
+    <p>Your GitHub account is not on the admin allowlist. Ask the repo owner to add your username to <code>data/admin-allowlist.json</code>.</p>
+    <button type="button" class="btn-admin btn-secondary" id="admin-logout-denied">Sign out</button>
+  </div>
+
+  <div id="admin-app" class="admin-panel" hidden>
+    <div class="admin-user-bar">
+      <span id="admin-user-label">Signed in</span>
+      <button type="button" class="btn-admin btn-secondary btn-small" id="admin-logout-btn">Sign out</button>
+    </div>
+
+    <form id="admin-player-form" class="admin-form">
+      <div class="form-field">
+        <label for="player-name">Full name <span class="required">*</span></label>
+        <input type="text" id="player-name" name="name" required autocomplete="name" placeholder="e.g. Kunal Raut">
+      </div>
+      <div class="form-field">
+        <label for="player-club">Club name</label>
+        <input type="text" id="player-club" name="club" autocomplete="organization" placeholder="e.g. Sai Carrom">
+      </div>
+      <div class="form-field">
+        <label for="player-district">District / city</label>
+        <input type="text" id="player-district" name="district" placeholder="e.g. Mumbai">
+      </div>
+      <div class="form-field">
+        <label for="player-gender">Gender</label>
+        <select id="player-gender" name="gender">
+          <option value="">—</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="player-aliases">Aliases</label>
+        <input type="text" id="player-aliases" name="aliases" placeholder="Comma-separated alternate names">
+      </div>
+      <div class="form-field">
+        <label for="player-notes">Notes</label>
+        <textarea id="player-notes" name="notes" rows="3" placeholder="Optional context for admins"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-admin btn-primary" id="admin-submit-btn">Submit player profile</button>
+      </div>
+    </form>
+
+    <p id="admin-form-status" class="admin-status" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+window.CARROM_ADMIN = {
+  repo: "{{ $admin.githubRepo }}",
+  allowlistUrl: "{{ "data/admin-allowlist.json" | relURL }}"
+};
+</script>
+<script src="{{ "js/admin.js" | relURL }}"></script>
+{{ end }}

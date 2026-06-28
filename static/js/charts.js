@@ -75,6 +75,7 @@
   }
 
   async function initCharts() {
+    if (window.chartsReady) return;
     let data;
     try {
       data = await loadData();
@@ -87,6 +88,7 @@
       showChartFallback(data ? "Charts library failed to load." : "Chart data unavailable.");
       return;
     }
+    window.chartsReady = true;
 
     const top = topPlayers(data.players);
     const labels = top.map((p) => shortName(p.name));
@@ -262,11 +264,10 @@
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initCharts();
-    });
-  } else {
+  window.initCharts = initCharts;
+
+  const totalPanel = document.getElementById("panel-total");
+  if (totalPanel && !totalPanel.hidden) {
     initCharts();
   }
 })();

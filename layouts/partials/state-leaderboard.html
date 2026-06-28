@@ -16,11 +16,11 @@
   {{ range $players }}
     {{ if gt .totals.all 0 }}
     {{ $player := . }}
-    <details class="state-player-row">
+    <details class="state-player-row{{ if le .displayOrder 3 }} leaderboard-row--top leaderboard-row--top-{{ .displayOrder }}{{ end }}">
       <summary class="leaderboard-row state-summary-row">
         <div class="col-rank">{{ .displayOrder }}</div>
         <div class="col-player">
-          <span class="player-name">{{ .name }}</span>
+          <button type="button" class="player-link" data-player="{{ lower .name }}">{{ .name }}</button>
           <span class="player-meta">{{ .gender | title }}</span>
         </div>
         <div class="col-district">{{ .district }}</div>

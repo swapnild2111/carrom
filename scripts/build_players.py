@@ -20,6 +20,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 ACHIEVEMENTS = ROOT / "data" / "achievements.json"
 STATE_CIRCUIT = ROOT / "data" / "statecircuit.json"
+PROFILES = ROOT / "data" / "player-profiles.json"
 PLAYERS_OUT = ROOT / "data" / "players.json"
 STATIC_DIR = ROOT / "static" / "data"
 XLSX_DEFAULT = ROOT / "Carrom records.xlsx"
@@ -239,6 +240,26 @@ def build_players(xlsx: Path | None = None) -> dict:
             entry = ensure(key, podium["name"])
             entry["sources"].add("ranking")
             entry["podiums"].append(podium)
+
+    if PROFILES.exists():
+        profile_store = json.loads(PROFILES.read_text(encoding="utf-8"))
+        for profile in profile_store.get("players", []):
+            name = str(profile.get("name", "")).strip()
+            if not name:
+                continue
+            key = canonical_key(name)
+            entry = ensure(key, name)
+            entry["sources"].add("profile")
+            if profile.get("club"):
+                entry["profile"]["club"] = profile["club"]
+            if profile.get("district"):
+                entry["profile"]["district"] = profile["district"]
+            if profile.get("gender"):
+                entry["profile"]["gender"] = profile["gender"]
+            for alias in profile.get("aliases", []):
+                alias_text = str(alias).strip()
+                if alias_text:
+                    entry["names"].add(alias_text)
 
     players_out: list[dict] = []
     used_ids: set[str] = set()

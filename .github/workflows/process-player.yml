@@ -1,4 +1,4 @@
-name: Process slam submission
+name: Process player submission
 
 on:
   issues:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   create-pr:
-    if: contains(github.event.issue.labels.*.name, 'add-slam')
+    if: contains(github.event.issue.labels.*.name, 'add-player')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
           AUTHOR="${{ github.event.issue.author.login }}"
           if ! jq -e --arg u "$AUTHOR" '.allowedUsers | index($u)' data/admin-allowlist.json > /dev/null; then
             echo "allowed=false" >> "$GITHUB_OUTPUT"
-            gh issue comment "${{ github.event.issue.number }}" --body "⛔ **Not processed** — \`$AUTHOR\` is not on the admin allowlist."
+            gh issue comment "${{ github.event.issue.number }}" --body "⛔ **Not processed** — \`$AUTHOR\` is not on the admin allowlist. Ask a repo owner to add your GitHub username to \`data/admin-allowlist.json\`."
             gh issue close "${{ github.event.issue.number }}" --reason "not planned"
             exit 0
           fi
@@ -45,9 +45,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update achievements from issue
+      - name: Update player profiles from issue
         if: steps.auth.outputs.allowed == 'true'
-        run: python scripts/add_slam_from_issue.py /tmp/issue-body.md
+        run: python scripts/add_player_from_issue.py /tmp/issue-body.md
 
       - name: Validate updated data
         if: steps.auth.outputs.allowed == 'true'
@@ -59,25 +59,25 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: data/slam-${{ github.event.issue.number }}
-          commit-message: "data: add slam from issue #${{ github.event.issue.number }}"
-          title: "Add slam: issue #${{ github.event.issue.number }}"
+          branch: data/player-${{ github.event.issue.number }}
+          commit-message: "data: add player profile from issue #${{ github.event.issue.number }}"
+          title: "Add player: issue #${{ github.event.issue.number }}"
           body: |
             Automated PR from issue #${{ github.event.issue.number }}.
 
-            Review the JSON diff, then merge (auto-merge if labeled).
+            Updates `data/player-profiles.json` and rebuilds `data/players.json`.
           labels: auto-merge
 
       - name: Comment on issue
         if: steps.auth.outputs.allowed == 'true' && steps.cpr.outputs.pull-request-number != ''
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Created PR #${{ steps.cpr.outputs.pull-request-number }}. It will auto-merge after validation passes."
+          gh issue comment "${{ github.event.issue.number }}" --body "✅ Created PR #${{ steps.cpr.outputs.pull-request-number }}. It will auto-merge after validation passes."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on failure
         if: failure() && steps.auth.outputs.allowed == 'true'
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Failed to process this submission. Please check field values and try again, or edit \`data/achievements.json\` manually."
+          gh issue comment "${{ github.event.issue.number }}" --body "❌ Failed to process this submission. Check field values and try again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

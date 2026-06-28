@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize, reopened, labeled]
     paths:
       - "data/achievements.json"
+      - "data/player-profiles.json"
+      - "data/players.json"
+      - "static/data/players.json"
 
 permissions:
   contents: write

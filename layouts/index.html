@@ -5,49 +5,53 @@
 <section class="intro">
   <h2>{{ $data.year }} Carrom Achievement Tracker</h2>
   <p class="intro-lead">
-    Player profiles, slam records across clubs and tournaments, and rankings built from the Excel workbook.
-    Search any player to see where they belong and what they have achieved.
+    Search any player to see their club, district, and slam records across local matches, tournaments, and state events.
   </p>
 </section>
 
-<section class="info-panel" aria-labelledby="how-it-works">
-  <h3 id="how-it-works">How scoring works</h3>
-  <div class="info-grid">
-    <div class="info-block">
-      <h4>Slam types</h4>
-      <ul>
-        <li><span class="badge badge-white">White slam</span> Player starts the game and pockets all <strong>white coins</strong>, including the queen.</li>
-        <li><span class="badge badge-black">Black slam</span> Opponent starts the game and loses their turn; then the player pockets all <strong>black coins</strong>, including the queen.</li>
-      </ul>
-    </div>
-    <div class="info-block">
-      <h4>Two record views</h4>
-      <ul>
-        <li><span class="badge badge-club">Total slams</span> Club vs state/YouTube counts per player (Total slam tab).</li>
-        <li><span class="badge badge-state">State circuit</span> Per-tournament matrix — which event each slam was at (White/Black slam tabs).</li>
-      </ul>
-    </div>
-    <div class="info-block">
-      <h4>Finding the winner</h4>
-      <ul>
-        <li><strong>Total slams tab</strong> — highest combined white + black across club &amp; state tiers.</li>
-        <li><strong>State circuit</strong> — highest total across named tournament columns.</li>
-      </ul>
+<details class="help-panel">
+  <summary>How scoring &amp; rankings work</summary>
+  <div class="help-panel-body">
+    <div class="info-grid">
+      <div class="info-block">
+        <h4>Slam types</h4>
+        <ul>
+          <li><span class="badge badge-white">White slam</span> Player starts and pockets all white coins, including the queen.</li>
+          <li><span class="badge badge-black">Black slam</span> Opponent starts, loses turn; player pockets all black coins, including the queen.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4>Record views</h4>
+        <ul>
+          <li><span class="badge badge-club">Players</span> Unified profiles merged from all Excel sources.</li>
+          <li><span class="badge badge-club">Total slams</span> Club vs state/YouTube tier counts.</li>
+          <li><span class="badge badge-state">State circuit</span> Per-tournament breakdown.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4>Rankings</h4>
+        <ul>
+          <li><strong>Combined rank</strong> — best slam total across available sources.</li>
+          <li><strong>Win / loss rate</strong> — coming when match results are added to Excel.</li>
+        </ul>
+      </div>
     </div>
   </div>
-</section>
+</details>
 
-<nav class="view-tabs" aria-label="Record views">
-  <button type="button" class="view-tab is-active" data-tab="players" aria-selected="true">Players</button>
-  <button type="button" class="view-tab" data-tab="total" aria-selected="false">Total slams</button>
-  <button type="button" class="view-tab" data-tab="state" aria-selected="false">State circuit</button>
-</nav>
+<div class="tabs-sticky">
+  <nav class="view-tabs" role="tablist" aria-label="Record views">
+    <button type="button" class="view-tab is-active" role="tab" data-tab="players" aria-selected="true" aria-controls="panel-players" id="tab-players">Players</button>
+    <button type="button" class="view-tab" role="tab" data-tab="total" aria-selected="false" aria-controls="panel-total" id="tab-total">Total slams</button>
+    <button type="button" class="view-tab" role="tab" data-tab="state" aria-selected="false" aria-controls="panel-state" id="tab-state">State circuit</button>
+  </nav>
+</div>
 
-<div class="tab-panel is-active" id="panel-players" role="tabpanel">
+<div class="tab-panel is-active" id="panel-players" role="tabpanel" aria-labelledby="tab-players">
   {{ partial "players-directory.html" . }}
 </div>
 
-<div class="tab-panel" id="panel-total" role="tabpanel" hidden>
+<div class="tab-panel" id="panel-total" role="tabpanel" aria-labelledby="tab-total" hidden>
   <section class="stat-cards" aria-label="Total slam summary">
     <div class="stat-card">
       <span class="stat-value">{{ $summary.totals.all }}</span>
@@ -77,12 +81,13 @@
     <h3>Total slams leaderboard</h3>
     <p class="section-desc">
       From the <strong>Total slam</strong> Excel tab — club vs state/YouTube tier columns.
+      Click a name to jump to their profile.
     </p>
     {{ partial "leaderboard.html" . }}
   </section>
 </div>
 
-<div class="tab-panel" id="panel-state" role="tabpanel" hidden>
+<div class="tab-panel" id="panel-state" role="tabpanel" aria-labelledby="tab-state" hidden>
   {{ partial "state-circuit.html" . }}
 </div>
 

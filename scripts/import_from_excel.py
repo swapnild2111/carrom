@@ -22,6 +22,7 @@ XLSX_DEFAULT = ROOT / "Carrom records.xlsx"
 TOTAL_OUTPUT = ROOT / "data" / "achievements.json"
 STATE_OUTPUT = ROOT / "data/statecircuit.json"
 STATIC_DIR = ROOT / "static" / "data"
+SEASONS_OUTPUT = ROOT / "data" / "seasons.json"
 
 META_COLS = {"Player", "Unnamed: 1", "District", "Total", "Club"}
 
@@ -86,6 +87,34 @@ def copy_static(filename: str, data: dict) -> None:
     target = STATIC_DIR / filename
     target.write_text(json.dumps(data, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"  Also copied → {target}")
+
+
+def update_seasons(year: int, last_updated: str) -> None:
+    if SEASONS_OUTPUT.exists():
+        seasons = json.loads(SEASONS_OUTPUT.read_text(encoding="utf-8"))
+    else:
+        seasons = {"defaultYear": year, "seasons": []}
+
+    seasons["defaultYear"] = year
+    found = False
+    for entry in seasons.get("seasons", []):
+        if entry.get("year") == year:
+            entry["available"] = True
+            entry["lastUpdated"] = last_updated
+            entry["label"] = f"{year} Season"
+            found = True
+            break
+    if not found:
+        seasons.setdefault("seasons", []).append(
+            {
+                "year": year,
+                "label": f"{year} Season",
+                "available": True,
+                "lastUpdated": last_updated,
+            }
+        )
+    seasons["seasons"] = sorted(seasons["seasons"], key=lambda s: s["year"], reverse=True)
+    write_json(SEASONS_OUTPUT, seasons)
 
 
 def import_total_slam(xlsx: Path, year: int = 2025) -> dict:
@@ -340,6 +369,9 @@ def main() -> int:
     ps = players_data["summary"]
     print(f"Built player registry → {PLAYERS_OUT}")
     print(f"  {ps['players']} unified profiles")
+
+    update_seasons(total_data["year"], total_data["lastUpdated"])
+    print(f"Updated seasons → {SEASONS_OUTPUT}")
     return 0
 
 

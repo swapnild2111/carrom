@@ -1,0 +1,11 @@
+{
+  "defaultYear": 2025,
+  "seasons": [
+    {
+      "year": 2025,
+      "label": "2025 Season",
+      "available": true,
+      "lastUpdated": "2026-06-28"
+    }
+  ]
+}

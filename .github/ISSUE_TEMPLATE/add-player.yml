@@ -1,0 +1,53 @@
+name: Add / update player profile
+description: Submit player affiliation details (club, district, gender)
+title: "[Player] "
+labels:
+  - add-player
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Add or update a player profile. Only authorized GitHub users can process submissions.
+        Prefer the [admin page](https://swapnild2111.github.io/carrom/admin/) when signed in.
+
+  - type: input
+    id: full_name
+    attributes:
+      label: Full name
+      placeholder: e.g. Kunal Raut
+    validations:
+      required: true
+
+  - type: input
+    id: club_name
+    attributes:
+      label: Club name
+      placeholder: e.g. Sai Carrom
+
+  - type: input
+    id: district
+    attributes:
+      label: District / city
+      placeholder: e.g. Mumbai
+
+  - type: dropdown
+    id: gender
+    attributes:
+      label: Gender
+      options:
+        - Male
+        - Female
+        - Other
+
+  - type: textarea
+    id: aliases
+    attributes:
+      label: Aliases (optional)
+      description: Comma-separated alternate spellings
+      placeholder: e.g. K. Raut, Kunal R.
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      placeholder: Any extra context for admins

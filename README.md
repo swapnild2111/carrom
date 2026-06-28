@@ -58,11 +58,29 @@ hugo server -D
 
 **Issues → New issue → Add slam achievement** — pick player, slam type (white/black), and tier (Club / State & YouTube).
 
+Only GitHub users listed in [`data/admin-allowlist.json`](data/admin-allowlist.json) can submit slam or player issues.
+
+## Player admin (`/admin/`)
+
+Sign in with a **fine-grained GitHub Personal Access Token** (works on localhost and production):
+
+1. GitHub → Settings → Developer settings → [Fine-grained tokens](https://github.com/settings/tokens?type=beta)
+2. Repository: **swapnild2111/carrom** only
+3. Permission: **Issues → Read and write**
+4. Open [Admin](http://localhost:1313/carrom/admin/) (local) or [Admin](https://swapnild2111.github.io/carrom/admin/) (live) and paste the token
+
+Add co-admins by appending their GitHub username to `allowedUsers` in [`data/admin-allowlist.json`](data/admin-allowlist.json).
+
+> **Note:** OAuth “Login with GitHub” does not work on static sites — GitHub blocks the browser token exchange (CORS). PAT auth is the supported method.
+
+Submissions create a GitHub Issue → Action opens a PR → auto-merge → site redeploys.
+
 ## Workflows
 
 | Workflow | Purpose |
 |----------|---------|
 | `deploy.yml` | Hugo → GitHub Pages |
 | `validate-data.yml` | JSON schema + Hugo build |
-| `process-slam.yml` | Issue form → PR |
+| `process-slam.yml` | Slam issue → PR (allowlist) |
+| `process-player.yml` | Player profile issue → PR (allowlist) |
 | `auto-merge.yml` | Auto-merge labeled PRs |

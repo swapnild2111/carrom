@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Carrom">
+  <defs>
+    <linearGradient id="board" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8956c"/>
+      <stop offset="100%" stop-color="#a06840"/>
+    </linearGradient>
+    <radialGradient id="striker" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#f5f0e6"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="6" fill="url(#board)" stroke="#8b5a2b" stroke-width="2"/>
+  <circle cx="12" cy="12" r="4" fill="#1a2332"/>
+  <circle cx="52" cy="12" r="4" fill="#1a2332"/>
+  <circle cx="12" cy="52" r="4" fill="#1a2332"/>
+  <circle cx="52" cy="52" r="4" fill="#1a2332"/>
+  <circle cx="32" cy="32" r="7" fill="none" stroke="#6b4423" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <circle cx="32" cy="32" r="3.5" fill="#c9a227" stroke="#8b6914" stroke-width="0.75"/>
+  <circle cx="22" cy="24" r="3" fill="#f5f0e6" stroke="#ccc5b8" stroke-width="0.5"/>
+  <circle cx="42" cy="26" r="3" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+  <circle cx="38" cy="40" r="3" fill="#f5f0e6" stroke="#ccc5b8" stroke-width="0.5"/>
+  <circle cx="46" cy="44" r="5.5" fill="url(#striker)" stroke="#8b6914" stroke-width="1"/>
+</svg>

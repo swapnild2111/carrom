@@ -18,6 +18,8 @@ DATA_FILE = ROOT / "data" / "achievements.json"
 SCHEMA_FILE = ROOT / "data" / "schema.json"
 STATE_FILE = ROOT / "data" / "statecircuit.json"
 STATE_SCHEMA_FILE = ROOT / "data" / "statecircuit-schema.json"
+PROFILES_FILE = ROOT / "data" / "player-profiles.json"
+PROFILES_SCHEMA_FILE = ROOT / "data" / "player-profiles-schema.json"
 
 
 def validate_file(data_file: Path, schema_file: Path, label: str) -> int:
@@ -46,6 +48,10 @@ def main() -> int:
 
     if STATE_FILE.exists() and STATE_SCHEMA_FILE.exists():
         if validate_file(STATE_FILE, STATE_SCHEMA_FILE, "state") != 0:
+            return 1
+
+    if PROFILES_FILE.exists() and PROFILES_SCHEMA_FILE.exists():
+        if validate_file(PROFILES_FILE, PROFILES_SCHEMA_FILE, "profiles") != 0:
             return 1
 
     total = json.loads(DATA_FILE.read_text())

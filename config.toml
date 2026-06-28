@@ -5,6 +5,11 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "Carrom player achievement tracker — slams, tournaments, rankings, and player profiles."
+  author = "Swapnil Deshpande"
+  copyrightStart = 2025
+
+  [params.admin]
+    githubRepo = "swapnild2111/carrom"
 
 [markup]
   [markup.goldmark]

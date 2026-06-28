@@ -32,6 +32,7 @@ jobs:
           cp data/achievements.json static/data/achievements.json
           cp data/statecircuit.json static/data/statecircuit.json
           cp data/players.json static/data/players.json
+          cp data/admin-allowlist.json static/data/admin-allowlist.json
 
       - name: Build site
         run: hugo --minify
