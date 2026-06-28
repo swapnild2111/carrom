@@ -41,8 +41,11 @@
     const embedded = parseEmbeddedData(window.CARROM_DATA);
     if (embedded) return embedded;
 
-    const url = window.CARROM_CHART_URL;
+    let url = window.CARROM_CHART_URL;
     if (!url) return null;
+    if (typeof url === "string") {
+      url = url.trim().replace(/^["']+|["']+$/g, "");
+    }
 
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Failed to load chart data (${response.status})`);

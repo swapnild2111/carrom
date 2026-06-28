@@ -74,7 +74,7 @@
   {{ partial "leaderboard.html" . }}
 </section>
 
-<script>window.CARROM_CHART_URL = {{ "data/achievements.json" | relURL | jsonify }};</script>
+<script>window.CARROM_CHART_URL = "{{ "data/achievements.json" | relURL }}";</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="{{ "js/charts.js" | relURL }}"></script>
 {{ end }}
