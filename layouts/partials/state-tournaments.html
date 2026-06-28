@@ -1,0 +1,28 @@
+{{ $sc := .Site.Data.statecircuit }}
+
+<div class="tournament-cards">
+  {{ range $sc.tournaments }}
+    {{ if gt .totals.all 0 }}
+    <article class="tournament-card">
+      <header class="tournament-card-header">
+        <h4>{{ .name }}</h4>
+        <div class="tournament-card-totals">
+          <span class="count count-white" title="White slams">{{ .totals.white }}W</span>
+          <span class="count count-black" title="Black slams">{{ .totals.black }}B</span>
+          <strong class="tournament-all">{{ .totals.all }} total</strong>
+        </div>
+      </header>
+      <ul class="tournament-top-list">
+        {{ range .topPlayers }}
+          <li>
+            <span class="tournament-top-name">{{ .name }}</span>
+            <span class="tournament-top-count">{{ .white }}W · {{ .black }}B</span>
+          </li>
+        {{ else }}
+          <li class="tournament-empty">No slams recorded</li>
+        {{ end }}
+      </ul>
+    </article>
+    {{ end }}
+  {{ end }}
+</div>

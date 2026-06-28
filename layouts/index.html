@@ -3,11 +3,10 @@
 {{ $summary := $data.summary }}
 
 <section class="intro">
-  <h2>{{ $data.year }} Total Slam Leaderboard</h2>
+  <h2>{{ $data.year }} Carrom Achievement Tracker</h2>
   <p class="intro-lead">
-    Each time a player scores a <strong>white slam</strong> or <strong>black slam</strong>, it is counted here.
-    Slams are tracked separately for <strong>club matches</strong> and for <strong>state &amp; YouTube</strong> matches.
-    The player with the highest <strong>Total Slams</strong> is the overall winner.
+    Player profiles, slam records across clubs and tournaments, and rankings built from the Excel workbook.
+    Search any player to see where they belong and what they have achieved.
   </p>
 </section>
 
@@ -22,59 +21,73 @@
       </ul>
     </div>
     <div class="info-block">
-      <h4>Match tiers</h4>
+      <h4>Two record views</h4>
       <ul>
-        <li><span class="badge badge-club">Club</span> Slams in local club-level tournaments.</li>
-        <li><span class="badge badge-state">State / YouTube</span> Slams in state championships and YouTube-streamed matches.</li>
+        <li><span class="badge badge-club">Total slams</span> Club vs state/YouTube counts per player (Total slam tab).</li>
+        <li><span class="badge badge-state">State circuit</span> Per-tournament matrix — which event each slam was at (White/Black slam tabs).</li>
       </ul>
     </div>
     <div class="info-block">
       <h4>Finding the winner</h4>
       <ul>
-        <li><strong>Overall winner</strong> — highest Total Slams (white + black, all tiers).</li>
-        <li><strong>White slam leader</strong> — highest Total White.</li>
-        <li><strong>Black slam leader</strong> — highest Total Black.</li>
+        <li><strong>Total slams tab</strong> — highest combined white + black across club &amp; state tiers.</li>
+        <li><strong>State circuit</strong> — highest total across named tournament columns.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="stat-cards" aria-label="Season summary">
-  <div class="stat-card">
-    <span class="stat-value">{{ $summary.totals.all }}</span>
-    <span class="stat-label">Total slams</span>
-    <span class="stat-hint">White + black, club + state/YouTube</span>
-  </div>
-  <div class="stat-card stat-white">
-    <span class="stat-value">{{ $summary.totals.white }}</span>
-    <span class="stat-label">White slams</span>
-    <span class="stat-hint">{{ $summary.club.white }} club · {{ $summary.state.white }} state/YouTube</span>
-  </div>
-  <div class="stat-card stat-black">
-    <span class="stat-value">{{ $summary.totals.black }}</span>
-    <span class="stat-label">Black slams</span>
-    <span class="stat-hint">{{ $summary.club.black }} club · {{ $summary.state.black }} state/YouTube</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-value">{{ len $data.players }}</span>
-    <span class="stat-label">Players ranked</span>
-    <span class="stat-hint">Sorted by Total Slams</span>
-  </div>
-</section>
+<nav class="view-tabs" aria-label="Record views">
+  <button type="button" class="view-tab is-active" data-tab="players" aria-selected="true">Players</button>
+  <button type="button" class="view-tab" data-tab="total" aria-selected="false">Total slams</button>
+  <button type="button" class="view-tab" data-tab="state" aria-selected="false">State circuit</button>
+</nav>
 
-{{ partial "charts.html" . }}
+<div class="tab-panel is-active" id="panel-players" role="tabpanel">
+  {{ partial "players-directory.html" . }}
+</div>
 
-<section class="leaderboard-section">
-  <h3>Full leaderboard</h3>
-  <p class="section-desc">
-    Every column is a count of slams. <strong>Club · White / Black</strong> are from club matches;
-    <strong>State/YouTube · White / Black</strong> are from state and YouTube matches;
-    <strong>Total</strong> columns add both tiers together. Players are ranked by <strong>Total Slams</strong>.
-  </p>
-  {{ partial "leaderboard.html" . }}
-</section>
+<div class="tab-panel" id="panel-total" role="tabpanel" hidden>
+  <section class="stat-cards" aria-label="Total slam summary">
+    <div class="stat-card">
+      <span class="stat-value">{{ $summary.totals.all }}</span>
+      <span class="stat-label">Total slams</span>
+      <span class="stat-hint">White + black, club + state/YouTube</span>
+    </div>
+    <div class="stat-card stat-white">
+      <span class="stat-value">{{ $summary.totals.white }}</span>
+      <span class="stat-label">White slams</span>
+      <span class="stat-hint">{{ $summary.club.white }} club · {{ $summary.state.white }} state/YouTube</span>
+    </div>
+    <div class="stat-card stat-black">
+      <span class="stat-value">{{ $summary.totals.black }}</span>
+      <span class="stat-label">Black slams</span>
+      <span class="stat-hint">{{ $summary.club.black }} club · {{ $summary.state.black }} state/YouTube</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ len $data.players }}</span>
+      <span class="stat-label">Players ranked</span>
+      <span class="stat-hint">Total slam tab</span>
+    </div>
+  </section>
+
+  {{ partial "charts.html" . }}
+
+  <section class="leaderboard-section">
+    <h3>Total slams leaderboard</h3>
+    <p class="section-desc">
+      From the <strong>Total slam</strong> Excel tab — club vs state/YouTube tier columns.
+    </p>
+    {{ partial "leaderboard.html" . }}
+  </section>
+</div>
+
+<div class="tab-panel" id="panel-state" role="tabpanel" hidden>
+  {{ partial "state-circuit.html" . }}
+</div>
 
 <script>window.CARROM_CHART_URL = "{{ "data/achievements.json" | relURL }}";</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="{{ "js/tabs.js" | relURL }}"></script>
 <script src="{{ "js/charts.js" | relURL }}"></script>
 {{ end }}

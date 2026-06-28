@@ -4,7 +4,7 @@ defaultContentLanguage = "en"
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Carrom slam leaderboard — white and black slam counts in club, state, and YouTube matches."
+  description = "Carrom player achievement tracker — slams, tournaments, rankings, and player profiles."
 
 [markup]
   [markup.goldmark]

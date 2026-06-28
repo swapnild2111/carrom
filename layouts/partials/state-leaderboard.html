@@ -1,0 +1,65 @@
+{{ $sc := .Site.Data.statecircuit }}
+{{ $players := sort $sc.players "displayOrder" "asc" }}
+{{ $tournaments := $sc.tournaments }}
+
+<div class="leaderboard state-leaderboard">
+  <div class="leaderboard-header state-header">
+    <div class="col-rank">Rank</div>
+    <div class="col-player">Player</div>
+    <div class="col-district">District</div>
+    <div class="col-stat"><span class="col-type">White</span></div>
+    <div class="col-stat"><span class="col-type">Black</span></div>
+    <div class="col-total"><span class="col-type">Total</span></div>
+    <div class="col-expand"></div>
+  </div>
+
+  {{ range $players }}
+    {{ if gt .totals.all 0 }}
+    {{ $player := . }}
+    <details class="state-player-row">
+      <summary class="leaderboard-row state-summary-row">
+        <div class="col-rank">{{ .displayOrder }}</div>
+        <div class="col-player">
+          <span class="player-name">{{ .name }}</span>
+          <span class="player-meta">{{ .gender | title }}</span>
+        </div>
+        <div class="col-district">{{ .district }}</div>
+        <div class="col-stat">{{ partial "count-cell.html" (dict "value" .totals.white "type" "white") }}</div>
+        <div class="col-stat">{{ partial "count-cell.html" (dict "value" .totals.black "type" "black") }}</div>
+        <div class="col-total"><strong>{{ .totals.all }}</strong></div>
+        <div class="col-expand" aria-hidden="true">▸</div>
+      </summary>
+      <div class="state-player-detail">
+        <table class="tournament-breakdown">
+          <thead>
+            <tr>
+              <th>Tournament</th>
+              <th>White</th>
+              <th>Black</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range $tournaments }}
+              {{ $counts := index $player.byTournament .id }}
+              {{ if $counts }}
+                {{ $tw := $counts.white }}
+                {{ $tb := $counts.black }}
+                {{ $ta := add $tw $tb }}
+                {{ if gt $ta 0 }}
+                <tr>
+                  <td>{{ .name }}</td>
+                  <td>{{ if gt $tw 0 }}{{ $tw }}{{ else }}—{{ end }}</td>
+                  <td>{{ if gt $tb 0 }}{{ $tb }}{{ else }}—{{ end }}</td>
+                  <td><strong>{{ $ta }}</strong></td>
+                </tr>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    {{ end }}
+  {{ end }}
+</div>

@@ -27,7 +27,11 @@ jobs:
           extended: false
 
       - name: Sync chart JSON to static
-        run: mkdir -p static/data && cp data/achievements.json static/data/achievements.json
+        run: |
+          mkdir -p static/data
+          cp data/achievements.json static/data/achievements.json
+          cp data/statecircuit.json static/data/statecircuit.json
+          cp data/players.json static/data/players.json
 
       - name: Build site
         run: hugo --minify

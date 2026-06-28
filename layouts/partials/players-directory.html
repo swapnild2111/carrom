@@ -1,0 +1,148 @@
+{{ $players := .Site.Data.players }}
+{{ $summary := $players.summary }}
+
+<section class="stat-cards" aria-label="Player registry summary">
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.players }}</span>
+    <span class="stat-label">Players tracked</span>
+    <span class="stat-hint">Merged from all Excel sources</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.withDistrict }}</span>
+    <span class="stat-label">With district</span>
+    <span class="stat-hint">City / region from circuit records</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.withClub }}</span>
+    <span class="stat-label">With club name</span>
+    <span class="stat-hint">Fill in Excel Club column to grow this</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.withPodiums }}</span>
+    <span class="stat-label">Doubles podiums</span>
+    <span class="stat-hint">From State ranking sheet</span>
+  </div>
+</section>
+
+<section class="info-panel info-panel-compact" aria-labelledby="analytics-note">
+  <h3 id="analytics-note">What we can measure today</h3>
+  <div class="info-grid">
+    <div class="info-block">
+      <h4>Available now</h4>
+      <ul>
+        <li>Slam counts by tier — club, state/YouTube, named tournaments</li>
+        <li>Slam rankings and white/black split</li>
+        <li>District, gender, and event location hints</li>
+        <li>Doubles podium finishes (1st / 2nd / 3rd)</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>Needs more data</h4>
+      <ul>
+        <li><strong>Win rate / loss rate</strong> — requires match results (W/L), not just slams</li>
+        <li><strong>Club affiliation</strong> — only {{ $summary.withClub }} player has club filled in Excel</li>
+        <li><strong>YouTube links</strong> — add URL per recorded match when available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="players-section">
+  <div class="players-toolbar">
+    <label for="player-search" class="sr-only">Search players</label>
+    <input type="search" id="player-search" class="player-search" placeholder="Search by name, district, or club…" autocomplete="off">
+    <select id="player-filter" class="player-filter" aria-label="Filter by record type">
+      <option value="all">All players</option>
+      <option value="totalSlams">Has club/state slams</option>
+      <option value="circuit">Has tournament slams</option>
+      <option value="podium">Has doubles podium</option>
+    </select>
+  </div>
+
+  <div class="players-directory" id="players-directory">
+    {{ range $players.players }}
+    <details class="player-card" data-name="{{ lower .name }}" data-district="{{ lower (.profile.district | default "") }}" data-club="{{ lower (.profile.club | default "") }}" data-sources="{{ delimit .analytics.dataCompleteness " " }}">
+      <summary class="player-card-summary">
+        <span class="player-rank">{{ with .analytics.ranks.combined }}#{{ . }}{{ else }}—{{ end }}</span>
+        <span class="player-card-name">{{ .name }}</span>
+        <span class="player-card-meta">
+          {{ with .profile.district }}{{ . }}{{ else }}<span class="count-zero">No district</span>{{ end }}
+          {{ with .profile.club }} · {{ . }}{{ end }}
+        </span>
+        <span class="player-card-slams">
+          {{ if gt .analytics.combinedSlamCount 0 }}
+            <strong>{{ .analytics.combinedSlamCount }}</strong> slams
+          {{ else if .achievements.podiums }}
+            {{ len .achievements.podiums }} podium{{ if gt (len .achievements.podiums) 1 }}s{{ end }}
+          {{ else }}
+            <span class="count-zero">—</span>
+          {{ end }}
+        </span>
+        <span class="col-expand" aria-hidden="true">›</span>
+      </summary>
+      <div class="player-card-body">
+        {{ if .aliases }}
+        <p class="player-aliases"><span class="label">Also known as:</span> {{ delimit .aliases ", " }}</p>
+        {{ end }}
+
+        <dl class="player-profile-grid">
+          <div><dt>District</dt><dd>{{ with .profile.district }}{{ . }}{{ else }}—{{ end }}</dd></div>
+          <div><dt>Club</dt><dd>{{ with .profile.club }}{{ . }}{{ else }}—{{ end }}</dd></div>
+          <div><dt>Gender</dt><dd>{{ with .profile.gender }}{{ . }}{{ else }}—{{ end }}</dd></div>
+          {{ if .profile.locations }}
+          <div><dt>Event locations</dt><dd>{{ delimit .profile.locations ", " }}</dd></div>
+          {{ end }}
+        </dl>
+
+        <div class="player-achievements">
+          {{ with .achievements.totalSlams }}
+          <div class="achievement-block">
+            <h4>Club &amp; state / YouTube slams</h4>
+            <p class="achievement-rank">Rank #{{ .rank }} · {{ .totals.all }} total ({{ .totals.white }}W / {{ .totals.black }}B)</p>
+            <ul class="achievement-split">
+              <li>Club: {{ .club.white }} white · {{ .club.black }} black</li>
+              <li>State/YouTube: {{ .stateYoutube.white }} white · {{ .stateYoutube.black }} black</li>
+            </ul>
+          </div>
+          {{ end }}
+
+          {{ with .achievements.circuitSlams }}
+          <div class="achievement-block">
+            <h4>Tournament slams</h4>
+            <p class="achievement-rank">Circuit rank #{{ .rank }} · {{ .totals.all }} total ({{ .totals.white }}W / {{ .totals.black }}B)</p>
+          </div>
+          {{ end }}
+
+          {{ with .achievements.eventSlams }}
+          <div class="achievement-block">
+            <h4>Logged slam events</h4>
+            <p>{{ .all }} events recorded ({{ .white }} white · {{ .black }} black)</p>
+          </div>
+          {{ end }}
+
+          {{ if .achievements.podiums }}
+          <div class="achievement-block">
+            <h4>Doubles podiums</h4>
+            <ul class="podium-list">
+              {{ range .achievements.podiums }}
+              <li><span class="badge badge-state">{{ .place }}</span> {{ .category }}</li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+        </div>
+
+        {{ if .analytics.whiteSlamShare }}
+        <p class="player-analytics">
+          White slam share: <strong>{{ mul .analytics.whiteSlamShare 100 | printf "%.0f" }}%</strong>
+          · Win/loss rate: <span class="count-zero">needs match data</span>
+        </p>
+        {{ end }}
+      </div>
+    </details>
+    {{ end }}
+  </div>
+  <p class="players-empty" id="players-empty" hidden>No players match your search.</p>
+</section>
+
+<script src="{{ "js/players.js" | relURL }}"></script>
