@@ -1,28 +1,33 @@
 <section class="charts">
-  <h3>Statistics</h3>
+  <h3>Charts &amp; statistics</h3>
+  <p class="section-desc">Visual breakdown of {{ .Site.Data.achievements.year }} slam counts across players and match tiers.</p>
   <div class="charts-grid">
     <div class="chart-card chart-wide">
-      <h4>Top 10 players</h4>
+      <h4>Top 10 players by total slams</h4>
+      <p class="chart-desc">Stacked white and black slams for the leading players. Overall winner has the longest bar.</p>
       <div class="chart-wrap">
-        <canvas id="chart-top-players" aria-label="Top 10 players by total slams"></canvas>
+        <canvas id="chart-top-players" aria-label="Top 10 players by total white and black slams"></canvas>
       </div>
     </div>
     <div class="chart-card">
-      <h4>White vs black</h4>
+      <h4>White vs black slams</h4>
+      <p class="chart-desc">Share of all slams this season — white vs black, across every player and tier.</p>
       <div class="chart-wrap chart-wrap-square">
         <canvas id="chart-white-black" aria-label="White versus black slam distribution"></canvas>
       </div>
     </div>
     <div class="chart-card">
-      <h4>Club vs state</h4>
+      <h4>Club vs state / YouTube</h4>
+      <p class="chart-desc">Where slams happened — club-level matches compared with state championships and YouTube matches.</p>
       <div class="chart-wrap chart-wrap-square">
-        <canvas id="chart-tier" aria-label="Club versus state slam counts"></canvas>
+        <canvas id="chart-tier" aria-label="Club versus state and YouTube slam counts"></canvas>
       </div>
     </div>
     <div class="chart-card chart-wide">
-      <h4>Top 10 breakdown by tier</h4>
+      <h4>Top 10 — breakdown by tier &amp; type</h4>
+      <p class="chart-desc">Each bar shows club white/black and state/YouTube white/black separately for the top 10 players.</p>
       <div class="chart-wrap">
-        <canvas id="chart-stacked" aria-label="Top 10 players slam breakdown by tier and type"></canvas>
+        <canvas id="chart-stacked" aria-label="Top 10 players slam breakdown by tier and slam type"></canvas>
       </div>
     </div>
   </div>

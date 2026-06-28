@@ -3,52 +3,74 @@
 {{ $summary := $data.summary }}
 
 <section class="intro">
-  <h2>{{ $data.year }} Total Slam Records</h2>
-  <p>White and black slam counts split by <strong>Club</strong> and <strong>State &amp; YouTube</strong> tournaments.</p>
+  <h2>{{ $data.year }} Total Slam Leaderboard</h2>
+  <p class="intro-lead">
+    Each time a player scores a <strong>white slam</strong> or <strong>black slam</strong>, it is counted here.
+    Slams are tracked separately for <strong>club matches</strong> and for <strong>state &amp; YouTube</strong> matches.
+    The player with the highest <strong>Total Slams</strong> is the overall winner.
+  </p>
 </section>
 
-<section class="stat-cards">
+<section class="info-panel" aria-labelledby="how-it-works">
+  <h3 id="how-it-works">How scoring works</h3>
+  <div class="info-grid">
+    <div class="info-block">
+      <h4>Slam types</h4>
+      <ul>
+        <li><span class="badge badge-white">White slam</span> Pocket all coins including the queen in one turn.</li>
+        <li><span class="badge badge-black">Black slam</span> Pocket all opponent coins including the queen in one turn.</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>Match tiers</h4>
+      <ul>
+        <li><span class="badge badge-club">Club</span> Slams in local club-level tournaments.</li>
+        <li><span class="badge badge-state">State / YouTube</span> Slams in state championships and YouTube-streamed matches.</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>Finding the winner</h4>
+      <ul>
+        <li><strong>Overall winner</strong> — highest Total Slams (white + black, all tiers).</li>
+        <li><strong>White slam leader</strong> — highest Total White.</li>
+        <li><strong>Black slam leader</strong> — highest Total Black.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="stat-cards" aria-label="Season summary">
   <div class="stat-card">
     <span class="stat-value">{{ $summary.totals.all }}</span>
     <span class="stat-label">Total slams</span>
+    <span class="stat-hint">White + black, club + state/YouTube</span>
   </div>
   <div class="stat-card stat-white">
     <span class="stat-value">{{ $summary.totals.white }}</span>
     <span class="stat-label">White slams</span>
+    <span class="stat-hint">{{ $summary.club.white }} club · {{ $summary.state.white }} state/YouTube</span>
   </div>
   <div class="stat-card stat-black">
     <span class="stat-value">{{ $summary.totals.black }}</span>
     <span class="stat-label">Black slams</span>
+    <span class="stat-hint">{{ $summary.club.black }} club · {{ $summary.state.black }} state/YouTube</span>
   </div>
   <div class="stat-card">
     <span class="stat-value">{{ len $data.players }}</span>
-    <span class="stat-label">Players</span>
-  </div>
-</section>
-
-<section class="legend">
-  <div class="legend-item">
-    <span class="badge badge-white">White</span>
-    <span>Pocket all coins including queen in one turn</span>
-  </div>
-  <div class="legend-item">
-    <span class="badge badge-black">Black</span>
-    <span>Pocket all opponent coins including queen in one turn</span>
-  </div>
-  <div class="legend-item">
-    <span class="badge badge-club">Club</span>
-    <span>Club-level tournaments</span>
-  </div>
-  <div class="legend-item">
-    <span class="badge badge-state">State</span>
-    <span>State &amp; YouTube tournaments</span>
+    <span class="stat-label">Players ranked</span>
+    <span class="stat-hint">Sorted by Total Slams</span>
   </div>
 </section>
 
 {{ partial "charts.html" . }}
 
 <section class="leaderboard-section">
-  <h3>Full Leaderboard</h3>
+  <h3>Full leaderboard</h3>
+  <p class="section-desc">
+    Every column is a count of slams. <strong>Club · White / Black</strong> are from club matches;
+    <strong>State/YouTube · White / Black</strong> are from state and YouTube matches;
+    <strong>Total</strong> columns add both tiers together. Players are ranked by <strong>Total Slams</strong>.
+  </p>
   {{ partial "leaderboard.html" . }}
 </section>
 

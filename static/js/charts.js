@@ -127,7 +127,7 @@
     new Chart(document.getElementById("chart-tier"), {
       type: "bar",
       data: {
-        labels: ["Club", "State & YouTube"],
+        labels: ["Club matches", "State & YouTube"],
         datasets: [
           {
             label: "White",

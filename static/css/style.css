@@ -92,9 +92,66 @@ main {
   font-size: 1.35rem;
 }
 
-.intro p {
+.intro-lead {
   margin: 0 0 1.25rem;
   color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.section-desc {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 68ch;
+  line-height: 1.55;
+}
+
+/* How it works panel */
+.info-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-panel h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.info-block h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.info-block li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.info-block .badge {
+  margin-right: 0.35rem;
+  vertical-align: middle;
 }
 
 /* Stat cards */
@@ -131,6 +188,13 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-muted);
+}
+
+.stat-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+  line-height: 1.3;
 }
 
 .legend {
@@ -209,12 +273,19 @@ main {
 }
 
 .chart-card h4 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.35rem;
   font-size: 0.85rem;
   font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.chart-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: 1.45;
 }
 
 .chart-wide {
@@ -242,24 +313,87 @@ main {
   overflow-x: auto;
 }
 
+.leaderboard-group-row,
 .leaderboard-header,
 .leaderboard-row {
   display: grid;
-  grid-template-columns: 2rem 1.5fr 0.9fr repeat(6, 2.4rem) 2.6rem;
   gap: 0.35rem;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 1rem;
   align-items: center;
-  min-width: 680px;
+  min-width: 820px;
+}
+
+.leaderboard-group-row,
+.leaderboard-header,
+.leaderboard-row {
+  grid-template-columns: 2.25rem 1.45fr 1fr repeat(6, 2.85rem) 3rem;
+}
+
+.leaderboard-group-row {
+  padding-bottom: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--border);
+  background: var(--surface-hover);
+}
+
+.col-group {
+  text-align: center;
+  padding: 0.2rem 0;
+  border-radius: 4px;
+}
+
+.col-group-club {
+  grid-column: 4 / 6;
+  color: var(--club);
+  background: rgba(74, 158, 255, 0.08);
+}
+
+.col-group-state {
+  grid-column: 6 / 8;
+  color: var(--state);
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.col-group-totals {
+  grid-column: 8 / 11;
+  color: var(--accent);
+  background: rgba(74, 158, 255, 0.05);
 }
 
 .leaderboard-header {
   background: var(--surface-hover);
   font-size: 0.68rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
+  padding-top: 0.5rem;
+}
+
+.leaderboard-header .col-stat,
+.leaderboard-header .col-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.col-tier {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+.col-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .leaderboard-row {
@@ -335,6 +469,11 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .charts-grid {
     grid-template-columns: 1fr;
   }
@@ -353,12 +492,13 @@ main {
     font-size: 1.4rem;
   }
 
+  .leaderboard-group-row,
   .leaderboard-header {
     display: none;
   }
 
   .leaderboard-row {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     min-width: 0;
     gap: 0.5rem;
     padding: 1rem;
@@ -376,23 +516,23 @@ main {
     border-bottom: 1px solid var(--border);
   }
 
-  .col-stat:nth-child(4)::before { content: "C·W"; }
-  .col-stat:nth-child(5)::before { content: "C·B"; }
-  .col-stat:nth-child(6)::before { content: "S·W"; }
-  .col-stat:nth-child(7)::before { content: "S·B"; }
-  .col-stat:nth-child(8)::before { content: "White"; }
-  .col-stat:nth-child(9)::before { content: "Black"; }
+  .col-stat:nth-child(4)::before { content: "Club · White"; }
+  .col-stat:nth-child(5)::before { content: "Club · Black"; }
+  .col-stat:nth-child(6)::before { content: "State/YT · White"; }
+  .col-stat:nth-child(7)::before { content: "State/YT · Black"; }
+  .col-stat:nth-child(8)::before { content: "Total · White"; }
+  .col-stat:nth-child(9)::before { content: "Total · Black"; }
 
   .col-stat::before,
   .col-total::before {
     display: block;
     font-size: 0.62rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: var(--text-muted);
     margin-bottom: 0.15rem;
+    line-height: 1.25;
   }
 
-  .col-total::before { content: "All"; }
+  .col-total::before { content: "Total · Slams"; }
 }

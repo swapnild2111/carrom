@@ -4,7 +4,7 @@ defaultContentLanguage = "en"
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Carrom total slam records — white and black slams by club and state tier."
+  description = "Carrom slam leaderboard — white and black slam counts in club, state, and YouTube matches."
 
 [markup]
   [markup.goldmark]
