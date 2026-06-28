@@ -73,6 +73,7 @@ jobs:
         if: steps.auth.outputs.allowed == 'true' && steps.push.outputs.sha != ''
         run: |
           gh issue comment "${{ github.event.issue.number }}" --body "✅ Player profile committed to \`main\` (${{ steps.push.outputs.sha }}). Site will redeploy in ~1 minute."
+          gh issue close "${{ github.event.issue.number }}" --reason "completed"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
