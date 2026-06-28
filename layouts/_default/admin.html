@@ -50,16 +50,30 @@
 
     <form id="admin-player-form" class="admin-form">
       <div class="form-field">
+        <label for="player-existing">Load existing player</label>
+        <select id="player-existing" name="existing">
+          <option value="">— New player —</option>
+        </select>
+        <p class="field-hint">Pick a player to pre-fill the form for updates.</p>
+      </div>
+      <div class="form-field">
         <label for="player-name">Full name <span class="required">*</span></label>
-        <input type="text" id="player-name" name="name" required autocomplete="name" placeholder="e.g. Kunal Raut">
+        <input type="text" id="player-name" name="name" required autocomplete="name" list="player-name-suggestions" placeholder="e.g. Kunal Raut">
+        <datalist id="player-name-suggestions"></datalist>
       </div>
       <div class="form-field">
         <label for="player-club">Club name</label>
-        <input type="text" id="player-club" name="club" autocomplete="organization" placeholder="e.g. Sai Carrom">
+        <select id="player-club" name="club">
+          <option value="">—</option>
+        </select>
+        <input type="text" id="player-club-other" class="field-other" name="clubOther" placeholder="Type club name" hidden>
       </div>
       <div class="form-field">
         <label for="player-district">District / city</label>
-        <input type="text" id="player-district" name="district" placeholder="e.g. Mumbai">
+        <select id="player-district" name="district">
+          <option value="">—</option>
+        </select>
+        <input type="text" id="player-district-other" class="field-other" name="districtOther" placeholder="Type district or city" hidden>
       </div>
       <div class="form-field">
         <label for="player-gender">Gender</label>
@@ -90,7 +104,9 @@
 <script>
 window.CARROM_ADMIN = {
   repo: "{{ $admin.githubRepo }}",
-  allowlistUrl: "{{ "data/admin-allowlist.json" | relURL }}"
+  allowlistUrl: "{{ "data/admin-allowlist.json" | relURL }}",
+  playersUrl: "{{ "data/players.json" | relURL }}",
+  formOptionsUrl: "{{ "data/admin-form-options.json" | relURL }}"
 };
 </script>
 <script src="{{ "js/admin.js" | relURL }}"></script>

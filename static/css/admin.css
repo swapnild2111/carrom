@@ -87,6 +87,22 @@
   color: var(--text-muted);
 }
 
+.field-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.field-other {
+  margin-top: 0.5rem;
+}
+
+.form-field input.field-other[hidden],
+.form-field select.field-other[hidden] {
+  display: none;
+}
+
 .admin-form {
   display: flex;
   flex-direction: column;
