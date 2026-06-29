@@ -5,7 +5,7 @@
 </section>
 <ul class="club-list-page">
   {{ range .Site.Data.generated.clubs_enriched.clubs }}
-  <li><a href="{{ (printf "../clubs/%s/" .id) | relURL }}">{{ .name }}</a> — {{ len .roster }} players, {{ .stats.total }} slams</li>
+  <li><a href="{{ (printf "clubs/%s/" .id) | relURL }}">{{ .name }}</a> — {{ len .roster }} players, {{ .stats.total }} slams</li>
   {{ end }}
 </ul>
 {{ end }}

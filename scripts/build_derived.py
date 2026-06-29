@@ -96,13 +96,12 @@ def build_awards(leaderboard: list[dict]) -> dict:
     }
 
 
-def write_content_page(directory: Path, slug: str, title: str, layout_type: str, entity_id: str) -> None:
+def write_content_page(directory: Path, slug: str, title: str, entity_id: str) -> None:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / f"{slug}.md"
     content = (
         f"---\n"
         f"title: {json.dumps(title)}\n"
-        f"type: {layout_type}\n"
         f"entityId: {json.dumps(entity_id)}\n"
         f"---\n"
     )
@@ -220,15 +219,15 @@ def main() -> int:
         shutil.rmtree(CONTENT_CLUBS)
 
     for player in enriched_players:
-        write_content_page(CONTENT_PLAYERS, player["id"], player["name"], "player", player["id"])
+        write_content_page(CONTENT_PLAYERS, player["id"], player["name"], player["id"])
 
     for club in enriched_clubs:
-        write_content_page(CONTENT_CLUBS, club["id"], club["name"], "club", club["id"])
+        write_content_page(CONTENT_CLUBS, club["id"], club["name"], club["id"])
 
     awards_dir = ROOT / "content" / "awards"
     awards_dir.mkdir(parents=True, exist_ok=True)
     (awards_dir / "2025.md").write_text(
-        "---\ntitle: \"2025 Awards\"\ntype: awards\nseason: 2025\n---\n",
+        "---\ntitle: \"2025 Awards\"\nentityId: \"2025\"\n---\n",
         encoding="utf-8",
     )
 
