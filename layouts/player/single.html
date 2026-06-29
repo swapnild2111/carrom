@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{ $id := .Params.entityId }}
+{{ $player := index (where .Site.Data.generated.players_enriched.players "id" $id) 0 }}
+{{ if not $player }}
+<p>Player not found.</p>
+{{ else }}
+{{ $clubs := .Site.Data.generated.clubs_enriched.clubs }}
+
+<section class="entity-header">
+  <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Player</p>
+  <h2>{{ $player.name }}</h2>
+  {{ if $player.aliases }}
+  <p class="entity-aliases">Also known as: {{ delimit $player.aliases ", " }}</p>
+  {{ end }}
+  <div class="entity-meta">
+    <span class="badge badge-district">{{ $player.district }} District</span>
+    <span class="badge">{{ $player.gender | title }}</span>
+    {{ range $player.clubs }}
+    <a class="badge badge-club" href="{{ (printf "clubs/%s/" .id) | relURL }}">{{ .name }}</a>
+    {{ end }}
+  </div>
+</section>
+
+<section class="stat-cards" aria-label="Player season stats">
+  <div class="stat-card stat-white">
+    <span class="stat-value">{{ $player.stats.white }}</span>
+    <span class="stat-label">White slams</span>
+    {{ with $player.ranks.white }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
+  </div>
+  <div class="stat-card stat-black">
+    <span class="stat-value">{{ $player.stats.black }}</span>
+    <span class="stat-label">Black slams</span>
+    {{ with $player.ranks.black }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $player.stats.total }}</span>
+    <span class="stat-label">Total slams</span>
+    {{ with $player.ranks.total }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
+  </div>
+</section>
+
+{{ if gt $player.stats.total 0 }}
+<section class="breakdown-section">
+  <h3>By source</h3>
+  <ul class="breakdown-list">
+    {{ range $source, $count := $player.stats.bySource }}
+    <li><span class="badge badge-source">{{ $source }}</span> {{ $count }}</li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<section class="timeline-section">
+  <h3>2025 slam history</h3>
+  {{ if $player.timeline }}
+  <div class="table-wrap">
+    <table class="timeline-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Source</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $player.timeline }}
+        <tr>
+          <td>{{ with .date }}{{ . }}{{ else }}—{{ end }}</td>
+          <td><span class="badge badge-{{ .type }}">{{ .type }}</span></td>
+          <td>{{ .source }}</td>
+          <td>
+            {{ if eq .source "club" }}
+              {{ $cid := .clubId }}
+              {{ range $clubs }}{{ if eq .id $cid }}{{ .name }}{{ end }}{{ end }}
+            {{ else if eq .source "tournament" }}
+              {{ with .tournament }}{{ . }}{{ else }}—{{ end }}
+            {{ else if eq .source "youtube" }}
+              {{ with .videoUrl }}<a href="{{ . }}" target="_blank" rel="noopener">Watch video</a>{{ else }}YouTube{{ end }}
+            {{ end }}
+            {{ with .location }} · {{ . }}{{ end }}
+            {{ with .matchRef }}<br><span class="text-muted">{{ . }}</span>{{ end }}
+            {{ with .notes }}<br><span class="text-muted">{{ . }}</span>{{ end }}
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+  {{ else }}
+  <p class="empty-state">No slams recorded for this player in the 2025 season yet.</p>
+  {{ end }}
+</section>
+{{ end }}
+{{ end }}

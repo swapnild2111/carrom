@@ -1,7 +1,0 @@
-{{ $value := .value }}
-{{ $type := .type }}
-{{ if gt $value 0 }}
-  <span class="count count-{{ $type }}">{{ $value }}</span>
-{{ else }}
-  <span class="count count-zero">—</span>
-{{ end }}

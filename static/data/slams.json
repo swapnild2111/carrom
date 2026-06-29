@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-06-28",
+  "slams": [
+    {
+      "id": "slam-2025-001",
+      "playerId": "zaid-ahmed-farooquee",
+      "season": 2025,
+      "type": "white",
+      "source": "club",
+      "clubId": "shakti-club",
+      "tournament": null,
+      "date": "2025-03-10",
+      "location": "Thane",
+      "videoUrl": null,
+      "matchRef": "Match-144 | SET-1 | Board-3",
+      "notes": null,
+      "active": true
+    },
+    {
+      "id": "slam-2025-002",
+      "playerId": "zaid-ahmed-farooquee",
+      "season": 2025,
+      "type": "black",
+      "source": "youtube",
+      "clubId": null,
+      "tournament": null,
+      "date": "2025-04-15",
+      "location": "Thane",
+      "videoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
+      "matchRef": null,
+      "notes": "Carrom and Flute channel — live stream",
+      "active": true
+    },
+    {
+      "id": "slam-2025-003",
+      "playerId": "zaid-ahmed-farooquee",
+      "season": 2025,
+      "type": "white",
+      "source": "tournament",
+      "clubId": null,
+      "tournament": "Thane District Open",
+      "date": "2025-05-20",
+      "location": "Mumbai",
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": "Slam outside Thane city but counts for Thane player",
+      "active": true
+    },
+    {
+      "id": "slam-2025-004",
+      "playerId": "zaid-ahmed-farooquee",
+      "season": 2025,
+      "type": "black",
+      "source": "club",
+      "clubId": "shakti-club",
+      "tournament": null,
+      "date": "2025-06-01",
+      "location": "Thane",
+      "videoUrl": null,
+      "matchRef": "Match-165 | SET-3 | Board-4",
+      "notes": null,
+      "active": true
+    }
+  ]
+}

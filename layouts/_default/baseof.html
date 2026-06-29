@@ -10,11 +10,9 @@
   {{ block "head-extra" . }}{{ end }}
 </head>
 <body>
+  {{ $summary := .Site.Data.generated.site_summary }}
   {{ $seasons := .Site.Data.seasons }}
   {{ $currentYear := $seasons.defaultYear }}
-  {{ $availableSeasons := where $seasons.seasons "available" true }}
-  {{ $achievements := .Site.Data.achievements }}
-  {{ $players := .Site.Data.players }}
   {{ $copyrightEnd := now.Year }}
   {{ $copyrightStart := .Site.Params.copyrightStart | default 2025 }}
 
@@ -28,22 +26,17 @@
         <div class="header-titles">
           <h1 class="site-title"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
           <p class="site-tagline">
-            <span id="header-season-label">{{ $currentYear }} season</span>
-            · {{ $players.summary.players }} players
-            · Slams, tournaments &amp; rankings
+            {{ $currentYear }} season · {{ .Site.Params.district }} District
+            {{ with $summary }}· {{ .playerCount }} players · {{ .slamCount }} slams{{ end }}
           </p>
         </div>
       </div>
-      <div class="header-actions">
-        <label class="year-select-label" for="season-year">Season</label>
-        <select id="season-year" class="year-select" aria-label="Select season year"{{ if eq (len $availableSeasons) 1 }} disabled title="Only the {{ $currentYear }} season is available right now"{{ end }}>
-          {{ range $seasons.seasons }}
-          <option value="{{ .year }}" {{ if eq .year $currentYear }}selected{{ end }}{{ if not .available }} disabled{{ end }}>
-            {{ .year }}{{ if not .available }} (soon){{ end }}
-          </option>
-          {{ end }}
-        </select>
-      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a>
+        <a href="{{ "clubs/" | relURL }}">Clubs</a>
+        <a href="{{ "awards/2025/" | relURL }}">Awards</a>
+        <a href="{{ "admin/" | relURL }}">Admin</a>
+      </nav>
     </div>
   </header>
   <main class="container" id="main-content">
@@ -56,19 +49,15 @@
         <div>
           <p class="footer-title">{{ .Site.Title }}</p>
           <p class="footer-meta">
-            <span id="footer-season-label">{{ $achievements.year }}</span> records
-            · Last updated {{ $achievements.lastUpdated }}
+            Team Carrom and Flute · {{ with $summary }}Last updated {{ .lastUpdated }}{{ end }}
           </p>
         </div>
       </div>
       <p class="footer-copyright">
         © {{ if gt $copyrightEnd $copyrightStart }}{{ $copyrightStart }}–{{ $copyrightEnd }}{{ else }}{{ $copyrightStart }}{{ end }}
         {{ .Site.Params.author }}.
-        All rights reserved.
       </p>
     </div>
   </footer>
-  <script>window.CARROM_SEASONS = {{ $seasons | jsonify }};</script>
-  <script src="{{ "js/year.js" | relURL }}"></script>
 </body>
 </html>

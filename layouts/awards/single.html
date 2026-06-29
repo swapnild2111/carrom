@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $awards := .Site.Data.generated.awards_2025 }}
+
+<section class="intro">
+  <h2>{{ $awards.season }} Thane District Awards</h2>
+  <p class="intro-lead">
+  Team Carrom and Flute felicitate top slam performers each season — the Oscar moment for Thane carrom.
+  </p>
+  {{ with $awards.ceremonyVideoUrl }}
+  <p class="intro-actions">
+    <a class="btn btn-primary" href="{{ . }}" target="_blank" rel="noopener">Watch award ceremony</a>
+  </p>
+  {{ end }}
+</section>
+
+<section class="awards-grid">
+  <article class="award-card award-card-white">
+    <h3>Maximum white slams</h3>
+    {{ range $awards.maxWhiteSlams }}
+    <p class="award-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a></p>
+    <p class="award-count">{{ .count }} white slam{{ if gt .count 1 }}s{{ end }}</p>
+    {{ else }}
+    <p class="empty-state">No white slams recorded this season.</p>
+    {{ end }}
+  </article>
+  <article class="award-card award-card-black">
+    <h3>Maximum black slams</h3>
+    {{ range $awards.maxBlackSlams }}
+    <p class="award-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a></p>
+    <p class="award-count">{{ .count }} black slam{{ if gt .count 1 }}s{{ end }}</p>
+    {{ else }}
+    <p class="empty-state">No black slams recorded this season.</p>
+    {{ end }}
+  </article>
+</section>
+
+<p class="section-desc"><a href="{{ .Site.Home.RelPermalink }}">← Back to leaderboard</a></p>
+{{ end }}

@@ -1,4 +1,4 @@
-name: Process slam submission
+name: Process slam edit
 
 on:
   issues:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   apply-changes:
-    if: contains(github.event.issue.labels.*.name, 'add-slam')
+    if: contains(github.event.issue.labels.*.name, 'edit-slam')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,9 +45,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Add slam from issue
+      - name: Edit slam from issue
         if: steps.auth.outputs.allowed == 'true'
-        run: python scripts/add_slam_from_issue.py /tmp/issue-body.md
+        run: python scripts/edit_slam_from_issue.py /tmp/issue-body.md
 
       - name: Validate and rebuild
         if: steps.auth.outputs.allowed == 'true'
@@ -63,14 +63,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/slams.json static/data/
           if git diff --staged --quiet; then exit 1; fi
-          git commit -m "data: add slam from issue #${{ github.event.issue.number }}"
+          git commit -m "data: edit slam from issue #${{ github.event.issue.number }}"
           git push origin main
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Comment and close
         if: steps.auth.outputs.allowed == 'true' && steps.push.outputs.sha != ''
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "✅ Slam committed (${{ steps.push.outputs.sha }})."
+          gh issue comment "${{ github.event.issue.number }}" --body "✅ Slam edit committed (${{ steps.push.outputs.sha }})."
           gh issue close "${{ github.event.issue.number }}" --reason "completed"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

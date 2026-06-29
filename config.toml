@@ -1,12 +1,14 @@
 baseURL = "https://swapnild2111.github.io/carrom/"
-title = "Carrom Achievements"
+title = "Thane Carrom Slams"
 defaultContentLanguage = "en"
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Carrom player achievement tracker — slams, tournaments, rankings, and player profiles."
+  description = "Thane District carrom slam tracker — player profiles, club records, and 2025 season awards."
   author = "Swapnil Deshpande"
   copyrightStart = 2025
+  district = "Thane"
+  awardsVideoUrl = "https://www.youtube.com/watch?v=4VGrTfW7KZE"
 
   [params.admin]
     githubRepo = "swapnild2111/carrom"

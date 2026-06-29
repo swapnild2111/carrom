@@ -1,0 +1,46 @@
+name: Edit slam
+description: Update or soft-delete a slam record
+title: "[Edit slam] "
+labels:
+  - edit-slam
+body:
+  - type: input
+    id: slam_id
+    attributes:
+      label: Slam ID
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      options:
+        - update
+        - delete
+    validations:
+      required: true
+  - type: dropdown
+    id: slam_type
+    attributes:
+      label: Slam type (for update)
+      options:
+        - ""
+        - white
+        - black
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source (for update)
+      options:
+        - ""
+        - club
+        - youtube
+        - tournament
+  - type: input
+    id: date
+    attributes:
+      label: Date (YYYY-MM-DD)
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes

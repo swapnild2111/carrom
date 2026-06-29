@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="intro">
+  <h2>Thane clubs</h2>
+  <p class="intro-lead">Clubs that log player slams for the 2025 season.</p>
+</section>
+<ul class="club-list-page">
+  {{ range .Site.Data.generated.clubs_enriched.clubs }}
+  <li><a href="{{ (printf "../clubs/%s/" .id) | relURL }}">{{ .name }}</a> — {{ len .roster }} players, {{ .stats.total }} slams</li>
+  {{ end }}
+</ul>
+{{ end }}

@@ -1,88 +1,46 @@
-# Carrom Slam Achievements
+# Thane Carrom Slams
 
-Static Hugo site for **Total slam** records from the club Excel sheet.
+Thane District slam tracker by **Team Carrom and Flute** — player profiles, club records, and season awards.
 
-**Live site:** https://swapnild2111.github.io/carrom/
+**Live:** https://swapnild2111.github.io/carrom/
 
-## Data model (Total slam tab)
+## Data model (v1)
 
-[`data/achievements.json`](data/achievements.json) mirrors the Excel **Total slam** sheet:
+Source of truth:
 
-```json
-{
-  "year": 2025,
-  "summary": {
-    "club": { "white": 109, "black": 49 },
-    "state": { "white": 12, "black": 4 },
-    "totals": { "white": 121, "black": 53, "all": 174 }
-  },
-  "players": [
-    {
-      "id": "kunal-raut",
-      "name": "Kunal Raut",
-      "club": null,
-      "slams": {
-        "club": { "white": 22, "black": 7 },
-        "state": { "white": 0, "black": 0 }
-      },
-      "totals": { "white": 22, "black": 7, "all": 29 }
-    }
-  ]
-}
-```
+| File | Purpose |
+|------|---------|
+| `data/players.json` | Player profiles (Thane only) |
+| `data/clubs.json` | Club entities |
+| `data/slams.json` | One row per slam event |
+| `data/seasons.json` | Season config (2025) |
 
-| JSON field | Excel column |
-|------------|--------------|
-| `slams.club.white` / `.black` | White / Black (Club) |
-| `slams.state.white` / `.black` | White.1 / Black.1 (State and Youtube) |
-| `totals.white` / `.black` / `.all` | Total White / Total Black / Total Slam |
+Generated at build (`scripts/build_derived.py`):
 
-## Import from Excel
+- Leaderboard, awards, enriched player/club views
+- Hugo content pages under `content/players/`, `content/clubs/`, `content/awards/`
 
-```bash
-pip install -r scripts/requirements.txt
-python scripts/import_from_excel.py "Carrom records.xlsx"
-python scripts/validate_data.py
-```
-
-Imports the **Total slam** sheet only.
+Totals and ranks are **computed** from `slams.json`, not hand-edited.
 
 ## Local development
 
 ```bash
+pip install -r scripts/requirements.txt
+python scripts/build_derived.py
+python scripts/validate_schema.py
 hugo server -D
 # → http://localhost:1313/carrom/
 ```
 
-## Adding a slam (admin)
+## Admin
 
-**Issues → New issue → Add slam achievement** — pick player, slam type (white/black), and tier (Club / State & YouTube).
+Open `/admin/`, sign in with a fine-grained GitHub PAT (Issues: Read and write on this repo).
 
-Only GitHub users listed in [`data/admin-allowlist.json`](data/admin-allowlist.json) can submit slam or player issues.
+Forms create GitHub Issues → Actions commit to `main` → site redeploys.
 
-## Player admin (`/admin/`)
+## Pages
 
-Sign in with a **fine-grained GitHub Personal Access Token** (works on localhost and production):
-
-1. GitHub → Settings → Developer settings → [Fine-grained tokens](https://github.com/settings/tokens?type=beta)
-2. Repository: **swapnild2111/carrom** only
-3. Permission: **Issues → Read and write**
-4. Open [Admin](http://localhost:1313/carrom/admin/) (local) or [Admin](https://swapnild2111.github.io/carrom/admin/) (live) and paste the token
-
-Add co-admins by appending their GitHub username to `allowedUsers` in [`data/admin-allowlist.json`](data/admin-allowlist.json).
-
-> **Note:** OAuth “Login with GitHub” does not work on static sites — GitHub blocks the browser token exchange (CORS). PAT auth is the supported method.
-
-Submissions create a GitHub Issue → Action validates and commits to `main` → site redeploys.
-
-Ensure repo **Settings → Actions → General → Workflow permissions** is set to **Read and write permissions**.
-
-## Workflows
-
-| Workflow | Purpose |
-|----------|---------|
-| `deploy.yml` | Hugo → GitHub Pages |
-| `validate-data.yml` | JSON schema + Hugo build |
-| `process-slam.yml` | Slam issue → PR (allowlist) |
-| `process-player.yml` | Player profile issue → PR (allowlist) |
-| `auto-merge.yml` | Auto-merge labeled PRs |
+- `/` — Thane 2025 leaderboard
+- `/players/{slug}/` — player profile + slam history
+- `/clubs/{slug}/` — club roster + slams logged
+- `/awards/2025/` — max white / max black slam awards

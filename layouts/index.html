@@ -1,98 +1,115 @@
 {{ define "main" }}
-{{ $data := .Site.Data.achievements }}
-{{ $summary := $data.summary }}
+{{ $summary := .Site.Data.generated.site_summary }}
+{{ $leaderboard := .Site.Data.generated.leaderboard_2025 }}
+{{ $awards := .Site.Data.generated.awards_2025 }}
 
 <section class="intro">
-  <h2>{{ $data.year }} Carrom Achievement Tracker</h2>
+  <h2>{{ $summary.season }} Thane District Slam Tracker</h2>
   <p class="intro-lead">
-    Search any player to see their club, district, and slam records across local matches, tournaments, and state events.
+    Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
+    Know who leads. Celebrate the Oscar moment at season end.
+  </p>
+  <p class="intro-actions">
+    <a class="btn btn-primary" href="{{ "awards/2025/" | relURL }}">View 2025 awards</a>
   </p>
 </section>
 
-<details class="help-panel">
-  <summary>How scoring &amp; rankings work</summary>
-  <div class="help-panel-body">
-    <div class="info-grid">
-      <div class="info-block">
-        <h4>Slam types</h4>
-        <ul>
-          <li><span class="badge badge-white">White slam</span> Player starts and pockets all white coins, including the queen.</li>
-          <li><span class="badge badge-black">Black slam</span> Opponent starts, loses turn; player pockets all black coins, including the queen.</li>
-        </ul>
-      </div>
-      <div class="info-block">
-        <h4>Record views</h4>
-        <ul>
-          <li><span class="badge badge-club">Players</span> Unified profiles merged from all Excel sources.</li>
-          <li><span class="badge badge-club">Total slams</span> Club vs state/YouTube tier counts.</li>
-          <li><span class="badge badge-state">State circuit</span> Per-tournament breakdown.</li>
-        </ul>
-      </div>
-      <div class="info-block">
-        <h4>Rankings</h4>
-        <ul>
-          <li><strong>Combined rank</strong> — best slam total across available sources.</li>
-          <li><strong>Win / loss rate</strong> — coming when match results are added to Excel.</li>
-        </ul>
-      </div>
+<section class="stat-cards" aria-label="Season summary">
+  <div class="stat-card stat-white">
+    <span class="stat-value">{{ $summary.totals.white }}</span>
+    <span class="stat-label">White slams</span>
+  </div>
+  <div class="stat-card stat-black">
+    <span class="stat-value">{{ $summary.totals.black }}</span>
+    <span class="stat-label">Black slams</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.totals.all }}</span>
+    <span class="stat-label">Total slams</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ $summary.playerCount }}</span>
+    <span class="stat-label">Players</span>
+  </div>
+</section>
+
+{{ with $awards }}
+<section class="awards-preview">
+  <h3>2025 award leaders</h3>
+  <div class="awards-preview-grid">
+    <div class="award-preview-card">
+      <h4>Max white slams</h4>
+      {{ range .maxWhiteSlams }}
+      <p><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> — <strong>{{ .count }}</strong></p>
+      {{ else }}
+      <p class="text-muted">No slams recorded yet.</p>
+      {{ end }}
+    </div>
+    <div class="award-preview-card">
+      <h4>Max black slams</h4>
+      {{ range .maxBlackSlams }}
+      <p><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> — <strong>{{ .count }}</strong></p>
+      {{ else }}
+      <p class="text-muted">No slams recorded yet.</p>
+      {{ end }}
     </div>
   </div>
-</details>
+</section>
+{{ end }}
 
-<div class="tabs-sticky">
-  <nav class="view-tabs" role="tablist" aria-label="Record views">
-    <button type="button" class="view-tab is-active" role="tab" data-tab="players" aria-selected="true" aria-controls="panel-players" id="tab-players">Players</button>
-    <button type="button" class="view-tab" role="tab" data-tab="total" aria-selected="false" aria-controls="panel-total" id="tab-total">Total slams</button>
-    <button type="button" class="view-tab" role="tab" data-tab="state" aria-selected="false" aria-controls="panel-state" id="tab-state">State circuit</button>
-  </nav>
-</div>
-
-<div class="tab-panel is-active" id="panel-players" role="tabpanel" aria-labelledby="tab-players">
-  {{ partial "players-directory.html" . }}
-</div>
-
-<div class="tab-panel" id="panel-total" role="tabpanel" aria-labelledby="tab-total" hidden>
-  <section class="stat-cards" aria-label="Total slam summary">
-    <div class="stat-card">
-      <span class="stat-value">{{ $summary.totals.all }}</span>
-      <span class="stat-label">Total slams</span>
-      <span class="stat-hint">White + black, club + state/YouTube</span>
+<section class="leaderboard-section">
+  <div class="section-header">
+    <h3>Thane leaderboard</h3>
+    <div class="search-field">
+      <label for="player-search" class="sr-only">Search players</label>
+      <input type="search" id="player-search" class="player-search" placeholder="Search players…  (press /)" autocomplete="off">
     </div>
-    <div class="stat-card stat-white">
-      <span class="stat-value">{{ $summary.totals.white }}</span>
-      <span class="stat-label">White slams</span>
-      <span class="stat-hint">{{ $summary.club.white }} club · {{ $summary.state.white }} state/YouTube</span>
-    </div>
-    <div class="stat-card stat-black">
-      <span class="stat-value">{{ $summary.totals.black }}</span>
-      <span class="stat-label">Black slams</span>
-      <span class="stat-hint">{{ $summary.club.black }} club · {{ $summary.state.black }} state/YouTube</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-value">{{ len $data.players }}</span>
-      <span class="stat-label">Players ranked</span>
-      <span class="stat-hint">Total slam tab</span>
-    </div>
-  </section>
+  </div>
+  <div class="table-wrap">
+    <table class="leaderboard-table" id="leaderboard-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Player</th>
+          <th scope="col" class="num">White</th>
+          <th scope="col" class="num">Black</th>
+          <th scope="col" class="num">Total</th>
+          <th scope="col">Clubs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $index, $p := $leaderboard.players }}
+        <tr data-search="{{ lower $p.name }} {{ lower (delimit $p.aliases " ") }}">
+          <td>{{ with $p.ranks.total }}{{ . }}{{ else }}—{{ end }}</td>
+          <td><a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a></td>
+          <td class="num">{{ $p.stats.white }}</td>
+          <td class="num">{{ $p.stats.black }}</td>
+          <td class="num"><strong>{{ $p.stats.total }}</strong></td>
+          <td>
+            {{ range $p.clubs }}
+            <a href="{{ (printf "clubs/%s/" .id) | relURL }}" class="mini-badge mini-badge-club">{{ .name }}</a>
+            {{ else }}
+            <span class="text-muted">—</span>
+            {{ end }}
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+</section>
 
-  {{ partial "charts.html" . }}
+<section class="clubs-section">
+  <h3>Clubs</h3>
+  <div class="club-grid">
+    {{ range .Site.Data.generated.clubs_enriched.clubs }}
+    <a class="club-card" href="{{ (printf "clubs/%s/" .id) | relURL }}">
+      <h4>{{ .name }}</h4>
+      <p>{{ len .roster }} players · {{ .stats.total }} slams logged</p>
+    </a>
+    {{ end }}
+  </div>
+</section>
 
-  <section class="leaderboard-section">
-    <h3>Total slams leaderboard</h3>
-    <p class="section-desc">
-      From the <strong>Total slam</strong> Excel tab — club vs state/YouTube tier columns.
-      Click a name to jump to their profile.
-    </p>
-    {{ partial "leaderboard.html" . }}
-  </section>
-</div>
-
-<div class="tab-panel" id="panel-state" role="tabpanel" aria-labelledby="tab-state" hidden>
-  {{ partial "state-circuit.html" . }}
-</div>
-
-<script>window.CARROM_CHART_URL = "{{ "data/achievements.json" | relURL }}";</script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script src="{{ "js/tabs.js" | relURL }}"></script>
-<script src="{{ "js/charts.js" | relURL }}"></script>
+<script src="{{ "js/search.js" | relURL }}"></script>
 {{ end }}

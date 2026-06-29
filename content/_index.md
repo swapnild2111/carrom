@@ -1,3 +1,3 @@
 ---
-title: "Carrom Slam Achievements"
+title: "Thane Carrom Slams"
 ---

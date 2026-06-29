@@ -1,173 +1,95 @@
 #!/usr/bin/env python3
-"""Parse a GitHub Issue body (from add-slam template) and update achievements.json."""
+"""Parse add-slam issue and append slams.json."""
 
 from __future__ import annotations
 
 import json
 import re
 import sys
-import unicodedata
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_FILE = ROOT / "data" / "achievements.json"
+from lib import DATA, parse_issue_fields
 
-FIELD_PATTERN = re.compile(
-    r"^### (?P<label>[^\n]+)\n+(?P<value>[^\n#]*(?:\n(?![#]).+)*)",
-    re.MULTILINE,
-)
-
-SLAM_TYPE_MAP = {
-    "white slam": "white",
-    "black slam": "black",
-    "white": "white",
-    "black": "black",
-}
-
-TIER_MAP = {
-    "club": "club",
-    "state & youtube": "state",
-    "state and youtube": "state",
-    "state": "state",
-}
+SLAMS_FILE = DATA / "slams.json"
+PLAYERS_FILE = DATA / "players.json"
+CLUBS_FILE = DATA / "clubs.json"
 
 
-def slugify(name: str) -> str:
-    normalized = unicodedata.normalize("NFKD", name.strip().lower())
-    ascii_name = normalized.encode("ascii", "ignore").decode("ascii")
-    slug = re.sub(r"[^a-z0-9]+", "-", ascii_name).strip("-")
-    return slug or "player"
-
-
-def parse_issue_body(body: str) -> dict[str, str]:
-    fields: dict[str, str] = {}
-    for match in FIELD_PATTERN.finditer(body):
-        label = match.group("label").strip().lower()
-        value = match.group("value").strip()
-        fields[label] = value
-    return fields
-
-
-def find_player(players: list[dict], name: str) -> dict | None:
-    target = name.strip().lower()
-    for player in players:
-        if player["name"].strip().lower() == target:
-            return player
-    return None
-
-
-def next_display_order(players: list[dict]) -> int:
-    return max((p["displayOrder"] for p in players), default=0) + 1
-
-
-def recompute_summary(data: dict) -> None:
-    club = {"white": 0, "black": 0}
-    state = {"white": 0, "black": 0}
-    for player in data["players"]:
-        club["white"] += player["slams"]["club"]["white"]
-        club["black"] += player["slams"]["club"]["black"]
-        state["white"] += player["slams"]["state"]["white"]
-        state["black"] += player["slams"]["state"]["black"]
-
-    total_white = sum(p["totals"]["white"] for p in data["players"])
-    total_black = sum(p["totals"]["black"] for p in data["players"])
-    data["summary"] = {
-        "club": club,
-        "state": state,
-        "totals": {
-            "white": total_white,
-            "black": total_black,
-            "all": total_white + total_black,
-        },
-    }
-
-
-def update_player_totals(player: dict) -> None:
-    club = player["slams"]["club"]
-    state = player["slams"]["state"]
-    player["totals"]["white"] = club["white"] + state["white"]
-    player["totals"]["black"] = club["black"] + state["black"]
-    player["totals"]["all"] = player["totals"]["white"] + player["totals"]["black"]
-
-
-def resort_players(players: list[dict]) -> None:
-    players.sort(key=lambda p: (-p["totals"]["all"], -p["totals"]["white"], p["name"]))
-    for order, player in enumerate(players, start=1):
-        player["displayOrder"] = order
+def next_slam_id(slams: list[dict], season: int) -> str:
+    prefix = f"slam-{season}-"
+    numbers = []
+    for slam in slams:
+        match = re.fullmatch(rf"slam-{season}-(\d+)", slam.get("id", ""))
+        if match:
+            numbers.append(int(match.group(1)))
+    n = max(numbers, default=0) + 1
+    return f"{prefix}{n:03d}"
 
 
 def main() -> int:
-    if len(sys.argv) < 2:
-        print("Usage: add_slam_from_issue.py <issue-body-file>")
-        return 1
-
     body = Path(sys.argv[1]).read_text(encoding="utf-8")
-    fields = parse_issue_body(body)
+    fields = parse_issue_fields(body)
 
-    player_name = fields.get("player name", "").strip()
-    slam_type_raw = fields.get("slam type", "").strip().lower()
-    tier_raw = fields.get("tournament tier", "").strip().lower()
-    club_name = fields.get("club name (optional)", fields.get("club name", "")).strip()
+    player_id = fields.get("player id", "").strip()
+    slam_type = fields.get("slam type", "").strip().lower()
+    source = fields.get("source", "").strip().lower()
+    season_raw = fields.get("season", "2025").strip() or "2025"
 
-    missing = [
-        label
-        for label, value in [
-            ("Player name", player_name),
-            ("Slam type", slam_type_raw),
-            ("Tournament tier", tier_raw),
-        ]
-        if not value
-    ]
-    if missing:
-        print("Missing required fields: " + ", ".join(missing))
+    if not player_id:
+        print("Player id is required.", file=sys.stderr)
+        return 1
+    if slam_type not in {"white", "black"}:
+        print("Slam type must be white or black.", file=sys.stderr)
+        return 1
+    if source not in {"youtube", "club", "tournament"}:
+        print("Source must be youtube, club, or tournament.", file=sys.stderr)
         return 1
 
-    slam_type = SLAM_TYPE_MAP.get(slam_type_raw)
-    tier = TIER_MAP.get(tier_raw)
-    if not slam_type:
-        print(f"Invalid slam type: {slam_type_raw}")
-        return 1
-    if not tier:
-        print(f"Invalid tier: {tier_raw}")
+    players = json.loads(PLAYERS_FILE.read_text(encoding="utf-8"))["players"]
+    if not any(p["id"] == player_id for p in players):
+        print(f"Unknown player id: {player_id}", file=sys.stderr)
         return 1
 
-    data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
-    player = find_player(data["players"], player_name)
+    try:
+        season = int(season_raw)
+    except ValueError:
+        print("Season must be a year number.", file=sys.stderr)
+        return 1
 
-    if player is None:
-        base_slug = slugify(player_name)
-        player_id = base_slug
-        suffix = 2
-        existing_ids = {p["id"] for p in data["players"]}
-        while player_id in existing_ids:
-            player_id = f"{base_slug}-{suffix}"
-            suffix += 1
+    club_id = fields.get("club id", "").strip() or None
+    if source == "club" and not club_id:
+        print("Club id is required when source is club.", file=sys.stderr)
+        return 1
+    if club_id:
+        clubs = json.loads(CLUBS_FILE.read_text(encoding="utf-8"))["clubs"]
+        if not any(c["id"] == club_id for c in clubs):
+            print(f"Unknown club id: {club_id}", file=sys.stderr)
+            return 1
 
-        player = {
-            "id": player_id,
-            "name": player_name,
-            "club": club_name or None,
-            "displayOrder": next_display_order(data["players"]),
-            "slams": {
-                "club": {"white": 0, "black": 0},
-                "state": {"white": 0, "black": 0},
-            },
-            "totals": {"white": 0, "black": 0, "all": 0},
-        }
-        data["players"].append(player)
-        print(f"Created new player: {player_name} ({player_id})")
-    elif club_name and not player.get("club"):
-        player["club"] = club_name
+    data = json.loads(SLAMS_FILE.read_text(encoding="utf-8"))
+    slams = data.setdefault("slams", [])
 
-    player["slams"][tier][slam_type] += 1
-    update_player_totals(player)
-    resort_players(data["players"])
-    recompute_summary(data)
+    slam = {
+        "id": next_slam_id(slams, season),
+        "playerId": player_id,
+        "season": season,
+        "type": slam_type,
+        "source": source,
+        "clubId": club_id,
+        "tournament": fields.get("tournament (optional)", "").strip() or None,
+        "date": fields.get("date (yyyy-mm-dd)", "").strip() or None,
+        "location": fields.get("location (optional)", "").strip() or None,
+        "videoUrl": fields.get("video url (optional)", "").strip() or None,
+        "matchRef": fields.get("match ref (optional)", "").strip() or None,
+        "notes": fields.get("notes (optional)", "").strip() or None,
+        "active": True,
+    }
+
+    slams.append(slam)
     data["lastUpdated"] = date.today().isoformat()
-
-    DATA_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Added 1 {slam_type} slam ({tier}) for {player_name} → total {player['totals']['all']}")
+    SLAMS_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Added slam {slam['id']} for {player_id}")
     return 0
 
 

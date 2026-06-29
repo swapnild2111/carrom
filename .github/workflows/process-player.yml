@@ -23,7 +23,7 @@ jobs:
           AUTHOR="${{ github.event.issue.user.login }}"
           if ! jq -e --arg u "$AUTHOR" '.allowedUsers | index($u)' data/admin-allowlist.json > /dev/null; then
             echo "allowed=false" >> "$GITHUB_OUTPUT"
-            gh issue comment "${{ github.event.issue.number }}" --body "⛔ **Not processed** — \`$AUTHOR\` is not on the admin allowlist. Ask a repo owner to add your GitHub username to \`data/admin-allowlist.json\`."
+            gh issue comment "${{ github.event.issue.number }}" --body "⛔ Not processed — \`$AUTHOR\` is not on the admin allowlist."
             gh issue close "${{ github.event.issue.number }}" --reason "not planned"
             exit 0
           fi
@@ -46,13 +46,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update player profiles from issue
+      - name: Update players from issue
         if: steps.auth.outputs.allowed == 'true'
         run: python scripts/add_player_from_issue.py /tmp/issue-body.md
 
-      - name: Validate updated data
+      - name: Validate and rebuild
         if: steps.auth.outputs.allowed == 'true'
-        run: python scripts/validate_data.py
+        run: |
+          python scripts/validate_schema.py
+          python scripts/build_derived.py
 
       - name: Commit and push to main
         if: steps.auth.outputs.allowed == 'true'
@@ -60,26 +62,25 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/player-profiles.json data/players.json static/data/players.json
+          git add data/players.json static/data/
           if git diff --staged --quiet; then
-            echo "No file changes produced from this issue."
+            echo "No file changes produced."
             exit 1
           fi
-          git commit -m "data: add player profile from issue #${{ github.event.issue.number }}"
+          git commit -m "data: add player from issue #${{ github.event.issue.number }}"
           git push origin main
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Comment on issue
         if: steps.auth.outputs.allowed == 'true' && steps.push.outputs.sha != ''
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "✅ Player profile committed to \`main\` (${{ steps.push.outputs.sha }}). Site will redeploy in ~1 minute."
+          gh issue comment "${{ github.event.issue.number }}" --body "✅ Player committed to \`main\` (${{ steps.push.outputs.sha }}). Site redeploys in ~1 minute."
           gh issue close "${{ github.event.issue.number }}" --reason "completed"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on failure
         if: failure() && steps.auth.outputs.allowed == 'true'
-        run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "❌ Failed to process this submission. Check field values and try again."
+        run: gh issue comment "${{ github.event.issue.number }}" --body "❌ Failed to process. Check field values."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

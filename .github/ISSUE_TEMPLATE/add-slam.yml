@@ -1,44 +1,56 @@
-name: Add slam achievement
-description: Increment a white or black slam count for a player
+name: Add slam
+description: Record a white or black slam for a player
 title: "[Slam] "
 labels:
   - add-slam
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Add one slam to the Total slam leaderboard. A pull request will be created and merged after validation.
-
   - type: input
-    id: player_name
+    id: player_id
     attributes:
-      label: Player name
-      placeholder: e.g. Kunal Raut
+      label: Player ID
+      placeholder: zaid-ahmed-farooquee
     validations:
       required: true
-
   - type: dropdown
     id: slam_type
     attributes:
       label: Slam type
       options:
-        - White slam
-        - Black slam
+        - white
+        - black
     validations:
       required: true
-
   - type: dropdown
-    id: tournament_tier
+    id: source
     attributes:
-      label: Tournament tier
+      label: Source
       options:
-        - Club
-        - State & YouTube
+        - club
+        - youtube
+        - tournament
     validations:
       required: true
-
   - type: input
-    id: club_name
+    id: club_id
     attributes:
-      label: Club name (optional)
-      placeholder: e.g. Sai Carrom
+      label: Club ID (required if source is club)
+  - type: input
+    id: date
+    attributes:
+      label: Date (YYYY-MM-DD)
+  - type: input
+    id: tournament
+    attributes:
+      label: Tournament (optional)
+  - type: input
+    id: location
+    attributes:
+      label: Location (optional)
+  - type: input
+    id: video_url
+    attributes:
+      label: Video URL (optional)
+  - type: input
+    id: match_ref
+    attributes:
+      label: Match ref (optional)

@@ -4,29 +4,27 @@
   const config = window.CARROM_ADMIN || {};
   const TOKEN_KEY = "carrom_admin_token";
   const USER_KEY = "carrom_admin_user";
-  const OTHER_VALUE = "__other__";
 
   const loginEl = document.getElementById("admin-login");
   const deniedEl = document.getElementById("admin-denied");
   const appEl = document.getElementById("admin-app");
-  const tokenForm = document.getElementById("admin-token-form");
-  const logoutBtn = document.getElementById("admin-logout-btn");
-  const logoutDeniedBtn = document.getElementById("admin-logout-denied");
-  const userLabel = document.getElementById("admin-user-label");
-  const form = document.getElementById("admin-player-form");
   const statusEl = document.getElementById("admin-form-status");
   const loginError = document.getElementById("admin-login-error");
-  const existingSelect = document.getElementById("player-existing");
-  const nameInput = document.getElementById("player-name");
-  const nameSuggestions = document.getElementById("player-name-suggestions");
-  const clubSelect = document.getElementById("player-club");
-  const clubOther = document.getElementById("player-club-other");
-  const districtSelect = document.getElementById("player-district");
-  const districtOther = document.getElementById("player-district-other");
-  const genderSelect = document.getElementById("player-gender");
 
-  let playerRegistry = [];
-  let formInitialized = false;
+  let players = [];
+  let clubs = [];
+  let slams = [];
+
+  function slugify(name) {
+    return name
+      .trim()
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, " ")
+      .replace(/[-\s]+/g, "-")
+      .replace(/^-|-$/g, "") || "player";
+  }
 
   function hideAll() {
     [loginEl, deniedEl, appEl].forEach((el) => {
@@ -39,15 +37,10 @@
     if (el) el.hidden = false;
   }
 
-  function setLoginError(message) {
-    if (!loginError) return;
-    if (message) {
-      loginError.textContent = message;
-      loginError.hidden = false;
-    } else {
-      loginError.textContent = "";
-      loginError.hidden = true;
-    }
+  function setStatus(message, type) {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.className = `admin-status${type ? ` admin-status--${type}` : ""}`;
   }
 
   function getStoredToken() {
@@ -67,41 +60,10 @@
     }
   }
 
-  function getStoredUser() {
-    try {
-      const raw = sessionStorage.getItem(USER_KEY);
-      return raw ? JSON.parse(raw) : null;
-    } catch {
-      return null;
-    }
-  }
-
-  function setStoredUser(user) {
-    try {
-      if (user) sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-      else sessionStorage.removeItem(USER_KEY);
-    } catch {
-      /* ignore */
-    }
-  }
-
-  async function fetchAllowlist() {
-    const res = await fetch(config.allowlistUrl);
-    if (!res.ok) throw new Error("Could not load admin allowlist");
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Could not load ${url}`);
     return res.json();
-  }
-
-  async function fetchFormOptions() {
-    const res = await fetch(config.formOptionsUrl);
-    if (!res.ok) throw new Error("Could not load form options");
-    return res.json();
-  }
-
-  async function fetchPlayers() {
-    const res = await fetch(config.playersUrl);
-    if (!res.ok) throw new Error("Could not load player registry");
-    const data = await res.json();
-    return data.players || [];
   }
 
   async function fetchGitHubUser(token) {
@@ -118,221 +80,11 @@
   }
 
   async function isAllowedUser(login) {
-    const allowlist = await fetchAllowlist();
+    const allowlist = await fetchJson(config.allowlistUrl);
     return (allowlist.allowedUsers || []).includes(login);
   }
 
-  function titleCaseGender(value) {
-    if (!value) return "";
-    const lower = value.trim().toLowerCase();
-    if (lower === "male") return "Male";
-    if (lower === "female") return "Female";
-    if (lower === "other") return "Other";
-    return value;
-  }
-
-  function populateSelect(select, values, { includeBlank = true, includeOther = false } = {}) {
-    if (!select) return;
-    const current = select.value;
-    select.innerHTML = "";
-
-    if (includeBlank) {
-      const blank = document.createElement("option");
-      blank.value = "";
-      blank.textContent = "—";
-      select.appendChild(blank);
-    }
-
-    values.forEach((value) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
-      select.appendChild(option);
-    });
-
-    if (includeOther) {
-      const other = document.createElement("option");
-      other.value = OTHER_VALUE;
-      other.textContent = "Other…";
-      select.appendChild(other);
-    }
-
-    if ([...select.options].some((opt) => opt.value === current)) {
-      select.value = current;
-    }
-  }
-
-  function toggleOtherField(select, otherInput) {
-    if (!select || !otherInput) return;
-    const showOther = select.value === OTHER_VALUE;
-    otherInput.hidden = !showOther;
-    otherInput.required = showOther;
-    if (!showOther) otherInput.value = "";
-  }
-
-  function setSelectOrOther(select, otherInput, value) {
-    if (!select || !otherInput) return;
-    const trimmed = (value || "").trim();
-    if (!trimmed) {
-      select.value = "";
-      otherInput.value = "";
-      otherInput.hidden = true;
-      return;
-    }
-
-    const match = [...select.options].some((opt) => opt.value === trimmed);
-    if (match) {
-      select.value = trimmed;
-      otherInput.value = "";
-      otherInput.hidden = true;
-    } else {
-      select.value = OTHER_VALUE;
-      otherInput.value = trimmed;
-      otherInput.hidden = false;
-    }
-  }
-
-  function readSelectOrOther(select, otherInput) {
-    if (!select) return "";
-    if (select.value === OTHER_VALUE) {
-      return otherInput ? otherInput.value.trim() : "";
-    }
-    return select.value.trim();
-  }
-
-  function populateNameSuggestions(players) {
-    if (!nameSuggestions) return;
-    nameSuggestions.innerHTML = "";
-    players
-      .map((player) => player.name)
-      .sort((a, b) => a.localeCompare(b))
-      .forEach((name) => {
-        const option = document.createElement("option");
-        option.value = name;
-        nameSuggestions.appendChild(option);
-      });
-  }
-
-  function populateExistingPlayers(players) {
-    if (!existingSelect) return;
-    const current = existingSelect.value;
-    existingSelect.innerHTML = "";
-
-    const blank = document.createElement("option");
-    blank.value = "";
-    blank.textContent = "— New player —";
-    existingSelect.appendChild(blank);
-
-    players
-      .slice()
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .forEach((player) => {
-        const option = document.createElement("option");
-        option.value = player.id;
-        option.textContent = player.name;
-        existingSelect.appendChild(option);
-      });
-
-    if ([...existingSelect.options].some((opt) => opt.value === current)) {
-      existingSelect.value = current;
-    }
-  }
-
-  function fillFormFromPlayer(player) {
-    if (!player || !form) return;
-    if (nameInput) nameInput.value = player.name || "";
-
-    const profile = player.profile || {};
-    setSelectOrOther(clubSelect, clubOther, profile.club);
-    setSelectOrOther(districtSelect, districtOther, profile.district);
-
-    if (genderSelect) {
-      genderSelect.value = titleCaseGender(profile.gender);
-    }
-
-    if (form.aliases) {
-      form.aliases.value = (player.aliases || []).join(", ");
-    }
-    if (form.notes) {
-      form.notes.value = "";
-    }
-  }
-
-  function resetPlayerForm() {
-    if (!form) return;
-    form.reset();
-    if (existingSelect) existingSelect.value = "";
-    toggleOtherField(clubSelect, clubOther);
-    toggleOtherField(districtSelect, districtOther);
-  }
-
-  async function initPlayerForm() {
-    if (!form) return;
-
-    const [options, players] = await Promise.all([fetchFormOptions(), fetchPlayers()]);
-    playerRegistry = players;
-
-    populateSelect(clubSelect, options.clubs || [], { includeOther: true });
-    populateSelect(districtSelect, options.districts || [], { includeOther: true });
-    populateExistingPlayers(players);
-    populateNameSuggestions(players);
-
-    if (formInitialized) return;
-    formInitialized = true;
-
-    clubSelect?.addEventListener("change", () => toggleOtherField(clubSelect, clubOther));
-    districtSelect?.addEventListener("change", () => toggleOtherField(districtSelect, districtOther));
-
-    existingSelect?.addEventListener("change", () => {
-      const playerId = existingSelect.value;
-      if (!playerId) {
-        resetPlayerForm();
-        return;
-      }
-      const player = playerRegistry.find((entry) => entry.id === playerId);
-      fillFormFromPlayer(player);
-    });
-
-    nameInput?.addEventListener("change", () => {
-      const typed = nameInput.value.trim().toLowerCase();
-      if (!typed) return;
-      const match = playerRegistry.find((entry) => entry.name.trim().toLowerCase() === typed);
-      if (match && existingSelect) {
-        existingSelect.value = match.id;
-        fillFormFromPlayer(match);
-      }
-    });
-  }
-
-  function buildIssueBody(values) {
-    return [
-      "### Full name",
-      "",
-      values.name,
-      "",
-      "### Club name",
-      "",
-      values.club || "",
-      "",
-      "### District / city",
-      "",
-      values.district || "",
-      "",
-      "### Gender",
-      "",
-      values.gender || "",
-      "",
-      "### Aliases (optional)",
-      "",
-      values.aliases || "",
-      "",
-      "### Notes (optional)",
-      "",
-      values.notes || "",
-    ].join("\n");
-  }
-
-  async function createIssue(token, values) {
+  async function createIssue(token, { title, labels, body }) {
     const [owner, repo] = config.repo.split("/");
     const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/issues`, {
       method: "POST",
@@ -342,136 +94,299 @@
         "Content-Type": "application/json",
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      body: JSON.stringify({
-        title: `[Player] ${values.name}`,
-        labels: ["add-player"],
-        body: buildIssueBody(values),
-      }),
+      body: JSON.stringify({ title, labels, body }),
     });
-
     const data = await res.json();
     if (!res.ok) {
-      if (res.status === 403) {
-        throw new Error("Token lacks Issues permission on this repo. Create a new token with Issues: Read and write.");
-      }
       throw new Error(data.message || "Could not create GitHub issue");
     }
     return data;
   }
 
-  function setStatus(message, type) {
-    if (!statusEl) return;
-    statusEl.textContent = message;
-    statusEl.className = `admin-status${type ? ` admin-status--${type}` : ""}`;
+  function issueBody(fields) {
+    return Object.entries(fields)
+      .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== "")
+      .map(([label, value]) => `### ${label}\n\n${value}`)
+      .join("\n\n");
+  }
+
+  function populateSelect(select, options, { valueKey = "id", labelKey = "name", blank = false } = {}) {
+    if (!select) return;
+    select.innerHTML = "";
+    if (blank) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "—";
+      select.appendChild(opt);
+    }
+    options.forEach((item) => {
+      const opt = document.createElement("option");
+      opt.value = typeof item === "string" ? item : item[valueKey];
+      opt.textContent = typeof item === "string" ? item : item[labelKey];
+      select.appendChild(opt);
+    });
+  }
+
+  async function loadCatalog() {
+    const [playersData, clubsData, slamsData] = await Promise.all([
+      fetchJson(config.playersUrl),
+      fetchJson(config.clubsUrl),
+      fetchJson(config.slamsUrl),
+    ]);
+    players = playersData.players || [];
+    clubs = clubsData.clubs || [];
+    slams = (slamsData.slams || []).filter((s) => s.active !== false);
+
+    populateSelect(document.getElementById("player-clubs"), clubs);
+    populateSelect(document.getElementById("slam-player"), players, { blank: true });
+    populateSelect(document.getElementById("slam-club"), clubs, { blank: true });
+    populateSelect(
+      document.getElementById("edit-slam-id"),
+      slams.map((s) => ({
+        id: s.id,
+        name: `${s.id} — ${s.type} (${players.find((p) => p.id === s.playerId)?.name || s.playerId})`,
+      })),
+      { valueKey: "id", labelKey: "name", blank: true },
+    );
+  }
+
+  function setupTabs() {
+    document.querySelectorAll(".admin-tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".admin-tab").forEach((t) => t.classList.remove("is-active"));
+        tab.classList.add("is-active");
+        const name = tab.dataset.tab;
+        ["player", "club", "slam", "edit"].forEach((panel) => {
+          const el = document.getElementById(`panel-${panel}`);
+          if (el) el.hidden = panel !== name;
+        });
+      });
+    });
+  }
+
+  function setupSlugPreview(inputId, previewId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    if (!input || !preview) return;
+    input.addEventListener("input", () => {
+      preview.textContent = input.value.trim() ? slugify(input.value) : "—";
+    });
+  }
+
+  function setupSourceToggle() {
+    const source = document.getElementById("slam-source");
+    const clubField = document.getElementById("slam-club-field");
+    const clubSelect = document.getElementById("slam-club");
+    function update() {
+      const isClub = source?.value === "club";
+      if (clubField) clubField.hidden = !isClub;
+      if (clubSelect) clubSelect.required = isClub;
+    }
+    source?.addEventListener("change", update);
+    update();
+  }
+
+  function setupEditToggle() {
+    const action = document.getElementById("edit-action");
+    const fields = document.getElementById("edit-fields");
+    action?.addEventListener("change", () => {
+      if (fields) fields.hidden = action.value === "delete";
+    });
   }
 
   async function bootstrapSession(token) {
     const user = await fetchGitHubUser(token);
     if (!(await isAllowedUser(user.login))) {
       setStoredToken(null);
-      setStoredUser(null);
       show(deniedEl);
       return;
     }
     setStoredToken(token);
-    setStoredUser(user);
-    if (userLabel) userLabel.textContent = `Signed in as @${user.login}`;
-    show(appEl);
     try {
-      await initPlayerForm();
-    } catch (err) {
-      setStatus(err.message || "Could not load form options.", "error");
+      sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    } catch {
+      /* ignore */
     }
+    document.getElementById("admin-user-label").textContent = `Signed in as @${user.login}`;
+    await loadCatalog();
+    show(appEl);
   }
 
   function signOut() {
     setStoredToken(null);
-    setStoredUser(null);
-    setLoginError("");
-    if (tokenForm) tokenForm.reset();
-    playerRegistry = [];
-    formInitialized = false;
     show(loginEl);
   }
 
-  async function init() {
-    const token = getStoredToken();
-    if (token) {
-      try {
-        await bootstrapSession(token);
-        return;
-      } catch (err) {
-        setStoredToken(null);
-        setStoredUser(null);
-        setLoginError(err.message || "Session expired. Sign in again.");
+  document.getElementById("admin-token-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = event.target.token.value.trim();
+    try {
+      await bootstrapSession(token);
+      event.target.reset();
+    } catch (err) {
+      if (loginError) {
+        loginError.textContent = err.message;
+        loginError.hidden = false;
       }
     }
+  });
+
+  document.getElementById("admin-logout-btn")?.addEventListener("click", signOut);
+  document.getElementById("admin-logout-denied")?.addEventListener("click", signOut);
+
+  document.getElementById("admin-player-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const name = form.name.value.trim();
+    const gender = form.gender.value.trim();
+    if (!name || !gender) {
+      setStatus("Name and gender are required.", "error");
+      return;
+    }
+
+    const clubIds = [...form.clubIds.selectedOptions].map((o) => o.value).join(", ");
+    setStatus("Submitting…", "pending");
+    try {
+      const issue = await createIssue(token, {
+        title: `[Player] ${name}`,
+        labels: ["add-player"],
+        body: issueBody({
+          "Full name": name,
+          Gender: gender,
+          District: "Thane",
+          "Club IDs (comma-separated)": clubIds,
+          "Aliases (optional)": form.aliases.value.trim(),
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — player will update after validation.`, "success");
+      form.reset();
+    } catch (err) {
+      setStatus(err.message, "error");
+    }
+  });
+
+  document.getElementById("admin-club-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const name = form.name.value.trim();
+    if (!name) {
+      setStatus("Club name is required.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    try {
+      const issue = await createIssue(token, {
+        title: `[Club] ${name}`,
+        labels: ["add-club"],
+        body: issueBody({
+          "Club name": name,
+          District: "Thane",
+          "Contact (optional)": form.contact.value.trim(),
+          "Notes (optional)": form.notes.value.trim(),
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — club will update after validation.`, "success");
+      form.reset();
+    } catch (err) {
+      setStatus(err.message, "error");
+    }
+  });
+
+  document.getElementById("admin-slam-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const playerId = form.playerId.value;
+    const source = form.source.value;
+    if (!playerId) {
+      setStatus("Player is required.", "error");
+      return;
+    }
+    if (source === "club" && !form.clubId.value) {
+      setStatus("Club is required when source is club.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    try {
+      const player = players.find((p) => p.id === playerId);
+      const issue = await createIssue(token, {
+        title: `[Slam] ${player?.name || playerId} — ${form.type.value}`,
+        labels: ["add-slam"],
+        body: issueBody({
+          "Player ID": playerId,
+          "Slam type": form.type.value,
+          Source: source,
+          Season: "2025",
+          "Club ID": source === "club" ? form.clubId.value : "",
+          "Date (YYYY-MM-DD)": form.date.value,
+          "Tournament (optional)": form.tournament.value.trim(),
+          "Location (optional)": form.location.value.trim(),
+          "Video URL (optional)": form.videoUrl.value.trim(),
+          "Match ref (optional)": form.matchRef.value.trim(),
+          "Notes (optional)": form.notes.value.trim(),
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — slam will be added after validation.`, "success");
+      form.reset();
+      setupSourceToggle();
+    } catch (err) {
+      setStatus(err.message, "error");
+    }
+  });
+
+  document.getElementById("admin-edit-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const slamId = form.slamId.value;
+    if (!slamId) {
+      setStatus("Slam ID is required.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    try {
+      const issue = await createIssue(token, {
+        title: `[Edit slam] ${slamId}`,
+        labels: ["edit-slam"],
+        body: issueBody({
+          "Slam ID": slamId,
+          Action: form.action.value,
+          "Slam type": form.type.value,
+          Source: form.source.value,
+          "Date (YYYY-MM-DD)": form.date.value,
+          "Notes (optional)": form.notes.value.trim(),
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — edit will apply after validation.`, "success");
+      form.reset();
+    } catch (err) {
+      setStatus(err.message, "error");
+    }
+  });
+
+  setupTabs();
+  setupSlugPreview("player-name", "player-slug-preview");
+  setupSlugPreview("club-name", "club-slug-preview");
+  setupSourceToggle();
+  setupEditToggle();
+
+  const token = getStoredToken();
+  if (token) {
+    bootstrapSession(token).catch(() => show(loginEl));
+  } else {
     show(loginEl);
   }
-
-  if (tokenForm) {
-    tokenForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      setLoginError("");
-      const token = tokenForm.token.value.trim();
-      if (!token) return;
-
-      const submitBtn = tokenForm.querySelector("button[type=submit]");
-      if (submitBtn) submitBtn.disabled = true;
-
-      try {
-        await bootstrapSession(token);
-        if (getStoredToken()) tokenForm.reset();
-        else setLoginError("Sign in failed. Check your token and allowlist.");
-      } catch (err) {
-        setLoginError(err.message || "Sign in failed.");
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
-
-  if (logoutBtn) logoutBtn.addEventListener("click", signOut);
-  if (logoutDeniedBtn) logoutDeniedBtn.addEventListener("click", signOut);
-
-  if (form) {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const token = getStoredToken();
-      if (!token) {
-        show(loginEl);
-        return;
-      }
-
-      const values = {
-        name: form.name.value.trim(),
-        club: readSelectOrOther(clubSelect, clubOther),
-        district: readSelectOrOther(districtSelect, districtOther),
-        gender: form.gender.value.trim(),
-        aliases: form.aliases.value.trim(),
-        notes: form.notes.value.trim(),
-      };
-
-      if (!values.name) {
-        setStatus("Full name is required.", "error");
-        return;
-      }
-
-      const submitBtn = document.getElementById("admin-submit-btn");
-      if (submitBtn) submitBtn.disabled = true;
-      setStatus("Submitting…", "pending");
-
-      try {
-        const issue = await createIssue(token, values);
-        setStatus(`Submitted! Issue #${issue.number} created — data will commit to main after validation.`, "success");
-        resetPlayerForm();
-      } catch (err) {
-        setStatus(err.message || "Submission failed.", "error");
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
-
-  init();
 })();

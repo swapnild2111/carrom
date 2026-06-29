@@ -1,0 +1,81 @@
+{{ define "main" }}
+{{ $id := .Params.entityId }}
+{{ $club := index (where .Site.Data.generated.clubs_enriched.clubs "id" $id) 0 }}
+{{ $players := .Site.Data.generated.players_enriched.players }}
+
+{{ if not $club }}
+<p>Club not found.</p>
+{{ else }}
+<section class="entity-header">
+  <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Club</p>
+  <h2>{{ $club.name }}</h2>
+  <div class="entity-meta">
+    <span class="badge badge-district">{{ $club.district }} District</span>
+    {{ with $club.contact }}<span class="badge">Contact: {{ . }}</span>{{ end }}
+  </div>
+  {{ with $club.notes }}<p class="entity-notes">{{ . }}</p>{{ end }}
+</section>
+
+<section class="stat-cards" aria-label="Club slam stats">
+  <div class="stat-card stat-white">
+    <span class="stat-value">{{ $club.stats.white }}</span>
+    <span class="stat-label">White slams logged</span>
+  </div>
+  <div class="stat-card stat-black">
+    <span class="stat-value">{{ $club.stats.black }}</span>
+    <span class="stat-label">Black slams logged</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-value">{{ len $club.roster }}</span>
+    <span class="stat-label">Players</span>
+  </div>
+</section>
+
+<section class="roster-section">
+  <h3>Roster</h3>
+  {{ if $club.roster }}
+  <ul class="roster-list">
+    {{ range $club.roster }}
+    <li><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="empty-state">No players linked to this club yet.</p>
+  {{ end }}
+</section>
+
+<section class="timeline-section">
+  <h3>Slams logged via this club</h3>
+  {{ if $club.slams }}
+  <div class="table-wrap">
+    <table class="timeline-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Player</th>
+          <th>Type</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $club.slams }}
+        {{ $p := index (where $players "id" .playerId) 0 }}
+        <tr>
+          <td>{{ with .date }}{{ . }}{{ else }}—{{ end }}</td>
+          <td>{{ if $p }}<a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a>{{ else }}{{ .playerId }}{{ end }}</td>
+          <td><span class="badge badge-{{ .type }}">{{ .type }}</span></td>
+          <td>
+            {{ with .matchRef }}{{ . }}{{ end }}
+            {{ with .location }} · {{ . }}{{ end }}
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+  {{ else }}
+  <p class="empty-state">No slams logged for this club in the 2025 season yet.</p>
+  {{ end }}
+</section>
+{{ end }}
+{{ end }}
