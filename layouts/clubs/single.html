@@ -13,7 +13,11 @@
     <span class="badge badge-district">{{ $club.district }} District</span>
     {{ with $club.contact }}<span class="badge">Contact: {{ . }}</span>{{ end }}
   </div>
-  {{ with $club.notes }}<p class="entity-notes">{{ . }}</p>{{ end }}
+  {{ with $club.notes }}
+    {{ if ne . "Default club for Total slam sheet import." }}
+    <p class="entity-notes">{{ . }}</p>
+    {{ end }}
+  {{ end }}
 </section>
 
 <section class="stat-cards" aria-label="Club slam stats">

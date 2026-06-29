@@ -68,7 +68,7 @@ def expand_slams(player_id: str, club_white: int, club_black: int, state_white: 
                     "location": PROTOTYPE_DISTRICT,
                     "videoUrl": None,
                     "matchRef": None,
-                    "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+                    "notes": None,
                     "active": True,
                     "_batch": counter,
                 }
@@ -125,7 +125,7 @@ def build_dataset(df: pd.DataFrame) -> tuple[list[dict], list[dict], list[dict]]
             "name": SAI_CLUB_NAME,
             "district": PROTOTYPE_DISTRICT,
             "contact": None,
-            "notes": "Default club for Total slam sheet import.",
+            "notes": None,
             "active": True,
         }
     ]

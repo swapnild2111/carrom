@@ -1,11 +1,17 @@
 {{ define "main" }}
-<section class="intro">
+<section class="entity-header">
+  <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Clubs</p>
   <h2>Thane clubs</h2>
-  <p class="intro-lead">Clubs that log player slams for the 2025 season.</p>
+  <p class="entity-aliases">Clubs that log player slams for the 2025 season.</p>
 </section>
-<ul class="club-list-page">
+
+<div class="club-grid">
   {{ range .Site.Data.generated.clubs_enriched.clubs }}
-  <li><a href="{{ (printf "clubs/%s/" .id) | relURL }}">{{ .name }}</a> — {{ len .roster }} players, {{ .stats.total }} slams</li>
+  <a class="club-card" href="{{ (printf "clubs/%s/" .id) | relURL }}">
+    <span class="club-card-icon" aria-hidden="true">◆</span>
+    <h4>{{ .name }}</h4>
+    <p>{{ len .roster }} players · {{ .stats.total }} slams logged</p>
+  </a>
   {{ end }}
-</ul>
+</div>
 {{ end }}

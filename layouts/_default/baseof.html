@@ -6,6 +6,7 @@
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ .Site.Params.description }}">
   <link rel="icon" href="{{ "images/carrom-logo.svg" | relURL }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
   {{ block "head-extra" . }}{{ end }}
 </head>
@@ -32,10 +33,10 @@
         </div>
       </div>
       <nav class="header-nav" aria-label="Main">
-        <a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a>
-        <a href="{{ "clubs/" | relURL }}">Clubs</a>
-        <a href="{{ "awards/2025/" | relURL }}">Awards</a>
-        <a href="{{ "admin/" | relURL }}">Admin</a>
+        <a href="{{ .Site.Home.RelPermalink }}" class="nav-link{{ if .IsHome }} is-active{{ end }}">Leaderboard</a>
+        <a href="{{ "clubs/" | relURL }}" class="nav-link{{ if eq .Section "clubs" }} is-active{{ end }}">Clubs</a>
+        <a href="{{ "awards/2025/" | relURL }}" class="nav-link{{ if strings.Contains .RelPermalink "awards" }} is-active{{ end }}">Awards</a>
+        <a href="{{ "admin/" | relURL }}" class="nav-link nav-link-muted{{ if strings.Contains .RelPermalink "admin" }} is-active{{ end }}">Admin</a>
       </nav>
     </div>
   </header>

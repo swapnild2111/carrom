@@ -32,6 +32,39 @@ def active_slams(slams: list[dict], season: int = SEASON) -> list[dict]:
     ]
 
 
+def group_timeline(timeline: list[dict]) -> list[dict]:
+    """Collapse identical aggregate slams; keep dated or annotated events separate."""
+    buckets: dict[tuple, dict] = {}
+    standalone: list[dict] = []
+
+    for slam in timeline:
+        has_detail = bool(
+            slam.get("date")
+            or slam.get("videoUrl")
+            or slam.get("matchRef")
+            or slam.get("notes")
+        )
+        if has_detail:
+            standalone.append({**slam, "count": 1})
+            continue
+
+        key = (
+            slam["type"],
+            slam["source"],
+            slam.get("clubId"),
+            slam.get("tournament"),
+            slam.get("location"),
+        )
+        if key in buckets:
+            buckets[key]["count"] += 1
+        else:
+            buckets[key] = {**slam, "count": 1}
+
+    grouped = list(buckets.values()) + standalone
+    grouped.sort(key=lambda g: (-g["count"], g["type"], g.get("date") or "", g["id"]))
+    return grouped
+
+
 def compute_player_stats(player_id: str, slams: list[dict]) -> dict:
     player_slams = [s for s in slams if s["playerId"] == player_id]
     white = sum(1 for s in player_slams if s["type"] == "white")
@@ -55,6 +88,7 @@ def compute_player_stats(player_id: str, slams: list[dict]) -> dict:
         "byClub": dict(by_club),
         "slamCount": len(player_slams),
         "timeline": timeline,
+        "timelineGroups": group_timeline(timeline),
     }
 
 
@@ -151,6 +185,7 @@ def main() -> int:
             },
             "ranks": {},
             "timeline": stats["timeline"],
+            "timelineGroups": stats["timelineGroups"],
         })
 
     assign_ranks(enriched_players, "white")

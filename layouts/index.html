@@ -2,53 +2,113 @@
 {{ $summary := .Site.Data.generated.site_summary }}
 {{ $leaderboard := .Site.Data.generated.leaderboard_2025 }}
 {{ $awards := .Site.Data.generated.awards_2025 }}
+{{ $topPlayers := first 10 $leaderboard.players }}
 
-<section class="intro">
-  <h2>{{ $summary.season }} Thane District Slam Tracker</h2>
-  <p class="intro-lead">
-    Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
-    Know who leads. Celebrate the Oscar moment at season end.
-  </p>
-  <p class="intro-actions">
-    <a class="btn btn-primary" href="{{ "awards/2025/" | relURL }}">View 2025 awards</a>
-  </p>
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">{{ $summary.season }} season · {{ $summary.district }} District</p>
+    <h2 class="hero-title">Thane Slam Tracker</h2>
+    <p class="hero-lead">
+      Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
+      Know who leads. Celebrate the Oscar moment at season end.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ "awards/2025/" | relURL }}">View 2025 awards</a>
+      <a class="btn btn-ghost" href="#leaderboard">Browse leaderboard</a>
+    </div>
+  </div>
 </section>
 
 <section class="stat-cards" aria-label="Season summary">
   <div class="stat-card stat-white">
+    <span class="stat-icon" aria-hidden="true">○</span>
     <span class="stat-value">{{ $summary.totals.white }}</span>
     <span class="stat-label">White slams</span>
   </div>
   <div class="stat-card stat-black">
+    <span class="stat-icon" aria-hidden="true">●</span>
     <span class="stat-value">{{ $summary.totals.black }}</span>
     <span class="stat-label">Black slams</span>
   </div>
-  <div class="stat-card">
+  <div class="stat-card stat-total">
+    <span class="stat-icon" aria-hidden="true">∑</span>
     <span class="stat-value">{{ $summary.totals.all }}</span>
     <span class="stat-label">Total slams</span>
   </div>
-  <div class="stat-card">
+  <div class="stat-card stat-players">
+    <span class="stat-icon" aria-hidden="true">#</span>
     <span class="stat-value">{{ $summary.playerCount }}</span>
     <span class="stat-label">Players</span>
   </div>
 </section>
 
+<section class="charts-section page-section" aria-label="Season charts">
+  <div class="section-heading">
+    <h3>Season analytics</h3>
+    <p class="section-desc">Top performers and how white vs black slams stack up across Thane in {{ $summary.season }}.</p>
+  </div>
+  <div class="charts-grid">
+    <article class="chart-card chart-card-wide">
+      <h4>Top 10 players</h4>
+      <p class="chart-caption">Stacked white and black slams — longest bar leads the district.</p>
+      <div class="chart-canvas-wrap chart-canvas-tall">
+        <canvas id="chart-top-players" role="img" aria-label="Horizontal bar chart of top 10 players by slam count"></canvas>
+      </div>
+    </article>
+    <article class="chart-card">
+      <h4>White vs black</h4>
+      <p class="chart-caption">Share of all recorded slams this season.</p>
+      <div class="chart-canvas-wrap">
+        <canvas id="chart-white-black" role="img" aria-label="Doughnut chart of white versus black slams"></canvas>
+      </div>
+    </article>
+    <article class="chart-card">
+      <h4>Podium comparison</h4>
+      <p class="chart-caption">How the top three compare across categories.</p>
+      <div class="chart-canvas-wrap">
+        <canvas id="chart-leaders-pace" role="img" aria-label="Radar chart comparing top three players"></canvas>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script type="application/json" id="home-chart-data">
+{
+  "totals": {
+    "white": {{ $summary.totals.white }},
+    "black": {{ $summary.totals.black }},
+    "all": {{ $summary.totals.all }}
+  },
+  "topPlayers": [
+    {{- range $i, $p := $topPlayers -}}
+    {{- if $i }},{{ end }}
+    {"name":{{ $p.name | jsonify }},"white":{{ $p.stats.white }},"black":{{ $p.stats.black }},"total":{{ $p.stats.total }}}
+    {{- end -}}
+  ]
+}
+</script>
+
 {{ with $awards }}
-<section class="awards-preview">
-  <h3>2025 award leaders</h3>
+<section class="awards-preview page-section">
+  <div class="section-heading">
+    <h3>2025 award leaders</h3>
+    <p class="section-desc">Who's on track for the white and black slam trophies at season end.</p>
+  </div>
   <div class="awards-preview-grid">
-    <div class="award-preview-card">
+    <div class="award-preview-card award-card-white">
+      <span class="award-preview-icon" aria-hidden="true">○</span>
       <h4>Max white slams</h4>
       {{ range .maxWhiteSlams }}
-      <p><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> — <strong>{{ .count }}</strong></p>
+      <p class="award-preview-row"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
       {{ else }}
       <p class="text-muted">No slams recorded yet.</p>
       {{ end }}
     </div>
-    <div class="award-preview-card">
+    <div class="award-preview-card award-card-black">
+      <span class="award-preview-icon" aria-hidden="true">●</span>
       <h4>Max black slams</h4>
       {{ range .maxBlackSlams }}
-      <p><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> — <strong>{{ .count }}</strong></p>
+      <p class="award-preview-row"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
       {{ else }}
       <p class="text-muted">No slams recorded yet.</p>
       {{ end }}
@@ -57,22 +117,25 @@
 </section>
 {{ end }}
 
-<section class="leaderboard-section">
+<section class="leaderboard-section page-section" id="leaderboard">
   <div class="section-header">
-    <h3>Thane leaderboard</h3>
+    <div class="section-heading section-heading-inline">
+      <h3>Thane leaderboard</h3>
+      <p class="section-desc">All {{ $summary.playerCount }} players ranked by total slams.</p>
+    </div>
     <div class="search-field">
       <label for="player-search" class="sr-only">Search players</label>
       <input type="search" id="player-search" class="player-search" placeholder="Search players…  (press /)" autocomplete="off">
     </div>
   </div>
-  <div class="table-wrap">
+  <div class="table-wrap table-wrap-elevated">
     <table class="leaderboard-table" id="leaderboard-table">
       <thead>
         <tr>
           <th scope="col">Rank</th>
           <th scope="col">Player</th>
-          <th scope="col" class="num">White</th>
-          <th scope="col" class="num">Black</th>
+          <th scope="col" class="num col-white">White</th>
+          <th scope="col" class="num col-black">Black</th>
           <th scope="col" class="num">Total</th>
           <th scope="col">Clubs</th>
         </tr>
@@ -80,11 +143,19 @@
       <tbody>
         {{ range $index, $p := $leaderboard.players }}
         <tr data-search="{{ lower $p.name }} {{ lower (delimit $p.aliases " ") }}">
-          <td>{{ with $p.ranks.total }}{{ . }}{{ else }}—{{ end }}</td>
-          <td><a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a></td>
-          <td class="num">{{ $p.stats.white }}</td>
-          <td class="num">{{ $p.stats.black }}</td>
-          <td class="num"><strong>{{ $p.stats.total }}</strong></td>
+          <td class="col-rank">
+            {{ with $p.ranks.total }}
+              {{ if le . 3 }}
+              <span class="rank-badge rank-{{ . }}" title="Rank {{ . }}">{{ . }}</span>
+              {{ else }}
+              <span class="rank-num">{{ . }}</span>
+              {{ end }}
+            {{ else }}—{{ end }}
+          </td>
+          <td class="col-player"><a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a></td>
+          <td class="num col-white">{{ $p.stats.white }}</td>
+          <td class="num col-black">{{ $p.stats.black }}</td>
+          <td class="num col-total"><strong>{{ $p.stats.total }}</strong></td>
           <td>
             {{ range $p.clubs }}
             <a href="{{ (printf "clubs/%s/" .id) | relURL }}" class="mini-badge mini-badge-club">{{ .name }}</a>
@@ -99,11 +170,15 @@
   </div>
 </section>
 
-<section class="clubs-section">
-  <h3>Clubs</h3>
+<section class="clubs-section page-section">
+  <div class="section-heading">
+    <h3>Clubs</h3>
+    <p class="section-desc">Rosters and slam logs from each registered club.</p>
+  </div>
   <div class="club-grid">
     {{ range .Site.Data.generated.clubs_enriched.clubs }}
     <a class="club-card" href="{{ (printf "clubs/%s/" .id) | relURL }}">
+      <span class="club-card-icon" aria-hidden="true">◆</span>
       <h4>{{ .name }}</h4>
       <p>{{ len .roster }} players · {{ .stats.total }} slams logged</p>
     </a>
@@ -111,5 +186,7 @@
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+<script src="{{ "js/home-charts.js" | relURL }}"></script>
 <script src="{{ "js/search.js" | relURL }}"></script>
 {{ end }}

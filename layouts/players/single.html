@@ -5,91 +5,224 @@
 <p>Player not found. Run <code>python scripts/build_derived.py</code> and restart Hugo.</p>
 {{ else }}
 {{ $clubs := .Site.Data.generated.clubs_enriched.clubs }}
-
-<section class="entity-header">
-  <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Player</p>
-  <h2>{{ $player.name }}</h2>
-  {{ if $player.aliases }}
-  <p class="entity-aliases">Also known as: {{ delimit $player.aliases ", " }}</p>
-  {{ end }}
-  <div class="entity-meta">
-    <span class="badge badge-district">{{ $player.district }} District</span>
-    <span class="badge">{{ $player.gender | title }}</span>
-    {{ range $player.clubs }}
-    <a class="badge badge-club" href="{{ (printf "clubs/%s/" .id) | relURL }}">{{ .name }}</a>
-    {{ end }}
-  </div>
-</section>
-
-<section class="stat-cards" aria-label="Player season stats">
-  <div class="stat-card stat-white">
-    <span class="stat-value">{{ $player.stats.white }}</span>
-    <span class="stat-label">White slams</span>
-    {{ with $player.ranks.white }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
-  </div>
-  <div class="stat-card stat-black">
-    <span class="stat-value">{{ $player.stats.black }}</span>
-    <span class="stat-label">Black slams</span>
-    {{ with $player.ranks.black }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
-  </div>
-  <div class="stat-card">
-    <span class="stat-value">{{ $player.stats.total }}</span>
-    <span class="stat-label">Total slams</span>
-    {{ with $player.ranks.total }}<span class="stat-hint">Rank #{{ . }} in Thane</span>{{ end }}
-  </div>
-</section>
-
+{{ $summary := .Site.Data.generated.site_summary }}
+{{ $leaderboard := .Site.Data.generated.leaderboard_2025.players }}
+{{ $leader := index $leaderboard 0 }}
+{{ $words := split $player.name " " }}
+{{ $initials := printf "%s%s" (substr $player.name 0 1) (substr (index $words 1 | default "") 0 1) }}
+{{ $whitePct := 0 }}
+{{ $blackPct := 0 }}
 {{ if gt $player.stats.total 0 }}
-<section class="breakdown-section">
-  <h3>By source</h3>
-  <ul class="breakdown-list">
-    {{ range $source, $count := $player.stats.bySource }}
-    <li><span class="badge badge-source">{{ $source }}</span> {{ $count }}</li>
-    {{ end }}
-  </ul>
-</section>
+  {{ $whitePct = mul (div (float $player.stats.white) (float $player.stats.total)) 100 }}
+  {{ $blackPct = sub 100 $whitePct }}
 {{ end }}
 
-<section class="timeline-section">
-  <h3>2025 slam history</h3>
-  {{ if $player.timeline }}
-  <div class="table-wrap">
-    <table class="timeline-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Type</th>
-          <th>Source</th>
-          <th>Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ range $player.timeline }}
-        <tr>
-          <td>{{ with .date }}{{ . }}{{ else }}—{{ end }}</td>
-          <td><span class="badge badge-{{ .type }}">{{ .type }}</span></td>
-          <td>{{ .source }}</td>
-          <td>
+<div class="player-page">
+  <header class="player-hero">
+    <div class="player-hero-main">
+      <div class="player-avatar-lg" aria-hidden="true">{{ $initials }}</div>
+      <div class="player-identity">
+        <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Player</p>
+        <h1 class="player-name">{{ $player.name }}</h1>
+        {{ if $player.aliases }}
+        <p class="player-aliases">Also known as {{ delimit $player.aliases ", " }}</p>
+        {{ end }}
+        <div class="player-tags">
+          <span class="player-tag">{{ $player.district }} District</span>
+          <span class="player-tag">{{ $player.gender | title }}</span>
+          {{ range $player.clubs }}
+          <a class="player-tag player-tag-club" href="{{ (printf "clubs/%s/" .id) | relURL }}">{{ .name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ with $player.ranks.total }}
+    <div class="player-rank-spotlight{{ if le . 3 }} player-rank-spotlight-top{{ . }}{{ end }}">
+      <span class="player-rank-value">#{{ . }}</span>
+      <span class="player-rank-label">overall rank</span>
+      <span class="player-rank-sub">of {{ $summary.playerCount }} in Thane</span>
+    </div>
+    {{ end }}
+  </header>
+
+  <section class="player-metrics" aria-label="Season statistics">
+    <article class="player-metric player-metric-white">
+      <span class="player-metric-icon" aria-hidden="true">○</span>
+      <span class="player-metric-value">{{ $player.stats.white }}</span>
+      <span class="player-metric-label">White slams</span>
+      {{ with $player.ranks.white }}
+      <span class="player-metric-rank">#{{ . }} in district</span>
+      {{ end }}
+    </article>
+    <article class="player-metric player-metric-black">
+      <span class="player-metric-icon" aria-hidden="true">●</span>
+      <span class="player-metric-value">{{ $player.stats.black }}</span>
+      <span class="player-metric-label">Black slams</span>
+      {{ with $player.ranks.black }}
+      <span class="player-metric-rank">#{{ . }} in district</span>
+      {{ end }}
+    </article>
+    <article class="player-metric player-metric-total">
+      <span class="player-metric-icon" aria-hidden="true">∑</span>
+      <span class="player-metric-value">{{ $player.stats.total }}</span>
+      <span class="player-metric-label">Total slams</span>
+      {{ with $player.ranks.total }}
+      <span class="player-metric-rank">#{{ . }} in district</span>
+      {{ end }}
+    </article>
+  </section>
+
+  {{ if gt $player.stats.total 0 }}
+  <div class="player-dashboard">
+    <section class="player-panel player-panel-mix" aria-labelledby="mix-heading">
+      <h3 id="mix-heading">Slam mix</h3>
+      <p class="player-panel-desc">White vs black breakdown for the {{ $summary.season }} season.</p>
+      <div class="player-mix-layout">
+        <div class="player-chart-wrap">
+          <canvas id="player-chart-mix" role="img" aria-label="Doughnut chart of white versus black slams"></canvas>
+        </div>
+        <div class="player-mix-stats">
+          <div class="player-ratio-bar" role="presentation">
+            <span class="player-ratio-white" style="width: {{ printf "%.0f" $whitePct }}%"></span>
+            <span class="player-ratio-black" style="width: {{ printf "%.0f" $blackPct }}%"></span>
+          </div>
+          <dl class="player-mix-legend">
+            <div class="player-mix-row">
+              <dt><span class="mix-dot mix-dot-white"></span> White</dt>
+              <dd>{{ $player.stats.white }} <span class="mix-pct">({{ printf "%.0f" $whitePct }}%)</span></dd>
+            </div>
+            <div class="player-mix-row">
+              <dt><span class="mix-dot mix-dot-black"></span> Black</dt>
+              <dd>{{ $player.stats.black }} <span class="mix-pct">({{ printf "%.0f" $blackPct }}%)</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="player-panel player-panel-standings" aria-labelledby="standings-heading">
+      <h3 id="standings-heading">District standing</h3>
+      <p class="player-panel-desc">How this player compares to the season leader.</p>
+      <ul class="player-standing-list">
+        {{ $metrics := slice (dict "key" "white" "label" "White slams" "class" "white") (dict "key" "black" "label" "Black slams" "class" "black") (dict "key" "total" "label" "Total slams" "class" "total") }}
+        {{ range $metrics }}
+        {{ $val := index $player.stats .key }}
+        {{ $rank := index $player.ranks .key }}
+        {{ $lead := index $leader.stats .key }}
+        {{ $pct := 0 }}
+        {{ if and $lead (gt $lead 0) }}
+          {{ $pct = mul (div (float $val) (float $lead)) 100 }}
+        {{ end }}
+        <li class="player-standing-row">
+          <div class="player-standing-top">
+            <span class="player-standing-label">{{ .label }}</span>
+            {{ with $rank }}<span class="player-standing-rank">#{{ . }}</span>{{ end }}
+          </div>
+          <div class="player-standing-bar" role="presentation">
+            <span class="player-standing-fill player-standing-fill-{{ .class }}" style="width: {{ printf "%.0f" $pct }}%"></span>
+          </div>
+          <p class="player-standing-meta"><strong>{{ $val }}</strong>{{ if $lead }} of {{ $lead }} leader{{ end }}</p>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+
+    {{ if $player.stats.bySource }}
+    <section class="player-panel player-panel-sources" aria-labelledby="sources-heading">
+      <h3 id="sources-heading">Slam sources</h3>
+      <p class="player-panel-desc">Where this player's slams were recorded.</p>
+      <ul class="player-source-list">
+        {{ range $source, $count := $player.stats.bySource }}
+        <li class="player-source-item">
+          <span class="player-source-name">{{ $source | title }}</span>
+          <span class="player-source-count">{{ $count }}</span>
+          <span class="player-source-bar" role="presentation">
+            <span class="player-source-fill" style="width: {{ printf "%.0f" (mul (div (float $count) (float $player.stats.total)) 100) }}%"></span>
+          </span>
+        </li>
+        {{ end }}
+      </ul>
+      {{ if $player.stats.byClub }}
+      <h4 class="player-subheading">By club</h4>
+      <ul class="player-club-chips">
+        {{ range $clubId, $count := $player.stats.byClub }}
+        {{ $club := index (where $clubs "id" $clubId) 0 }}
+        <li>
+          {{ if $club }}<a href="{{ (printf "clubs/%s/" $club.id) | relURL }}">{{ $club.name }}</a>{{ else }}{{ $clubId }}{{ end }}
+          <span class="player-club-count">{{ $count }}</span>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+
+  <section class="player-activity" aria-labelledby="activity-heading">
+    <div class="player-activity-header">
+      <div>
+        <h3 id="activity-heading">Slam log</h3>
+        <p class="player-panel-desc">{{ $player.stats.total }} slam{{ if gt $player.stats.total 1 }}s{{ end }} in {{ $summary.season }}{{ if gt (len $player.timeline) (len $player.timelineGroups) }} · grouped where identical{{ end }}</p>
+      </div>
+    </div>
+    {{ if $player.timelineGroups }}
+    <div class="player-log">
+      {{ range $player.timelineGroups }}
+      <article class="player-log-entry player-log-{{ .type }}">
+        <div class="player-log-badge">
+          <span class="badge badge-{{ .type }}">{{ .type }}</span>
+          {{ if gt .count 1 }}<span class="player-log-count">×{{ .count }}</span>{{ end }}
+        </div>
+        <div class="player-log-body">
+          <p class="player-log-title">
             {{ if eq .source "club" }}
               {{ $cid := .clubId }}
               {{ range $clubs }}{{ if eq .id $cid }}{{ .name }}{{ end }}{{ end }}
             {{ else if eq .source "tournament" }}
-              {{ with .tournament }}{{ . }}{{ else }}—{{ end }}
+              {{ with .tournament }}{{ . }}{{ else }}Tournament{{ end }}
             {{ else if eq .source "youtube" }}
-              {{ with .videoUrl }}<a href="{{ . }}" target="_blank" rel="noopener">Watch video</a>{{ else }}YouTube{{ end }}
+              {{ with .videoUrl }}<a href="{{ . }}" target="_blank" rel="noopener">YouTube</a>{{ else }}YouTube{{ end }}
+            {{ else }}
+              {{ .source | title }}
             {{ end }}
-            {{ with .location }} · {{ . }}{{ end }}
-            {{ with .matchRef }}<br><span class="text-muted">{{ . }}</span>{{ end }}
-            {{ with .notes }}<br><span class="text-muted">{{ . }}</span>{{ end }}
-          </td>
-        </tr>
-        {{ end }}
-      </tbody>
-    </table>
-  </div>
+          </p>
+          <p class="player-log-meta">
+            <span class="player-log-source">{{ .source | title }}</span>
+            {{ with .date }}<span>{{ . }}</span>{{ end }}
+            {{ with .location }}<span>{{ . }}</span>{{ end }}
+            {{ with .matchRef }}<span>{{ . }}</span>{{ end }}
+          </p>
+          {{ with .notes }}
+            {{ if ne . "Imported from Total slam Excel sheet (2025 aggregate)" }}
+            <p class="player-log-notes">{{ . }}</p>
+            {{ end }}
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="empty-state">No slams recorded for this player in the {{ $summary.season }} season yet.</p>
+    {{ end }}
+  </section>
   {{ else }}
-  <p class="empty-state">No slams recorded for this player in the 2025 season yet.</p>
+  <section class="player-empty">
+    <p class="empty-state">No slams recorded for this player in the {{ $summary.season }} season yet.</p>
+    <p><a class="btn btn-primary" href="{{ .Site.Home.RelPermalink }}">Back to leaderboard</a></p>
+  </section>
   {{ end }}
-</section>
+</div>
+
+{{ if gt $player.stats.total 0 }}
+<script type="application/json" id="player-chart-data">
+{
+  "white": {{ $player.stats.white }},
+  "black": {{ $player.stats.black }},
+  "total": {{ $player.stats.total }}
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+<script src="{{ "js/player-charts.js" | relURL }}"></script>
+{{ end }}
 {{ end }}
 {{ end }}
