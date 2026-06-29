@@ -7,6 +7,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 jobs:
   apply-changes:
@@ -76,6 +77,12 @@ jobs:
         run: |
           gh issue comment "${{ github.event.issue.number }}" --body "✅ Player committed to \`main\` (${{ steps.push.outputs.sha }}). Site redeploys in ~1 minute."
           gh issue close "${{ github.event.issue.number }}" --reason "completed"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger site deploy
+        if: steps.auth.outputs.allowed == 'true' && steps.push.outputs.sha != ''
+        run: gh workflow run deploy.yml --ref main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
