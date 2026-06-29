@@ -320,6 +320,13 @@
           "total": 0
         },
         {
+          "id": "e2e-test-player",
+          "name": "E2E Test Player",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
           "id": "mahesh-shetye",
           "name": "Mahesh Shetye",
           "white": 0,

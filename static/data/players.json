@@ -3,217 +3,8 @@
   "lastUpdated": "2026-06-29",
   "players": [
     {
-      "id": "kunal-raut",
-      "name": "Kunal Raut",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "babu-bhai",
-      "name": "Babu Bhai",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "harish-bhai",
-      "name": "Harish Bhai",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "sachin-chalwadi",
-      "name": "Sachin Chalwadi",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "anilkumar-singh",
-      "name": "Anilkumar Singh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "mandar-barde",
-      "name": "Mandar Barde",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "javed-khan",
-      "name": "Javed Khan",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "swaraj",
-      "name": "Swaraj",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "sudhir-shinde",
-      "name": "Sudhir Shinde",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "navnath-kamble",
-      "name": "Navnath Kamble",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "pankaj-pawar",
-      "name": "Pankaj Pawar",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "premkumar-mishra",
-      "name": "Premkumar Mishra",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "mujeeb-sayyed",
-      "name": "Mujeeb Sayyed",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "taufiq-shaikh",
-      "name": "Taufiq Shaikh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "shehbazh",
-      "name": "Shehbazh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "kiran-soman",
-      "name": "Kiran Soman",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "zaid-ahmed-farooquee",
-      "name": "Zaid Ahmed Farooquee",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "satya-arekar",
-      "name": "Satya Arekar",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "reylond",
-      "name": "Reylond",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "manish-patil",
-      "name": "Manish Patil",
+      "id": "akshay-dey",
+      "name": "Akshay Dey",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -234,39 +25,6 @@
       "active": true
     },
     {
-      "id": "bhavesh-rane",
-      "name": "Bhavesh Rane",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "akshay-dey",
-      "name": "Akshay Dey",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "suhas-wakankar",
-      "name": "Suhas Wakankar",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
       "id": "anil-taishetty",
       "name": "Anil Taishetty",
       "aliases": [],
@@ -278,162 +36,8 @@
       "active": true
     },
     {
-      "id": "saurabh-gulati",
-      "name": "Saurabh Gulati",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "imran-k",
-      "name": "Imran K",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "arif-shaikh",
-      "name": "Arif Shaikh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "darshan",
-      "name": "Darshan",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "vakas-shaikh",
-      "name": "Vakas Shaikh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "imran-memon",
-      "name": "Imran Memon",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "dharam",
-      "name": "Dharam",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "imran-quereshi",
-      "name": "Imran Quereshi",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "pradeep-satam",
-      "name": "Pradeep Satam",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "naushad-shaikh",
-      "name": "Naushad Shaikh",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "bhavesh-parmar",
-      "name": "Bhavesh Parmar",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "samir-ansari",
-      "name": "Samir Ansari",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "omkar",
-      "name": "Omkar",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "vijay",
-      "name": "Vijay",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
-      "id": "madhura-devle",
-      "name": "Madhura Devle",
+      "id": "anilkumar-singh",
+      "name": "Anilkumar Singh",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -454,8 +58,8 @@
       "active": true
     },
     {
-      "id": "shanu-quereshi",
-      "name": "Shanu Quereshi",
+      "id": "arif-shaikh",
+      "name": "Arif Shaikh",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -465,8 +69,8 @@
       "active": true
     },
     {
-      "id": "vaibhav-jadhav",
-      "name": "Vaibhav Jadhav",
+      "id": "babu-bhai",
+      "name": "Babu Bhai",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -476,8 +80,8 @@
       "active": true
     },
     {
-      "id": "tanmay-mane",
-      "name": "Tanmay Mane",
+      "id": "bhavesh-parmar",
+      "name": "Bhavesh Parmar",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -487,8 +91,8 @@
       "active": true
     },
     {
-      "id": "parag-desai",
-      "name": "Parag Desai",
+      "id": "bhavesh-rane",
+      "name": "Bhavesh Rane",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -498,8 +102,8 @@
       "active": true
     },
     {
-      "id": "vaibhav-koregaonkar",
-      "name": "Vaibhav Koregaonkar",
+      "id": "darshan",
+      "name": "Darshan",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -509,8 +113,154 @@
       "active": true
     },
     {
-      "id": "pravin-raut",
-      "name": "Pravin Raut",
+      "id": "dharam",
+      "name": "Dharam",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "e2e-test-player",
+      "name": "E2E Test Player",
+      "aliases": [
+        "E2E",
+        "Tester"
+      ],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "harish-bhai",
+      "name": "Harish Bhai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "imran-k",
+      "name": "Imran K",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "imran-memon",
+      "name": "Imran Memon",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "imran-quereshi",
+      "name": "Imran Quereshi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "javed-khan",
+      "name": "Javed Khan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "kiran-soman",
+      "name": "Kiran Soman",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "madhura-devle",
+      "name": "Madhura Devle",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "mahesh-shetye",
+      "name": "Mahesh Shetye",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "mandar-barde",
+      "name": "Mandar Barde",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "manish-patil",
+      "name": "Manish Patil",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "mujeeb-sayyed",
+      "name": "Mujeeb Sayyed",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
@@ -531,8 +281,272 @@
       "active": true
     },
     {
-      "id": "mahesh-shetye",
-      "name": "Mahesh Shetye",
+      "id": "naushad-shaikh",
+      "name": "Naushad Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "navnath-kamble",
+      "name": "Navnath Kamble",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "omkar",
+      "name": "Omkar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "pankaj-pawar",
+      "name": "Pankaj Pawar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "parag-desai",
+      "name": "Parag Desai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "pradeep-satam",
+      "name": "Pradeep Satam",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "pravin-raut",
+      "name": "Pravin Raut",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "premkumar-mishra",
+      "name": "Premkumar Mishra",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "reylond",
+      "name": "Reylond",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "sachin-chalwadi",
+      "name": "Sachin Chalwadi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "samir-ansari",
+      "name": "Samir Ansari",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "satya-arekar",
+      "name": "Satya Arekar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "saurabh-gulati",
+      "name": "Saurabh Gulati",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "shanu-quereshi",
+      "name": "Shanu Quereshi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "shehbazh",
+      "name": "Shehbazh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "sudhir-shinde",
+      "name": "Sudhir Shinde",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "suhas-wakankar",
+      "name": "Suhas Wakankar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "swaraj",
+      "name": "Swaraj",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "tanmay-mane",
+      "name": "Tanmay Mane",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "taufiq-shaikh",
+      "name": "Taufiq Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "vaibhav-jadhav",
+      "name": "Vaibhav Jadhav",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "vaibhav-koregaonkar",
+      "name": "Vaibhav Koregaonkar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "vakas-shaikh",
+      "name": "Vakas Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "vijay",
+      "name": "Vijay",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "zaid-ahmed-farooquee",
+      "name": "Zaid Ahmed Farooquee",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
