@@ -5,17 +5,32 @@
 
 {{ define "main" }}
 {{ $admin := .Site.Params.admin }}
+{{ $summary := .Site.Data.generated.site_summary }}
 
-<section class="admin-page admin-page-wide">
-  <header class="admin-header">
-    <h2>Data admin</h2>
-    <p class="admin-lead">Sign in with a GitHub token to add players, clubs, and slams. Submissions create issues that auto-commit to <code>main</code>.</p>
+<section class="admin-page">
+  <header class="admin-hero">
+    <p class="admin-eyebrow">{{ $summary.season }} season · Data admin</p>
+    <h2 class="admin-title">Admin panel</h2>
+    <p class="admin-lead">
+      Add players, clubs, and slams for the Thane tracker. Submissions open a GitHub issue and auto-commit to <code>main</code> after validation.
+    </p>
+    <ol class="admin-workflow" aria-label="How submissions work">
+      <li><span class="admin-workflow-step">1</span> Sign in with GitHub</li>
+      <li><span class="admin-workflow-step">2</span> Fill out a form</li>
+      <li><span class="admin-workflow-step">3</span> Issue merges to the site</li>
+    </ol>
   </header>
 
-  <div id="admin-login" class="admin-panel">
-    <p>Create a fine-grained token with <strong>Issues: Read and write</strong> on <code>{{ $admin.githubRepo }}</code>.</p>
+  <div id="admin-login" class="admin-card admin-card-auth">
+    <div class="admin-card-head">
+      <span class="admin-card-icon" aria-hidden="true">⎇</span>
+      <div>
+        <h3>Sign in with GitHub</h3>
+        <p>Only allowlisted accounts can submit changes.</p>
+      </div>
+    </div>
     <details class="admin-help">
-      <summary>How to create a token</summary>
+      <summary>How to create a personal access token</summary>
       <ol class="admin-steps">
         <li>GitHub → Settings → Developer settings → <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">Fine-grained tokens</a></li>
         <li>Repository access: <strong>Only {{ $admin.githubRepo }}</strong></li>
@@ -26,178 +41,287 @@
       <div class="form-field">
         <label for="admin-token">GitHub personal access token</label>
         <input type="password" id="admin-token" name="token" autocomplete="off" placeholder="github_pat_…" required>
+        <p class="field-hint">Stored in this browser session only — never sent anywhere except GitHub.</p>
       </div>
-      <button type="submit" class="btn-admin btn-github">Sign in</button>
+      <button type="submit" class="btn-admin btn-github" id="admin-signin-btn">
+        <span class="btn-label">Sign in with GitHub</span>
+      </button>
     </form>
     <p id="admin-login-error" class="admin-status admin-status--error" hidden></p>
   </div>
 
-  <div id="admin-denied" class="admin-panel admin-panel-error" hidden>
-    <h3>Access denied</h3>
-    <p>Your GitHub account is not on the admin allowlist.</p>
+  <div id="admin-denied" class="admin-card admin-card-error" hidden>
+    <div class="admin-card-head">
+      <span class="admin-card-icon admin-card-icon-error" aria-hidden="true">!</span>
+      <div>
+        <h3>Access denied</h3>
+        <p>Your GitHub account is not on the admin allowlist for this repository.</p>
+      </div>
+    </div>
     <button type="button" class="btn-admin btn-secondary" id="admin-logout-denied">Sign out</button>
   </div>
 
   <div id="admin-app" hidden>
-    <div class="admin-user-bar">
-      <span id="admin-user-label">Signed in</span>
+    <div class="admin-toolbar">
+      <div class="admin-user-pill">
+        <span class="admin-user-avatar" aria-hidden="true">@</span>
+        <span id="admin-user-label">Signed in</span>
+      </div>
+      <p class="admin-catalog-stats" id="admin-catalog-stats" aria-live="polite"></p>
       <button type="button" class="btn-admin btn-secondary btn-small" id="admin-logout-btn">Sign out</button>
     </div>
 
-    <nav class="admin-tabs" role="tablist">
-      <button type="button" class="admin-tab is-active" data-tab="player">Player</button>
-      <button type="button" class="admin-tab" data-tab="club">Club</button>
-      <button type="button" class="admin-tab" data-tab="slam">Add slam</button>
-      <button type="button" class="admin-tab" data-tab="edit">Edit slam</button>
+    <nav class="admin-tabs" role="tablist" aria-label="Admin forms">
+      <button type="button" class="admin-tab is-active" data-tab="player" role="tab" aria-selected="true">
+        <span class="admin-tab-icon" aria-hidden="true">+</span>
+        <span class="admin-tab-label">Player</span>
+      </button>
+      <button type="button" class="admin-tab" data-tab="club" role="tab" aria-selected="false">
+        <span class="admin-tab-icon" aria-hidden="true">◆</span>
+        <span class="admin-tab-label">Club</span>
+      </button>
+      <button type="button" class="admin-tab" data-tab="slam" role="tab" aria-selected="false">
+        <span class="admin-tab-icon" aria-hidden="true">○</span>
+        <span class="admin-tab-label">Add slam</span>
+      </button>
+      <button type="button" class="admin-tab" data-tab="edit" role="tab" aria-selected="false">
+        <span class="admin-tab-icon" aria-hidden="true">✎</span>
+        <span class="admin-tab-label">Edit slam</span>
+      </button>
     </nav>
 
-    <div class="admin-panel" id="panel-player" role="tabpanel">
-      <form id="admin-player-form" class="admin-form">
-        <div class="form-field">
-          <label for="player-name">Full legal name <span class="required">*</span></label>
-          <input type="text" id="player-name" name="name" required placeholder="e.g. Zaid Ahmed Farooquee">
-          <p class="field-hint">Slug: <code id="player-slug-preview">—</code></p>
+    <div class="admin-panel-stack">
+      <div class="admin-card admin-panel" id="panel-player" role="tabpanel">
+        <div class="admin-panel-intro">
+          <h3>Add a player</h3>
+          <p>Register a new Thane district player for the {{ $summary.season }} season.</p>
         </div>
-        <div class="form-field">
-          <label for="player-gender">Gender <span class="required">*</span></label>
-          <select id="player-gender" name="gender" required>
-            <option value="">—</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
+        <form id="admin-player-form" class="admin-form">
+          <fieldset class="form-section">
+            <legend>Identity</legend>
+            <div class="form-field">
+              <label for="player-name">Full legal name <span class="required">*</span></label>
+              <input type="text" id="player-name" name="name" required placeholder="e.g. Kunal Raut">
+              <p class="field-hint">Profile URL slug: <code id="player-slug-preview">—</code></p>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="player-gender">Gender <span class="required">*</span></label>
+                <select id="player-gender" name="gender" required>
+                  <option value="">Select…</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="player-aliases">Aliases</label>
+                <input type="text" id="player-aliases" name="aliases" placeholder="Kunal, KR">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-section">
+            <legend>Affiliation</legend>
+            <div class="form-field">
+              <label for="player-clubs">Clubs</label>
+              <select id="player-clubs" name="clubIds" multiple class="club-multi-select" size="5"></select>
+              <p class="field-hint" id="player-clubs-hint">Hold Ctrl/Cmd to select multiple clubs.</p>
+            </div>
+            <input type="hidden" name="district" value="Thane">
+          </fieldset>
+          <button type="submit" class="btn-admin btn-primary">Submit player</button>
+        </form>
+      </div>
+
+      <div class="admin-card admin-panel" id="panel-club" role="tabpanel" hidden>
+        <div class="admin-panel-intro">
+          <h3>Add a club</h3>
+          <p>Create a club that can log player slams for the season.</p>
         </div>
-        <div class="form-field">
-          <label for="player-clubs">Club IDs</label>
-          <select id="player-clubs" name="clubIds" multiple size="4"></select>
-          <p class="field-hint">Hold Ctrl/Cmd to select multiple clubs.</p>
+        <form id="admin-club-form" class="admin-form">
+          <div class="form-field">
+            <label for="club-name">Club name <span class="required">*</span></label>
+            <input type="text" id="club-name" name="name" required placeholder="e.g. Shakti Club">
+            <p class="field-hint">Club page slug: <code id="club-slug-preview">—</code></p>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="club-contact">Contact</label>
+              <input type="text" id="club-contact" name="contact" placeholder="e.g. Mukhtar bhai">
+            </div>
+            <div class="form-field">
+              <label for="club-notes">Notes</label>
+              <textarea id="club-notes" name="notes" rows="2" placeholder="Optional internal note"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-admin btn-primary">Submit club</button>
+        </form>
+      </div>
+
+      <div class="admin-card admin-panel" id="panel-slam" role="tabpanel" hidden>
+        <div class="admin-panel-intro">
+          <h3>Log a slam</h3>
+          <p>Record a white or black slam for an existing player.</p>
         </div>
-        <div class="form-field">
-          <label for="player-aliases">Aliases (optional)</label>
-          <input type="text" id="player-aliases" name="aliases" placeholder="Zaid, Zaid Bhai">
+        <form id="admin-slam-form" class="admin-form">
+          <fieldset class="form-section">
+            <legend>Slam details</legend>
+            <div class="form-row form-row-3">
+              <div class="form-field">
+                <label for="slam-player">Player <span class="required">*</span></label>
+                <select id="slam-player" name="playerId" required></select>
+              </div>
+              <div class="form-field">
+                <label for="slam-type">Type <span class="required">*</span></label>
+                <select id="slam-type" name="type" required>
+                  <option value="white">White</option>
+                  <option value="black">Black</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="slam-source">Source <span class="required">*</span></label>
+                <select id="slam-source" name="source" required>
+                  <option value="club">Club</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="tournament">Tournament</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field" id="slam-club-field">
+              <label for="slam-club">Club <span class="required">*</span></label>
+              <select id="slam-club" name="clubId"></select>
+              <p class="field-hint" id="slam-club-hint">Select the club where this slam was recorded.</p>
+            </div>
+          </fieldset>
+          <fieldset class="form-section">
+            <legend>Context <span class="form-section-optional">optional</span></legend>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="slam-date">Date</label>
+                <input type="date" id="slam-date" name="date">
+              </div>
+              <div class="form-field">
+                <label for="slam-location">Location</label>
+                <input type="text" id="slam-location" name="location" placeholder="Thane">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="slam-tournament">Tournament</label>
+              <input type="text" id="slam-tournament" name="tournament">
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="slam-video">Video URL</label>
+                <input type="url" id="slam-video" name="videoUrl" placeholder="https://youtube.com/...">
+              </div>
+              <div class="form-field">
+                <label for="slam-match">Match reference</label>
+                <input type="text" id="slam-match" name="matchRef">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="slam-notes">Notes</label>
+              <textarea id="slam-notes" name="notes" rows="2"></textarea>
+            </div>
+          </fieldset>
+          <input type="hidden" name="season" value="2025">
+          <button type="submit" class="btn-admin btn-primary">Submit slam</button>
+        </form>
+      </div>
+
+      <div class="admin-card admin-panel" id="panel-edit" role="tabpanel" hidden>
+        <div class="admin-panel-intro">
+          <h3>Edit or remove a slam</h3>
+          <p>Find a slam, review its details, then update fields or soft-delete it from the leaderboard.</p>
         </div>
-        <input type="hidden" name="district" value="Thane">
-        <button type="submit" class="btn-admin btn-primary">Submit player</button>
-      </form>
+        <form id="admin-edit-form" class="admin-form">
+          <fieldset class="form-section">
+            <legend>Find slam</legend>
+            <div class="edit-slam-filters">
+              <div class="form-field">
+                <label for="edit-filter-player">Player</label>
+                <select id="edit-filter-player">
+                  <option value="">All players</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="edit-filter-type">Type</label>
+                <select id="edit-filter-type">
+                  <option value="">All types</option>
+                  <option value="white">White</option>
+                  <option value="black">Black</option>
+                </select>
+              </div>
+              <div class="form-field edit-filter-search">
+                <label for="edit-filter-search">Search</label>
+                <input type="search" id="edit-filter-search" placeholder="Slam ID, club, source…" autocomplete="off">
+              </div>
+            </div>
+            <p class="field-hint" id="edit-slam-filter-hint">Loading slams…</p>
+            <div id="edit-slam-picker" class="slam-picker" role="listbox" aria-label="Select slam to edit"></div>
+            <input type="hidden" id="edit-slam-id" name="slamId" required>
+          </fieldset>
+
+          <article id="edit-slam-preview" class="edit-slam-preview" hidden>
+            <div class="edit-slam-preview-head">
+              <span id="edit-preview-badge" class="slam-picker-badge">white</span>
+              <div>
+                <h4 id="edit-preview-title">Slam details</h4>
+                <p id="edit-preview-id" class="edit-preview-id"></p>
+              </div>
+            </div>
+            <dl class="edit-slam-details" id="edit-slam-details"></dl>
+            <p id="edit-delete-warning" class="edit-delete-warning" hidden>
+              This slam will be soft-deleted and removed from leaderboard totals.
+            </p>
+          </article>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="edit-action">Action <span class="required">*</span></label>
+              <select id="edit-action" name="action" required>
+                <option value="update">Update fields</option>
+                <option value="delete">Delete (soft)</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form-section" id="edit-fields">
+            <legend>Fields to change</legend>
+            <p class="field-hint edit-fields-hint">Current values appear in the preview above. Only fill fields you want to change.</p>
+            <div class="form-row form-row-3">
+              <div class="form-field">
+                <label for="edit-type">Slam type</label>
+                <select id="edit-type" name="type">
+                  <option value="">— no change —</option>
+                  <option value="white">White</option>
+                  <option value="black">Black</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="edit-source">Source</label>
+                <select id="edit-source" name="source">
+                  <option value="">— no change —</option>
+                  <option value="club">Club</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="tournament">Tournament</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="edit-date">Date</label>
+                <input type="date" id="edit-date" name="date">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="edit-notes">Notes</label>
+              <textarea id="edit-notes" name="notes" rows="2" placeholder="Leave blank for no change"></textarea>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn-admin btn-primary">Submit edit</button>
+        </form>
+      </div>
     </div>
 
-    <div class="admin-panel" id="panel-club" role="tabpanel" hidden>
-      <form id="admin-club-form" class="admin-form">
-        <div class="form-field">
-          <label for="club-name">Club name <span class="required">*</span></label>
-          <input type="text" id="club-name" name="name" required placeholder="e.g. Shakti Club">
-          <p class="field-hint">Slug: <code id="club-slug-preview">—</code></p>
-        </div>
-        <div class="form-field">
-          <label for="club-contact">Contact (optional)</label>
-          <input type="text" id="club-contact" name="contact" placeholder="e.g. Mukhtar bhai">
-        </div>
-        <div class="form-field">
-          <label for="club-notes">Notes (optional)</label>
-          <textarea id="club-notes" name="notes" rows="2"></textarea>
-        </div>
-        <button type="submit" class="btn-admin btn-primary">Submit club</button>
-      </form>
-    </div>
-
-    <div class="admin-panel" id="panel-slam" role="tabpanel" hidden>
-      <form id="admin-slam-form" class="admin-form">
-        <div class="form-field">
-          <label for="slam-player">Player <span class="required">*</span></label>
-          <select id="slam-player" name="playerId" required></select>
-        </div>
-        <div class="form-field">
-          <label for="slam-type">Slam type <span class="required">*</span></label>
-          <select id="slam-type" name="type" required>
-            <option value="white">White</option>
-            <option value="black">Black</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="slam-source">Source <span class="required">*</span></label>
-          <select id="slam-source" name="source" required>
-            <option value="club">Club</option>
-            <option value="youtube">YouTube</option>
-            <option value="tournament">Tournament</option>
-          </select>
-        </div>
-        <div class="form-field" id="slam-club-field">
-          <label for="slam-club">Club ID</label>
-          <select id="slam-club" name="clubId"></select>
-        </div>
-        <div class="form-field">
-          <label for="slam-date">Date (YYYY-MM-DD)</label>
-          <input type="date" id="slam-date" name="date">
-        </div>
-        <div class="form-field">
-          <label for="slam-tournament">Tournament (optional)</label>
-          <input type="text" id="slam-tournament" name="tournament">
-        </div>
-        <div class="form-field">
-          <label for="slam-location">Location (optional)</label>
-          <input type="text" id="slam-location" name="location" placeholder="Thane">
-        </div>
-        <div class="form-field">
-          <label for="slam-video">Video URL (optional)</label>
-          <input type="url" id="slam-video" name="videoUrl" placeholder="https://youtube.com/...">
-        </div>
-        <div class="form-field">
-          <label for="slam-match">Match ref (optional)</label>
-          <input type="text" id="slam-match" name="matchRef">
-        </div>
-        <div class="form-field">
-          <label for="slam-notes">Notes (optional)</label>
-          <textarea id="slam-notes" name="notes" rows="2"></textarea>
-        </div>
-        <input type="hidden" name="season" value="2025">
-        <button type="submit" class="btn-admin btn-primary">Submit slam</button>
-      </form>
-    </div>
-
-    <div class="admin-panel" id="panel-edit" role="tabpanel" hidden>
-      <form id="admin-edit-form" class="admin-form">
-        <div class="form-field">
-          <label for="edit-slam-id">Slam ID <span class="required">*</span></label>
-          <select id="edit-slam-id" name="slamId" required></select>
-        </div>
-        <div class="form-field">
-          <label for="edit-action">Action <span class="required">*</span></label>
-          <select id="edit-action" name="action" required>
-            <option value="update">Update</option>
-            <option value="delete">Delete (soft)</option>
-          </select>
-        </div>
-        <div id="edit-fields">
-          <div class="form-field">
-            <label for="edit-type">Slam type</label>
-            <select id="edit-type" name="type">
-              <option value="">— no change —</option>
-              <option value="white">White</option>
-              <option value="black">Black</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="edit-source">Source</label>
-            <select id="edit-source" name="source">
-              <option value="">— no change —</option>
-              <option value="club">Club</option>
-              <option value="youtube">YouTube</option>
-              <option value="tournament">Tournament</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="edit-date">Date</label>
-            <input type="date" id="edit-date" name="date">
-          </div>
-          <div class="form-field">
-            <label for="edit-notes">Notes</label>
-            <textarea id="edit-notes" name="notes" rows="2"></textarea>
-          </div>
-        </div>
-        <button type="submit" class="btn-admin btn-primary">Submit edit</button>
-      </form>
-    </div>
-
-    <p id="admin-form-status" class="admin-status" role="status" aria-live="polite"></p>
+    <div id="admin-form-status" class="admin-toast" role="status" aria-live="polite" hidden></div>
   </div>
 </section>
 

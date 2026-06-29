@@ -8,7 +8,7 @@ body:
     id: player_id
     attributes:
       label: Player ID
-      placeholder: zaid-ahmed-farooquee
+      placeholder: kunal-raut
     validations:
       required: true
   - type: dropdown
