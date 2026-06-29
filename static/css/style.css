@@ -1536,11 +1536,13 @@ details[open] .col-expand {
 }
 
 .award-card-white {
-  border-color: rgba(245, 240, 230, 0.25);
+  border-top: 3px solid var(--white-slam);
+  border-color: rgba(232, 197, 71, 0.2);
 }
 
 .award-card-black {
-  border-color: rgba(201, 162, 39, 0.35);
+  border-top: 3px solid #2a2218;
+  border-color: rgba(232, 197, 71, 0.2);
 }
 
 .award-winner {
@@ -1667,7 +1669,7 @@ details[open] .col-expand {
   color: var(--text-muted);
 }
 
-/* Champion spotlight */
+/* Champion spotlight — both leaders are 1st place (gold), slam type is a secondary accent */
 .champions-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1681,23 +1683,20 @@ details[open] .col-expand {
   text-align: center;
   padding: 2rem 1.5rem 1.5rem;
   border-radius: calc(var(--radius) + 4px);
-  border: 1px solid var(--border-subtle);
-  background: var(--surface);
-  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(232, 197, 71, 0.32);
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 0%, rgba(232, 197, 71, 0.14), transparent 72%),
+    var(--surface);
+  box-shadow: var(--shadow-md), 0 0 40px rgba(232, 197, 71, 0.06);
 }
 
 .champion-card-white {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245, 240, 230, 0.14), transparent 70%),
-    var(--surface);
-  border-color: rgba(245, 240, 230, 0.22);
+  border-top: 3px solid var(--white-slam);
 }
 
 .champion-card-black {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 162, 39, 0.16), transparent 70%),
-    var(--surface);
-  border-color: rgba(201, 162, 39, 0.28);
+  border-top: 3px solid #2a2218;
+  box-shadow: var(--shadow-md), 0 0 40px rgba(232, 197, 71, 0.06), inset 0 1px 0 rgba(201, 162, 39, 0.08);
 }
 
 .champion-avatar {
@@ -1712,40 +1711,58 @@ details[open] .col-expand {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.champion-card-white .champion-avatar {
-  color: var(--white-slam);
-  background: rgba(245, 240, 230, 0.12);
-  border: 2px solid rgba(245, 240, 230, 0.35);
-  box-shadow: 0 0 24px rgba(245, 240, 230, 0.12);
-}
-
-.champion-card-black .champion-avatar {
-  color: var(--black-slam-bg);
-  background: rgba(201, 162, 39, 0.15);
-  border: 2px solid rgba(201, 162, 39, 0.45);
-  box-shadow: 0 0 24px rgba(201, 162, 39, 0.15);
+  color: #1a1408;
+  background: linear-gradient(145deg, #f5dc6e 0%, var(--gold) 48%, #c9a020 100%);
+  border: 2px solid rgba(255, 228, 140, 0.55);
+  box-shadow: 0 0 28px rgba(232, 197, 71, 0.28);
 }
 
 .champion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   margin: 0 0 0.5rem;
-  padding: 0.2rem 0.65rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 999px;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
+  color: var(--gold);
+  background: rgba(232, 197, 71, 0.1);
+  border: 1px solid rgba(232, 197, 71, 0.22);
 }
 
-.champion-card-white .champion-badge {
-  color: var(--white-slam);
-  background: rgba(245, 240, 230, 0.1);
+.champion-medal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.2rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #1a1408;
+  background: linear-gradient(145deg, #f5dc6e, var(--gold));
 }
 
-.champion-card-black .champion-badge {
-  color: var(--black-slam-bg);
-  background: rgba(201, 162, 39, 0.12);
+.champion-card-white .champion-badge::after {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--white-slam);
+  box-shadow: 0 0 6px rgba(245, 240, 230, 0.45);
+}
+
+.champion-card-black .champion-badge::after {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #1a1a1a;
+  border: 1px solid rgba(201, 162, 39, 0.45);
 }
 
 .champion-name {
@@ -1777,14 +1794,12 @@ details[open] .col-expand {
   font-variant-numeric: tabular-nums;
   line-height: 1;
   margin-right: 0.2rem;
+  color: var(--gold);
 }
 
-.champion-card-white .champion-count {
-  color: var(--white-slam);
-}
-
+.champion-card-white .champion-count,
 .champion-card-black .champion-count {
-  color: var(--black-slam-bg);
+  color: var(--gold);
 }
 
 .champion-link {
@@ -1918,16 +1933,31 @@ details[open] .col-expand {
   gap: 0.75rem;
 }
 
+.race-row-top-1 {
+  border-color: rgba(232, 197, 71, 0.35);
+  background: rgba(232, 197, 71, 0.07);
+}
+
+.race-row-top-2 {
+  border-color: rgba(184, 196, 212, 0.28);
+  background: rgba(184, 196, 212, 0.05);
+}
+
+.race-row-top-3 {
+  border-color: rgba(201, 149, 106, 0.28);
+  background: rgba(201, 149, 106, 0.05);
+}
+
+.race-row-top-4,
+.race-row-top-5 {
+  border-color: transparent;
+}
+
 .race-row {
   padding: 0.65rem 0.7rem;
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   border: 1px solid transparent;
-}
-
-.race-row-leader {
-  border-color: var(--border-subtle);
-  background: rgba(74, 158, 255, 0.06);
 }
 
 .race-row-top {
@@ -1944,6 +1974,18 @@ details[open] .col-expand {
   font-weight: 700;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
+}
+
+.race-row-top-1 .race-rank {
+  color: var(--gold);
+}
+
+.race-row-top-2 .race-rank {
+  color: var(--silver);
+}
+
+.race-row-top-3 .race-rank {
+  color: var(--bronze);
 }
 
 .race-row-leader .race-rank {
@@ -1970,6 +2012,10 @@ details[open] .col-expand {
   font-variant-numeric: tabular-nums;
   font-size: 0.92rem;
   color: var(--accent);
+}
+
+.race-row-top-1 .race-score {
+  color: var(--gold);
 }
 
 .race-bar {
@@ -2470,7 +2516,11 @@ details[open] .col-expand {
 
 .award-preview-row strong {
   font-variant-numeric: tabular-nums;
-  color: var(--accent);
+  color: var(--gold);
+}
+
+.award-preview-winner a {
+  font-weight: 600;
 }
 
 /* Club cards */

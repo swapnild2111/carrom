@@ -28,7 +28,7 @@
       {{ range $awards.maxWhiteSlams }}
       <article class="champion-card champion-card-white">
         <div class="champion-avatar" aria-hidden="true">{{ substr .name 0 1 }}{{ with index (split .name " ") 1 }}{{ substr . 0 1 }}{{ end }}</div>
-        <p class="champion-badge">White slam leader</p>
+        <p class="champion-badge"><span class="champion-medal" aria-hidden="true">1</span> White slams</p>
         <h4 class="champion-name"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a></h4>
         <p class="champion-stat"><span class="champion-count">{{ .count }}</span> white slam{{ if gt .count 1 }}s{{ end }}</p>
         <a class="champion-link" href="{{ (printf "players/%s/" .slug) | relURL }}">View profile</a>
@@ -42,7 +42,7 @@
       {{ range $awards.maxBlackSlams }}
       <article class="champion-card champion-card-black">
         <div class="champion-avatar" aria-hidden="true">{{ substr .name 0 1 }}{{ with index (split .name " ") 1 }}{{ substr . 0 1 }}{{ end }}</div>
-        <p class="champion-badge">Black slam leader</p>
+        <p class="champion-badge"><span class="champion-medal" aria-hidden="true">1</span> Black slams</p>
         <h4 class="champion-name"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a></h4>
         <p class="champion-stat"><span class="champion-count">{{ .count }}</span> black slam{{ if gt .count 1 }}s{{ end }}</p>
         <a class="champion-link" href="{{ (printf "players/%s/" .slug) | relURL }}">View profile</a>
@@ -90,7 +90,7 @@
           {{ if and $leaderWhite (gt $leaderWhite.stats.white 0) }}
             {{ $pct = mul (div (float $count) (float $leaderWhite.stats.white)) 100 }}
           {{ end }}
-          <li class="race-row{{ if eq $i 0 }} race-row-leader{{ end }}">
+          <li class="race-row race-row-top-{{ add $i 1 }}">
             <div class="race-row-top">
               <span class="race-rank">{{ add $i 1 }}</span>
               <a class="race-player" href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a>
@@ -113,7 +113,7 @@
           {{ if and $leaderBlack (gt $leaderBlack.stats.black 0) }}
             {{ $pct = mul (div (float $count) (float $leaderBlack.stats.black)) 100 }}
           {{ end }}
-          <li class="race-row{{ if eq $i 0 }} race-row-leader{{ end }}">
+          <li class="race-row race-row-top-{{ add $i 1 }}">
             <div class="race-row-top">
               <span class="race-rank">{{ add $i 1 }}</span>
               <a class="race-player" href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a>

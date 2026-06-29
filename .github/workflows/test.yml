@@ -1,18 +1,12 @@
-name: Validate data
+name: Test
 
 on:
   push:
     branches: [main]
-    paths:
-      - "data/**"
-      - "scripts/**"
   pull_request:
-    paths:
-      - "data/**"
-      - "scripts/**"
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
-      - name: Validate schema and build derived data
+      - name: Run test pack
         run: |
           python scripts/validate_schema.py
           pytest tests/ -v

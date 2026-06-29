@@ -34,8 +34,6 @@ def validate_players(players: list[dict], club_ids: set[str]) -> list[str]:
         if pid in seen_ids:
             errors.append(f"duplicate player id: {pid}")
         seen_ids.add(pid)
-        if slugify(player.get("name", "")) != pid:
-            errors.append(f"player id {pid!r} does not match slug of name {player.get('name')!r}")
         if player.get("district") != PROTOTYPE_DISTRICT:
             errors.append(f"player {pid}: district must be {PROTOTYPE_DISTRICT!r} in prototype")
         if player.get("gender") not in GENDERS:
@@ -93,12 +91,16 @@ def main() -> int:
     clubs_data = load(DATA / "clubs.json")
     slams_data = load(DATA / "slams.json")
 
-    players = [p for p in players_data.get("players", []) if p.get("active", True)]
-    clubs = [c for c in clubs_data.get("clubs", []) if c.get("active", True)]
-    slams = [s for s in slams_data.get("slams", []) if s.get("active", True)]
+    all_players = players_data.get("players", [])
+    all_clubs = clubs_data.get("clubs", [])
+    all_slams = slams_data.get("slams", [])
 
-    club_ids = {c["id"] for c in clubs}
-    player_ids = {p["id"] for p in players}
+    players = [p for p in all_players if p.get("active", True)]
+    clubs = [c for c in all_clubs if c.get("active", True)]
+    slams = [s for s in all_slams if s.get("active", True)]
+
+    club_ids = {c["id"] for c in all_clubs}
+    player_ids = {p["id"] for p in all_players}
 
     errors.extend(validate_clubs(clubs))
     errors.extend(validate_players(players, club_ids))

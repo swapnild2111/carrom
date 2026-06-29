@@ -99,7 +99,7 @@
       <span class="award-preview-icon" aria-hidden="true">○</span>
       <h4>Max white slams</h4>
       {{ range .maxWhiteSlams }}
-      <p class="award-preview-row"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
+      <p class="award-preview-row award-preview-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
       {{ else }}
       <p class="text-muted">No slams recorded yet.</p>
       {{ end }}
@@ -108,7 +108,7 @@
       <span class="award-preview-icon" aria-hidden="true">●</span>
       <h4>Max black slams</h4>
       {{ range .maxBlackSlams }}
-      <p class="award-preview-row"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
+      <p class="award-preview-row award-preview-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
       {{ else }}
       <p class="text-muted">No slams recorded yet.</p>
       {{ end }}

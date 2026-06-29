@@ -1,0 +1,44 @@
+name: Edit player
+description: Update a player profile or deactivate them
+title: "[Edit player] "
+labels:
+  - edit-player
+body:
+  - type: input
+    id: player_id
+    attributes:
+      label: Player ID
+      placeholder: kunal-raut
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      options:
+        - update
+        - deactivate
+    validations:
+      required: true
+  - type: input
+    id: full_name
+    attributes:
+      label: Full name (leave blank for no change)
+  - type: dropdown
+    id: gender
+    attributes:
+      label: Gender
+      options:
+        - ""
+        - Male
+        - Female
+  - type: input
+    id: club_ids
+    attributes:
+      label: Club IDs (comma-separated)
+      placeholder: sai-carrom
+  - type: input
+    id: aliases
+    attributes:
+      label: Aliases (optional)
+      placeholder: Comma-separated nicknames

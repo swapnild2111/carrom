@@ -3,16 +3,24 @@
 
 from __future__ import annotations
 
+import os
 import re
 import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
+
+
+def _env_path(key: str, default: Path) -> Path:
+    override = os.environ.get(key)
+    return Path(override) if override else default
+
+
+DATA = _env_path("CARROM_DATA_DIR", ROOT / "data")
 GENERATED = DATA / "generated"
-CONTENT_PLAYERS = ROOT / "content" / "players"
-CONTENT_CLUBS = ROOT / "content" / "clubs"
-STATIC_DATA = ROOT / "static" / "data"
+CONTENT_PLAYERS = _env_path("CARROM_CONTENT_PLAYERS", ROOT / "content" / "players")
+CONTENT_CLUBS = _env_path("CARROM_CONTENT_CLUBS", ROOT / "content" / "clubs")
+STATIC_DATA = _env_path("CARROM_STATIC_DATA", ROOT / "static" / "data")
 
 SLAM_TYPES = {"white", "black"}
 SLAM_SOURCES = {"youtube", "club", "tournament"}

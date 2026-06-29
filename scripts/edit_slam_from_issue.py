@@ -61,10 +61,13 @@ def main() -> int:
             ("location", "location (optional)"),
             ("videoUrl", "video url (optional)"),
             ("matchRef", "match ref (optional)"),
-            ("notes", "notes (optional)"),
         ]:
             if fields.get(field, "").strip():
                 slam[key] = fields[field].strip() or None
+        for notes_key in ("notes (optional)", "notes"):
+            if fields.get(notes_key, "").strip():
+                slam["notes"] = fields[notes_key].strip()
+                break
         restore = parse_bool(fields.get("restore (true/false)", ""))
         if restore is True:
             slam["active"] = True

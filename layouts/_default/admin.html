@@ -74,11 +74,15 @@
     <nav class="admin-tabs" role="tablist" aria-label="Admin forms">
       <button type="button" class="admin-tab is-active" data-tab="player" role="tab" aria-selected="true">
         <span class="admin-tab-icon" aria-hidden="true">+</span>
-        <span class="admin-tab-label">Player</span>
+        <span class="admin-tab-label">Add player</span>
+      </button>
+      <button type="button" class="admin-tab" data-tab="edit-player" role="tab" aria-selected="false">
+        <span class="admin-tab-icon" aria-hidden="true">✎</span>
+        <span class="admin-tab-label">Edit player</span>
       </button>
       <button type="button" class="admin-tab" data-tab="club" role="tab" aria-selected="false">
         <span class="admin-tab-icon" aria-hidden="true">◆</span>
-        <span class="admin-tab-label">Club</span>
+        <span class="admin-tab-label">Add club</span>
       </button>
       <button type="button" class="admin-tab" data-tab="slam" role="tab" aria-selected="false">
         <span class="admin-tab-icon" aria-hidden="true">○</span>
@@ -123,12 +127,84 @@
             <legend>Affiliation</legend>
             <div class="form-field">
               <label for="player-clubs">Clubs</label>
-              <select id="player-clubs" name="clubIds" multiple class="club-multi-select" size="5"></select>
+              <input type="search" id="player-clubs-search" class="admin-select-search" placeholder="Filter clubs…" autocomplete="off">
+              <select id="player-clubs" name="clubIds" multiple class="club-multi-select admin-select" size="5"></select>
               <p class="field-hint" id="player-clubs-hint">Hold Ctrl/Cmd to select multiple clubs.</p>
             </div>
             <input type="hidden" name="district" value="Thane">
           </fieldset>
           <button type="submit" class="btn-admin btn-primary">Submit player</button>
+        </form>
+      </div>
+
+      <div class="admin-card admin-panel" id="panel-edit-player" role="tabpanel" hidden>
+        <div class="admin-panel-intro">
+          <h3>Edit a player</h3>
+          <p>Update display name, aliases, gender, or club links. The profile URL (player ID) does not change when you rename someone.</p>
+        </div>
+        <form id="admin-edit-player-form" class="admin-form">
+          <fieldset class="form-section">
+            <legend>Find player</legend>
+            <div class="form-field edit-filter-search">
+              <label for="edit-player-search">Search</label>
+              <input type="search" id="edit-player-search" placeholder="Name, alias, or player ID…" autocomplete="off">
+            </div>
+            <p class="field-hint" id="edit-player-filter-hint">Loading players…</p>
+            <div id="edit-player-picker" class="entity-picker" role="listbox" aria-label="Select player to edit"></div>
+            <input type="hidden" id="edit-player-id" name="playerId" required>
+          </fieldset>
+
+          <article id="edit-player-preview" class="edit-entity-preview" hidden>
+            <div class="edit-entity-preview-head">
+              <span id="edit-player-preview-badge" class="entity-picker-badge">player</span>
+              <div>
+                <h4 id="edit-player-preview-name">Player</h4>
+                <p id="edit-player-preview-id" class="edit-preview-id"></p>
+              </div>
+            </div>
+            <dl class="edit-slam-details" id="edit-player-details"></dl>
+            <p id="edit-player-deactivate-warning" class="edit-delete-warning" hidden>
+              This player will be deactivated and hidden from the leaderboard.
+            </p>
+          </article>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="edit-player-action">Action <span class="required">*</span></label>
+              <select id="edit-player-action" name="action" class="admin-select" required>
+                <option value="update">Update profile</option>
+                <option value="deactivate">Deactivate player</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form-section" id="edit-player-fields">
+            <legend>Profile</legend>
+            <div class="form-field">
+              <label for="edit-player-name">Full name <span class="required">*</span></label>
+              <input type="text" id="edit-player-name" name="name" placeholder="Display name">
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="edit-player-gender">Gender <span class="required">*</span></label>
+                <select id="edit-player-gender" name="gender" class="admin-select">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="edit-player-aliases">Aliases</label>
+                <input type="text" id="edit-player-aliases" name="aliases" placeholder="Comma-separated">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="edit-player-clubs">Clubs</label>
+              <input type="search" id="edit-player-clubs-search" class="admin-select-search" placeholder="Filter clubs…" autocomplete="off">
+              <select id="edit-player-clubs" name="clubIds" multiple class="club-multi-select admin-select" size="5"></select>
+              <p class="field-hint">Hold Ctrl/Cmd to select multiple clubs. Clear all to remove club links.</p>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn-admin btn-primary">Submit player edit</button>
         </form>
       </div>
 

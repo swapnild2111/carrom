@@ -388,6 +388,53 @@
   min-height: 6.5rem;
 }
 
+.admin-select-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.admin-select-search {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.admin-select-search::placeholder {
+  color: var(--text-muted);
+  opacity: 0.65;
+}
+
+.admin-select-search:focus {
+  border-color: rgba(74, 158, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.12);
+  outline: none;
+}
+
+.form-field select.admin-select:not([multiple]) {
+  appearance: none;
+  padding-right: 2.25rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.15rem) calc(50% + 0.12rem),
+    calc(100% - 0.85rem) calc(50% + 0.12rem);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.form-field select option[hidden] {
+  display: none;
+}
+
 .club-multi-select {
   min-height: 8.5rem;
 }
@@ -663,6 +710,125 @@
   color: var(--text-muted);
   font-family: ui-monospace, "Cascadia Code", monospace;
   white-space: nowrap;
+}
+
+/* Shared entity picker (players, etc.) */
+.entity-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0.35rem;
+  margin-top: 0.35rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.entity-picker-empty {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.entity-picker-item {
+  appearance: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
+}
+
+.entity-picker-item:hover {
+  border-color: rgba(74, 158, 255, 0.3);
+  background: var(--surface-hover);
+}
+
+.entity-picker-item.is-selected {
+  border-color: rgba(74, 158, 255, 0.55);
+  background: rgba(74, 158, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(74, 158, 255, 0.12);
+}
+
+.entity-picker-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(74, 158, 255, 0.12);
+  border: 1px solid rgba(74, 158, 255, 0.28);
+}
+
+.entity-picker-main {
+  min-width: 0;
+}
+
+.entity-picker-title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.entity-picker-meta {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entity-picker-id {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  white-space: nowrap;
+}
+
+.edit-entity-preview {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.edit-entity-preview.is-delete {
+  border-color: rgba(255, 138, 138, 0.35);
+  background: linear-gradient(180deg, rgba(255, 100, 100, 0.06), var(--bg-elevated));
+}
+
+.edit-entity-preview-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.edit-entity-preview-head h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .edit-slam-preview {

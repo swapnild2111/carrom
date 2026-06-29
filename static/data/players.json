@@ -124,20 +124,6 @@
       "active": true
     },
     {
-      "id": "e2e-test-player",
-      "name": "E2E Test Player",
-      "aliases": [
-        "E2E",
-        "Tester"
-      ],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true
-    },
-    {
       "id": "harish-bhai",
       "name": "Harish Bhai",
       "aliases": [],

@@ -5485,40 +5485,6 @@
           "count": 1
         }
       ]
-    },
-    {
-      "id": "e2e-test-player",
-      "name": "E2E Test Player",
-      "aliases": [
-        "E2E",
-        "Tester"
-      ],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true,
-      "clubs": [
-        {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
-        }
-      ],
-      "stats": {
-        "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
-      },
-      "ranks": {
-        "white": null,
-        "black": null,
-        "total": null
-      },
-      "timeline": [],
-      "timelineGroups": []
     }
   ]
 }

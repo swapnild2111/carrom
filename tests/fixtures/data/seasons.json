@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "defaultYear": 2025,
+  "seasons": [
+    {
+      "year": 2025,
+      "label": "2025 Season",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "available": true
+    }
+  ]
+}

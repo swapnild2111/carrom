@@ -129,11 +129,104 @@
     return data;
   }
 
-  function issueBody(fields) {
+  function issueBody(fields, { always = [] } = {}) {
     return Object.entries(fields)
-      .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== "")
+      .filter(
+        ([label, value]) =>
+          always.includes(label) ||
+          (value !== undefined && value !== null && String(value).trim() !== ""),
+      )
       .map(([label, value]) => `### ${label}\n\n${value}`)
       .join("\n\n");
+  }
+
+  const SEARCHABLE_SELECT_MIN = 5;
+
+  function resetSelectFilter(select) {
+    if (!select) return;
+    const wrap = select.closest(".admin-select-wrap");
+    const search = wrap?.querySelector(".admin-select-search");
+    if (search) search.value = "";
+    [...select.options].forEach((opt) => {
+      opt.hidden = false;
+    });
+  }
+
+  function filterSelectOptions(select, query) {
+    if (!select) return;
+    const q = query.trim().toLowerCase();
+    [...select.options].forEach((opt) => {
+      if (!opt.value && /^(select|all|—)/i.test(opt.textContent.trim())) {
+        opt.hidden = false;
+        return;
+      }
+      opt.hidden = q ? !opt.textContent.toLowerCase().includes(q) : false;
+    });
+  }
+
+  function enhanceSearchableSelect(select, { minOptions = SEARCHABLE_SELECT_MIN } = {}) {
+    if (!select) return;
+    select.classList.add("admin-select");
+
+    let wrap = select.closest(".admin-select-wrap");
+    if (!wrap) {
+      wrap = document.createElement("div");
+      wrap.className = "admin-select-wrap";
+      select.parentNode.insertBefore(wrap, select);
+      wrap.appendChild(select);
+    }
+
+    let search = wrap.querySelector(".admin-select-search");
+    const shouldSearch = select.options.length >= minOptions;
+
+    if (shouldSearch && !search) {
+      search = document.createElement("input");
+      search.type = "search";
+      search.className = "admin-select-search";
+      search.placeholder = "Type to filter…";
+      search.autocomplete = "off";
+      search.setAttribute("aria-label", `Filter ${select.id || "options"}`);
+      wrap.insertBefore(search, select);
+      search.addEventListener("input", () => filterSelectOptions(select, search.value));
+      select.addEventListener("focus", () => search.focus());
+    } else if (!shouldSearch && search) {
+      search.remove();
+    }
+
+    resetSelectFilter(select);
+  }
+
+  function setupMultiSelectFilter(selectId, searchId) {
+    const select = document.getElementById(selectId);
+    const search = document.getElementById(searchId);
+    if (!select || !search || search.dataset.wired === "1") return;
+    search.dataset.wired = "1";
+    search.addEventListener("input", () => filterSelectOptions(select, search.value));
+  }
+
+  function enhanceAllSelects() {
+    [
+      "slam-player",
+      "slam-club",
+      "edit-filter-player",
+      "player-gender",
+      "slam-type",
+      "slam-source",
+      "edit-filter-type",
+      "edit-action",
+      "edit-type",
+      "edit-source",
+      "edit-player-action",
+      "edit-player-gender",
+    ].forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.multiple) {
+        el.classList.add("admin-select");
+        return;
+      }
+      enhanceSearchableSelect(el);
+    });
   }
 
   function populateSelect(select, options, { valueKey = "id", labelKey = "name", blank = false } = {}) {
@@ -204,11 +297,43 @@
     if (hint) {
       hint.textContent = "Hold Ctrl/Cmd (Windows) or ⌘ (Mac) to select multiple clubs.";
     }
+    const search = document.getElementById("player-clubs-search");
+    if (search) search.value = "";
+    [...select.options].forEach((opt) => {
+      opt.hidden = false;
+    });
   }
 
-  /** @deprecated Use populatePlayerClubSelect — kept for cached admin.js compatibility */
-  function renderClubPicker() {
-    populatePlayerClubSelect();
+  function populateEditPlayerClubSelect(playerId) {
+    const select = document.getElementById("edit-player-clubs");
+    if (!select) return;
+
+    const player = players.find((p) => p.id === playerId);
+    const selected = player?.clubIds || [];
+    select.innerHTML = "";
+
+    if (!clubs.length) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "No clubs on file";
+      opt.disabled = true;
+      select.appendChild(opt);
+      return;
+    }
+
+    clubs.forEach((club) => {
+      const opt = document.createElement("option");
+      opt.value = club.id;
+      opt.textContent = `${club.name} (${club.id})`;
+      opt.selected = selected.includes(club.id);
+      select.appendChild(opt);
+    });
+
+    const search = document.getElementById("edit-player-clubs-search");
+    if (search) search.value = "";
+    [...select.options].forEach((opt) => {
+      opt.hidden = false;
+    });
   }
 
   function formatPlayerOption(player) {
@@ -244,6 +369,7 @@
       blank: options.length !== 1,
       selectedId: autoSelect,
     });
+    enhanceSearchableSelect(clubSelect);
 
     if (hint) {
       if (!playerId) {
@@ -262,6 +388,209 @@
   }
 
   let selectedEditSlamId = "";
+  let selectedEditPlayerId = "";
+
+  function sortedPlayers(list) {
+    return [...list].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
+  }
+
+  function playerMetaLine(player) {
+    const parts = [player.id];
+    if (player.aliases?.length) parts.push(player.aliases.join(", "));
+    const clubNames = (player.clubIds || [])
+      .map((id) => clubs.find((c) => c.id === id)?.name)
+      .filter(Boolean);
+    if (clubNames.length) parts.push(clubNames.join(", "));
+    if (player.active === false) parts.push("inactive");
+    return parts.filter(Boolean).join(" · ");
+  }
+
+  function filterEditPlayers() {
+    const query = (document.getElementById("edit-player-search")?.value || "").trim().toLowerCase();
+    if (!query) return sortedPlayers(players);
+    return sortedPlayers(
+      players.filter((player) => {
+        const haystack = [
+          player.id,
+          player.name,
+          player.gender,
+          ...(player.aliases || []),
+          ...(player.clubIds || []).map((id) => clubs.find((c) => c.id === id)?.name || id),
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        return haystack.includes(query);
+      }),
+    );
+  }
+
+  function clearEditPlayerSelection() {
+    selectedEditPlayerId = "";
+    const hidden = document.getElementById("edit-player-id");
+    if (hidden) hidden.value = "";
+    const preview = document.getElementById("edit-player-preview");
+    if (preview) preview.hidden = true;
+  }
+
+  function fillEditPlayerForm(player) {
+    const nameInput = document.getElementById("edit-player-name");
+    const genderSelect = document.getElementById("edit-player-gender");
+    const aliasesInput = document.getElementById("edit-player-aliases");
+    if (nameInput) nameInput.value = player.name || "";
+    if (genderSelect) {
+      genderSelect.value = player.gender ? player.gender.charAt(0).toUpperCase() + player.gender.slice(1) : "Male";
+    }
+    if (aliasesInput) aliasesInput.value = (player.aliases || []).join(", ");
+    populateEditPlayerClubSelect(player.id);
+  }
+
+  function renderEditPlayerPreview(player) {
+    const preview = document.getElementById("edit-player-preview");
+    const badge = document.getElementById("edit-player-preview-badge");
+    const nameEl = document.getElementById("edit-player-preview-name");
+    const idEl = document.getElementById("edit-player-preview-id");
+    const details = document.getElementById("edit-player-details");
+    if (!preview || !player) return;
+
+    preview.hidden = false;
+    if (badge) {
+      badge.textContent = player.gender === "female" ? "F" : "M";
+      badge.className = "entity-picker-badge";
+    }
+    if (nameEl) nameEl.textContent = player.name;
+    if (idEl) idEl.textContent = `ID: ${player.id}`;
+
+    if (details) {
+      details.innerHTML = "";
+      const clubNames = (player.clubIds || [])
+        .map((id) => clubs.find((c) => c.id === id)?.name || id)
+        .join(", ");
+      const rows = [
+        ["Gender", player.gender || "—"],
+        ["Aliases", player.aliases?.length ? player.aliases.join(", ") : "—"],
+        ["Clubs", clubNames || "—"],
+        ["Status", player.active === false ? "Inactive" : "Active"],
+      ];
+      rows.forEach(([label, value]) => {
+        const wrap = document.createElement("div");
+        const dt = document.createElement("dt");
+        dt.textContent = label;
+        const dd = document.createElement("dd");
+        dd.textContent = value;
+        wrap.appendChild(dt);
+        wrap.appendChild(dd);
+        details.appendChild(wrap);
+      });
+    }
+
+    updateEditPlayerActionState();
+  }
+
+  function selectEditPlayer(playerId) {
+    const player = players.find((p) => p.id === playerId);
+    if (!player) return;
+    selectedEditPlayerId = playerId;
+    const hidden = document.getElementById("edit-player-id");
+    if (hidden) hidden.value = playerId;
+    fillEditPlayerForm(player);
+    renderEditPlayerPicker();
+    renderEditPlayerPreview(player);
+  }
+
+  function renderEditPlayerPicker() {
+    const picker = document.getElementById("edit-player-picker");
+    const hint = document.getElementById("edit-player-filter-hint");
+    if (!picker) return;
+
+    const filtered = filterEditPlayers();
+    picker.innerHTML = "";
+
+    if (!filtered.length) {
+      picker.innerHTML = '<p class="entity-picker-empty">No players match this search.</p>';
+      if (hint) hint.textContent = `0 of ${players.length} players`;
+      if (selectedEditPlayerId && !filtered.some((p) => p.id === selectedEditPlayerId)) {
+        clearEditPlayerSelection();
+      }
+      return;
+    }
+
+    if (hint) {
+      hint.textContent =
+        filtered.length === players.length
+          ? `${players.length} players — search by name, alias, or ID`
+          : `Showing ${filtered.length} of ${players.length} players`;
+    }
+
+    if (selectedEditPlayerId && !filtered.some((p) => p.id === selectedEditPlayerId)) {
+      clearEditPlayerSelection();
+    }
+
+    filtered.forEach((player) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `entity-picker-item${player.id === selectedEditPlayerId ? " is-selected" : ""}`;
+      btn.dataset.playerId = player.id;
+      btn.setAttribute("role", "option");
+      btn.setAttribute("aria-selected", player.id === selectedEditPlayerId ? "true" : "false");
+
+      const badge = document.createElement("span");
+      badge.className = "entity-picker-badge";
+      badge.textContent = player.gender === "female" ? "F" : "M";
+
+      const main = document.createElement("span");
+      main.className = "entity-picker-main";
+
+      const name = document.createElement("span");
+      name.className = "entity-picker-title";
+      name.textContent = player.name;
+
+      const meta = document.createElement("span");
+      meta.className = "entity-picker-meta";
+      meta.textContent = playerMetaLine(player);
+
+      main.appendChild(name);
+      main.appendChild(meta);
+
+      const id = document.createElement("span");
+      id.className = "entity-picker-id";
+      id.textContent = player.id;
+
+      btn.appendChild(badge);
+      btn.appendChild(main);
+      btn.appendChild(id);
+      btn.addEventListener("click", () => selectEditPlayer(player.id));
+      picker.appendChild(btn);
+    });
+  }
+
+  function updateEditPlayerActionState() {
+    const action = document.getElementById("edit-player-action");
+    const fields = document.getElementById("edit-player-fields");
+    const preview = document.getElementById("edit-player-preview");
+    const warning = document.getElementById("edit-player-deactivate-warning");
+    const isDeactivate = action?.value === "deactivate";
+    if (fields) fields.hidden = isDeactivate;
+    if (preview) preview.classList.toggle("is-delete", isDeactivate);
+    if (warning) warning.hidden = !isDeactivate;
+  }
+
+  function setupEditPlayerPicker() {
+    document.getElementById("edit-player-search")?.addEventListener("input", renderEditPlayerPicker);
+    document.getElementById("edit-player-action")?.addEventListener("change", updateEditPlayerActionState);
+  }
+
+  function resetEditPlayerForm() {
+    const form = document.getElementById("admin-edit-player-form");
+    if (!form) return;
+    form.reset();
+    clearEditPlayerSelection();
+    const search = document.getElementById("edit-player-search");
+    if (search) search.value = "";
+    renderEditPlayerPicker();
+    updateEditPlayerActionState();
+    populateEditPlayerClubSelect("");
+  }
 
   function playerLabel(playerId) {
     return players.find((p) => p.id === playerId)?.name || playerId;
@@ -462,6 +791,7 @@
       });
       playerSelect.value = "";
     }
+    enhanceSearchableSelect(playerSelect);
     const typeSelect = document.getElementById("edit-filter-type");
     if (typeSelect) typeSelect.value = "";
     const search = document.getElementById("edit-filter-search");
@@ -517,9 +847,13 @@
       players.map((p) => ({ id: p.id, name: formatPlayerOption(p) })),
       { blank: true },
     );
+    enhanceSearchableSelect(document.getElementById("slam-player"));
     populatePlayerClubSelect();
     refreshSlamClubOptions();
     populateEditFilters();
+    renderEditPlayerPicker();
+    populateEditPlayerClubSelect("");
+    enhanceAllSelects();
     updateCatalogStats();
   }
 
@@ -533,7 +867,7 @@
         tab.classList.add("is-active");
         tab.setAttribute("aria-selected", "true");
         const name = tab.dataset.tab;
-        ["player", "club", "slam", "edit"].forEach((panel) => {
+        ["player", "edit-player", "club", "slam", "edit"].forEach((panel) => {
           const el = document.getElementById(`panel-${panel}`);
           if (el) el.hidden = panel !== name;
         });
@@ -796,13 +1130,75 @@
     }
   });
 
+  document.getElementById("admin-edit-player-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const playerId = form.playerId.value;
+    const action = form.action.value;
+    if (!playerId) {
+      setStatus("Select a player from the list above.", "error");
+      return;
+    }
+
+    const player = players.find((p) => p.id === playerId);
+    if (action === "update") {
+      const name = form.name.value.trim();
+      const gender = form.gender.value.trim();
+      if (!name || !gender) {
+        setStatus("Name and gender are required for profile updates.", "error");
+        return;
+      }
+    }
+
+    setStatus("Submitting…", "pending");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setButtonLoading(submitBtn, true, "Submitting…");
+    try {
+      const clubIds = getSelectedClubIds(form).join(", ");
+      const fields =
+        action === "deactivate"
+          ? {
+              "Player ID": playerId,
+              Action: "deactivate",
+            }
+          : {
+              "Player ID": playerId,
+              Action: "update",
+              "Full name": form.name.value.trim(),
+              Gender: form.gender.value.trim(),
+              "Aliases (optional)": form.aliases.value.trim(),
+              "Club IDs (comma-separated)": clubIds,
+            };
+      const issue = await createIssue(token, {
+        title: `[Edit player] ${player?.name || playerId}`,
+        labels: ["edit-player"],
+        body: issueBody(fields, {
+          always: action === "update" ? ["Club IDs (comma-separated)", "Aliases (optional)"] : [],
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — player edit will apply after validation.`, "success");
+      resetEditPlayerForm();
+    } catch (err) {
+      setStatus(err.message, "error");
+    } finally {
+      setButtonLoading(submitBtn, false);
+    }
+  });
+
   setupTabs();
   setupSlugPreview("player-name", "player-slug-preview");
   setupSlugPreview("club-name", "club-slug-preview");
   setupSourceToggle();
   setupSlamPlayerClubLink();
   setupEditSlamPicker();
+  setupEditPlayerPicker();
   setupEditToggle();
+  setupMultiSelectFilter("player-clubs", "player-clubs-search");
+  setupMultiSelectFilter("edit-player-clubs", "edit-player-clubs-search");
+  enhanceAllSelects();
 
   const token = getStoredToken();
   if (token) {
