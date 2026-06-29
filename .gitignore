@@ -3,12 +3,11 @@
 /resources/_gen/
 .hugo_build.lock
 
-# Generated at build time
+# Generated at build time (run scripts/build_derived.py before hugo server)
 /content/players/
 /content/clubs/*.md
 !/content/clubs/_index.md
 /content/awards/2025.md
-/data/generated/
 
 # OS & editor
 .DS_Store

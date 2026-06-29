@@ -4,7 +4,7 @@
 {{ $players := .Site.Data.generated.players_enriched.players }}
 
 {{ if not $club }}
-<p>Club not found.</p>
+<p>Club not found. Run <code>python scripts/build_derived.py</code> and restart Hugo.</p>
 {{ else }}
 <section class="entity-header">
   <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Club</p>

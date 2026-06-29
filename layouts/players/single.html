@@ -2,7 +2,7 @@
 {{ $id := .Params.entityId }}
 {{ $player := index (where .Site.Data.generated.players_enriched.players "id" $id) 0 }}
 {{ if not $player }}
-<p>Player not found.</p>
+<p>Player not found. Run <code>python scripts/build_derived.py</code> and restart Hugo.</p>
 {{ else }}
 {{ $clubs := .Site.Data.generated.clubs_enriched.clubs }}
 

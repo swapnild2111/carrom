@@ -26,10 +26,10 @@ Totals and ranks are **computed** from `slams.json`, not hand-edited.
 
 ```bash
 pip install -r scripts/requirements.txt
-python scripts/build_derived.py
-python scripts/validate_schema.py
+python scripts/build_derived.py   # required before first hugo run
 hugo server -D
-# → http://localhost:1313/carrom/
+# → http://localhost:1313/clubs/shakti-club/  (development baseURL)
+# Production: https://swapnild2111.github.io/carrom/clubs/shakti-club/
 ```
 
 ## Admin
