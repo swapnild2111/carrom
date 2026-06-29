@@ -164,13 +164,28 @@ def main() -> int:
 
     enriched_clubs = []
     for club in clubs:
-        roster = [p for p in enriched_players if club["id"] in p.get("clubIds", [])]
+        roster_players = [p for p in enriched_players if club["id"] in p.get("clubIds", [])]
         club_slams = [s for s in slams if s.get("clubId") == club["id"]]
         white = sum(1 for s in club_slams if s["type"] == "white")
         black = sum(1 for s in club_slams if s["type"] == "black")
+
+        roster = []
+        for player in roster_players:
+            player_slams = [s for s in club_slams if s["playerId"] == player["id"]]
+            pw = sum(1 for s in player_slams if s["type"] == "white")
+            pb = sum(1 for s in player_slams if s["type"] == "black")
+            roster.append({
+                "id": player["id"],
+                "name": player["name"],
+                "white": pw,
+                "black": pb,
+                "total": pw + pb,
+            })
+        roster.sort(key=lambda r: (-r["total"], -r["white"], r["name"].lower()))
+
         enriched_clubs.append({
             **club,
-            "roster": [{"id": p["id"], "name": p["name"]} for p in roster],
+            "roster": roster,
             "stats": {"white": white, "black": black, "total": white + black, "slamCount": len(club_slams)},
             "slams": sorted(club_slams, key=lambda s: (s.get("date") or "", s["id"]), reverse=True),
         })

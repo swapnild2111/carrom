@@ -33,12 +33,30 @@
 
 <section class="roster-section">
   <h3>Roster</h3>
+  <p class="section-desc">Players linked to this club. Slam counts are for slams <strong>logged via this club</strong> only — blank if none recorded.</p>
   {{ if $club.roster }}
-  <ul class="roster-list">
-    {{ range $club.roster }}
-    <li><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></li>
-    {{ end }}
-  </ul>
+  <div class="table-wrap">
+    <table class="timeline-table roster-table">
+      <thead>
+        <tr>
+          <th scope="col">Player</th>
+          <th scope="col" class="num">White</th>
+          <th scope="col" class="num">Black</th>
+          <th scope="col" class="num">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $club.roster }}
+        <tr>
+          <td><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></td>
+          <td class="num">{{ if gt .white 0 }}{{ .white }}{{ else }}<span class="text-muted">—</span>{{ end }}</td>
+          <td class="num">{{ if gt .black 0 }}{{ .black }}{{ else }}<span class="text-muted">—</span>{{ end }}</td>
+          <td class="num">{{ if gt .total 0 }}<strong>{{ .total }}</strong>{{ else }}<span class="text-muted">—</span>{{ end }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
   {{ else }}
   <p class="empty-state">No players linked to this club yet.</p>
   {{ end }}

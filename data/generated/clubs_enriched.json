@@ -13,199 +13,346 @@
       "roster": [
         {
           "id": "kunal-raut",
-          "name": "Kunal Raut"
+          "name": "Kunal Raut",
+          "white": 22,
+          "black": 7,
+          "total": 29
         },
         {
           "id": "babu-bhai",
-          "name": "Babu Bhai"
+          "name": "Babu Bhai",
+          "white": 6,
+          "black": 9,
+          "total": 15
         },
         {
           "id": "harish-bhai",
-          "name": "Harish Bhai"
+          "name": "Harish Bhai",
+          "white": 8,
+          "black": 4,
+          "total": 12
         },
         {
           "id": "sachin-chalwadi",
-          "name": "Sachin Chalwadi"
+          "name": "Sachin Chalwadi",
+          "white": 5,
+          "black": 7,
+          "total": 12
         },
         {
           "id": "anilkumar-singh",
-          "name": "Anilkumar Singh"
+          "name": "Anilkumar Singh",
+          "white": 9,
+          "black": 0,
+          "total": 9
         },
         {
           "id": "mandar-barde",
-          "name": "Mandar Barde"
+          "name": "Mandar Barde",
+          "white": 5,
+          "black": 2,
+          "total": 7
         },
         {
           "id": "javed-khan",
-          "name": "Javed Khan"
-        },
-        {
-          "id": "swaraj",
-          "name": "Swaraj"
+          "name": "Javed Khan",
+          "white": 4,
+          "black": 3,
+          "total": 7
         },
         {
           "id": "sudhir-shinde",
-          "name": "Sudhir Shinde"
+          "name": "Sudhir Shinde",
+          "white": 6,
+          "black": 0,
+          "total": 6
         },
         {
           "id": "navnath-kamble",
-          "name": "Navnath Kamble"
+          "name": "Navnath Kamble",
+          "white": 5,
+          "black": 1,
+          "total": 6
         },
         {
-          "id": "pankaj-pawar",
-          "name": "Pankaj Pawar"
-        },
-        {
-          "id": "premkumar-mishra",
-          "name": "Premkumar Mishra"
-        },
-        {
-          "id": "mujeeb-sayyed",
-          "name": "Mujeeb Sayyed"
-        },
-        {
-          "id": "taufiq-shaikh",
-          "name": "Taufiq Shaikh"
-        },
-        {
-          "id": "shehbazh",
-          "name": "Shehbazh"
+          "id": "swaraj",
+          "name": "Swaraj",
+          "white": 2,
+          "black": 4,
+          "total": 6
         },
         {
           "id": "kiran-soman",
-          "name": "Kiran Soman"
+          "name": "Kiran Soman",
+          "white": 3,
+          "black": 0,
+          "total": 3
         },
         {
-          "id": "zaid-ahmed-farooquee",
-          "name": "Zaid Ahmed Farooquee"
+          "id": "shehbazh",
+          "name": "Shehbazh",
+          "white": 3,
+          "black": 0,
+          "total": 3
         },
         {
-          "id": "satya-arekar",
-          "name": "Satya Arekar"
-        },
-        {
-          "id": "reylond",
-          "name": "Reylond"
-        },
-        {
-          "id": "manish-patil",
-          "name": "Manish Patil"
-        },
-        {
-          "id": "amol",
-          "name": "Amol"
-        },
-        {
-          "id": "bhavesh-rane",
-          "name": "Bhavesh Rane"
+          "id": "taufiq-shaikh",
+          "name": "Taufiq Shaikh",
+          "white": 3,
+          "black": 0,
+          "total": 3
         },
         {
           "id": "akshay-dey",
-          "name": "Akshay Dey"
-        },
-        {
-          "id": "suhas-wakankar",
-          "name": "Suhas Wakankar"
+          "name": "Akshay Dey",
+          "white": 2,
+          "black": 0,
+          "total": 2
         },
         {
           "id": "anil-taishetty",
-          "name": "Anil Taishetty"
+          "name": "Anil Taishetty",
+          "white": 2,
+          "black": 0,
+          "total": 2
+        },
+        {
+          "id": "mujeeb-sayyed",
+          "name": "Mujeeb Sayyed",
+          "white": 2,
+          "black": 0,
+          "total": 2
         },
         {
           "id": "saurabh-gulati",
-          "name": "Saurabh Gulati"
+          "name": "Saurabh Gulati",
+          "white": 2,
+          "black": 0,
+          "total": 2
         },
         {
-          "id": "imran-k",
-          "name": "Imran K"
+          "id": "suhas-wakankar",
+          "name": "Suhas Wakankar",
+          "white": 2,
+          "black": 0,
+          "total": 2
         },
         {
-          "id": "arif-shaikh",
-          "name": "Arif Shaikh"
+          "id": "amol",
+          "name": "Amol",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
-          "id": "darshan",
-          "name": "Darshan"
+          "id": "bhavesh-rane",
+          "name": "Bhavesh Rane",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
-          "id": "vakas-shaikh",
-          "name": "Vakas Shaikh"
+          "id": "manish-patil",
+          "name": "Manish Patil",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
-          "id": "imran-memon",
-          "name": "Imran Memon"
+          "id": "premkumar-mishra",
+          "name": "Premkumar Mishra",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
-          "id": "dharam",
-          "name": "Dharam"
+          "id": "reylond",
+          "name": "Reylond",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
-          "id": "imran-quereshi",
-          "name": "Imran Quereshi"
-        },
-        {
-          "id": "pradeep-satam",
-          "name": "Pradeep Satam"
-        },
-        {
-          "id": "naushad-shaikh",
-          "name": "Naushad Shaikh"
-        },
-        {
-          "id": "bhavesh-parmar",
-          "name": "Bhavesh Parmar"
-        },
-        {
-          "id": "samir-ansari",
-          "name": "Samir Ansari"
-        },
-        {
-          "id": "omkar",
-          "name": "Omkar"
-        },
-        {
-          "id": "vijay",
-          "name": "Vijay"
-        },
-        {
-          "id": "madhura-devle",
-          "name": "Madhura Devle"
+          "id": "satya-arekar",
+          "name": "Satya Arekar",
+          "white": 1,
+          "black": 1,
+          "total": 2
         },
         {
           "id": "arif-bhai",
-          "name": "Arif Bhai"
+          "name": "Arif Bhai",
+          "white": 1,
+          "black": 0,
+          "total": 1
         },
         {
-          "id": "shanu-quereshi",
-          "name": "Shanu Quereshi"
+          "id": "imran-k",
+          "name": "Imran K",
+          "white": 1,
+          "black": 0,
+          "total": 1
         },
         {
-          "id": "vaibhav-jadhav",
-          "name": "Vaibhav Jadhav"
-        },
-        {
-          "id": "tanmay-mane",
-          "name": "Tanmay Mane"
-        },
-        {
-          "id": "parag-desai",
-          "name": "Parag Desai"
-        },
-        {
-          "id": "vaibhav-koregaonkar",
-          "name": "Vaibhav Koregaonkar"
-        },
-        {
-          "id": "pravin-raut",
-          "name": "Pravin Raut"
+          "id": "madhura-devle",
+          "name": "Madhura Devle",
+          "white": 1,
+          "black": 0,
+          "total": 1
         },
         {
           "id": "mukesh-mandodare",
-          "name": "Mukesh Mandodare"
+          "name": "Mukesh Mandodare",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "omkar",
+          "name": "Omkar",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "parag-desai",
+          "name": "Parag Desai",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "pravin-raut",
+          "name": "Pravin Raut",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "shanu-quereshi",
+          "name": "Shanu Quereshi",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "tanmay-mane",
+          "name": "Tanmay Mane",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "vaibhav-jadhav",
+          "name": "Vaibhav Jadhav",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "vaibhav-koregaonkar",
+          "name": "Vaibhav Koregaonkar",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "vijay",
+          "name": "Vijay",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "darshan",
+          "name": "Darshan",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "dharam",
+          "name": "Dharam",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "imran-memon",
+          "name": "Imran Memon",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "imran-quereshi",
+          "name": "Imran Quereshi",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "pradeep-satam",
+          "name": "Pradeep Satam",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "vakas-shaikh",
+          "name": "Vakas Shaikh",
+          "white": 0,
+          "black": 1,
+          "total": 1
+        },
+        {
+          "id": "arif-shaikh",
+          "name": "Arif Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "bhavesh-parmar",
+          "name": "Bhavesh Parmar",
+          "white": 0,
+          "black": 0,
+          "total": 0
         },
         {
           "id": "mahesh-shetye",
-          "name": "Mahesh Shetye"
+          "name": "Mahesh Shetye",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "naushad-shaikh",
+          "name": "Naushad Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "pankaj-pawar",
+          "name": "Pankaj Pawar",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "samir-ansari",
+          "name": "Samir Ansari",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "zaid-ahmed-farooquee",
+          "name": "Zaid Ahmed Farooquee",
+          "white": 0,
+          "black": 0,
+          "total": 0
         }
       ],
       "stats": {
