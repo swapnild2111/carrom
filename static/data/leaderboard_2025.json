@@ -4,111 +4,3926 @@
   "lastUpdated": "2026-06-29",
   "players": [
     {
-      "id": "zaid-ahmed-farooquee",
-      "name": "Zaid Ahmed Farooquee",
-      "aliases": [
-        "Zaid",
-        "Zaid Bhai"
-      ],
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "shakti-club"
+        "sai-carrom"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "shakti-club",
-          "name": "Shakti Club"
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
         }
       ],
       "stats": {
-        "white": 2,
-        "black": 2,
-        "total": 4,
+        "white": 22,
+        "black": 7,
+        "total": 29,
         "bySource": {
-          "club": 2,
-          "youtube": 1,
-          "tournament": 1
+          "club": 29
         },
         "byClub": {
-          "shakti-club": 2
+          "sai-carrom": 29
         }
       },
       "ranks": {
         "white": 1,
-        "black": 1,
+        "black": 2,
         "total": 1
       },
       "timeline": [
         {
-          "id": "slam-2025-004",
-          "playerId": "zaid-ahmed-farooquee",
+          "playerId": "kunal-raut",
           "season": 2025,
           "type": "black",
           "source": "club",
-          "clubId": "shakti-club",
+          "clubId": "sai-carrom",
           "tournament": null,
-          "date": "2025-06-01",
+          "date": null,
           "location": "Thane",
           "videoUrl": null,
-          "matchRef": "Match-165 | SET-3 | Board-4",
-          "notes": null,
-          "active": true
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0029"
         },
         {
-          "id": "slam-2025-003",
-          "playerId": "zaid-ahmed-farooquee",
+          "playerId": "kunal-raut",
           "season": 2025,
-          "type": "white",
-          "source": "tournament",
-          "clubId": null,
-          "tournament": "Thane District Open",
-          "date": "2025-05-20",
-          "location": "Mumbai",
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
           "videoUrl": null,
           "matchRef": null,
-          "notes": "Slam outside Thane city but counts for Thane player",
-          "active": true
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0028"
         },
         {
-          "id": "slam-2025-002",
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0027"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0026"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0025"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0024"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0023"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0022"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0021"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0020"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0019"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0018"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0017"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0016"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0015"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0014"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0013"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0012"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0011"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0010"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0009"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0008"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0007"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0006"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0005"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0004"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0003"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0002"
+        },
+        {
+          "playerId": "kunal-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0001"
+        }
+      ]
+    },
+    {
+      "id": "babu-bhai",
+      "name": "Babu Bhai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 6,
+        "black": 9,
+        "total": 15,
+        "bySource": {
+          "club": 15
+        },
+        "byClub": {
+          "sai-carrom": 15
+        }
+      },
+      "ranks": {
+        "white": 4,
+        "black": 1,
+        "total": 2
+      },
+      "timeline": [
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0044"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0043"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0042"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0041"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0040"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0039"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0038"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0037"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0036"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0035"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0034"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0033"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0032"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0031"
+        },
+        {
+          "playerId": "babu-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0030"
+        }
+      ]
+    },
+    {
+      "id": "harish-bhai",
+      "name": "Harish Bhai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 8,
+        "black": 4,
+        "total": 12,
+        "bySource": {
+          "club": 12
+        },
+        "byClub": {
+          "sai-carrom": 12
+        }
+      },
+      "ranks": {
+        "white": 3,
+        "black": 4,
+        "total": 3
+      },
+      "timeline": [
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0056"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0055"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0054"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0053"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0052"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0051"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0050"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0049"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0048"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0047"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0046"
+        },
+        {
+          "playerId": "harish-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0045"
+        }
+      ]
+    },
+    {
+      "id": "sachin-chalwadi",
+      "name": "Sachin Chalwadi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 5,
+        "black": 7,
+        "total": 12,
+        "bySource": {
+          "club": 12
+        },
+        "byClub": {
+          "sai-carrom": 12
+        }
+      },
+      "ranks": {
+        "white": 6,
+        "black": 2,
+        "total": 3
+      },
+      "timeline": [
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0068"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0067"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0066"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0065"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0064"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0063"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0062"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0061"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0060"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0059"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0058"
+        },
+        {
+          "playerId": "sachin-chalwadi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0057"
+        }
+      ]
+    },
+    {
+      "id": "anilkumar-singh",
+      "name": "Anilkumar Singh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 9,
+        "black": 0,
+        "total": 9,
+        "bySource": {
+          "club": 9
+        },
+        "byClub": {
+          "sai-carrom": 9
+        }
+      },
+      "ranks": {
+        "white": 2,
+        "black": null,
+        "total": 5
+      },
+      "timeline": [
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0077"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0076"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0075"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0074"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0073"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0072"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0071"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0070"
+        },
+        {
+          "playerId": "anilkumar-singh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0069"
+        }
+      ]
+    },
+    {
+      "id": "mandar-barde",
+      "name": "Mandar Barde",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 5,
+        "black": 2,
+        "total": 7,
+        "bySource": {
+          "club": 7
+        },
+        "byClub": {
+          "sai-carrom": 7
+        }
+      },
+      "ranks": {
+        "white": 6,
+        "black": 7,
+        "total": 6
+      },
+      "timeline": [
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0084"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0083"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0082"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0081"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0080"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0079"
+        },
+        {
+          "playerId": "mandar-barde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0078"
+        }
+      ]
+    },
+    {
+      "id": "javed-khan",
+      "name": "Javed Khan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 4,
+        "black": 3,
+        "total": 7,
+        "bySource": {
+          "club": 7
+        },
+        "byClub": {
+          "sai-carrom": 7
+        }
+      },
+      "ranks": {
+        "white": 10,
+        "black": 6,
+        "total": 6
+      },
+      "timeline": [
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0091"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0090"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0089"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0088"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0087"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0086"
+        },
+        {
+          "playerId": "javed-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0085"
+        }
+      ]
+    },
+    {
+      "id": "sudhir-shinde",
+      "name": "Sudhir Shinde",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 6,
+        "black": 0,
+        "total": 6,
+        "bySource": {
+          "club": 6
+        },
+        "byClub": {
+          "sai-carrom": 6
+        }
+      },
+      "ranks": {
+        "white": 4,
+        "black": null,
+        "total": 8
+      },
+      "timeline": [
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0103"
+        },
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0102"
+        },
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0101"
+        },
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0100"
+        },
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0099"
+        },
+        {
+          "playerId": "sudhir-shinde",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0098"
+        }
+      ]
+    },
+    {
+      "id": "navnath-kamble",
+      "name": "Navnath Kamble",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 5,
+        "black": 1,
+        "total": 6,
+        "bySource": {
+          "club": 6
+        },
+        "byClub": {
+          "sai-carrom": 6
+        }
+      },
+      "ranks": {
+        "white": 6,
+        "black": 8,
+        "total": 8
+      },
+      "timeline": [
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0109"
+        },
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0108"
+        },
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0107"
+        },
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0106"
+        },
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0105"
+        },
+        {
+          "playerId": "navnath-kamble",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0104"
+        }
+      ]
+    },
+    {
+      "id": "pankaj-pawar",
+      "name": "Pankaj Pawar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 5,
+        "black": 1,
+        "total": 6,
+        "bySource": {
+          "youtube": 6
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": 6,
+        "black": 8,
+        "total": 8
+      },
+      "timeline": [
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "black",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0115"
+        },
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0114"
+        },
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0113"
+        },
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0112"
+        },
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0111"
+        },
+        {
+          "playerId": "pankaj-pawar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0110"
+        }
+      ]
+    },
+    {
+      "id": "swaraj",
+      "name": "Swaraj",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 2,
+        "black": 4,
+        "total": 6,
+        "bySource": {
+          "club": 6
+        },
+        "byClub": {
+          "sai-carrom": 6
+        }
+      },
+      "ranks": {
+        "white": 16,
+        "black": 4,
+        "total": 8
+      },
+      "timeline": [
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0097"
+        },
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0096"
+        },
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0095"
+        },
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0094"
+        },
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0093"
+        },
+        {
+          "playerId": "swaraj",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0092"
+        }
+      ]
+    },
+    {
+      "id": "premkumar-mishra",
+      "name": "Premkumar Mishra",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 1,
+        "total": 4,
+        "bySource": {
+          "club": 2,
+          "youtube": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": 8,
+        "total": 12
+      },
+      "timeline": [
+        {
+          "playerId": "premkumar-mishra",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0119"
+        },
+        {
+          "playerId": "premkumar-mishra",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0118"
+        },
+        {
+          "playerId": "premkumar-mishra",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0117"
+        },
+        {
+          "playerId": "premkumar-mishra",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0116"
+        }
+      ]
+    },
+    {
+      "id": "kiran-soman",
+      "name": "Kiran Soman",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 0,
+        "total": 3,
+        "bySource": {
+          "club": 3
+        },
+        "byClub": {
+          "sai-carrom": 3
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": null,
+        "total": 13
+      },
+      "timeline": [
+        {
+          "playerId": "kiran-soman",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0131"
+        },
+        {
+          "playerId": "kiran-soman",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0130"
+        },
+        {
+          "playerId": "kiran-soman",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0129"
+        }
+      ]
+    },
+    {
+      "id": "mujeeb-sayyed",
+      "name": "Mujeeb Sayyed",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 0,
+        "total": 3,
+        "bySource": {
+          "club": 2,
+          "youtube": 1
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": null,
+        "total": 13
+      },
+      "timeline": [
+        {
+          "playerId": "mujeeb-sayyed",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0122"
+        },
+        {
+          "playerId": "mujeeb-sayyed",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0121"
+        },
+        {
+          "playerId": "mujeeb-sayyed",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0120"
+        }
+      ]
+    },
+    {
+      "id": "shehbazh",
+      "name": "Shehbazh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 0,
+        "total": 3,
+        "bySource": {
+          "club": 3
+        },
+        "byClub": {
+          "sai-carrom": 3
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": null,
+        "total": 13
+      },
+      "timeline": [
+        {
+          "playerId": "shehbazh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0128"
+        },
+        {
+          "playerId": "shehbazh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0127"
+        },
+        {
+          "playerId": "shehbazh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0126"
+        }
+      ]
+    },
+    {
+      "id": "taufiq-shaikh",
+      "name": "Taufiq Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 0,
+        "total": 3,
+        "bySource": {
+          "club": 3
+        },
+        "byClub": {
+          "sai-carrom": 3
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": null,
+        "total": 13
+      },
+      "timeline": [
+        {
+          "playerId": "taufiq-shaikh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0125"
+        },
+        {
+          "playerId": "taufiq-shaikh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0124"
+        },
+        {
+          "playerId": "taufiq-shaikh",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0123"
+        }
+      ]
+    },
+    {
+      "id": "akshay-dey",
+      "name": "Akshay Dey",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 2,
+        "black": 0,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 16,
+        "black": null,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "akshay-dey",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0145"
+        },
+        {
+          "playerId": "akshay-dey",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0144"
+        }
+      ]
+    },
+    {
+      "id": "anil-taishetty",
+      "name": "Anil Taishetty",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 2,
+        "black": 0,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 16,
+        "black": null,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "anil-taishetty",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0149"
+        },
+        {
+          "playerId": "anil-taishetty",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0148"
+        }
+      ]
+    },
+    {
+      "id": "saurabh-gulati",
+      "name": "Saurabh Gulati",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 2,
+        "black": 0,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 16,
+        "black": null,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "saurabh-gulati",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0151"
+        },
+        {
+          "playerId": "saurabh-gulati",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0150"
+        }
+      ]
+    },
+    {
+      "id": "suhas-wakankar",
+      "name": "Suhas Wakankar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 2,
+        "black": 0,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 16,
+        "black": null,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "suhas-wakankar",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0147"
+        },
+        {
+          "playerId": "suhas-wakankar",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0146"
+        }
+      ]
+    },
+    {
+      "id": "amol",
+      "name": "Amol",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "amol",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0141"
+        },
+        {
+          "playerId": "amol",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0140"
+        }
+      ]
+    },
+    {
+      "id": "bhavesh-rane",
+      "name": "Bhavesh Rane",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "bhavesh-rane",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0143"
+        },
+        {
+          "playerId": "bhavesh-rane",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0142"
+        }
+      ]
+    },
+    {
+      "id": "manish-patil",
+      "name": "Manish Patil",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "manish-patil",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0139"
+        },
+        {
+          "playerId": "manish-patil",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0138"
+        }
+      ]
+    },
+    {
+      "id": "reylond",
+      "name": "Reylond",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "reylond",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0137"
+        },
+        {
+          "playerId": "reylond",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0136"
+        }
+      ]
+    },
+    {
+      "id": "satya-arekar",
+      "name": "Satya Arekar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "club": 2
+        },
+        "byClub": {
+          "sai-carrom": 2
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
+          "playerId": "satya-arekar",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0135"
+        },
+        {
+          "playerId": "satya-arekar",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0134"
+        }
+      ]
+    },
+    {
+      "id": "zaid-ahmed-farooquee",
+      "name": "Zaid Ahmed Farooquee",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 1,
+        "total": 2,
+        "bySource": {
+          "youtube": 2
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": 21,
+        "black": 8,
+        "total": 17
+      },
+      "timeline": [
+        {
           "playerId": "zaid-ahmed-farooquee",
           "season": 2025,
           "type": "black",
           "source": "youtube",
           "clubId": null,
           "tournament": null,
-          "date": "2025-04-15",
+          "date": null,
           "location": "Thane",
-          "videoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
+          "videoUrl": null,
           "matchRef": null,
-          "notes": "Carrom and Flute channel — live stream",
-          "active": true
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0133"
         },
         {
-          "id": "slam-2025-001",
           "playerId": "zaid-ahmed-farooquee",
           "season": 2025,
           "type": "white",
-          "source": "club",
-          "clubId": "shakti-club",
+          "source": "youtube",
+          "clubId": null,
           "tournament": null,
-          "date": "2025-03-10",
+          "date": null,
           "location": "Thane",
           "videoUrl": null,
-          "matchRef": "Match-144 | SET-1 | Board-3",
-          "notes": null,
-          "active": true
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0132"
         }
       ]
     },
     {
-      "id": "amol-ashok-sawardekar",
-      "name": "Amol Ashok Sawardekar",
-      "aliases": [
-        "Amol"
+      "id": "arif-bhai",
+      "name": "Arif Bhai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
       ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "arif-bhai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0166"
+        }
+      ]
+    },
+    {
+      "id": "bhavesh-parmar",
+      "name": "Bhavesh Parmar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "youtube": 1
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "bhavesh-parmar",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0161"
+        }
+      ]
+    },
+    {
+      "id": "imran-k",
+      "name": "Imran K",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "imran-k",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0152"
+        }
+      ]
+    },
+    {
+      "id": "madhura-devle",
+      "name": "Madhura Devle",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "madhura-devle",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0165"
+        }
+      ]
+    },
+    {
+      "id": "mukesh-mandodare",
+      "name": "Mukesh Mandodare",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "mukesh-mandodare",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0173"
+        }
+      ]
+    },
+    {
+      "id": "naushad-shaikh",
+      "name": "Naushad Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "youtube": 1
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "naushad-shaikh",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0160"
+        }
+      ]
+    },
+    {
+      "id": "omkar",
+      "name": "Omkar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "omkar",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0163"
+        }
+      ]
+    },
+    {
+      "id": "parag-desai",
+      "name": "Parag Desai",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "parag-desai",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0170"
+        }
+      ]
+    },
+    {
+      "id": "pravin-raut",
+      "name": "Pravin Raut",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "pravin-raut",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0172"
+        }
+      ]
+    },
+    {
+      "id": "samir-ansari",
+      "name": "Samir Ansari",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "youtube": 1
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "samir-ansari",
+          "season": 2025,
+          "type": "white",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0162"
+        }
+      ]
+    },
+    {
+      "id": "shanu-quereshi",
+      "name": "Shanu Quereshi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "shanu-quereshi",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0167"
+        }
+      ]
+    },
+    {
+      "id": "tanmay-mane",
+      "name": "Tanmay Mane",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "tanmay-mane",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0169"
+        }
+      ]
+    },
+    {
+      "id": "vaibhav-jadhav",
+      "name": "Vaibhav Jadhav",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "vaibhav-jadhav",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0168"
+        }
+      ]
+    },
+    {
+      "id": "vaibhav-koregaonkar",
+      "name": "Vaibhav Koregaonkar",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "vaibhav-koregaonkar",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0171"
+        }
+      ]
+    },
+    {
+      "id": "vijay",
+      "name": "Vijay",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 21,
+        "black": null,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "vijay",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0164"
+        }
+      ]
+    },
+    {
+      "id": "arif-shaikh",
+      "name": "Arif Shaikh",
+      "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
@@ -123,17 +3938,383 @@
       ],
       "stats": {
         "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "youtube": 1
+        },
         "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": null,
-        "total": null
+        "black": 8,
+        "total": 27
       },
-      "timeline": []
+      "timeline": [
+        {
+          "playerId": "arif-shaikh",
+          "season": 2025,
+          "type": "black",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0153"
+        }
+      ]
+    },
+    {
+      "id": "darshan",
+      "name": "Darshan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "darshan",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0154"
+        }
+      ]
+    },
+    {
+      "id": "dharam",
+      "name": "Dharam",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "dharam",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0157"
+        }
+      ]
+    },
+    {
+      "id": "imran-memon",
+      "name": "Imran Memon",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "imran-memon",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0156"
+        }
+      ]
+    },
+    {
+      "id": "imran-quereshi",
+      "name": "Imran Quereshi",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "imran-quereshi",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0158"
+        }
+      ]
+    },
+    {
+      "id": "mahesh-shetye",
+      "name": "Mahesh Shetye",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "youtube": 1
+        },
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "mahesh-shetye",
+          "season": 2025,
+          "type": "black",
+          "source": "youtube",
+          "clubId": null,
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0174"
+        }
+      ]
+    },
+    {
+      "id": "pradeep-satam",
+      "name": "Pradeep Satam",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "pradeep-satam",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0159"
+        }
+      ]
+    },
+    {
+      "id": "vakas-shaikh",
+      "name": "Vakas Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": null,
+        "black": 8,
+        "total": 27
+      },
+      "timeline": [
+        {
+          "playerId": "vakas-shaikh",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": "Imported from Total slam Excel sheet (2025 aggregate)",
+          "active": true,
+          "id": "slam-2025-0155"
+        }
+      ]
     }
   ]
 }

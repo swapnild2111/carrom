@@ -3,18 +3,18 @@
   "ceremonyVideoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
   "maxWhiteSlams": [
     {
-      "playerId": "zaid-ahmed-farooquee",
-      "name": "Zaid Ahmed Farooquee",
-      "slug": "zaid-ahmed-farooquee",
-      "count": 2
+      "playerId": "kunal-raut",
+      "name": "Kunal Raut",
+      "slug": "kunal-raut",
+      "count": 22
     }
   ],
   "maxBlackSlams": [
     {
-      "playerId": "zaid-ahmed-farooquee",
-      "name": "Zaid Ahmed Farooquee",
-      "slug": "zaid-ahmed-farooquee",
-      "count": 2
+      "playerId": "babu-bhai",
+      "name": "Babu Bhai",
+      "slug": "babu-bhai",
+      "count": 9
     }
   ],
   "lastUpdated": "2026-06-29"

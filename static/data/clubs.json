@@ -1,21 +1,13 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-06-28",
+  "lastUpdated": "2026-06-29",
   "clubs": [
-    {
-      "id": "shakti-club",
-      "name": "Shakti Club",
-      "district": "Thane",
-      "contact": "Mukhtar bhai",
-      "notes": "Club-tracked slams under club leadership.",
-      "active": true
-    },
     {
       "id": "sai-carrom",
       "name": "Sai Carrom",
       "district": "Thane",
       "contact": null,
-      "notes": null,
+      "notes": "Default club for Total slam sheet import.",
       "active": true
     }
   ]
