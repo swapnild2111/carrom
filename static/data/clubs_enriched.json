@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2025,
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-07-12",
   "clubs": [
     {
       "id": "sai-carrom",
@@ -2733,6 +2733,22 @@
           "id": "slam-2025-0001"
         }
       ]
+    },
+    {
+      "id": "shakti-carrom-club",
+      "name": "Shakti Carrom Club",
+      "district": "Thane",
+      "contact": null,
+      "notes": null,
+      "active": true,
+      "roster": [],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
+      },
+      "slams": []
     }
   ]
 }
