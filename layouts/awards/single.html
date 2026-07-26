@@ -1,6 +1,11 @@
 {{ define "main" }}
-{{ $awards := .Site.Data.generated.awards_2025 }}
-{{ $lb := .Site.Data.generated.leaderboard_2025 }}
+{{ $seasonYear := .Params.entityId }}
+{{ $awards := index .Site.Data.generated (printf "awards-%s" $seasonYear) }}
+{{ $lb := index .Site.Data.generated (printf "leaderboard-%s" $seasonYear) }}
+{{ $seasonLabel := "" }}
+{{ range .Site.Data.seasons.seasons }}
+  {{ if eq (string .year) $seasonYear }}{{ $seasonLabel = .label }}{{ end }}
+{{ end }}
 {{ $raceWhite := first 5 (sort $lb.players "stats.white" "desc") }}
 {{ $raceBlack := first 5 (sort $lb.players "stats.black" "desc") }}
 {{ $leaderWhite := index $raceWhite 0 }}
@@ -18,7 +23,7 @@
 <div class="awards-page">
   <header class="awards-page-header">
     <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Awards</p>
-    <h2 class="awards-page-title">{{ $awards.season }} season awards</h2>
+    <h2 class="awards-page-title">{{ $seasonLabel }} season awards</h2>
     <p class="awards-page-sub">Team Carrom and Flute celebrate Thane’s top slam performers{{ with $awards.lastUpdated }} · updated {{ . }}{{ end }}</p>
   </header>
 
@@ -64,7 +69,7 @@
     <div class="video-embed">
       <iframe
         src="https://www.youtube-nocookie.com/embed/{{ $videoID }}"
-        title="{{ $awards.season }} Thane District Carrom award ceremony"
+        title="{{ $seasonLabel }} Thane District Carrom award ceremony"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
         loading="lazy"

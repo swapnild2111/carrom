@@ -6,10 +6,16 @@
 {{ define "main" }}
 {{ $admin := .Site.Params.admin }}
 {{ $summary := .Site.Data.generated.site_summary }}
+{{ $seasons := .Site.Data.seasons }}
+{{ $currentSeason := $summary.currentSeason }}
+{{ $seasonLabel := "" }}
+{{ range $seasons.seasons }}
+  {{ if eq (int .year) (int $currentSeason) }}{{ $seasonLabel = .label }}{{ end }}
+{{ end }}
 
 <section class="admin-page">
   <header class="admin-hero">
-    <p class="admin-eyebrow">{{ $summary.season }} season · Data admin</p>
+    <p class="admin-eyebrow">{{ $seasonLabel }} season · Data admin</p>
     <h2 class="admin-title">Admin panel</h2>
     <p class="admin-lead">
       Add players, clubs, and slams for the Thane tracker. Submissions open a GitHub issue and auto-commit to <code>main</code> after validation.
@@ -98,7 +104,7 @@
       <div class="admin-card admin-panel" id="panel-player" role="tabpanel">
         <div class="admin-panel-intro">
           <h3>Add a player</h3>
-          <p>Register a new Thane district player for the {{ $summary.season }} season.</p>
+          <p>Register a new Thane district player for the {{ $seasonLabel }} season.</p>
         </div>
         <form id="admin-player-form" class="admin-form">
           <fieldset class="form-section">
@@ -299,7 +305,17 @@
               <textarea id="slam-notes" name="notes" rows="2"></textarea>
             </div>
           </fieldset>
-          <input type="hidden" name="season" value="2025">
+          <div class="form-field">
+            <label for="slam-season">Season <span class="required">*</span></label>
+            <select id="slam-season" name="season" required>
+              {{ range $seasons.seasons }}
+              {{ if .available }}
+              <option value="{{ .year }}"{{ if eq (int .year) (int $currentSeason) }} selected{{ end }}>{{ .label }}</option>
+              {{ end }}
+              {{ end }}
+            </select>
+            <p class="field-hint">Fiscal year (Apr–Mar). Defaults to the current season.</p>
+          </div>
           <button type="submit" class="btn-admin btn-primary">Submit slam</button>
         </form>
       </div>

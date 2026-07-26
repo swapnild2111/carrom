@@ -9,7 +9,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from lib import DATA, parse_issue_fields
+from lib import DATA, parse_issue_fields, resolve_season
 
 SLAMS_FILE = DATA / "slams.json"
 PLAYERS_FILE = DATA / "players.json"
@@ -34,7 +34,8 @@ def main() -> int:
     player_id = fields.get("player id", "").strip()
     slam_type = fields.get("slam type", "").strip().lower()
     source = fields.get("source", "").strip().lower()
-    season_raw = fields.get("season", "2025").strip() or "2025"
+    default_season = str(resolve_season())
+    season_raw = fields.get("season", default_season).strip() or default_season
 
     if not player_id:
         print("Player id is required.", file=sys.stderr)

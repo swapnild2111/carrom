@@ -3,9 +3,11 @@
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -67,3 +69,39 @@ def parse_club_ids(value: str) -> list[str]:
     if not value.strip():
         return []
     return [part.strip() for part in re.split(r"[,;\n]+", value) if part.strip()]
+
+
+def load_seasons() -> dict:
+    return json.loads((DATA / "seasons.json").read_text(encoding="utf-8"))
+
+
+def resolve_season(on_date: date | None = None, seasons: dict | None = None) -> int:
+    """Return the fiscal-year starting-year integer for on_date (defaults to today).
+
+    Fiscal year runs Apr 1 – Mar 31; season "2025" means Apr 2025 – Mar 2026.
+    If on_date falls outside any defined season, returns the closest available year.
+    """
+    on_date = on_date or date.today()
+    seasons_data = seasons or load_seasons()
+    entries = seasons_data.get("seasons", [])
+
+    for entry in entries:
+        start = date.fromisoformat(entry["start"])
+        end = date.fromisoformat(entry["end"])
+        if start <= on_date <= end:
+            return int(entry["year"])
+
+    if entries:
+        latest = max(entries, key=lambda e: date.fromisoformat(e["start"]))
+        return int(latest["year"])
+    return on_date.year if on_date.month >= 4 else on_date.year - 1
+
+
+def season_from_year_month(year: int, month: int) -> int:
+    """Return fiscal-year starting-year for a given calendar year/month."""
+    return year if month >= 4 else year - 1
+
+
+def available_seasons(seasons: dict | None = None) -> list[dict]:
+    data = seasons or load_seasons()
+    return [s for s in data.get("seasons", []) if s.get("available", True)]

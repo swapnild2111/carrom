@@ -114,7 +114,7 @@ def test_full_admin_lifecycle(isolated_env):
     assert_validate_and_build(isolated_env)
 
     generated = isolated_env["generated"]
-    assert (generated / "leaderboard_2025.json").exists()
+    assert (generated / "leaderboard-2025.json").exists()
     assert (generated / "site_summary.json").exists()
     assert list(isolated_env["content_clubs"].glob("*.md"))
     assert (isolated_env["static_data"] / "players.json").exists()

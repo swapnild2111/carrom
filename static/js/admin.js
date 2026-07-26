@@ -1072,7 +1072,7 @@
           "Player ID": playerId,
           "Slam type": form.type.value,
           Source: source,
-          Season: "2025",
+          Season: form.season.value,
           "Club ID": source === "club" ? form.clubId.value : "",
           "Date (YYYY-MM-DD)": form.date.value,
           "Tournament (optional)": form.tournament.value.trim(),

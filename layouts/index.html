@@ -1,19 +1,23 @@
 {{ define "main" }}
 {{ $summary := .Site.Data.generated.site_summary }}
-{{ $leaderboard := .Site.Data.generated.leaderboard_2025 }}
-{{ $awards := .Site.Data.generated.awards_2025 }}
+{{ $leaderboard := .Site.Data.generated.leaderboard }}
+{{ $awards := .Site.Data.generated.awards }}
 {{ $topPlayers := first 10 $leaderboard.players }}
+{{ $currentLabel := "" }}
+{{ range $summary.seasons }}
+  {{ if eq (int .year) (int $summary.currentSeason) }}{{ $currentLabel = .label }}{{ end }}
+{{ end }}
 
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">{{ $summary.season }} season · {{ $summary.district }} District</p>
+    <p class="hero-eyebrow">{{ $currentLabel }} season · {{ $summary.district }} District</p>
     <h2 class="hero-title">Thane Slam Tracker</h2>
     <p class="hero-lead">
       Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
       Know who leads. Celebrate the Oscar moment at season end.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ "awards/2025/" | relURL }}">View 2025 awards</a>
+      <a class="btn btn-primary" href="{{ (printf "awards/%d/" (int $summary.currentSeason)) | relURL }}">View {{ $currentLabel }} awards</a>
       <a class="btn btn-ghost" href="#leaderboard">Browse leaderboard</a>
     </div>
   </div>
@@ -45,7 +49,7 @@
 <section class="charts-section page-section" aria-label="Season charts">
   <div class="section-heading">
     <h3>Season analytics</h3>
-    <p class="section-desc">Top performers and how white vs black slams stack up across Thane in {{ $summary.season }}.</p>
+    <p class="section-desc">Top performers and how white vs black slams stack up across Thane in {{ $currentLabel }}.</p>
   </div>
   <div class="charts-grid">
     <article class="chart-card chart-card-wide">
@@ -91,7 +95,7 @@
 {{ with $awards }}
 <section class="awards-preview page-section">
   <div class="section-heading">
-    <h3>2025 award leaders</h3>
+    <h3>{{ $currentLabel }} award leaders</h3>
     <p class="section-desc">Who's on track for the white and black slam trophies at season end.</p>
   </div>
   <div class="awards-preview-grid">

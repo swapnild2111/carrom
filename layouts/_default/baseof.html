@@ -13,7 +13,11 @@
 <body>
   {{ $summary := .Site.Data.generated.site_summary }}
   {{ $seasons := .Site.Data.seasons }}
-  {{ $currentYear := $seasons.defaultYear }}
+  {{ $currentSeasonYear := $summary.currentSeason }}
+  {{ $currentSeasonLabel := "" }}
+  {{ range $seasons.seasons }}
+    {{ if eq (int .year) (int $currentSeasonYear) }}{{ $currentSeasonLabel = .label }}{{ end }}
+  {{ end }}
   {{ $copyrightEnd := now.Year }}
   {{ $copyrightStart := .Site.Params.copyrightStart | default 2025 }}
 
@@ -27,15 +31,25 @@
         <div class="header-titles">
           <h1 class="site-title"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
           <p class="site-tagline">
-            {{ $currentYear }} season · {{ .Site.Params.district }} District
-            {{ with $summary }}· {{ .playerCount }} players · {{ .slamCount }} slams{{ end }}
+            <span data-season-label>{{ $currentSeasonLabel }}</span> season · {{ .Site.Params.district }} District
+            {{ with $summary }}· <span data-season-stats>{{ .playerCount }} players · {{ .slamCount }} slams</span>{{ end }}
           </p>
         </div>
       </div>
       <nav class="header-nav" aria-label="Main">
-        <a href="{{ .Site.Home.RelPermalink }}" class="nav-link{{ if .IsHome }} is-active{{ end }}">Leaderboard</a>
-        <a href="{{ "clubs/" | relURL }}" class="nav-link{{ if eq .Section "clubs" }} is-active{{ end }}">Clubs</a>
-        <a href="{{ "awards/2025/" | relURL }}" class="nav-link{{ if strings.Contains .RelPermalink "awards" }} is-active{{ end }}">Awards</a>
+        <div class="season-picker">
+          <label for="season-picker" class="sr-only">Season</label>
+          <select id="season-picker" class="season-picker-select" data-current-season="{{ $currentSeasonYear }}">
+            {{ range $seasons.seasons }}
+              {{ if .available }}
+              <option value="{{ .year }}"{{ if eq (int .year) (int $currentSeasonYear) }} selected{{ end }}>{{ .label }}</option>
+              {{ end }}
+            {{ end }}
+          </select>
+        </div>
+        <a href="{{ .Site.Home.RelPermalink }}" class="nav-link{{ if .IsHome }} is-active{{ end }}" data-season-link>Leaderboard</a>
+        <a href="{{ "clubs/" | relURL }}" class="nav-link{{ if eq .Section "clubs" }} is-active{{ end }}" data-season-link>Clubs</a>
+        <a href="{{ (printf "awards/%d/" (int $currentSeasonYear)) | relURL }}" class="nav-link{{ if strings.Contains .RelPermalink "awards" }} is-active{{ end }}" data-season-link data-season-awards>Awards</a>
         <a href="{{ "admin/" | relURL }}" class="nav-link nav-link-muted{{ if strings.Contains .RelPermalink "admin" }} is-active{{ end }}">Admin</a>
       </nav>
     </div>
@@ -43,6 +57,7 @@
   <main class="container" id="main-content">
     {{ block "main" . }}{{ end }}
   </main>
+  <script src="{{ "js/season-switch.js" | relURL }}"></script>
   <footer class="site-footer">
     <div class="container site-footer-inner">
       <div class="footer-primary">

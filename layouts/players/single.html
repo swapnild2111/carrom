@@ -6,7 +6,11 @@
 {{ else }}
 {{ $clubs := .Site.Data.generated.clubs_enriched.clubs }}
 {{ $summary := .Site.Data.generated.site_summary }}
-{{ $leaderboard := .Site.Data.generated.leaderboard_2025.players }}
+{{ $leaderboard := .Site.Data.generated.leaderboard.players }}
+{{ $seasonLabel := "" }}
+{{ range $summary.seasons }}
+  {{ if eq (int .year) (int $summary.currentSeason) }}{{ $seasonLabel = .label }}{{ end }}
+{{ end }}
 {{ $leader := index $leaderboard 0 }}
 {{ $words := split $player.name " " }}
 {{ $initials := printf "%s%s" (substr $player.name 0 1) (substr (index $words 1 | default "") 0 1) }}
@@ -76,7 +80,7 @@
   <div class="player-dashboard">
     <section class="player-panel player-panel-mix" aria-labelledby="mix-heading">
       <h3 id="mix-heading">Slam mix</h3>
-      <p class="player-panel-desc">White vs black breakdown for the {{ $summary.season }} season.</p>
+      <p class="player-panel-desc">White vs black breakdown for the {{ $seasonLabel }} season.</p>
       <div class="player-mix-layout">
         <div class="player-chart-wrap">
           <canvas id="player-chart-mix" role="img" aria-label="Doughnut chart of white versus black slams"></canvas>
@@ -162,7 +166,7 @@
     <div class="player-activity-header">
       <div>
         <h3 id="activity-heading">Slam log</h3>
-        <p class="player-panel-desc">{{ $player.stats.total }} slam{{ if gt $player.stats.total 1 }}s{{ end }} in {{ $summary.season }}{{ if gt (len $player.timeline) (len $player.timelineGroups) }} · grouped where identical{{ end }}</p>
+        <p class="player-panel-desc">{{ $player.stats.total }} slam{{ if gt $player.stats.total 1 }}s{{ end }} in {{ $seasonLabel }}{{ if gt (len $player.timeline) (len $player.timelineGroups) }} · grouped where identical{{ end }}</p>
       </div>
     </div>
     {{ if $player.timelineGroups }}
@@ -202,12 +206,12 @@
       {{ end }}
     </div>
     {{ else }}
-    <p class="empty-state">No slams recorded for this player in the {{ $summary.season }} season yet.</p>
+    <p class="empty-state">No slams recorded for this player in the {{ $seasonLabel }} season yet.</p>
     {{ end }}
   </section>
   {{ else }}
   <section class="player-empty">
-    <p class="empty-state">No slams recorded for this player in the {{ $summary.season }} season yet.</p>
+    <p class="empty-state">No slams recorded for this player in the {{ $seasonLabel }} season yet.</p>
     <p><a class="btn btn-primary" href="{{ .Site.Home.RelPermalink }}">Back to leaderboard</a></p>
   </section>
   {{ end }}

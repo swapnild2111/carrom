@@ -7,7 +7,7 @@
 /content/players/
 /content/clubs/*.md
 !/content/clubs/_index.md
-/content/awards/2025.md
+/content/awards/*.md
 
 # OS & editor
 .DS_Store

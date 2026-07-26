@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "season": 2025,
-  "lastUpdated": "2026-07-12",
+  "season": 2024,
+  "lastUpdated": "2026-07-26",
   "clubs": [
     {
       "id": "sai-carrom",
@@ -364,7 +364,7 @@
       "slams": [
         {
           "playerId": "mukesh-mandodare",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -375,11 +375,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0173"
+          "id": "slam-2024-0173"
         },
         {
           "playerId": "pravin-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -390,11 +390,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0172"
+          "id": "slam-2024-0172"
         },
         {
           "playerId": "vaibhav-koregaonkar",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -405,11 +405,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0171"
+          "id": "slam-2024-0171"
         },
         {
           "playerId": "parag-desai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -420,11 +420,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0170"
+          "id": "slam-2024-0170"
         },
         {
           "playerId": "tanmay-mane",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -435,11 +435,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0169"
+          "id": "slam-2024-0169"
         },
         {
           "playerId": "vaibhav-jadhav",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -450,11 +450,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0168"
+          "id": "slam-2024-0168"
         },
         {
           "playerId": "shanu-quereshi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -465,11 +465,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0167"
+          "id": "slam-2024-0167"
         },
         {
           "playerId": "arif-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -480,11 +480,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0166"
+          "id": "slam-2024-0166"
         },
         {
           "playerId": "madhura-devle",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -495,11 +495,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0165"
+          "id": "slam-2024-0165"
         },
         {
           "playerId": "vijay",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -510,11 +510,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0164"
+          "id": "slam-2024-0164"
         },
         {
           "playerId": "omkar",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -525,11 +525,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0163"
+          "id": "slam-2024-0163"
         },
         {
           "playerId": "pradeep-satam",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -540,11 +540,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0159"
+          "id": "slam-2024-0159"
         },
         {
           "playerId": "imran-quereshi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -555,11 +555,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0158"
+          "id": "slam-2024-0158"
         },
         {
           "playerId": "dharam",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -570,11 +570,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0157"
+          "id": "slam-2024-0157"
         },
         {
           "playerId": "imran-memon",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -585,11 +585,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0156"
+          "id": "slam-2024-0156"
         },
         {
           "playerId": "vakas-shaikh",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -600,11 +600,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0155"
+          "id": "slam-2024-0155"
         },
         {
           "playerId": "darshan",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -615,11 +615,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0154"
+          "id": "slam-2024-0154"
         },
         {
           "playerId": "imran-k",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -630,11 +630,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0152"
+          "id": "slam-2024-0152"
         },
         {
           "playerId": "saurabh-gulati",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -645,11 +645,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0151"
+          "id": "slam-2024-0151"
         },
         {
           "playerId": "saurabh-gulati",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -660,11 +660,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0150"
+          "id": "slam-2024-0150"
         },
         {
           "playerId": "anil-taishetty",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -675,11 +675,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0149"
+          "id": "slam-2024-0149"
         },
         {
           "playerId": "anil-taishetty",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -690,11 +690,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0148"
+          "id": "slam-2024-0148"
         },
         {
           "playerId": "suhas-wakankar",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -705,11 +705,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0147"
+          "id": "slam-2024-0147"
         },
         {
           "playerId": "suhas-wakankar",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -720,11 +720,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0146"
+          "id": "slam-2024-0146"
         },
         {
           "playerId": "akshay-dey",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -735,11 +735,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0145"
+          "id": "slam-2024-0145"
         },
         {
           "playerId": "akshay-dey",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -750,11 +750,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0144"
+          "id": "slam-2024-0144"
         },
         {
           "playerId": "bhavesh-rane",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -765,11 +765,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0143"
+          "id": "slam-2024-0143"
         },
         {
           "playerId": "bhavesh-rane",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -780,11 +780,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0142"
+          "id": "slam-2024-0142"
         },
         {
           "playerId": "amol",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -795,11 +795,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0141"
+          "id": "slam-2024-0141"
         },
         {
           "playerId": "amol",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -810,11 +810,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0140"
+          "id": "slam-2024-0140"
         },
         {
           "playerId": "manish-patil",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -825,11 +825,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0139"
+          "id": "slam-2024-0139"
         },
         {
           "playerId": "manish-patil",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -840,11 +840,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0138"
+          "id": "slam-2024-0138"
         },
         {
           "playerId": "reylond",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -855,11 +855,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0137"
+          "id": "slam-2024-0137"
         },
         {
           "playerId": "reylond",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -870,11 +870,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0136"
+          "id": "slam-2024-0136"
         },
         {
           "playerId": "satya-arekar",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -885,11 +885,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0135"
+          "id": "slam-2024-0135"
         },
         {
           "playerId": "satya-arekar",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -900,11 +900,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0134"
+          "id": "slam-2024-0134"
         },
         {
           "playerId": "kiran-soman",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -915,11 +915,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0131"
+          "id": "slam-2024-0131"
         },
         {
           "playerId": "kiran-soman",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -930,11 +930,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0130"
+          "id": "slam-2024-0130"
         },
         {
           "playerId": "kiran-soman",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -945,11 +945,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0129"
+          "id": "slam-2024-0129"
         },
         {
           "playerId": "shehbazh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -960,11 +960,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0128"
+          "id": "slam-2024-0128"
         },
         {
           "playerId": "shehbazh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -975,11 +975,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0127"
+          "id": "slam-2024-0127"
         },
         {
           "playerId": "shehbazh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -990,11 +990,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0126"
+          "id": "slam-2024-0126"
         },
         {
           "playerId": "taufiq-shaikh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1005,11 +1005,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0125"
+          "id": "slam-2024-0125"
         },
         {
           "playerId": "taufiq-shaikh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1020,11 +1020,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0124"
+          "id": "slam-2024-0124"
         },
         {
           "playerId": "taufiq-shaikh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1035,11 +1035,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0123"
+          "id": "slam-2024-0123"
         },
         {
           "playerId": "mujeeb-sayyed",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1050,11 +1050,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0121"
+          "id": "slam-2024-0121"
         },
         {
           "playerId": "mujeeb-sayyed",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1065,11 +1065,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0120"
+          "id": "slam-2024-0120"
         },
         {
           "playerId": "premkumar-mishra",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1080,11 +1080,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0117"
+          "id": "slam-2024-0117"
         },
         {
           "playerId": "premkumar-mishra",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1095,11 +1095,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0116"
+          "id": "slam-2024-0116"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1110,11 +1110,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0109"
+          "id": "slam-2024-0109"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1125,11 +1125,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0108"
+          "id": "slam-2024-0108"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1140,11 +1140,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0107"
+          "id": "slam-2024-0107"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1155,11 +1155,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0106"
+          "id": "slam-2024-0106"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1170,11 +1170,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0105"
+          "id": "slam-2024-0105"
         },
         {
           "playerId": "navnath-kamble",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1185,11 +1185,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0104"
+          "id": "slam-2024-0104"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1200,11 +1200,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0103"
+          "id": "slam-2024-0103"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1215,11 +1215,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0102"
+          "id": "slam-2024-0102"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1230,11 +1230,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0101"
+          "id": "slam-2024-0101"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1245,11 +1245,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0100"
+          "id": "slam-2024-0100"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1260,11 +1260,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0099"
+          "id": "slam-2024-0099"
         },
         {
           "playerId": "sudhir-shinde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1275,11 +1275,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0098"
+          "id": "slam-2024-0098"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1290,11 +1290,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0097"
+          "id": "slam-2024-0097"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1305,11 +1305,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0096"
+          "id": "slam-2024-0096"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1320,11 +1320,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0095"
+          "id": "slam-2024-0095"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1335,11 +1335,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0094"
+          "id": "slam-2024-0094"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1350,11 +1350,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0093"
+          "id": "slam-2024-0093"
         },
         {
           "playerId": "swaraj",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1365,11 +1365,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0092"
+          "id": "slam-2024-0092"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1380,11 +1380,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0091"
+          "id": "slam-2024-0091"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1395,11 +1395,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0090"
+          "id": "slam-2024-0090"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1410,11 +1410,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0089"
+          "id": "slam-2024-0089"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1425,11 +1425,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0088"
+          "id": "slam-2024-0088"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1440,11 +1440,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0087"
+          "id": "slam-2024-0087"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1455,11 +1455,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0086"
+          "id": "slam-2024-0086"
         },
         {
           "playerId": "javed-khan",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1470,11 +1470,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0085"
+          "id": "slam-2024-0085"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1485,11 +1485,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0084"
+          "id": "slam-2024-0084"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1500,11 +1500,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0083"
+          "id": "slam-2024-0083"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1515,11 +1515,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0082"
+          "id": "slam-2024-0082"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1530,11 +1530,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0081"
+          "id": "slam-2024-0081"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1545,11 +1545,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0080"
+          "id": "slam-2024-0080"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1560,11 +1560,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0079"
+          "id": "slam-2024-0079"
         },
         {
           "playerId": "mandar-barde",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1575,11 +1575,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0078"
+          "id": "slam-2024-0078"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1590,11 +1590,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0077"
+          "id": "slam-2024-0077"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1605,11 +1605,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0076"
+          "id": "slam-2024-0076"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1620,11 +1620,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0075"
+          "id": "slam-2024-0075"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1635,11 +1635,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0074"
+          "id": "slam-2024-0074"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1650,11 +1650,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0073"
+          "id": "slam-2024-0073"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1665,11 +1665,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0072"
+          "id": "slam-2024-0072"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1680,11 +1680,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0071"
+          "id": "slam-2024-0071"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1695,11 +1695,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0070"
+          "id": "slam-2024-0070"
         },
         {
           "playerId": "anilkumar-singh",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1710,11 +1710,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0069"
+          "id": "slam-2024-0069"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1725,11 +1725,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0068"
+          "id": "slam-2024-0068"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1740,11 +1740,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0067"
+          "id": "slam-2024-0067"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1755,11 +1755,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0066"
+          "id": "slam-2024-0066"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1770,11 +1770,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0065"
+          "id": "slam-2024-0065"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1785,11 +1785,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0064"
+          "id": "slam-2024-0064"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1800,11 +1800,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0063"
+          "id": "slam-2024-0063"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1815,11 +1815,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0062"
+          "id": "slam-2024-0062"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1830,11 +1830,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0061"
+          "id": "slam-2024-0061"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1845,11 +1845,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0060"
+          "id": "slam-2024-0060"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1860,11 +1860,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0059"
+          "id": "slam-2024-0059"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1875,11 +1875,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0058"
+          "id": "slam-2024-0058"
         },
         {
           "playerId": "sachin-chalwadi",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1890,11 +1890,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0057"
+          "id": "slam-2024-0057"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1905,11 +1905,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0056"
+          "id": "slam-2024-0056"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1920,11 +1920,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0055"
+          "id": "slam-2024-0055"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1935,11 +1935,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0054"
+          "id": "slam-2024-0054"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1950,11 +1950,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0053"
+          "id": "slam-2024-0053"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1965,11 +1965,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0052"
+          "id": "slam-2024-0052"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1980,11 +1980,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0051"
+          "id": "slam-2024-0051"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -1995,11 +1995,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0050"
+          "id": "slam-2024-0050"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2010,11 +2010,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0049"
+          "id": "slam-2024-0049"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2025,11 +2025,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0048"
+          "id": "slam-2024-0048"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2040,11 +2040,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0047"
+          "id": "slam-2024-0047"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2055,11 +2055,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0046"
+          "id": "slam-2024-0046"
         },
         {
           "playerId": "harish-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2070,11 +2070,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0045"
+          "id": "slam-2024-0045"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2085,11 +2085,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0044"
+          "id": "slam-2024-0044"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2100,11 +2100,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0043"
+          "id": "slam-2024-0043"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2115,11 +2115,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0042"
+          "id": "slam-2024-0042"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2130,11 +2130,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0041"
+          "id": "slam-2024-0041"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2145,11 +2145,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0040"
+          "id": "slam-2024-0040"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2160,11 +2160,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0039"
+          "id": "slam-2024-0039"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2175,11 +2175,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0038"
+          "id": "slam-2024-0038"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2190,11 +2190,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0037"
+          "id": "slam-2024-0037"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2205,11 +2205,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0036"
+          "id": "slam-2024-0036"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2220,11 +2220,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0035"
+          "id": "slam-2024-0035"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2235,11 +2235,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0034"
+          "id": "slam-2024-0034"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2250,11 +2250,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0033"
+          "id": "slam-2024-0033"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2265,11 +2265,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0032"
+          "id": "slam-2024-0032"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2280,11 +2280,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0031"
+          "id": "slam-2024-0031"
         },
         {
           "playerId": "babu-bhai",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2295,11 +2295,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0030"
+          "id": "slam-2024-0030"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2310,11 +2310,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0029"
+          "id": "slam-2024-0029"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2325,11 +2325,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0028"
+          "id": "slam-2024-0028"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2340,11 +2340,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0027"
+          "id": "slam-2024-0027"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2355,11 +2355,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0026"
+          "id": "slam-2024-0026"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2370,11 +2370,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0025"
+          "id": "slam-2024-0025"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2385,11 +2385,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0024"
+          "id": "slam-2024-0024"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "black",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2400,11 +2400,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0023"
+          "id": "slam-2024-0023"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2415,11 +2415,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0022"
+          "id": "slam-2024-0022"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2430,11 +2430,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0021"
+          "id": "slam-2024-0021"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2445,11 +2445,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0020"
+          "id": "slam-2024-0020"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2460,11 +2460,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0019"
+          "id": "slam-2024-0019"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2475,11 +2475,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0018"
+          "id": "slam-2024-0018"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2490,11 +2490,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0017"
+          "id": "slam-2024-0017"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2505,11 +2505,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0016"
+          "id": "slam-2024-0016"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2520,11 +2520,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0015"
+          "id": "slam-2024-0015"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2535,11 +2535,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0014"
+          "id": "slam-2024-0014"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2550,11 +2550,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0013"
+          "id": "slam-2024-0013"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2565,11 +2565,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0012"
+          "id": "slam-2024-0012"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2580,11 +2580,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0011"
+          "id": "slam-2024-0011"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2595,11 +2595,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0010"
+          "id": "slam-2024-0010"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2610,11 +2610,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0009"
+          "id": "slam-2024-0009"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2625,11 +2625,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0008"
+          "id": "slam-2024-0008"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2640,11 +2640,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0007"
+          "id": "slam-2024-0007"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2655,11 +2655,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0006"
+          "id": "slam-2024-0006"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2670,11 +2670,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0005"
+          "id": "slam-2024-0005"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2685,11 +2685,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0004"
+          "id": "slam-2024-0004"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2700,11 +2700,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0003"
+          "id": "slam-2024-0003"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2715,11 +2715,11 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0002"
+          "id": "slam-2024-0002"
         },
         {
           "playerId": "kunal-raut",
-          "season": 2025,
+          "season": 2024,
           "type": "white",
           "source": "club",
           "clubId": "sai-carrom",
@@ -2730,7 +2730,7 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2025-0001"
+          "id": "slam-2024-0001"
         }
       ]
     },

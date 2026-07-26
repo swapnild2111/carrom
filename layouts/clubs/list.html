@@ -1,8 +1,13 @@
 {{ define "main" }}
+{{ $summary := .Site.Data.generated.site_summary }}
+{{ $seasonLabel := "" }}
+{{ range $summary.seasons }}
+  {{ if eq (int .year) (int $summary.currentSeason) }}{{ $seasonLabel = .label }}{{ end }}
+{{ end }}
 <section class="entity-header">
   <p class="breadcrumb"><a href="{{ .Site.Home.RelPermalink }}">Leaderboard</a> / Clubs</p>
   <h2>Thane clubs</h2>
-  <p class="entity-aliases">Clubs that log player slams for the 2025 season.</p>
+  <p class="entity-aliases">Clubs that log player slams for the {{ $seasonLabel }} season.</p>
 </section>
 
 <div class="club-grid">
