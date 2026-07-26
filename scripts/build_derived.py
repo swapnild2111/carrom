@@ -166,6 +166,51 @@ def sync_static_data() -> None:
             shutil.copy2(path, static_generated / path.name)
 
 
+def compute_all_time_leaders(players: list[dict], all_slams: list[dict]) -> dict:
+    """Top players across every season combined (all active slams from any season)."""
+    active = [s for s in all_slams if s.get("active", True)]
+    players_by_id = {p["id"]: p for p in players}
+
+    per_player: dict[str, dict[str, int]] = {}
+    for slam in active:
+        pid = slam.get("playerId")
+        if not pid or pid not in players_by_id:
+            continue
+        entry = per_player.setdefault(pid, {"white": 0, "black": 0, "total": 0})
+        if slam["type"] == "white":
+            entry["white"] += 1
+        elif slam["type"] == "black":
+            entry["black"] += 1
+        entry["total"] = entry["white"] + entry["black"]
+
+    def top_by(metric: str) -> list[dict]:
+        if not per_player:
+            return []
+        best = max(e[metric] for e in per_player.values())
+        if best == 0:
+            return []
+        return sorted(
+            [
+                {
+                    "id": pid,
+                    "name": players_by_id[pid]["name"],
+                    "count": e[metric],
+                }
+                for pid, e in per_player.items()
+                if e[metric] == best
+            ],
+            key=lambda w: w["name"].lower(),
+        )
+
+    return {
+        "topTotal": top_by("total"),
+        "topWhite": top_by("white"),
+        "topBlack": top_by("black"),
+        "totalSlams": sum(e["total"] for e in per_player.values()),
+        "playerCount": len(per_player),
+    }
+
+
 def build_season_bundle(
     season: int,
     players: list[dict],
@@ -278,6 +323,9 @@ def main() -> int:
 
     current_bundle = bundles.get(current_season) or next(iter(bundles.values()))
 
+    all_time = compute_all_time_leaders(players, all_slams)
+    save_json(GENERATED / "all_time_leaders.json", {**all_time, "lastUpdated": today})
+
     for year, bundle in bundles.items():
         save_json(GENERATED / f"leaderboard-{year}.json", {
             "season": year,
@@ -319,6 +367,7 @@ def main() -> int:
             for s in seasons
             if int(s["year"]) in bundles
         ],
+        "allTime": all_time,
     }
     save_json(GENERATED / "site_summary.json", site_summary)
 

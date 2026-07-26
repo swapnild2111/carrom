@@ -2433,6 +2433,77 @@ details[open] .col-expand {
   font-size: 0.95rem;
 }
 
+.all-time-hero {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.06), rgba(232, 197, 71, 0.05));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+
+.all-time-hero .section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.all-time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.all-time-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  border-top: 3px solid var(--accent);
+}
+
+.all-time-card-white {
+  border-top-color: var(--white-slam, #e8c547);
+}
+
+.all-time-card-black {
+  border-top-color: #c9a227;
+}
+
+.all-time-eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.all-time-name {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.all-time-name a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.all-time-name a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.all-time-count {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.all-time-value {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-right: 0.15rem;
+}
+
 /* Charts */
 .charts-section {
   margin-top: 0.5rem;

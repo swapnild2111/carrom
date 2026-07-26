@@ -1,0 +1,26 @@
+{
+  "topTotal": [
+    {
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "count": 29
+    }
+  ],
+  "topWhite": [
+    {
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "count": 22
+    }
+  ],
+  "topBlack": [
+    {
+      "id": "babu-bhai",
+      "name": "Babu Bhai",
+      "count": 9
+    }
+  ],
+  "totalSlams": 174,
+  "playerCount": 49,
+  "lastUpdated": "2026-07-26"
+}

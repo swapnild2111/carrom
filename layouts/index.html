@@ -2,10 +2,50 @@
 {{ $summary := .Site.Data.generated.site_summary }}
 {{ $leaderboard := .Site.Data.generated.leaderboard }}
 {{ $awards := .Site.Data.generated.awards }}
+{{ $allTime := $summary.allTime }}
 {{ $topPlayers := first 10 $leaderboard.players }}
 {{ $currentLabel := "" }}
 {{ range $summary.seasons }}
   {{ if eq (int .year) (int $summary.currentSeason) }}{{ $currentLabel = .label }}{{ end }}
+{{ end }}
+{{ $hasAllTime := and $allTime (gt (int $allTime.totalSlams) 0) }}
+
+{{ if $hasAllTime }}
+<section class="all-time-hero page-section" aria-labelledby="all-time-heading" data-static-across-seasons>
+  <div class="section-heading">
+    <h3 id="all-time-heading">All-time leaders</h3>
+    <p class="section-desc">Top players across every season combined — Thane's records so far.</p>
+  </div>
+  <div class="all-time-grid">
+    <article class="all-time-card all-time-card-total">
+      <p class="all-time-eyebrow">Most slams</p>
+      {{ range $allTime.topTotal }}
+      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
+      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> total slams</p>
+      {{ else }}
+      <p class="text-muted">No slams yet.</p>
+      {{ end }}
+    </article>
+    <article class="all-time-card all-time-card-white">
+      <p class="all-time-eyebrow"><span aria-hidden="true">○</span> Most white slams</p>
+      {{ range $allTime.topWhite }}
+      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
+      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> white slams</p>
+      {{ else }}
+      <p class="text-muted">No white slams yet.</p>
+      {{ end }}
+    </article>
+    <article class="all-time-card all-time-card-black">
+      <p class="all-time-eyebrow"><span aria-hidden="true">●</span> Most black slams</p>
+      {{ range $allTime.topBlack }}
+      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
+      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> black slams</p>
+      {{ else }}
+      <p class="text-muted">No black slams yet.</p>
+      {{ end }}
+    </article>
+  </div>
+</section>
 {{ end }}
 
 <section class="hero">
