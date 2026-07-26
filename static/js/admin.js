@@ -14,6 +14,7 @@
   let players = [];
   let clubs = [];
   let slams = [];
+  let seasons = [];
 
   function slugify(name) {
     return name
@@ -833,14 +834,16 @@
   }
 
   async function loadCatalog() {
-    const [playersData, clubsData, slamsData] = await Promise.all([
+    const [playersData, clubsData, slamsData, seasonsData] = await Promise.all([
       fetchJson(config.playersUrl),
       fetchJson(config.clubsUrl),
       fetchJson(config.slamsUrl),
+      fetchJson(config.seasonsUrl).catch(() => ({ seasons: [] })),
     ]);
     players = playersData.players || [];
     clubs = clubsData.clubs || [];
     slams = (slamsData.slams || []).filter((s) => s.active !== false);
+    seasons = (seasonsData.seasons || []).slice().sort((a, b) => a.year - b.year);
 
     populateSelect(
       document.getElementById("slam-player"),
@@ -853,8 +856,42 @@
     populateEditFilters();
     renderEditPlayerPicker();
     populateEditPlayerClubSelect("");
+    populateSeasonList();
+    populateEditSeasonSelect();
     enhanceAllSelects();
     updateCatalogStats();
+  }
+
+  function populateSeasonList() {
+    const list = document.getElementById("admin-season-list");
+    if (!list) return;
+    list.innerHTML = "";
+    if (!seasons.length) {
+      const li = document.createElement("li");
+      li.textContent = "No seasons defined yet.";
+      list.appendChild(li);
+      return;
+    }
+    seasons.forEach((s) => {
+      const li = document.createElement("li");
+      const status = s.available === false ? " (hidden)" : "";
+      li.textContent = `${s.label || s.year} — ${s.start} → ${s.end}${status}`;
+      list.appendChild(li);
+    });
+  }
+
+  function populateEditSeasonSelect() {
+    const select = document.getElementById("edit-season-year");
+    if (!select) return;
+    const previous = select.value;
+    select.innerHTML = '<option value="">Select…</option>';
+    seasons.forEach((s) => {
+      const opt = document.createElement("option");
+      opt.value = s.year;
+      opt.textContent = `${s.label || s.year} (${s.start} → ${s.end})`;
+      select.appendChild(opt);
+    });
+    if (previous) select.value = previous;
   }
 
   function setupTabs() {
@@ -867,7 +904,7 @@
         tab.classList.add("is-active");
         tab.setAttribute("aria-selected", "true");
         const name = tab.dataset.tab;
-        ["player", "edit-player", "club", "slam", "edit"].forEach((panel) => {
+        ["player", "edit-player", "club", "slam", "edit", "season"].forEach((panel) => {
           const el = document.getElementById(`panel-${panel}`);
           if (el) el.hidden = panel !== name;
         });
@@ -1181,6 +1218,92 @@
       });
       setStatus(`Issue #${issue.number} created — player edit will apply after validation.`, "success");
       resetEditPlayerForm();
+    } catch (err) {
+      setStatus(err.message, "error");
+    } finally {
+      setButtonLoading(submitBtn, false);
+    }
+  });
+
+  document.getElementById("admin-season-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const year = form.year.value.trim();
+    const start = form.start.value;
+    const end = form.end.value;
+    const label = form.label.value.trim();
+
+    if (!year || !start || !end) {
+      setStatus("Start year, start date, and end date are required.", "error");
+      return;
+    }
+    if (end <= start) {
+      setStatus("End date must be after start date.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setButtonLoading(submitBtn, true, "Submitting…");
+    try {
+      const issue = await createIssue(token, {
+        title: `[Season] ${label || year}`,
+        labels: ["add-season"],
+        body: issueBody({
+          "Start year": year,
+          "Start date": start,
+          "End date": end,
+          Label: label,
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — season will be added after validation.`, "success");
+      form.reset();
+    } catch (err) {
+      setStatus(err.message, "error");
+    } finally {
+      setButtonLoading(submitBtn, false);
+    }
+  });
+
+  document.getElementById("admin-edit-season-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const year = form.year.value.trim();
+    if (!year) {
+      setStatus("Select a season to edit.", "error");
+      return;
+    }
+
+    const start = form.start.value;
+    const end = form.end.value;
+    if (start && end && end <= start) {
+      setStatus("End date must be after start date.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setButtonLoading(submitBtn, true, "Submitting…");
+    try {
+      const issue = await createIssue(token, {
+        title: `[Edit season] ${year}`,
+        labels: ["edit-season"],
+        body: issueBody({
+          Season: year,
+          Label: form.label.value.trim(),
+          "Start date": start,
+          "End date": end,
+          Available: form.available.value,
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — season edit will apply after validation.`, "success");
+      form.reset();
     } catch (err) {
       setStatus(err.message, "error");
     } finally {

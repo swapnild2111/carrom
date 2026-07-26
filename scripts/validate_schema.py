@@ -61,6 +61,30 @@ def validate_clubs(clubs: list[dict]) -> list[str]:
     return errors
 
 
+def validate_seasons(seasons: list[dict]) -> list[str]:
+    errors: list[str] = []
+    seen: set[int] = set()
+    for entry in seasons:
+        year = entry.get("year")
+        if not isinstance(year, int):
+            errors.append(f"season year must be int, got {year!r}")
+            continue
+        if year in seen:
+            errors.append(f"duplicate season year: {year}")
+        seen.add(year)
+        for key in ("start", "end"):
+            if not DATE_RE.match(entry.get(key, "")):
+                errors.append(f"season {year}: {key} must be YYYY-MM-DD, got {entry.get(key)!r}")
+        try:
+            if DATE_RE.match(entry.get("start", "")) and DATE_RE.match(entry.get("end", "")):
+                from datetime import date as _date
+                if _date.fromisoformat(entry["end"]) <= _date.fromisoformat(entry["start"]):
+                    errors.append(f"season {year}: end must be after start")
+        except ValueError:
+            pass
+    return errors
+
+
 def validate_slams(slams: list[dict], player_ids: set[str], club_ids: set[str]) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
@@ -90,10 +114,12 @@ def main() -> int:
     players_data = load(DATA / "players.json")
     clubs_data = load(DATA / "clubs.json")
     slams_data = load(DATA / "slams.json")
+    seasons_data = load(DATA / "seasons.json")
 
     all_players = players_data.get("players", [])
     all_clubs = clubs_data.get("clubs", [])
     all_slams = slams_data.get("slams", [])
+    all_seasons = seasons_data.get("seasons", [])
 
     players = [p for p in all_players if p.get("active", True)]
     clubs = [c for c in all_clubs if c.get("active", True)]
@@ -105,6 +131,7 @@ def main() -> int:
     errors.extend(validate_clubs(clubs))
     errors.extend(validate_players(players, club_ids))
     errors.extend(validate_slams(slams, player_ids, club_ids))
+    errors.extend(validate_seasons(all_seasons))
 
     if errors:
         return fail(errors)

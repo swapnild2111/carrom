@@ -145,6 +145,11 @@
         </tr>
       </thead>
       <tbody>
+        {{ if eq (int $summary.totals.all) 0 }}
+        <tr class="leaderboard-empty-row">
+          <td colspan="6" class="leaderboard-empty">No slams recorded for {{ $currentLabel }} yet.</td>
+        </tr>
+        {{ else }}
         {{ range $index, $p := $leaderboard.players }}
         <tr data-search="{{ lower $p.name }} {{ lower (delimit $p.aliases " ") }}">
           <td class="col-rank">
@@ -168,6 +173,7 @@
             {{ end }}
           </td>
         </tr>
+        {{ end }}
         {{ end }}
       </tbody>
     </table>

@@ -1,57 +1,71 @@
 (function () {
   "use strict";
 
-  var dataEl = document.getElementById("home-chart-data");
-  if (!dataEl || typeof Chart === "undefined") return;
-
-  var payload;
-  try {
-    payload = JSON.parse(dataEl.textContent);
-  } catch (e) {
-    return;
-  }
-
   var muted = "#8b9cb3";
   var border = "#2d3a4f";
   var whiteColor = "#f5f0e6";
   var blackColor = "#c9a227";
   var accent = "#4a9eff";
 
-  Chart.defaults.color = muted;
-  Chart.defaults.borderColor = border;
-  Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  if (typeof Chart !== "undefined") {
+    Chart.defaults.color = muted;
+    Chart.defaults.borderColor = border;
+    Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  }
 
-  var topCanvas = document.getElementById("chart-top-players");
-  if (topCanvas && payload.topPlayers && payload.topPlayers.length) {
-    var names = payload.topPlayers.map(function (p) {
-      return p.name;
-    });
-    var whites = payload.topPlayers.map(function (p) {
-      return p.white;
-    });
-    var blacks = payload.topPlayers.map(function (p) {
-      return p.black;
-    });
+  var charts = {};
 
-    new Chart(topCanvas, {
+  function destroyExisting(key) {
+    if (charts[key]) {
+      try { charts[key].destroy(); } catch (_e) { /* ignore */ }
+      charts[key] = null;
+    }
+  }
+
+  function showEmpty(canvas) {
+    if (!canvas) return;
+    destroyExisting(canvas.id);
+    var wrap = canvas.parentNode;
+    if (!wrap) return;
+    var existing = wrap.querySelector(".chart-empty-msg");
+    if (existing) return;
+    canvas.style.display = "none";
+    var msg = document.createElement("p");
+    msg.className = "chart-empty-msg";
+    msg.textContent = "No data available for this season yet.";
+    wrap.appendChild(msg);
+  }
+
+  function clearEmpty(canvas) {
+    if (!canvas) return;
+    canvas.style.display = "";
+    var wrap = canvas.parentNode;
+    if (!wrap) return;
+    var msg = wrap.querySelector(".chart-empty-msg");
+    if (msg) msg.remove();
+  }
+
+  function renderTopPlayersChart(payload) {
+    var canvas = document.getElementById("chart-top-players");
+    if (!canvas || typeof Chart === "undefined") return;
+    if (!payload.topPlayers || !payload.topPlayers.length || !payload.totals || !payload.totals.all) {
+      showEmpty(canvas);
+      return;
+    }
+    clearEmpty(canvas);
+    destroyExisting(canvas.id);
+
+    var names = payload.topPlayers.map(function (p) { return p.name; });
+    var whites = payload.topPlayers.map(function (p) { return p.white; });
+    var blacks = payload.topPlayers.map(function (p) { return p.black; });
+
+    charts[canvas.id] = new Chart(canvas, {
       type: "bar",
       data: {
         labels: names,
         datasets: [
-          {
-            label: "White slams",
-            data: whites,
-            backgroundColor: whiteColor,
-            borderRadius: 4,
-            stack: "slams",
-          },
-          {
-            label: "Black slams",
-            data: blacks,
-            backgroundColor: blackColor,
-            borderRadius: 4,
-            stack: "slams",
-          },
+          { label: "White slams", data: whites, backgroundColor: whiteColor, borderRadius: 4, stack: "slams" },
+          { label: "Black slams", data: blacks, backgroundColor: blackColor, borderRadius: 4, stack: "slams" },
         ],
       },
       options: {
@@ -59,39 +73,35 @@
         maintainAspectRatio: false,
         indexAxis: "y",
         plugins: {
-          legend: {
-            position: "bottom",
-            labels: { boxWidth: 12, padding: 16 },
-          },
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 16 } },
           tooltip: {
             callbacks: {
               footer: function (items) {
-                var sum = items.reduce(function (acc, item) {
-                  return acc + item.parsed.x;
-                }, 0);
+                var sum = items.reduce(function (acc, item) { return acc + item.parsed.x; }, 0);
                 return "Total: " + sum;
               },
             },
           },
         },
         scales: {
-          x: {
-            stacked: true,
-            grid: { color: "rgba(45, 58, 79, 0.6)" },
-            ticks: { precision: 0 },
-          },
-          y: {
-            stacked: true,
-            grid: { display: false },
-          },
+          x: { stacked: true, grid: { color: "rgba(45, 58, 79, 0.6)" }, ticks: { precision: 0 } },
+          y: { stacked: true, grid: { display: false } },
         },
       },
     });
   }
 
-  var splitCanvas = document.getElementById("chart-white-black");
-  if (splitCanvas && payload.totals) {
-    new Chart(splitCanvas, {
+  function renderWhiteBlackChart(payload) {
+    var canvas = document.getElementById("chart-white-black");
+    if (!canvas || typeof Chart === "undefined") return;
+    if (!payload.totals || !payload.totals.all) {
+      showEmpty(canvas);
+      return;
+    }
+    clearEmpty(canvas);
+    destroyExisting(canvas.id);
+
+    charts[canvas.id] = new Chart(canvas, {
       type: "doughnut",
       data: {
         labels: ["White slams", "Black slams"],
@@ -110,10 +120,7 @@
         maintainAspectRatio: false,
         cutout: "62%",
         plugins: {
-          legend: {
-            position: "bottom",
-            labels: { boxWidth: 12, padding: 16 },
-          },
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 16 } },
           tooltip: {
             callbacks: {
               label: function (ctx) {
@@ -135,17 +142,15 @@
             var meta = chart.getDatasetMeta(0);
             if (!meta.data.length) return;
             var center = meta.data[0];
-            var x = center.x;
-            var y = center.y;
             ctx.save();
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillStyle = "#e8edf4";
             ctx.font = "700 1.5rem system-ui, sans-serif";
-            ctx.fillText(String(total), x, y - 8);
+            ctx.fillText(String(total), center.x, center.y - 8);
             ctx.fillStyle = muted;
             ctx.font = "500 0.75rem system-ui, sans-serif";
-            ctx.fillText("total slams", x, y + 14);
+            ctx.fillText("total slams", center.x, center.y + 14);
             ctx.restore();
           },
         },
@@ -153,10 +158,18 @@
     });
   }
 
-  var paceCanvas = document.getElementById("chart-leaders-pace");
-  if (paceCanvas && payload.topPlayers && payload.topPlayers.length >= 3) {
+  function renderPaceChart(payload) {
+    var canvas = document.getElementById("chart-leaders-pace");
+    if (!canvas || typeof Chart === "undefined") return;
+    if (!payload.topPlayers || payload.topPlayers.length < 3 || !payload.totals || !payload.totals.all) {
+      showEmpty(canvas);
+      return;
+    }
+    clearEmpty(canvas);
+    destroyExisting(canvas.id);
+
     var top3 = payload.topPlayers.slice(0, 3);
-    new Chart(paceCanvas, {
+    charts[canvas.id] = new Chart(canvas, {
       type: "radar",
       data: {
         labels: ["White", "Black", "Total"],
@@ -175,12 +188,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: { boxWidth: 12, padding: 12 },
-          },
-        },
+        plugins: { legend: { position: "bottom", labels: { boxWidth: 12, padding: 12 } } },
         scales: {
           r: {
             angleLines: { color: border },
@@ -191,5 +199,20 @@
         },
       },
     });
+  }
+
+  function renderHomeCharts(payload) {
+    renderTopPlayersChart(payload);
+    renderWhiteBlackChart(payload);
+    renderPaceChart(payload);
+  }
+
+  window.renderHomeCharts = renderHomeCharts;
+
+  var dataEl = document.getElementById("home-chart-data");
+  if (dataEl) {
+    try {
+      renderHomeCharts(JSON.parse(dataEl.textContent));
+    } catch (_e) { /* ignore */ }
   }
 })();

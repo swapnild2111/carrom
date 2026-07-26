@@ -69,14 +69,36 @@
 
     fetchJson("leaderboard-" + season + ".json").then(function (lb) {
       renderLeaderboard(lb, label);
+      renderChartsFromLeaderboard(lb);
     }).catch(function () {
       showEmptyBanner(label);
+      renderChartsFromLeaderboard({ players: [] });
     });
 
     fetchJson("awards-" + season + ".json").then(function (awards) {
       renderAwardsPreview(awards);
     }).catch(function () {
-      /* no awards for this season yet */
+      renderAwardsPreview({ maxWhiteSlams: [], maxBlackSlams: [] });
+    });
+  }
+
+  function renderChartsFromLeaderboard(lb) {
+    if (typeof window.renderHomeCharts !== "function") return;
+    var players = (lb && lb.players) || [];
+    var totalWhite = 0, totalBlack = 0;
+    for (var i = 0; i < players.length; i++) {
+      totalWhite += players[i].stats.white;
+      totalBlack += players[i].stats.black;
+    }
+    var topPlayers = players.slice()
+      .sort(function (a, b) { return b.stats.total - a.stats.total; })
+      .slice(0, 10)
+      .map(function (p) {
+        return { name: p.name, white: p.stats.white, black: p.stats.black, total: p.stats.total };
+      });
+    window.renderHomeCharts({
+      totals: { white: totalWhite, black: totalBlack, all: totalWhite + totalBlack },
+      topPlayers: topPlayers,
     });
   }
 

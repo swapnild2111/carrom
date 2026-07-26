@@ -121,6 +121,41 @@ def test_full_admin_lifecycle(isolated_env):
     assert (isolated_env["static_data"] / "slams.json").exists()
 
 
+def test_add_season_workflow(isolated_env):
+    apply_issue(isolated_env, "add_season_from_issue.py", "add-season.md")
+    seasons = load_json(isolated_env["data_dir"] / "seasons.json")["seasons"]
+    added = next(s for s in seasons if int(s["year"]) == 2026)
+    assert added["label"] == "2026–27"
+    assert added["start"] == "2026-04-01"
+    assert added["end"] == "2027-03-31"
+    assert added["available"] is True
+    assert_validate_and_build(isolated_env)
+
+
+def test_add_duplicate_season_rejected(isolated_env):
+    apply_issue(isolated_env, "add_season_from_issue.py", "add-season.md")
+    result = run_script("add_season_from_issue.py", ISSUES / "add-season.md", isolated_env["env"])
+    assert result.returncode != 0
+    assert "already exists" in result.stderr
+
+
+def test_edit_season_workflow(isolated_env):
+    apply_issue(isolated_env, "edit_season_from_issue.py", "edit-season.md")
+    seasons = load_json(isolated_env["data_dir"] / "seasons.json")["seasons"]
+    entry = next(s for s in seasons if int(s["year"]) == 2025)
+    assert entry["label"] == "2025–26 (updated)"
+    assert entry["available"] is True
+    assert_validate_and_build(isolated_env)
+
+
+def test_edit_unknown_season_rejected(isolated_env):
+    tmp = isolated_env["data_dir"] / "edit-unknown.md"
+    tmp.write_text("### Season\n\n1999\n", encoding="utf-8")
+    result = run_script("edit_season_from_issue.py", tmp, isolated_env["env"])
+    assert result.returncode != 0
+    assert "not found" in result.stderr
+
+
 def test_issue_templates_use_parseable_labels():
     """GitHub issue template fixtures must use labels scripts understand."""
     template_checks = {
@@ -129,6 +164,8 @@ def test_issue_templates_use_parseable_labels():
         "add-slam.md": ["player id", "slam type", "source"],
         "edit-player-update.md": ["player id", "action", "aliases (optional)"],
         "edit-slam-update.md": ["slam id", "action", "notes"],
+        "add-season.md": ["start year", "start date", "end date"],
+        "edit-season.md": ["season"],
     }
     for filename, required in template_checks.items():
         body = (ISSUES / filename).read_text(encoding="utf-8").lower()

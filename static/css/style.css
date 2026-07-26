@@ -2418,6 +2418,21 @@ details[open] .col-expand {
   font-weight: 600;
 }
 
+.chart-empty-msg {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.leaderboard-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
 /* Charts */
 .charts-section {
   margin-top: 0.5rem;
