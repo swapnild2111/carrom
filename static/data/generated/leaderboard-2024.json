@@ -5580,6 +5580,37 @@
       "timelineGroups": []
     },
     {
+      "id": "furqan-momin",
+      "name": "Furqan Momin",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
       "id": "naeem-shekhani",
       "name": "Naeem Shekhani",
       "aliases": [],

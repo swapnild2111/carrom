@@ -157,6 +157,17 @@
       "active": true
     },
     {
+      "id": "furqan-momin",
+      "name": "Furqan Momin",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true
+    },
+    {
       "id": "harish-bhai",
       "name": "Harish Bhai",
       "aliases": [],
