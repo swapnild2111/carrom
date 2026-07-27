@@ -8,6 +8,11 @@
   ],
   "topWhite": [
     {
+      "id": "aslam-chicktey",
+      "name": "Aslam Chicktey",
+      "count": 22
+    },
+    {
       "id": "kunal-raut",
       "name": "Kunal Raut",
       "count": 22
@@ -20,7 +25,7 @@
       "count": 9
     }
   ],
-  "totalSlams": 195,
+  "totalSlams": 196,
   "playerCount": 50,
   "lastUpdated": "2026-07-27"
 }
