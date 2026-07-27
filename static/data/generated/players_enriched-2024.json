@@ -2421,13 +2421,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {

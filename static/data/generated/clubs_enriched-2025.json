@@ -117,13 +117,6 @@
           "total": 0
         },
         {
-          "id": "madhura-devle",
-          "name": "Madhura Devle",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "mahesh-shetye",
           "name": "Mahesh Shetye",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "imran-memon",
           "name": "Imran Memon",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "madhura-devle",
+          "name": "Madhura Devle",
           "white": 0,
           "black": 0,
           "total": 0

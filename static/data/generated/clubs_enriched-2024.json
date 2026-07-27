@@ -180,13 +180,6 @@
           "total": 1
         },
         {
-          "id": "madhura-devle",
-          "name": "Madhura Devle",
-          "white": 1,
-          "black": 0,
-          "total": 1
-        },
-        {
           "id": "mukesh-mandodare",
           "name": "Mukesh Mandodare",
           "white": 1,
@@ -2738,6 +2731,13 @@
         {
           "id": "imran-memon",
           "name": "Imran Memon",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "madhura-devle",
+          "name": "Madhura Devle",
           "white": 0,
           "black": 0,
           "total": 0
