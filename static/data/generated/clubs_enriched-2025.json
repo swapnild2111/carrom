@@ -33,13 +33,6 @@
           "total": 0
         },
         {
-          "id": "arif-bhai",
-          "name": "Arif Bhai",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "arif-shaikh",
           "name": "Arif Shaikh",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "anilkumar-singh",
           "name": "Anilkumar Singh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "arif-bhai",
+          "name": "Arif Bhai",
           "white": 0,
           "black": 0,
           "total": 0
