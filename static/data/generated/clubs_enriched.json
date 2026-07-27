@@ -131,13 +131,6 @@
           "total": 0
         },
         {
-          "id": "manish-patil",
-          "name": "Manish Patil",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "mujeeb-sayyed",
           "name": "Mujeeb Sayyed",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "madhura-devle",
           "name": "Madhura Devle",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "manish-patil",
+          "name": "Manish Patil",
           "white": 0,
           "black": 0,
           "total": 0

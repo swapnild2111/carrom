@@ -145,13 +145,6 @@
           "total": 2
         },
         {
-          "id": "manish-patil",
-          "name": "Manish Patil",
-          "white": 1,
-          "black": 1,
-          "total": 2
-        },
-        {
           "id": "premkumar-mishra",
           "name": "Premkumar Mishra",
           "white": 1,
@@ -2738,6 +2731,13 @@
         {
           "id": "madhura-devle",
           "name": "Madhura Devle",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "manish-patil",
+          "name": "Manish Patil",
           "white": 0,
           "black": 0,
           "total": 0
