@@ -145,13 +145,6 @@
           "total": 0
         },
         {
-          "id": "naushad-shaikh",
-          "name": "Naushad Shaikh",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "navnath-kamble",
           "name": "Navnath Kamble",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "manish-patil",
           "name": "Manish Patil",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "naushad-shaikh",
+          "name": "Naushad Shaikh",
           "white": 0,
           "black": 0,
           "total": 0
