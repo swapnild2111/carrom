@@ -28,16 +28,16 @@
         {
           "id": "naeem-shekhani",
           "name": "Naeem Shekhani",
-          "white": 0,
+          "white": 1,
           "black": 0,
-          "total": 0
+          "total": 1
         }
       ],
       "stats": {
-        "white": 38,
+        "white": 39,
         "black": 8,
-        "total": 46,
-        "slamCount": 46
+        "total": 47,
+        "slamCount": 47
       },
       "slams": [
         {
@@ -49,6 +49,21 @@
           "clubId": "champions-carrom-academy",
           "tournament": null,
           "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
+        {
+          "id": "slam-2025-048",
+          "playerId": "naeem-shekhani",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
           "location": null,
           "videoUrl": null,
           "matchRef": null,
