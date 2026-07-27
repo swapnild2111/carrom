@@ -3526,6 +3526,21 @@
       "matchRef": null,
       "notes": null,
       "active": true
+    },
+    {
+      "id": "slam-2025-058",
+      "playerId": "asif-khan",
+      "season": 2025,
+      "type": "white",
+      "source": "club",
+      "clubId": "champions-carrom-academy",
+      "tournament": null,
+      "date": null,
+      "location": null,
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true
     }
   ]
 }
