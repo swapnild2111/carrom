@@ -1655,22 +1655,37 @@
       ],
       "stats": {
         "white": 6,
-        "black": 0,
-        "total": 6,
+        "black": 1,
+        "total": 7,
         "bySource": {
-          "club": 6
+          "club": 7
         },
         "byClub": {
           "shakti-carrom-club": 1,
-          "champions-carrom-academy": 5
+          "champions-carrom-academy": 6
         }
       },
       "ranks": {
         "white": 3,
-        "black": null,
+        "black": 2,
         "total": 3
       },
       "timeline": [
+        {
+          "id": "slam-2025-053",
+          "playerId": "naeem-shekhani",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
         {
           "id": "slam-2025-052",
           "playerId": "naeem-shekhani",
@@ -1778,6 +1793,22 @@
           "notes": null,
           "active": true,
           "count": 5
+        },
+        {
+          "id": "slam-2025-053",
+          "playerId": "naeem-shekhani",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
         },
         {
           "id": "slam-2025-045",
