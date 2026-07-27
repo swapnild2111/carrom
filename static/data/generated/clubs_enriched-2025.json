@@ -89,13 +89,6 @@
           "total": 0
         },
         {
-          "id": "imran-memon",
-          "name": "Imran Memon",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "imran-quereshi",
           "name": "Imran Quereshi",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "arif-bhai",
           "name": "Arif Bhai",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "imran-memon",
+          "name": "Imran Memon",
           "white": 0,
           "black": 0,
           "total": 0
