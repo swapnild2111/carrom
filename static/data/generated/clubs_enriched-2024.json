@@ -82,13 +82,6 @@
           "total": 3
         },
         {
-          "id": "shehbazh",
-          "name": "Shehbazh",
-          "white": 3,
-          "black": 0,
-          "total": 3
-        },
-        {
           "id": "taufiq-shaikh",
           "name": "Taufiq Shaikh",
           "white": 3,
@@ -2738,6 +2731,13 @@
         {
           "id": "satya-arekar",
           "name": "Satya Arekar",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "shehbazh",
+          "name": "Shehbazh",
           "white": 0,
           "black": 0,
           "total": 0

@@ -229,13 +229,6 @@
           "total": 0
         },
         {
-          "id": "shehbazh",
-          "name": "Shehbazh",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "sudhir-shinde",
           "name": "Sudhir Shinde",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "satya-arekar",
           "name": "Satya Arekar",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "shehbazh",
+          "name": "Shehbazh",
           "white": 0,
           "black": 0,
           "total": 0
