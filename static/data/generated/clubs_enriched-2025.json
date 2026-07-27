@@ -21,16 +21,16 @@
         {
           "id": "asif-khan",
           "name": "Asif Khan",
-          "white": 4,
+          "white": 5,
           "black": 0,
-          "total": 4
+          "total": 5
         }
       ],
       "stats": {
-        "white": 31,
+        "white": 32,
         "black": 8,
-        "total": 39,
-        "slamCount": 39
+        "total": 40,
+        "slamCount": 40
       },
       "slams": [
         {
@@ -42,6 +42,21 @@
           "clubId": "champions-carrom-academy",
           "tournament": null,
           "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
+        {
+          "id": "slam-2025-040",
+          "playerId": "asif-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
           "location": null,
           "videoUrl": null,
           "matchRef": null,
