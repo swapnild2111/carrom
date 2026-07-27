@@ -4,6 +4,22 @@
   "lastUpdated": "2026-07-27",
   "clubs": [
     {
+      "id": "champions-carrom-academy",
+      "name": "Champions Carrom Academy",
+      "district": "Thane",
+      "contact": null,
+      "notes": null,
+      "active": true,
+      "roster": [],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
+      },
+      "slams": []
+    },
+    {
       "id": "sai-carrom",
       "name": "Sai Carrom",
       "district": "Thane",
