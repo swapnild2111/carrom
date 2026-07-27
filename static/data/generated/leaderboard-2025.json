@@ -21,13 +21,13 @@
       ],
       "stats": {
         "white": 36,
-        "black": 13,
-        "total": 49,
+        "black": 14,
+        "total": 50,
         "bySource": {
-          "club": 49
+          "club": 50
         },
         "byClub": {
-          "champions-carrom-academy": 49
+          "champions-carrom-academy": 50
         }
       },
       "ranks": {
@@ -45,6 +45,21 @@
           "clubId": "champions-carrom-academy",
           "tournament": null,
           "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
+        {
+          "id": "slam-2025-084",
+          "playerId": "aslam-chicktey",
+          "season": 2025,
+          "type": "black",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
           "location": null,
           "videoUrl": null,
           "matchRef": null,
@@ -790,7 +805,7 @@
           "count": 35
         },
         {
-          "id": "slam-2025-069",
+          "id": "slam-2025-084",
           "playerId": "aslam-chicktey",
           "season": 2025,
           "type": "black",
@@ -803,7 +818,7 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "count": 13
+          "count": 14
         },
         {
           "id": "slam-2025-001",
