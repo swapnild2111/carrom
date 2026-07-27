@@ -1,14 +1,7 @@
 {
   "season": 2026,
   "ceremonyVideoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
-  "maxWhiteSlams": [
-    {
-      "playerId": "naeem-shekhani",
-      "name": "Naeem Shekhani",
-      "slug": "naeem-shekhani",
-      "count": 1
-    }
-  ],
+  "maxWhiteSlams": [],
   "maxBlackSlams": [
     {
       "playerId": "asif-khan",
