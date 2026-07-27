@@ -3,7 +3,7 @@
     {
       "id": "aslam-chicktey",
       "name": "Aslam Chicktey",
-      "count": 37
+      "count": 38
     }
   ],
   "topWhite": [
@@ -15,12 +15,17 @@
   ],
   "topBlack": [
     {
+      "id": "aslam-chicktey",
+      "name": "Aslam Chicktey",
+      "count": 9
+    },
+    {
       "id": "babu-bhai",
       "name": "Mahesh Thakur",
       "count": 9
     }
   ],
-  "totalSlams": 238,
+  "totalSlams": 239,
   "playerCount": 52,
   "lastUpdated": "2026-07-27"
 }
