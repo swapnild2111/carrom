@@ -614,6 +614,74 @@
       ]
     },
     {
+      "id": "asif-khan",
+      "name": "Asif Khan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "champions-carrom-academy"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "champions-carrom-academy",
+          "name": "Champions Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "champions-carrom-academy": 1
+        }
+      },
+      "ranks": {
+        "white": 2,
+        "black": null,
+        "total": 2
+      },
+      "timeline": [
+        {
+          "id": "slam-2025-036",
+          "playerId": "asif-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2025-036",
+          "playerId": "asif-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "id": "akshay-dey",
       "name": "Akshay Dey",
       "aliases": [],
@@ -782,37 +850,6 @@
         {
           "id": "sai-carrom",
           "name": "Sai Carrom"
-        }
-      ],
-      "stats": {
-        "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
-      },
-      "ranks": {
-        "white": null,
-        "black": null,
-        "total": null
-      },
-      "timeline": [],
-      "timelineGroups": []
-    },
-    {
-      "id": "asif-khan",
-      "name": "Asif Khan",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "champions-carrom-academy"
-      ],
-      "active": true,
-      "clubs": [
-        {
-          "id": "champions-carrom-academy",
-          "name": "Champions Carrom Academy"
         }
       ],
       "stats": {
