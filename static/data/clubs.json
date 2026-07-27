@@ -11,6 +11,14 @@
       "active": true
     },
     {
+      "id": "feathers-carrom-academy",
+      "name": "Feathers Carrom Academy",
+      "district": "Thane",
+      "contact": "Naeem Shekhani",
+      "notes": null,
+      "active": true
+    },
+    {
       "id": "sai-carrom",
       "name": "Sai Carrom",
       "district": "Thane",

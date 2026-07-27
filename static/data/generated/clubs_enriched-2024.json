@@ -20,6 +20,22 @@
       "slams": []
     },
     {
+      "id": "feathers-carrom-academy",
+      "name": "Feathers Carrom Academy",
+      "district": "Thane",
+      "contact": "Naeem Shekhani",
+      "notes": null,
+      "active": true,
+      "roster": [],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
+      },
+      "slams": []
+    },
+    {
       "id": "sai-carrom",
       "name": "Sai Carrom",
       "district": "Thane",
