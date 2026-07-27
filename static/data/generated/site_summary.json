@@ -24,7 +24,7 @@
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 65
+      "slamCount": 66
     },
     {
       "year": 2026,
@@ -39,7 +39,7 @@
       {
         "id": "aslam-chicktey",
         "name": "Aslam Chicktey",
-        "count": 38
+        "count": 39
       }
     ],
     "topWhite": [
@@ -53,15 +53,10 @@
       {
         "id": "aslam-chicktey",
         "name": "Aslam Chicktey",
-        "count": 9
-      },
-      {
-        "id": "babu-bhai",
-        "name": "Mahesh Thakur",
-        "count": 9
+        "count": 10
       }
     ],
-    "totalSlams": 239,
+    "totalSlams": 240,
     "playerCount": 52
   }
 }
