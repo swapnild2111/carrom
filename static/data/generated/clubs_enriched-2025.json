@@ -755,13 +755,6 @@
           "total": 0
         },
         {
-          "id": "babu-bhai",
-          "name": "Babu Bhai",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "bhavesh-parmar",
           "name": "Bhavesh Parmar",
           "white": 0,
@@ -1061,6 +1054,13 @@
         {
           "id": "madhura-devle",
           "name": "Madhura Devle",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "babu-bhai",
+          "name": "Mahesh Thakur",
           "white": 0,
           "black": 0,
           "total": 0

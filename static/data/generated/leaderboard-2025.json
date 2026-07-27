@@ -1056,37 +1056,6 @@
       "timelineGroups": []
     },
     {
-      "id": "babu-bhai",
-      "name": "Babu Bhai",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true,
-      "clubs": [
-        {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
-        }
-      ],
-      "stats": {
-        "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
-      },
-      "ranks": {
-        "white": null,
-        "black": null,
-        "total": null
-      },
-      "timeline": [],
-      "timelineGroups": []
-    },
-    {
       "id": "bhavesh-parmar",
       "name": "Bhavesh Parmar",
       "aliases": [],
@@ -1534,6 +1503,37 @@
         {
           "id": "sai-carrom",
           "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
+      "id": "babu-bhai",
+      "name": "Mahesh Thakur",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {

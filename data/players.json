@@ -92,12 +92,12 @@
     },
     {
       "id": "babu-bhai",
-      "name": "Babu Bhai",
+      "name": "Mahesh Thakur",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true
     },
