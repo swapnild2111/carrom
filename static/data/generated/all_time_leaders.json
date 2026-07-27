@@ -3,14 +3,14 @@
     {
       "id": "aslam-chicktey",
       "name": "Aslam Chicktey",
-      "count": 44
+      "count": 45
     }
   ],
   "topWhite": [
     {
       "id": "aslam-chicktey",
       "name": "Aslam Chicktey",
-      "count": 31
+      "count": 32
     }
   ],
   "topBlack": [
@@ -20,7 +20,7 @@
       "count": 13
     }
   ],
-  "totalSlams": 245,
+  "totalSlams": 246,
   "playerCount": 52,
   "lastUpdated": "2026-07-27"
 }
