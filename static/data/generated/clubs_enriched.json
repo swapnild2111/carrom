@@ -215,13 +215,6 @@
           "total": 0
         },
         {
-          "id": "satya-arekar",
-          "name": "Satya Arekar",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "saurabh-gulati",
           "name": "Saurabh Gulati",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "naushad-shaikh",
           "name": "Naushad Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "satya-arekar",
+          "name": "Satya Arekar",
           "white": 0,
           "black": 0,
           "total": 0
