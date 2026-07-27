@@ -24,7 +24,7 @@
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 28
+      "slamCount": 29
     },
     {
       "year": 2026,
@@ -36,6 +36,11 @@
   ],
   "allTime": {
     "topTotal": [
+      {
+        "id": "aslam-chicktey",
+        "name": "Aslam Chicktey",
+        "count": 29
+      },
       {
         "id": "kunal-raut",
         "name": "Kunal Raut",
@@ -56,7 +61,7 @@
         "count": 9
       }
     ],
-    "totalSlams": 202,
+    "totalSlams": 203,
     "playerCount": 50
   }
 }

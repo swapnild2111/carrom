@@ -3031,6 +3031,21 @@
       "matchRef": null,
       "notes": null,
       "active": true
+    },
+    {
+      "id": "slam-2025-029",
+      "playerId": "aslam-chicktey",
+      "season": 2025,
+      "type": "black",
+      "source": "club",
+      "clubId": "champions-carrom-academy",
+      "tournament": null,
+      "date": null,
+      "location": null,
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true
     }
   ]
 }
