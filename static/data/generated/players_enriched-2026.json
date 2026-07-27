@@ -238,18 +238,55 @@
       ],
       "stats": {
         "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
+        "black": 1,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "champions-carrom-academy": 1
+        }
       },
       "ranks": {
         "white": null,
-        "black": null,
-        "total": null
+        "black": 1,
+        "total": 1
       },
-      "timeline": [],
-      "timelineGroups": []
+      "timeline": [
+        {
+          "id": "slam-2026-005",
+          "playerId": "aslam-chicktey",
+          "season": 2026,
+          "type": "black",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2026-005",
+          "playerId": "aslam-chicktey",
+          "season": 2026,
+          "type": "black",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
+        }
+      ]
     },
     {
       "id": "babu-bhai",
