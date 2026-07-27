@@ -1219,7 +1219,15 @@
       "contact": "Naeem Shekhani",
       "notes": null,
       "active": true,
-      "roster": [],
+      "roster": [
+        {
+          "id": "sharik-khan",
+          "name": "Sharik Khan",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        }
+      ],
       "stats": {
         "white": 0,
         "black": 0,
@@ -1592,13 +1600,6 @@
         {
           "id": "satya-arekar",
           "name": "Satya Arekar",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "sharik-khan",
-          "name": "Sharik Khan",
           "white": 0,
           "black": 0,
           "total": 0

@@ -4630,13 +4630,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "shakti-carrom-club"
+        "feathers-carrom-academy"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "shakti-carrom-club",
-          "name": "Shakti Carrom Club"
+          "id": "feathers-carrom-academy",
+          "name": "Feathers Carrom Academy"
         }
       ],
       "stats": {
