@@ -14,9 +14,9 @@
         {
           "id": "aslam-chicktey",
           "name": "Aslam Chicktey",
-          "white": 19,
+          "white": 20,
           "black": 0,
-          "total": 19
+          "total": 20
         },
         {
           "id": "asif-khan",
@@ -27,10 +27,10 @@
         }
       ],
       "stats": {
-        "white": 19,
+        "white": 20,
         "black": 0,
-        "total": 19,
-        "slamCount": 19
+        "total": 20,
+        "slamCount": 20
       },
       "slams": [
         {
@@ -42,6 +42,21 @@
           "clubId": "champions-carrom-academy",
           "tournament": null,
           "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
+        {
+          "id": "slam-2025-020",
+          "playerId": "aslam-chicktey",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
           "location": null,
           "videoUrl": null,
           "matchRef": null,
