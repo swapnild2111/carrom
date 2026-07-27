@@ -69,6 +69,17 @@
       "active": true
     },
     {
+      "id": "aslam-chicktey",
+      "name": "Aslam Chicktey",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true
+    },
+    {
       "id": "babu-bhai",
       "name": "Babu Bhai",
       "aliases": [],
