@@ -24,7 +24,7 @@
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 51
+      "slamCount": 52
     },
     {
       "year": 2026,
@@ -56,7 +56,7 @@
         "count": 9
       }
     ],
-    "totalSlams": 229,
+    "totalSlams": 230,
     "playerCount": 52
   }
 }
