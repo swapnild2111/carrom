@@ -24,6 +24,13 @@
           "white": 0,
           "black": 0,
           "total": 0
+        },
+        {
+          "id": "naeem-shekhani",
+          "name": "Naeem Shekhani",
+          "white": 0,
+          "black": 0,
+          "total": 0
         }
       ],
       "stats": {
@@ -2771,13 +2778,6 @@
         {
           "id": "manish-patil",
           "name": "Manish Patil",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "naeem-shekhani",
-          "name": "Naeem Shekhani",
           "white": 0,
           "black": 0,
           "total": 0

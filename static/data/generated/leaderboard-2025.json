@@ -1614,13 +1614,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "shakti-carrom-club"
+        "champions-carrom-academy"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "shakti-carrom-club",
-          "name": "Shakti Carrom Club"
+          "id": "champions-carrom-academy",
+          "name": "Champions Carrom Academy"
         }
       ],
       "stats": {
