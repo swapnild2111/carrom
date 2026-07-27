@@ -68,13 +68,6 @@
           "total": 6
         },
         {
-          "id": "swaraj",
-          "name": "Swaraj",
-          "white": 2,
-          "black": 4,
-          "total": 6
-        },
-        {
           "id": "kiran-soman",
           "name": "Kiran Soman",
           "white": 3,
@@ -2738,6 +2731,13 @@
         {
           "id": "shehbazh",
           "name": "Shehbazh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "swaraj",
+          "name": "Swaraj",
           "white": 0,
           "black": 0,
           "total": 0

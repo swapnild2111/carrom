@@ -243,13 +243,6 @@
           "total": 0
         },
         {
-          "id": "swaraj",
-          "name": "Swaraj",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "tanmay-mane",
           "name": "Tanmay Mane",
           "white": 0,
@@ -367,6 +360,13 @@
         {
           "id": "shehbazh",
           "name": "Shehbazh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "swaraj",
+          "name": "Swaraj",
           "white": 0,
           "black": 0,
           "total": 0
