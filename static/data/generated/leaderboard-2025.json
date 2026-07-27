@@ -630,14 +630,14 @@
         }
       ],
       "stats": {
-        "white": 7,
+        "white": 8,
         "black": 0,
-        "total": 7,
+        "total": 8,
         "bySource": {
-          "club": 7
+          "club": 8
         },
         "byClub": {
-          "champions-carrom-academy": 7
+          "champions-carrom-academy": 8
         }
       },
       "ranks": {
@@ -646,6 +646,21 @@
         "total": 2
       },
       "timeline": [
+        {
+          "id": "slam-2025-043",
+          "playerId": "asif-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
         {
           "id": "slam-2025-042",
           "playerId": "asif-khan",
@@ -754,7 +769,7 @@
       ],
       "timelineGroups": [
         {
-          "id": "slam-2025-042",
+          "id": "slam-2025-043",
           "playerId": "asif-khan",
           "season": 2025,
           "type": "white",
@@ -767,7 +782,7 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "count": 7
+          "count": 8
         }
       ]
     },
