@@ -44,7 +44,7 @@
           "source": "club",
           "clubId": "shakti-carrom-club",
           "tournament": null,
-          "date": null,
+          "date": "2026-01-15",
           "location": null,
           "videoUrl": null,
           "matchRef": null,
@@ -69,7 +69,7 @@
       ],
       "timelineGroups": [
         {
-          "id": "slam-2026-004",
+          "id": "slam-2026-003",
           "playerId": "naeem-shekhani",
           "season": 2026,
           "type": "white",
@@ -82,7 +82,23 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "count": 2
+          "count": 1
+        },
+        {
+          "id": "slam-2026-004",
+          "playerId": "naeem-shekhani",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "shakti-carrom-club",
+          "tournament": null,
+          "date": "2026-01-15",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
         }
       ]
     },
