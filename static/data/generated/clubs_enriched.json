@@ -479,12 +479,27 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 2,
         "black": 0,
-        "total": 1,
-        "slamCount": 1
+        "total": 2,
+        "slamCount": 2
       },
       "slams": [
+        {
+          "id": "slam-2026-004",
+          "playerId": "naeem-shekhani",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "shakti-carrom-club",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
         {
           "id": "slam-2026-003",
           "playerId": "naeem-shekhani",
