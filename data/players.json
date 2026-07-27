@@ -465,6 +465,17 @@
       "active": true
     },
     {
+      "id": "sharik-khan",
+      "name": "Sharik Khan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true
+    },
+    {
       "id": "shehbazh",
       "name": "Shehbazh",
       "aliases": [],
