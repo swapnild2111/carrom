@@ -3286,6 +3286,21 @@
       "matchRef": null,
       "notes": null,
       "active": true
+    },
+    {
+      "id": "slam-2026-002",
+      "playerId": "asif-khan",
+      "season": 2026,
+      "type": "black",
+      "source": "club",
+      "clubId": "champions-carrom-academy",
+      "tournament": null,
+      "date": null,
+      "location": null,
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true
     }
   ]
 }
