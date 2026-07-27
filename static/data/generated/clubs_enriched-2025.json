@@ -12,27 +12,43 @@
       "active": true,
       "roster": [
         {
-          "id": "asif-khan",
-          "name": "Asif Khan",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "aslam-chicktey",
           "name": "Aslam Chicktey",
+          "white": 1,
+          "black": 0,
+          "total": 1
+        },
+        {
+          "id": "asif-khan",
+          "name": "Asif Khan",
           "white": 0,
           "black": 0,
           "total": 0
         }
       ],
       "stats": {
-        "white": 0,
+        "white": 1,
         "black": 0,
-        "total": 0,
-        "slamCount": 0
+        "total": 1,
+        "slamCount": 1
       },
-      "slams": []
+      "slams": [
+        {
+          "id": "slam-2025-001",
+          "playerId": "aslam-chicktey",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ]
     },
     {
       "id": "feathers-carrom-academy",

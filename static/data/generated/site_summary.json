@@ -5,11 +5,11 @@
   "district": "Thane",
   "playerCount": 55,
   "clubCount": 4,
-  "slamCount": 0,
+  "slamCount": 1,
   "totals": {
-    "white": 0,
+    "white": 1,
     "black": 0,
-    "all": 0
+    "all": 1
   },
   "seasons": [
     {
@@ -24,7 +24,7 @@
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 0
+      "slamCount": 1
     }
   ],
   "allTime": {
@@ -49,7 +49,7 @@
         "count": 9
       }
     ],
-    "totalSlams": 174,
-    "playerCount": 49
+    "totalSlams": 175,
+    "playerCount": 50
   }
 }
