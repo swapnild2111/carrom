@@ -1624,19 +1624,56 @@
         }
       ],
       "stats": {
-        "white": 0,
+        "white": 1,
         "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "shakti-carrom-club": 1
+        }
       },
       "ranks": {
-        "white": null,
+        "white": 3,
         "black": null,
-        "total": null
+        "total": 3
       },
-      "timeline": [],
-      "timelineGroups": []
+      "timeline": [
+        {
+          "id": "slam-2025-045",
+          "playerId": "naeem-shekhani",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "shakti-carrom-club",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2025-045",
+          "playerId": "naeem-shekhani",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "shakti-carrom-club",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
+        }
+      ]
     },
     {
       "id": "naushad-shaikh",

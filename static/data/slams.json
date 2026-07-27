@@ -3331,6 +3331,21 @@
       "matchRef": null,
       "notes": null,
       "active": true
+    },
+    {
+      "id": "slam-2025-045",
+      "playerId": "naeem-shekhani",
+      "season": 2025,
+      "type": "white",
+      "source": "club",
+      "clubId": "shakti-carrom-club",
+      "tournament": null,
+      "date": null,
+      "location": null,
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true
     }
   ]
 }
