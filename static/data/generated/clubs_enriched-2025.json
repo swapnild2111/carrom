@@ -21,9 +21,9 @@
         {
           "id": "asif-khan",
           "name": "Asif Khan",
-          "white": 12,
+          "white": 13,
           "black": 0,
-          "total": 12
+          "total": 13
         },
         {
           "id": "naeem-shekhani",
@@ -34,10 +34,10 @@
         }
       ],
       "stats": {
-        "white": 47,
+        "white": 48,
         "black": 11,
-        "total": 58,
-        "slamCount": 58
+        "total": 59,
+        "slamCount": 59
       },
       "slams": [
         {
@@ -49,6 +49,21 @@
           "clubId": "champions-carrom-academy",
           "tournament": null,
           "date": "2026-07-27",
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        },
+        {
+          "id": "slam-2025-060",
+          "playerId": "asif-khan",
+          "season": 2025,
+          "type": "white",
+          "source": "club",
+          "clubId": "champions-carrom-academy",
+          "tournament": null,
+          "date": null,
           "location": null,
           "videoUrl": null,
           "matchRef": null,
