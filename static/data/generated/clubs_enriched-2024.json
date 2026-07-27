@@ -50,6 +50,13 @@
       "active": true,
       "roster": [
         {
+          "id": "fouzan-shaikh",
+          "name": "Fouzan Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
           "id": "sharik-khan",
           "name": "Sharik Khan",
           "white": 0,
@@ -2744,13 +2751,6 @@
         {
           "id": "arif-bhai",
           "name": "Arif Bhai",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "fouzan-shaikh",
-          "name": "Fouzan Shaikh",
           "white": 0,
           "black": 0,
           "total": 0
