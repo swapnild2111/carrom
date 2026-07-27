@@ -12,6 +12,13 @@
       "active": true,
       "roster": [
         {
+          "id": "asif-khan",
+          "name": "Asif Khan",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
           "id": "aslam-chicktey",
           "name": "Aslam Chicktey",
           "white": 0,
@@ -2729,13 +2736,6 @@
         {
           "id": "arif-bhai",
           "name": "Arif Bhai",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "asif-khan",
-          "name": "Asif Khan",
           "white": 0,
           "black": 0,
           "total": 0
