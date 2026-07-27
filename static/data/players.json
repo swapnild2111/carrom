@@ -289,6 +289,17 @@
       "active": true
     },
     {
+      "id": "naeem-shekhani",
+      "name": "Naeem Shekhani",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true
+    },
+    {
       "id": "naushad-shaikh",
       "name": "Naushad Shaikh",
       "aliases": [],
