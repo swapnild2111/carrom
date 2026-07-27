@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2025,
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-07-27",
   "clubs": [
     {
       "id": "sai-carrom",
@@ -28,13 +28,6 @@
         {
           "id": "anil-taishetty",
           "name": "Anil Taishetty",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "anilkumar-singh",
-          "name": "Anilkumar Singh",
           "white": 0,
           "black": 0,
           "total": 0
@@ -370,7 +363,15 @@
       "contact": null,
       "notes": null,
       "active": true,
-      "roster": [],
+      "roster": [
+        {
+          "id": "anilkumar-singh",
+          "name": "Anilkumar Singh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        }
+      ],
       "stats": {
         "white": 0,
         "black": 0,

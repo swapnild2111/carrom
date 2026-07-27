@@ -1,7 +1,7 @@
 {
   "season": 2024,
   "district": "Thane",
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-07-27",
   "players": [
     {
       "id": "kunal-raut",
@@ -1306,13 +1306,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {

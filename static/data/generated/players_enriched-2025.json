@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2025,
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-07-27",
   "players": [
     {
       "id": "akshay-dey",
@@ -103,13 +103,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
