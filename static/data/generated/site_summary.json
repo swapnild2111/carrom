@@ -24,7 +24,7 @@
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 74
+      "slamCount": 75
     },
     {
       "year": 2026,
@@ -39,14 +39,14 @@
       {
         "id": "aslam-chicktey",
         "name": "Aslam Chicktey",
-        "count": 47
+        "count": 48
       }
     ],
     "topWhite": [
       {
         "id": "aslam-chicktey",
         "name": "Aslam Chicktey",
-        "count": 34
+        "count": 35
       }
     ],
     "topBlack": [
@@ -56,7 +56,7 @@
         "count": 13
       }
     ],
-    "totalSlams": 248,
+    "totalSlams": 249,
     "playerCount": 52
   }
 }
