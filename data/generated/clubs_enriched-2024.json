@@ -102,6 +102,13 @@
           "total": 12
         },
         {
+          "id": "akshay-dey",
+          "name": "Akshay Dey",
+          "white": 8,
+          "black": 0,
+          "total": 8
+        },
+        {
           "id": "mandar-barde",
           "name": "Mandar Barde",
           "white": 5,
@@ -142,13 +149,6 @@
           "white": 3,
           "black": 0,
           "total": 3
-        },
-        {
-          "id": "akshay-dey",
-          "name": "Akshay Dey",
-          "white": 2,
-          "black": 0,
-          "total": 2
         },
         {
           "id": "anil-taishetty",
@@ -355,12 +355,108 @@
         }
       ],
       "stats": {
-        "white": 109,
+        "white": 115,
         "black": 49,
-        "total": 158,
-        "slamCount": 158
+        "total": 164,
+        "slamCount": 164
       },
       "slams": [
+        {
+          "id": "slam-2024-180",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "id": "slam-2024-179",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "id": "slam-2024-178",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "id": "slam-2024-177",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "id": "slam-2024-176",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "id": "slam-2024-175",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
         {
           "playerId": "mukesh-mandodare",
           "season": 2024,
