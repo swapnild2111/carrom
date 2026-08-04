@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2026,
-  "lastUpdated": "2026-07-27",
+  "lastUpdated": "2026-08-04",
   "players": [
     {
       "id": "akshay-dey",
@@ -82,19 +82,56 @@
         }
       ],
       "stats": {
-        "white": 0,
+        "white": 1,
         "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
       },
       "ranks": {
-        "white": null,
+        "white": 1,
         "black": null,
-        "total": null
+        "total": 1
       },
-      "timeline": [],
-      "timelineGroups": []
+      "timeline": [
+        {
+          "id": "slam-2026-006",
+          "playerId": "anil-taishetty",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2026-006",
+          "playerId": "anil-taishetty",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
+        }
+      ]
     },
     {
       "id": "anilkumar-singh",

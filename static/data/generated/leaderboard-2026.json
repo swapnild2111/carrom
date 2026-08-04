@@ -1,8 +1,76 @@
 {
   "season": 2026,
   "district": "Thane",
-  "lastUpdated": "2026-07-27",
+  "lastUpdated": "2026-08-04",
   "players": [
+    {
+      "id": "anil-taishetty",
+      "name": "Anil Taishetty",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 1,
+        "black": 0,
+        "total": 1,
+        "bySource": {
+          "club": 1
+        },
+        "byClub": {
+          "sai-carrom": 1
+        }
+      },
+      "ranks": {
+        "white": 1,
+        "black": null,
+        "total": 1
+      },
+      "timeline": [
+        {
+          "id": "slam-2026-006",
+          "playerId": "anil-taishetty",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2026-006",
+          "playerId": "anil-taishetty",
+          "season": 2026,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": null,
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "count": 1
+        }
+      ]
+    },
     {
       "id": "aslam-chicktey",
       "name": "Aslam Chicktey",
@@ -105,37 +173,6 @@
     {
       "id": "amol",
       "name": "Amol",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true,
-      "clubs": [
-        {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
-        }
-      ],
-      "stats": {
-        "white": 0,
-        "black": 0,
-        "total": 0,
-        "bySource": {},
-        "byClub": {}
-      },
-      "ranks": {
-        "white": null,
-        "black": null,
-        "total": null
-      },
-      "timeline": [],
-      "timelineGroups": []
-    },
-    {
-      "id": "anil-taishetty",
-      "name": "Anil Taishetty",
       "aliases": [],
       "district": "Thane",
       "gender": "male",

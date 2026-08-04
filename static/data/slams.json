@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-07-27",
+  "lastUpdated": "2026-08-04",
   "slams": [
     {
       "playerId": "kunal-raut",
@@ -3969,6 +3969,21 @@
       "type": "black",
       "source": "club",
       "clubId": "champions-carrom-academy",
+      "tournament": null,
+      "date": null,
+      "location": null,
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true
+    },
+    {
+      "id": "slam-2026-006",
+      "playerId": "anil-taishetty",
+      "season": 2026,
+      "type": "white",
+      "source": "club",
+      "clubId": "sai-carrom",
       "tournament": null,
       "date": null,
       "location": null,

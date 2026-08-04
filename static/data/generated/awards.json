@@ -1,7 +1,14 @@
 {
   "season": 2026,
   "ceremonyVideoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
-  "maxWhiteSlams": [],
+  "maxWhiteSlams": [
+    {
+      "playerId": "anil-taishetty",
+      "name": "Anil Taishetty",
+      "slug": "anil-taishetty",
+      "count": 1
+    }
+  ],
   "maxBlackSlams": [
     {
       "playerId": "aslam-chicktey",
@@ -10,5 +17,5 @@
       "count": 1
     }
   ],
-  "lastUpdated": "2026-07-27"
+  "lastUpdated": "2026-08-04"
 }
