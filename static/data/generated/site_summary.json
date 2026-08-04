@@ -6,11 +6,11 @@
   "district": "Thane",
   "playerCount": 56,
   "clubCount": 4,
-  "slamCount": 175,
+  "slamCount": 180,
   "totals": {
-    "white": 122,
+    "white": 127,
     "black": 53,
-    "all": 175
+    "all": 180
   },
   "seasons": [
     {
@@ -18,8 +18,8 @@
       "label": "2024–25",
       "start": "2024-04-01",
       "end": "2025-03-31",
-      "slamCount": 175,
-      "white": 122,
+      "slamCount": 180,
+      "white": 127,
       "black": 53
     },
     {
@@ -63,7 +63,7 @@
         "count": 9
       }
     ],
-    "totalSlams": 175,
+    "totalSlams": 180,
     "playerCount": 49
   }
 }
