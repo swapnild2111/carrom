@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-07-27",
+  "lastUpdated": "2026-08-04",
   "players": [
     {
       "id": "akshay-dey",
@@ -87,17 +87,6 @@
       "gender": "male",
       "clubIds": [
         "champions-carrom-academy"
-      ],
-      "active": true
-    },
-    {
-      "id": "babu-bhai",
-      "name": "Mahesh Thakur",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "shakti-carrom-club"
       ],
       "active": true
     },
@@ -263,6 +252,17 @@
       "gender": "male",
       "clubIds": [
         "sai-carrom"
+      ],
+      "active": true
+    },
+    {
+      "id": "babu-bhai",
+      "name": "Mahesh Thakur",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
       ],
       "active": true
     },
@@ -550,6 +550,15 @@
       "clubIds": [
         "sai-carrom"
       ],
+      "active": true
+    },
+    {
+      "id": "test-player",
+      "name": "Test player",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [],
       "active": true
     },
     {

@@ -5928,6 +5928,30 @@
       },
       "timeline": [],
       "timelineGroups": []
+    },
+    {
+      "id": "test-player",
+      "name": "Test player",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [],
+      "active": true,
+      "clubs": [],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
     }
   ]
 }
