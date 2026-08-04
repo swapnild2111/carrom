@@ -130,6 +130,13 @@
           "total": 6
         },
         {
+          "id": "akshay-dey",
+          "name": "Akshay Dey",
+          "white": 3,
+          "black": 0,
+          "total": 3
+        },
+        {
           "id": "kiran-soman",
           "name": "Kiran Soman",
           "white": 3,
@@ -142,13 +149,6 @@
           "white": 3,
           "black": 0,
           "total": 3
-        },
-        {
-          "id": "akshay-dey",
-          "name": "Akshay Dey",
-          "white": 2,
-          "black": 0,
-          "total": 2
         },
         {
           "id": "anil-taishetty",
@@ -355,12 +355,28 @@
         }
       ],
       "stats": {
-        "white": 109,
+        "white": 110,
         "black": 49,
-        "total": 158,
-        "slamCount": 158
+        "total": 159,
+        "slamCount": 159
       },
       "slams": [
+        {
+          "id": "slam-2024-175",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
         {
           "playerId": "mukesh-mandodare",
           "season": 2024,

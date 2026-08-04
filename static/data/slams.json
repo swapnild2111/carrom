@@ -2785,6 +2785,22 @@
       "active": true,
       "id": "slam-2024-0174",
       "aggregate": true
+    },
+    {
+      "id": "slam-2024-175",
+      "playerId": "akshay-dey",
+      "season": 2024,
+      "type": "white",
+      "source": "club",
+      "clubId": "sai-carrom",
+      "tournament": null,
+      "date": null,
+      "location": "Thane",
+      "videoUrl": null,
+      "matchRef": null,
+      "notes": null,
+      "active": true,
+      "aggregate": true
     }
   ]
 }

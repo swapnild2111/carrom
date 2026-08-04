@@ -20,22 +20,38 @@
         }
       ],
       "stats": {
-        "white": 2,
+        "white": 3,
         "black": 0,
-        "total": 2,
+        "total": 3,
         "bySource": {
-          "club": 2
+          "club": 3
         },
         "byClub": {
-          "sai-carrom": 2
+          "sai-carrom": 3
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 11,
         "black": null,
-        "total": 17
+        "total": 13
       },
       "timeline": [
+        {
+          "id": "slam-2024-175",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
         {
           "playerId": "akshay-dey",
           "season": 2024,
@@ -71,6 +87,7 @@
       ],
       "timelineGroups": [
         {
+          "id": "slam-2024-175",
           "playerId": "akshay-dey",
           "season": 2024,
           "type": "white",
@@ -83,9 +100,8 @@
           "matchRef": null,
           "notes": null,
           "active": true,
-          "id": "slam-2024-0145",
           "aggregate": true,
-          "count": 2
+          "count": 3
         }
       ]
     },
@@ -119,7 +135,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -220,9 +236,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -1085,7 +1101,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3004,7 +3020,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -4161,7 +4177,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -4595,7 +4611,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -4696,9 +4712,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -5135,9 +5151,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -5221,7 +5237,7 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": 4,
         "total": 8
       },
@@ -5840,7 +5856,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {

@@ -2449,7 +2449,7 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": 4,
         "total": 8
       },
@@ -2738,6 +2738,108 @@
           "id": "slam-2024-0116",
           "aggregate": true,
           "count": 1
+        }
+      ]
+    },
+    {
+      "id": "akshay-dey",
+      "name": "Akshay Dey",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "sai-carrom"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "sai-carrom",
+          "name": "Sai Carrom"
+        }
+      ],
+      "stats": {
+        "white": 3,
+        "black": 0,
+        "total": 3,
+        "bySource": {
+          "club": 3
+        },
+        "byClub": {
+          "sai-carrom": 3
+        }
+      },
+      "ranks": {
+        "white": 11,
+        "black": null,
+        "total": 13
+      },
+      "timeline": [
+        {
+          "id": "slam-2024-175",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true
+        },
+        {
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "id": "slam-2024-0145",
+          "aggregate": true
+        },
+        {
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "id": "slam-2024-0144",
+          "aggregate": true
+        }
+      ],
+      "timelineGroups": [
+        {
+          "id": "slam-2024-175",
+          "playerId": "akshay-dey",
+          "season": 2024,
+          "type": "white",
+          "source": "club",
+          "clubId": "sai-carrom",
+          "tournament": null,
+          "date": null,
+          "location": "Thane",
+          "videoUrl": null,
+          "matchRef": null,
+          "notes": null,
+          "active": true,
+          "aggregate": true,
+          "count": 3
         }
       ]
     },
@@ -3168,92 +3270,6 @@
       ]
     },
     {
-      "id": "akshay-dey",
-      "name": "Akshay Dey",
-      "aliases": [],
-      "district": "Thane",
-      "gender": "male",
-      "clubIds": [
-        "sai-carrom"
-      ],
-      "active": true,
-      "clubs": [
-        {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
-        }
-      ],
-      "stats": {
-        "white": 2,
-        "black": 0,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
-      },
-      "ranks": {
-        "white": 16,
-        "black": null,
-        "total": 17
-      },
-      "timeline": [
-        {
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0145",
-          "aggregate": true
-        },
-        {
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0144",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0145",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
-    },
-    {
       "id": "anil-taishetty",
       "name": "Anil Taishetty",
       "aliases": [],
@@ -3281,9 +3297,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3367,9 +3383,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3453,9 +3469,9 @@
         }
       },
       "ranks": {
-        "white": 16,
+        "white": 17,
         "black": null,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3541,7 +3557,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3644,7 +3660,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3747,7 +3763,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3850,7 +3866,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -3953,7 +3969,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
@@ -4054,7 +4070,7 @@
       "ranks": {
         "white": 21,
         "black": 8,
-        "total": 17
+        "total": 18
       },
       "timeline": [
         {
