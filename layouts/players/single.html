@@ -9,7 +9,7 @@
 {{ $leaderboard := .Site.Data.generated.leaderboard.players }}
 {{ $seasonLabel := "" }}
 {{ range $summary.seasons }}
-  {{ if eq (int .year) (int $summary.currentSeason) }}{{ $seasonLabel = .label }}{{ end }}
+  {{ if eq (int .year) (int $summary.landingSeason) }}{{ $seasonLabel = .label }}{{ end }}
 {{ end }}
 {{ $leader := index $leaderboard 0 }}
 {{ $words := split $player.name " " }}

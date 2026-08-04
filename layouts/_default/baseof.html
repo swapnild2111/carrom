@@ -13,7 +13,7 @@
 <body>
   {{ $summary := .Site.Data.generated.site_summary }}
   {{ $seasons := .Site.Data.seasons }}
-  {{ $currentSeasonYear := $summary.currentSeason }}
+  {{ $currentSeasonYear := $summary.landingSeason }}
   {{ $currentSeasonLabel := "" }}
   {{ range $seasons.seasons }}
     {{ if eq (int .year) (int $currentSeasonYear) }}{{ $currentSeasonLabel = .label }}{{ end }}

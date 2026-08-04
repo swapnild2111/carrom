@@ -90,6 +90,10 @@
         <span class="admin-tab-icon" aria-hidden="true">◆</span>
         <span class="admin-tab-label">Add club</span>
       </button>
+      <button type="button" class="admin-tab" data-tab="edit-club" role="tab" aria-selected="false">
+        <span class="admin-tab-icon" aria-hidden="true">✎</span>
+        <span class="admin-tab-label">Edit club</span>
+      </button>
       <button type="button" class="admin-tab" data-tab="slam" role="tab" aria-selected="false">
         <span class="admin-tab-icon" aria-hidden="true">○</span>
         <span class="admin-tab-label">Add slam</span>
@@ -216,6 +220,78 @@
           </fieldset>
           <button type="submit" class="btn-admin btn-primary">Submit player edit</button>
         </form>
+
+        <div class="admin-slamlog" id="edit-player-slamlog" hidden>
+          <div class="admin-panel-intro admin-slamlog-intro">
+            <h4>Slam log for this player</h4>
+            <p>Pick a season to view and manage this player's slams. Bulk-add new rows or delete individual ones.</p>
+          </div>
+          <div class="form-row form-row-3 admin-slamlog-summary">
+            <div class="form-field">
+              <label for="edit-player-slamlog-season">Season</label>
+              <select id="edit-player-slamlog-season" class="admin-select"></select>
+            </div>
+            <div class="admin-slamlog-counts">
+              <span class="admin-slamlog-count admin-slamlog-count-white"><em>○ White</em> <strong id="edit-player-slamlog-white">0</strong></span>
+              <span class="admin-slamlog-count admin-slamlog-count-black"><em>● Black</em> <strong id="edit-player-slamlog-black">0</strong></span>
+              <span class="admin-slamlog-count admin-slamlog-count-total"><em>Total</em> <strong id="edit-player-slamlog-total">0</strong></span>
+            </div>
+          </div>
+
+          <fieldset class="form-section">
+            <legend>Bulk add slams</legend>
+            <form id="admin-bulk-slam-form" class="admin-form admin-form-inline">
+              <div class="form-row form-row-4">
+                <div class="form-field">
+                  <label for="bulk-slam-type">Type <span class="required">*</span></label>
+                  <select id="bulk-slam-type" name="type" required>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="bulk-slam-count">Count <span class="required">*</span></label>
+                  <input type="number" id="bulk-slam-count" name="count" min="1" max="100" value="1" required>
+                </div>
+                <div class="form-field">
+                  <label for="bulk-slam-source">Source</label>
+                  <select id="bulk-slam-source" name="source">
+                    <option value="club">Club</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="tournament">Tournament</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="bulk-slam-club">Club</label>
+                  <select id="bulk-slam-club" name="clubId"></select>
+                  <p class="field-hint">Defaults to player's first club.</p>
+                </div>
+              </div>
+              <button type="submit" class="btn-admin btn-primary">Add rows</button>
+            </form>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>Existing slams <span class="form-section-optional" id="edit-player-slamlog-legend"></span></legend>
+            <div class="table-wrap admin-slamlog-table-wrap">
+              <table class="admin-slamlog-table" id="edit-player-slamlog-table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Source</th>
+                    <th scope="col">Club</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" aria-label="Detail marker">Detail</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="edit-player-slamlog-tbody"></tbody>
+              </table>
+            </div>
+            <p class="admin-slamlog-empty" id="edit-player-slamlog-empty" hidden>No slams for this player in the selected season.</p>
+          </fieldset>
+        </div>
       </div>
 
       <div class="admin-card admin-panel" id="panel-club" role="tabpanel" hidden>
@@ -240,6 +316,54 @@
             </div>
           </div>
           <button type="submit" class="btn-admin btn-primary">Submit club</button>
+        </form>
+      </div>
+
+      <div class="admin-card admin-panel" id="panel-edit-club" role="tabpanel" hidden>
+        <div class="admin-panel-intro">
+          <h3>Edit a club</h3>
+          <p>Update a club's display name, contact, or notes. The club id is fixed — renaming would break existing slam references.</p>
+        </div>
+        <form id="admin-edit-club-form" class="admin-form">
+          <div class="form-field">
+            <label for="edit-club-picker">Club <span class="required">*</span></label>
+            <select id="edit-club-picker" name="clubId" required>
+              <option value="">Select…</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="edit-club-action">Action <span class="required">*</span></label>
+              <select id="edit-club-action" name="action" required>
+                <option value="update">Update details</option>
+                <option value="deactivate">Deactivate club</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form-section" id="edit-club-fields">
+            <legend>Details</legend>
+            <p class="field-hint">Leave a field blank to keep its current value.</p>
+            <div class="form-field">
+              <label for="edit-club-name">Name</label>
+              <input type="text" id="edit-club-name" name="name" placeholder="Display name">
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="edit-club-contact">Contact</label>
+                <input type="text" id="edit-club-contact" name="contact" placeholder="e.g. Mukhtar bhai">
+              </div>
+              <div class="form-field">
+                <label for="edit-club-notes">Notes</label>
+                <textarea id="edit-club-notes" name="notes" rows="2"></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <p id="edit-club-deactivate-warning" class="edit-delete-warning" hidden>
+            This club will be marked inactive and hidden from public listings. Existing slams reference the club by id and stay intact.
+          </p>
+          <button type="submit" class="btn-admin btn-primary">Submit club edit</button>
         </form>
       </div>
 

@@ -2,67 +2,69 @@
 {{ $summary := .Site.Data.generated.site_summary }}
 {{ $leaderboard := .Site.Data.generated.leaderboard }}
 {{ $awards := .Site.Data.generated.awards }}
+{{ $clubsEnriched := .Site.Data.generated.clubs_enriched }}
 {{ $allTime := $summary.allTime }}
 {{ $topPlayers := first 10 $leaderboard.players }}
 {{ $currentLabel := "" }}
 {{ range $summary.seasons }}
-  {{ if eq (int .year) (int $summary.currentSeason) }}{{ $currentLabel = .label }}{{ end }}
+  {{ if eq (int .year) (int $summary.landingSeason) }}{{ $currentLabel = .label }}{{ end }}
 {{ end }}
 {{ $hasAllTime := and $allTime (gt (int $allTime.totalSlams) 0) }}
+{{ $seasonHasData := gt (int $summary.totals.all) 0 }}
+{{ $seasonRangeStart := "" }}
+{{ $seasonRangeEnd := "" }}
+{{ range $summary.seasons }}
+  {{ if eq (int .year) (int $summary.landingSeason) }}
+    {{ $seasonRangeStart = .start }}
+    {{ $seasonRangeEnd = .end }}
+  {{ end }}
+{{ end }}
 
 {{ if $hasAllTime }}
-<section class="all-time-hero page-section" aria-labelledby="all-time-heading" data-static-across-seasons>
-  <div class="section-heading">
-    <h3 id="all-time-heading">All-time leaders</h3>
-    <p class="section-desc">Top players across every season combined — Thane's records so far.</p>
-  </div>
-  <div class="all-time-grid">
-    <article class="all-time-card all-time-card-total">
-      <p class="all-time-eyebrow">Most slams</p>
-      {{ range $allTime.topTotal }}
-      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
-      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> total slams</p>
-      {{ else }}
-      <p class="text-muted">No slams yet.</p>
-      {{ end }}
-    </article>
-    <article class="all-time-card all-time-card-white">
-      <p class="all-time-eyebrow"><span aria-hidden="true">○</span> Most white slams</p>
-      {{ range $allTime.topWhite }}
-      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
-      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> white slams</p>
-      {{ else }}
-      <p class="text-muted">No white slams yet.</p>
-      {{ end }}
-    </article>
-    <article class="all-time-card all-time-card-black">
-      <p class="all-time-eyebrow"><span aria-hidden="true">●</span> Most black slams</p>
-      {{ range $allTime.topBlack }}
-      <h4 class="all-time-name"><a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a></h4>
-      <p class="all-time-count"><span class="all-time-value">{{ .count }}</span> black slams</p>
-      {{ else }}
-      <p class="text-muted">No black slams yet.</p>
-      {{ end }}
-    </article>
-  </div>
+<section class="all-time-strip" data-static-across-seasons aria-label="All-time leaders">
+  <span class="all-time-strip-label">All-time</span>
+  {{ with (index $allTime.topTotal 0) }}
+  <span class="all-time-strip-item">
+    <span class="all-time-strip-metric">Most slams</span>
+    <a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a>
+    <strong>{{ .count }}</strong>
+  </span>
+  {{ end }}
+  {{ with (index $allTime.topWhite 0) }}
+  <span class="all-time-strip-item">
+    <span class="all-time-strip-metric" aria-hidden="true">○ White</span>
+    <a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a>
+    <strong>{{ .count }}</strong>
+  </span>
+  {{ end }}
+  {{ with (index $allTime.topBlack 0) }}
+  <span class="all-time-strip-item">
+    <span class="all-time-strip-metric" aria-hidden="true">● Black</span>
+    <a href="{{ (printf "players/%s/" .id) | relURL }}">{{ .name }}</a>
+    <strong>{{ .count }}</strong>
+  </span>
+  {{ end }}
+  <span class="all-time-strip-item all-time-strip-item-meta">
+    {{ $allTime.totalSlams }} slams across {{ len $summary.seasons }} seasons
+  </span>
 </section>
 {{ end }}
 
-<section class="hero">
+<section class="hero hero-compact">
   <div class="hero-inner">
     <p class="hero-eyebrow">{{ $currentLabel }} season · {{ $summary.district }} District</p>
     <h2 class="hero-title">Thane Slam Tracker</h2>
     <p class="hero-lead">
       Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
-      Know who leads. Celebrate the Oscar moment at season end.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ (printf "awards/%d/" (int $summary.currentSeason)) | relURL }}">View {{ $currentLabel }} awards</a>
-      <a class="btn btn-ghost" href="#leaderboard">Browse leaderboard</a>
+      <a class="btn btn-primary" href="{{ (printf "awards/%d/" (int $summary.landingSeason)) | relURL }}">View {{ $currentLabel }} awards</a>
     </div>
   </div>
 </section>
 
+<div class="season-block">
+{{ if $seasonHasData }}
 <section class="stat-cards" aria-label="Season summary">
   <div class="stat-card stat-white">
     <span class="stat-icon" aria-hidden="true">○</span>
@@ -85,20 +87,87 @@
     <span class="stat-label">Players</span>
   </div>
 </section>
-
-<section class="charts-section page-section" aria-label="Season charts">
-  <div class="section-heading">
-    <h3>Season analytics</h3>
-    <p class="section-desc">Top performers and how white vs black slams stack up across Thane in {{ $currentLabel }}.</p>
+{{ else }}
+<section class="season-empty" aria-label="Season summary">
+  <div class="season-empty-inner">
+    <span class="season-empty-icon" aria-hidden="true">✧</span>
+    <div>
+      <h4>No slams recorded for {{ $currentLabel }} yet.</h4>
+      <p>Season runs {{ $seasonRangeStart }} → {{ $seasonRangeEnd }}. When new slams start landing they'll show up here.</p>
+    </div>
   </div>
-  <div class="charts-grid">
-    <article class="chart-card chart-card-wide">
+</section>
+{{ end }}
+
+<section class="dashboard-grid page-section" aria-label="Season dashboard">
+  <div class="dashboard-leaderboard" id="leaderboard">
+    <div class="section-header">
+      <div class="section-heading section-heading-inline">
+        <h3>{{ $currentLabel }} leaderboard</h3>
+        <p class="section-desc">{{ $summary.playerCount }} players ranked by total slams.</p>
+      </div>
+      <div class="search-field">
+        <label for="player-search" class="sr-only">Search players</label>
+        <input type="search" id="player-search" class="player-search" placeholder="Search…  (press /)" autocomplete="off">
+      </div>
+    </div>
+    <div class="table-wrap table-wrap-elevated">
+      <table class="leaderboard-table" id="leaderboard-table">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Player</th>
+            <th scope="col" class="num col-white">W</th>
+            <th scope="col" class="num col-black">B</th>
+            <th scope="col" class="num">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ if eq (int $summary.totals.all) 0 }}
+          <tr class="leaderboard-empty-row">
+            <td colspan="5" class="leaderboard-empty">No slams recorded for {{ $currentLabel }} yet.</td>
+          </tr>
+          {{ else }}
+          {{ range $index, $p := $leaderboard.players }}
+          <tr data-search="{{ lower $p.name }} {{ lower (delimit $p.aliases " ") }}">
+            <td class="col-rank">
+              {{ with $p.ranks.total }}
+                {{ if le . 3 }}
+                <span class="rank-badge rank-{{ . }}" title="Rank {{ . }}">{{ . }}</span>
+                {{ else }}
+                <span class="rank-num">{{ . }}</span>
+                {{ end }}
+              {{ else }}—{{ end }}
+            </td>
+            <td class="col-player"><a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a></td>
+            <td class="num col-white">{{ $p.stats.white }}</td>
+            <td class="num col-black">{{ $p.stats.black }}</td>
+            <td class="num col-total"><strong>{{ $p.stats.total }}</strong></td>
+          </tr>
+          {{ end }}
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <aside class="dashboard-chart-primary">
+    <article class="chart-card chart-card-full">
       <h4>Top 10 players</h4>
       <p class="chart-caption">Stacked white and black slams — longest bar leads the district.</p>
       <div class="chart-canvas-wrap chart-canvas-tall">
         <canvas id="chart-top-players" role="img" aria-label="Horizontal bar chart of top 10 players by slam count"></canvas>
       </div>
     </article>
+  </aside>
+</section>
+
+<section class="charts-section page-section" aria-label="Season breakdowns">
+  <div class="section-heading">
+    <h3>Breakdowns</h3>
+    <p class="section-desc">White vs black split, podium comparison, and which clubs saw the most slams this season.</p>
+  </div>
+  <div class="charts-grid charts-grid-3">
     <article class="chart-card">
       <h4>White vs black</h4>
       <p class="chart-caption">Share of all recorded slams this season.</p>
@@ -113,23 +182,26 @@
         <canvas id="chart-leaders-pace" role="img" aria-label="Radar chart comparing top three players"></canvas>
       </div>
     </article>
+    <article class="chart-card">
+      <h4>Slams by club</h4>
+      <p class="chart-caption">Which clubs saw the most slam moments this season.</p>
+      <div class="chart-canvas-wrap">
+        <canvas id="chart-slams-by-club" role="img" aria-label="Horizontal bar chart of slams grouped by club"></canvas>
+      </div>
+    </article>
   </div>
 </section>
 
+{{ $topPlayersJSON := slice }}
+{{ range $topPlayers }}
+  {{ $topPlayersJSON = $topPlayersJSON | append (dict "name" .name "white" .stats.white "black" .stats.black "total" .stats.total) }}
+{{ end }}
+{{ $clubsJSON := slice }}
+{{ range $clubsEnriched.clubs }}
+  {{ $clubsJSON = $clubsJSON | append (dict "name" .name "white" .stats.white "black" .stats.black "total" .stats.total) }}
+{{ end }}
 <script type="application/json" id="home-chart-data">
-{
-  "totals": {
-    "white": {{ $summary.totals.white }},
-    "black": {{ $summary.totals.black }},
-    "all": {{ $summary.totals.all }}
-  },
-  "topPlayers": [
-    {{- range $i, $p := $topPlayers -}}
-    {{- if $i }},{{ end }}
-    {"name":{{ $p.name | jsonify }},"white":{{ $p.stats.white }},"black":{{ $p.stats.black }},"total":{{ $p.stats.total }}}
-    {{- end -}}
-  ]
-}
+{"totals":{{ $summary.totals | jsonify | safeJS }},"topPlayers":{{ $topPlayersJSON | jsonify | safeJS }},"clubs":{{ $clubsJSON | jsonify | safeJS }}}
 </script>
 
 {{ with $awards }}
@@ -160,65 +232,23 @@
   </div>
 </section>
 {{ end }}
+</div>{{/* end season-block */}}
 
-<section class="leaderboard-section page-section" id="leaderboard">
-  <div class="section-header">
-    <div class="section-heading section-heading-inline">
-      <h3>Thane leaderboard</h3>
-      <p class="section-desc">All {{ $summary.playerCount }} players ranked by total slams.</p>
-    </div>
-    <div class="search-field">
-      <label for="player-search" class="sr-only">Search players</label>
-      <input type="search" id="player-search" class="player-search" placeholder="Search players…  (press /)" autocomplete="off">
-    </div>
+<section class="season-trend page-section" aria-labelledby="trend-heading" data-static-across-seasons>
+  <div class="section-heading">
+    <h3 id="trend-heading">Season-over-season</h3>
+    <p class="section-desc">Total white and black slams per season — Thane's growth over time.</p>
   </div>
-  <div class="table-wrap table-wrap-elevated">
-    <table class="leaderboard-table" id="leaderboard-table">
-      <thead>
-        <tr>
-          <th scope="col">Rank</th>
-          <th scope="col">Player</th>
-          <th scope="col" class="num col-white">White</th>
-          <th scope="col" class="num col-black">Black</th>
-          <th scope="col" class="num">Total</th>
-          <th scope="col">Clubs</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ if eq (int $summary.totals.all) 0 }}
-        <tr class="leaderboard-empty-row">
-          <td colspan="6" class="leaderboard-empty">No slams recorded for {{ $currentLabel }} yet.</td>
-        </tr>
-        {{ else }}
-        {{ range $index, $p := $leaderboard.players }}
-        <tr data-search="{{ lower $p.name }} {{ lower (delimit $p.aliases " ") }}">
-          <td class="col-rank">
-            {{ with $p.ranks.total }}
-              {{ if le . 3 }}
-              <span class="rank-badge rank-{{ . }}" title="Rank {{ . }}">{{ . }}</span>
-              {{ else }}
-              <span class="rank-num">{{ . }}</span>
-              {{ end }}
-            {{ else }}—{{ end }}
-          </td>
-          <td class="col-player"><a href="{{ (printf "players/%s/" $p.id) | relURL }}">{{ $p.name }}</a></td>
-          <td class="num col-white">{{ $p.stats.white }}</td>
-          <td class="num col-black">{{ $p.stats.black }}</td>
-          <td class="num col-total"><strong>{{ $p.stats.total }}</strong></td>
-          <td>
-            {{ range $p.clubs }}
-            <a href="{{ (printf "clubs/%s/" .id) | relURL }}" class="mini-badge mini-badge-club">{{ .name }}</a>
-            {{ else }}
-            <span class="text-muted">—</span>
-            {{ end }}
-          </td>
-        </tr>
-        {{ end }}
-        {{ end }}
-      </tbody>
-    </table>
+  <div class="chart-card chart-card-wide">
+    <div class="chart-canvas-wrap chart-canvas-tall">
+      <canvas id="chart-season-trend" role="img" aria-label="Line chart of slam counts across seasons"></canvas>
+    </div>
   </div>
 </section>
+
+<script type="application/json" id="season-trend-data">
+{"seasons": {{ $summary.seasons | jsonify | safeJS }}}
+</script>
 
 <section class="clubs-section page-section">
   <div class="section-heading">

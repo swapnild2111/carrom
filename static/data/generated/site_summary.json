@@ -1,15 +1,16 @@
 {
-  "season": 2026,
+  "season": 2024,
   "currentSeason": 2026,
+  "landingSeason": 2024,
   "lastUpdated": "2026-08-04",
   "district": "Thane",
   "playerCount": 55,
   "clubCount": 4,
-  "slamCount": 2,
+  "slamCount": 174,
   "totals": {
-    "white": 1,
-    "black": 1,
-    "all": 2
+    "white": 121,
+    "black": 53,
+    "all": 174
   },
   "seasons": [
     {
@@ -17,46 +18,52 @@
       "label": "2024–25",
       "start": "2024-04-01",
       "end": "2025-03-31",
-      "slamCount": 174
+      "slamCount": 174,
+      "white": 121,
+      "black": 53
     },
     {
       "year": 2025,
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 86
+      "slamCount": 0,
+      "white": 0,
+      "black": 0
     },
     {
       "year": 2026,
       "label": "2026-27",
       "start": "2026-04-01",
       "end": "2027-03-31",
-      "slamCount": 2
+      "slamCount": 0,
+      "white": 0,
+      "black": 0
     }
   ],
   "allTime": {
     "topTotal": [
       {
-        "id": "aslam-chicktey",
-        "name": "Aslam Chicktey",
-        "count": 53
+        "id": "kunal-raut",
+        "name": "Kunal Raut",
+        "count": 29
       }
     ],
     "topWhite": [
       {
-        "id": "aslam-chicktey",
-        "name": "Aslam Chicktey",
-        "count": 36
+        "id": "kunal-raut",
+        "name": "Kunal Raut",
+        "count": 22
       }
     ],
     "topBlack": [
       {
-        "id": "aslam-chicktey",
-        "name": "Aslam Chicktey",
-        "count": 17
+        "id": "babu-bhai",
+        "name": "Mahesh Thakur",
+        "count": 9
       }
     ],
-    "totalSlams": 262,
-    "playerCount": 52
+    "totalSlams": 174,
+    "playerCount": 49
   }
 }

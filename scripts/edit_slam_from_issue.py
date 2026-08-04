@@ -22,6 +22,17 @@ def parse_bool(value: str) -> bool | None:
     return None
 
 
+def has_detail(slam: dict) -> bool:
+    for field in ("date", "videoUrl", "matchRef", "tournament", "notes"):
+        value = slam.get(field)
+        if value is None:
+            continue
+        if isinstance(value, str) and not value.strip():
+            continue
+        return True
+    return False
+
+
 def main() -> int:
     body = Path(sys.argv[1]).read_text(encoding="utf-8")
     fields = parse_issue_fields(body)
@@ -75,9 +86,11 @@ def main() -> int:
         print("Action must be update or delete.", file=sys.stderr)
         return 1
 
+    slam["aggregate"] = not has_detail(slam)
+
     data["lastUpdated"] = date.today().isoformat()
     SLAMS_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Processed slam {slam_id} ({action})")
+    print(f"Processed slam {slam_id} ({action}, aggregate={slam['aggregate']})")
     return 0
 
 

@@ -2504,6 +2504,227 @@ details[open] .col-expand {
   margin-right: 0.15rem;
 }
 
+/* All-time strip (compact one-line record display) */
+.all-time-strip {
+  margin: 1rem 0 1.25rem;
+  padding: 0.65rem 1rem;
+  background: linear-gradient(90deg, rgba(74, 158, 255, 0.08), rgba(232, 197, 71, 0.05));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.all-time-strip-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.all-time-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.all-time-strip-metric {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.all-time-strip-item a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.all-time-strip-item strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.all-time-strip-item-meta {
+  color: var(--text-muted);
+  margin-left: auto;
+  font-size: 0.82rem;
+}
+
+/* Two-Column Dashboard: leaderboard beside primary chart */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.dashboard-leaderboard {
+  min-width: 0;
+}
+
+.dashboard-leaderboard .table-wrap {
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.dashboard-chart-primary {
+  min-width: 0;
+}
+
+.chart-card-full {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card-full .chart-canvas-wrap {
+  flex: 1;
+  min-height: 380px;
+}
+
+.charts-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .charts-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-leaderboard .table-wrap {
+    max-height: none;
+  }
+}
+
+/* Season empty state (shown in place of stat-cards) */
+.season-empty {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.season-empty-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.season-empty-icon {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.season-empty h4 {
+  margin: 0 0 0.25rem;
+  color: var(--text);
+}
+
+.season-empty p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Season trend section */
+.season-trend {
+  margin-top: 2rem;
+}
+
+/* Admin: slam log table on Edit Player */
+.admin-slamlog {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.admin-slamlog-intro h4 {
+  margin: 0 0 0.15rem;
+}
+
+.admin-slamlog-summary {
+  align-items: end;
+  margin: 1rem 0;
+}
+
+.admin-slamlog-counts {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-slamlog-count {
+  padding: 0.4rem 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.admin-slamlog-count em {
+  color: var(--text-muted);
+  font-style: normal;
+  margin-right: 0.4rem;
+}
+
+.admin-slamlog-count strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.admin-slamlog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.admin-slamlog-table th,
+.admin-slamlog-table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.admin-slamlog-table thead th {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.admin-slamlog-id {
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.admin-slamlog-detail {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.admin-slamlog-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1rem 0 0;
+}
+
+.admin-slamlog-table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
 /* Charts */
 .charts-section {
   margin-top: 0.5rem;

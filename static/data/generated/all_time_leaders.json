@@ -1,26 +1,26 @@
 {
   "topTotal": [
     {
-      "id": "aslam-chicktey",
-      "name": "Aslam Chicktey",
-      "count": 53
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "count": 29
     }
   ],
   "topWhite": [
     {
-      "id": "aslam-chicktey",
-      "name": "Aslam Chicktey",
-      "count": 36
+      "id": "kunal-raut",
+      "name": "Kunal Raut",
+      "count": 22
     }
   ],
   "topBlack": [
     {
-      "id": "aslam-chicktey",
-      "name": "Aslam Chicktey",
-      "count": 17
+      "id": "babu-bhai",
+      "name": "Mahesh Thakur",
+      "count": 9
     }
   ],
-  "totalSlams": 262,
-  "playerCount": 52,
+  "totalSlams": 174,
+  "playerCount": 49,
   "lastUpdated": "2026-08-04"
 }

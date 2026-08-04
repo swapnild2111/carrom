@@ -156,6 +156,85 @@ def test_edit_unknown_season_rejected(isolated_env):
     assert "not found" in result.stderr
 
 
+def test_bulk_add_slams_workflow(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "add_player_from_issue.py", "add-player.md")
+    apply_issue(isolated_env, "bulk_add_slams_from_issue.py", "bulk-add-slam.md")
+    slams = load_json(isolated_env["data_dir"] / "slams.json")["slams"]
+    added = [s for s in slams if s["playerId"] == "test-pack-player"]
+    assert len(added) == 5
+    for slam in added:
+        assert slam["type"] == "white"
+        assert slam["aggregate"] is True
+        assert slam["active"] is True
+        assert slam["date"] is None
+        assert slam["clubId"] == "test-pack-club"
+    ids = [s["id"] for s in added]
+    assert len(set(ids)) == 5
+    assert_validate_and_build(isolated_env)
+
+
+def test_bulk_add_zero_count_rejected(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "add_player_from_issue.py", "add-player.md")
+    tmp = isolated_env["data_dir"] / "bulk-zero.md"
+    tmp.write_text(
+        "### Player id\n\ntest-pack-player\n\n### Season\n\n2025\n\n### Type\n\nwhite\n\n### Count\n\n0\n",
+        encoding="utf-8",
+    )
+    result = run_script("bulk_add_slams_from_issue.py", tmp, isolated_env["env"])
+    assert result.returncode != 0
+    assert "greater than zero" in result.stderr
+
+
+def test_bulk_add_over_limit_rejected(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "add_player_from_issue.py", "add-player.md")
+    tmp = isolated_env["data_dir"] / "bulk-limit.md"
+    tmp.write_text(
+        "### Player id\n\ntest-pack-player\n\n### Season\n\n2025\n\n### Type\n\nwhite\n\n### Count\n\n101\n",
+        encoding="utf-8",
+    )
+    result = run_script("bulk_add_slams_from_issue.py", tmp, isolated_env["env"])
+    assert result.returncode != 0
+    assert "bulk limit" in result.stderr
+
+
+def test_edit_club_update_workflow(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "edit_club_from_issue.py", "edit-club-update.md")
+    clubs = load_json(isolated_env["data_dir"] / "clubs.json")["clubs"]
+    club = next(c for c in clubs if c["id"] == "test-pack-club")
+    assert club["name"] == "Test Pack Club Updated"
+    assert club["contact"] == "new-contact@example.com"
+    assert_validate_and_build(isolated_env)
+
+
+def test_edit_club_deactivate_workflow(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "edit_club_from_issue.py", "edit-club-deactivate.md")
+    clubs = load_json(isolated_env["data_dir"] / "clubs.json")["clubs"]
+    club = next(c for c in clubs if c["id"] == "test-pack-club")
+    assert club["active"] is False
+
+
+def test_aggregate_flag_on_new_slam(isolated_env):
+    apply_issue(isolated_env, "add_club_from_issue.py", "add-club.md")
+    apply_issue(isolated_env, "add_player_from_issue.py", "add-player.md")
+    apply_issue(isolated_env, "add_slam_from_issue.py", "add-slam.md")
+    slams = load_json(isolated_env["data_dir"] / "slams.json")["slams"]
+    assert slams[0]["aggregate"] is False  # fixture has a date
+
+
+def test_migration_idempotent(isolated_env):
+    from helpers import run_pipeline
+    first = run_pipeline("migrate_aggregate_flag.py", isolated_env["env"])
+    assert first.returncode == 0
+    second = run_pipeline("migrate_aggregate_flag.py", isolated_env["env"])
+    assert second.returncode == 0
+    assert "No changes" in second.stdout
+
+
 def test_issue_templates_use_parseable_labels():
     """GitHub issue template fixtures must use labels scripts understand."""
     template_checks = {
@@ -166,6 +245,8 @@ def test_issue_templates_use_parseable_labels():
         "edit-slam-update.md": ["slam id", "action", "notes"],
         "add-season.md": ["start year", "start date", "end date"],
         "edit-season.md": ["season"],
+        "bulk-add-slam.md": ["player id", "season", "type", "count"],
+        "edit-club-update.md": ["club id", "action"],
     }
     for filename, required in template_checks.items():
         body = (ISSUES / filename).read_text(encoding="utf-8").lower()

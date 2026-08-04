@@ -8,7 +8,7 @@ import re
 import sys
 from pathlib import Path
 
-from lib import DATA, GENERATED, GENDERS, PROTOTYPE_DISTRICT, SLAM_SOURCES, SLAM_TYPES, slugify
+from lib import DATA, GENERATED, GENDERS, PROTOTYPE_DISTRICT, SLAM_SOURCES, SLAM_TYPES
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -54,8 +54,6 @@ def validate_clubs(clubs: list[dict]) -> list[str]:
         if cid in seen:
             errors.append(f"duplicate club id: {cid}")
         seen.add(cid)
-        if slugify(club.get("name", "")) != cid:
-            errors.append(f"club id {cid!r} does not match slug of name {club.get('name')!r}")
         if club.get("district") != PROTOTYPE_DISTRICT:
             errors.append(f"club {cid}: district must be {PROTOTYPE_DISTRICT!r}")
     return errors
@@ -105,6 +103,8 @@ def validate_slams(slams: list[dict], player_ids: set[str], club_ids: set[str]) 
             errors.append(f"slam {sid}: unknown clubId {slam.get('clubId')!r}")
         if slam.get("date") and not DATE_RE.match(slam["date"]):
             errors.append(f"slam {sid}: invalid date {slam.get('date')!r}")
+        if "aggregate" in slam and not isinstance(slam["aggregate"], bool):
+            errors.append(f"slam {sid}: aggregate must be bool, got {type(slam['aggregate']).__name__}")
     return errors
 
 

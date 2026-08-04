@@ -1,7 +1,21 @@
 {
-  "season": 2025,
+  "season": 2024,
   "ceremonyVideoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
-  "maxWhiteSlams": [],
-  "maxBlackSlams": [],
-  "lastUpdated": "2026-07-26"
+  "maxWhiteSlams": [
+    {
+      "playerId": "kunal-raut",
+      "name": "Kunal Raut",
+      "slug": "kunal-raut",
+      "count": 22
+    }
+  ],
+  "maxBlackSlams": [
+    {
+      "playerId": "babu-bhai",
+      "name": "Mahesh Thakur",
+      "slug": "babu-bhai",
+      "count": 9
+    }
+  ],
+  "lastUpdated": "2026-08-04"
 }

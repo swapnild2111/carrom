@@ -71,6 +71,13 @@ def main() -> int:
     data = json.loads(SLAMS_FILE.read_text(encoding="utf-8"))
     slams = data.setdefault("slams", [])
 
+    tournament = fields.get("tournament (optional)", "").strip() or None
+    date_str = fields.get("date (yyyy-mm-dd)", "").strip() or None
+    video_url = fields.get("video url (optional)", "").strip() or None
+    match_ref = fields.get("match ref (optional)", "").strip() or None
+    notes = fields.get("notes (optional)", "").strip() or None
+    has_detail = any((tournament, date_str, video_url, match_ref, notes))
+
     slam = {
         "id": next_slam_id(slams, season),
         "playerId": player_id,
@@ -78,13 +85,14 @@ def main() -> int:
         "type": slam_type,
         "source": source,
         "clubId": club_id,
-        "tournament": fields.get("tournament (optional)", "").strip() or None,
-        "date": fields.get("date (yyyy-mm-dd)", "").strip() or None,
+        "tournament": tournament,
+        "date": date_str,
         "location": fields.get("location (optional)", "").strip() or None,
-        "videoUrl": fields.get("video url (optional)", "").strip() or None,
-        "matchRef": fields.get("match ref (optional)", "").strip() or None,
-        "notes": fields.get("notes (optional)", "").strip() or None,
+        "videoUrl": video_url,
+        "matchRef": match_ref,
+        "notes": notes,
         "active": True,
+        "aggregate": not has_detail,
     }
 
     slams.append(slam)

@@ -1,8 +1,77 @@
 {
   "schemaVersion": 1,
-  "season": 2025,
-  "lastUpdated": "2026-07-26",
+  "season": 2024,
+  "lastUpdated": "2026-08-04",
   "clubs": [
+    {
+      "id": "champions-carrom-academy",
+      "name": "Champions Carrom Academy",
+      "district": "Thane",
+      "contact": null,
+      "notes": null,
+      "active": true,
+      "roster": [
+        {
+          "id": "asif-khan",
+          "name": "Asif Khan",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "aslam-chicktey",
+          "name": "Aslam Chicktey",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "naeem-shekhani",
+          "name": "Naeem Shekhani",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
+      },
+      "slams": []
+    },
+    {
+      "id": "feathers-carrom-academy",
+      "name": "Feathers Carrom Academy",
+      "district": "Thane",
+      "contact": "Naeem Shekhani",
+      "notes": null,
+      "active": true,
+      "roster": [
+        {
+          "id": "fouzan-shaikh",
+          "name": "Fouzan Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "sharik-khan",
+          "name": "Sharik Khan",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
+      },
+      "slams": []
+    },
     {
       "id": "sai-carrom",
       "name": "Sai Carrom",
@@ -33,29 +102,8 @@
           "total": 0
         },
         {
-          "id": "anilkumar-singh",
-          "name": "Anilkumar Singh",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "arif-bhai",
-          "name": "Arif Bhai",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "arif-shaikh",
           "name": "Arif Shaikh",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "babu-bhai",
-          "name": "Babu Bhai",
           "white": 0,
           "black": 0,
           "total": 0
@@ -103,13 +151,6 @@
           "total": 0
         },
         {
-          "id": "imran-memon",
-          "name": "Imran Memon",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "imran-quereshi",
           "name": "Imran Quereshi",
           "white": 0,
@@ -138,13 +179,6 @@
           "total": 0
         },
         {
-          "id": "madhura-devle",
-          "name": "Madhura Devle",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "mahesh-shetye",
           "name": "Mahesh Shetye",
           "white": 0,
@@ -159,13 +193,6 @@
           "total": 0
         },
         {
-          "id": "manish-patil",
-          "name": "Manish Patil",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "mujeeb-sayyed",
           "name": "Mujeeb Sayyed",
           "white": 0,
@@ -175,13 +202,6 @@
         {
           "id": "mukesh-mandodare",
           "name": "Mukesh Mandodare",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "naushad-shaikh",
-          "name": "Naushad Shaikh",
           "white": 0,
           "black": 0,
           "total": 0
@@ -257,13 +277,6 @@
           "total": 0
         },
         {
-          "id": "satya-arekar",
-          "name": "Satya Arekar",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "saurabh-gulati",
           "name": "Saurabh Gulati",
           "white": 0,
@@ -278,13 +291,6 @@
           "total": 0
         },
         {
-          "id": "shehbazh",
-          "name": "Shehbazh",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
           "id": "sudhir-shinde",
           "name": "Sudhir Shinde",
           "white": 0,
@@ -294,13 +300,6 @@
         {
           "id": "suhas-wakankar",
           "name": "Suhas Wakankar",
-          "white": 0,
-          "black": 0,
-          "total": 0
-        },
-        {
-          "id": "swaraj",
-          "name": "Swaraj",
           "white": 0,
           "black": 0,
           "total": 0
@@ -370,7 +369,85 @@
       "contact": null,
       "notes": null,
       "active": true,
-      "roster": [],
+      "roster": [
+        {
+          "id": "anilkumar-singh",
+          "name": "Anilkumar Singh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "arif-bhai",
+          "name": "Arif Bhai",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "furqan-momin",
+          "name": "Furqan Momin",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "imran-memon",
+          "name": "Imran Memon",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "madhura-devle",
+          "name": "Madhura Devle",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "babu-bhai",
+          "name": "Mahesh Thakur",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "manish-patil",
+          "name": "Manish Patil",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "naushad-shaikh",
+          "name": "Naushad Shaikh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "satya-arekar",
+          "name": "Satya Arekar",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "shehbazh",
+          "name": "Shehbazh",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "swaraj",
+          "name": "Swaraj",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        }
+      ],
       "stats": {
         "white": 0,
         "black": 0,

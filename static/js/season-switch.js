@@ -22,7 +22,10 @@
   var isDifferent = requestedSeason && requestedSeason !== currentSeason;
 
   picker.addEventListener("change", function () {
-    var val = parseInt(picker.value, 10);
+    navigateToSeason(parseInt(picker.value, 10));
+  });
+
+  function navigateToSeason(val) {
     var url = new URL(window.location.href);
     if (val === currentSeason) {
       url.searchParams.delete("season");
@@ -30,7 +33,8 @@
       url.searchParams.set("season", String(val));
     }
     window.location.href = url.toString();
-  });
+  }
+
 
   var links = document.querySelectorAll("a[data-season-link]");
   for (var j = 0; j < links.length; j++) {
@@ -67,12 +71,28 @@
     var table = document.getElementById("leaderboard-table");
     if (!table) return;
 
+    var leaderboardData = null;
+    var clubsData = null;
+
+    function tryRender() {
+      renderChartsFromLeaderboard(leaderboardData || { players: [] }, clubsData || { clubs: [] });
+    }
+
     fetchJson("leaderboard-" + season + ".json").then(function (lb) {
+      leaderboardData = lb;
       renderLeaderboard(lb, label);
-      renderChartsFromLeaderboard(lb);
+      tryRender();
     }).catch(function () {
       showEmptyBanner(label);
-      renderChartsFromLeaderboard({ players: [] });
+      tryRender();
+    });
+
+    fetchJson("clubs_enriched-" + season + ".json").then(function (ce) {
+      clubsData = ce;
+      tryRender();
+    }).catch(function () {
+      clubsData = { clubs: [] };
+      tryRender();
     });
 
     fetchJson("awards-" + season + ".json").then(function (awards) {
@@ -82,7 +102,7 @@
     });
   }
 
-  function renderChartsFromLeaderboard(lb) {
+  function renderChartsFromLeaderboard(lb, ce) {
     if (typeof window.renderHomeCharts !== "function") return;
     var players = (lb && lb.players) || [];
     var totalWhite = 0, totalBlack = 0;
@@ -96,9 +116,13 @@
       .map(function (p) {
         return { name: p.name, white: p.stats.white, black: p.stats.black, total: p.stats.total };
       });
+    var clubs = ((ce && ce.clubs) || []).map(function (c) {
+      return { name: c.name, white: c.stats.white, black: c.stats.black, total: c.stats.total };
+    });
     window.renderHomeCharts({
       totals: { white: totalWhite, black: totalBlack, all: totalWhite + totalBlack },
       topPlayers: topPlayers,
+      clubs: clubs,
     });
   }
 
@@ -145,27 +169,11 @@
       totalCell.className = "num col-total";
       totalCell.innerHTML = "<strong>" + p.stats.total + "</strong>";
 
-      var clubsCell = document.createElement("td");
-      var clubs = p.clubs || [];
-      if (clubs.length) {
-        for (var k = 0; k < clubs.length; k++) {
-          var cLink = document.createElement("a");
-          cLink.href = "clubs/" + clubs[k].id + "/?season=" + lb.season;
-          cLink.className = "mini-badge mini-badge-club";
-          cLink.textContent = clubs[k].name;
-          clubsCell.appendChild(cLink);
-          clubsCell.appendChild(document.createTextNode(" "));
-        }
-      } else {
-        clubsCell.innerHTML = '<span class="text-muted">—</span>';
-      }
-
       tr.appendChild(rankCell);
       tr.appendChild(playerCell);
       tr.appendChild(whiteCell);
       tr.appendChild(blackCell);
       tr.appendChild(totalCell);
-      tr.appendChild(clubsCell);
       tbody.appendChild(tr);
     }
 

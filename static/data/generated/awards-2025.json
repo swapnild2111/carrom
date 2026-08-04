@@ -1,21 +1,7 @@
 {
   "season": 2025,
   "ceremonyVideoUrl": "https://www.youtube.com/watch?v=4VGrTfW7KZE",
-  "maxWhiteSlams": [
-    {
-      "playerId": "aslam-chicktey",
-      "name": "Aslam Chicktey",
-      "slug": "aslam-chicktey",
-      "count": 36
-    }
-  ],
-  "maxBlackSlams": [
-    {
-      "playerId": "aslam-chicktey",
-      "name": "Aslam Chicktey",
-      "slug": "aslam-chicktey",
-      "count": 16
-    }
-  ],
+  "maxWhiteSlams": [],
+  "maxBlackSlams": [],
   "lastUpdated": "2026-08-04"
 }

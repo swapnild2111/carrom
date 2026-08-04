@@ -201,11 +201,94 @@
     });
   }
 
+  function renderClubsBarChart(payload) {
+    var canvas = document.getElementById("chart-slams-by-club");
+    if (!canvas || typeof Chart === "undefined") return;
+    var clubs = (payload && payload.clubs) || [];
+    var active = [];
+    for (var i = 0; i < clubs.length; i++) {
+      if ((clubs[i].total || 0) > 0) active.push(clubs[i]);
+    }
+    if (!active.length) {
+      showEmpty(canvas);
+      return;
+    }
+    clearEmpty(canvas);
+    destroyExisting(canvas.id);
+
+    active.sort(function (a, b) { return b.total - a.total; });
+    charts[canvas.id] = new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: active.map(function (c) { return c.name; }),
+        datasets: [
+          { label: "White", data: active.map(function (c) { return c.white; }), backgroundColor: whiteColor, borderRadius: 4, stack: "clubs" },
+          { label: "Black", data: active.map(function (c) { return c.black; }), backgroundColor: blackColor, borderRadius: 4, stack: "clubs" },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: "y",
+        plugins: {
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 16 } },
+        },
+        scales: {
+          x: { stacked: true, grid: { color: "rgba(45, 58, 79, 0.6)" }, ticks: { precision: 0 } },
+          y: { stacked: true, grid: { display: false } },
+        },
+      },
+    });
+  }
+
+  function renderSeasonTrendChart(trendPayload) {
+    var canvas = document.getElementById("chart-season-trend");
+    if (!canvas || typeof Chart === "undefined") return;
+    var seasons = (trendPayload && trendPayload.seasons) || [];
+    if (!seasons.length) {
+      showEmpty(canvas);
+      return;
+    }
+    clearEmpty(canvas);
+    destroyExisting(canvas.id);
+
+    var labels = seasons.map(function (s) { return s.label; });
+    var whites = seasons.map(function (s) { return s.white; });
+    var blacks = seasons.map(function (s) { return s.black; });
+    var totals = seasons.map(function (s) { return s.total != null ? s.total : s.slamCount; });
+
+    charts[canvas.id] = new Chart(canvas, {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [
+          { label: "White", data: whites, borderColor: whiteColor, backgroundColor: whiteColor + "22", tension: 0.3, pointRadius: 5, borderWidth: 2 },
+          { label: "Black", data: blacks, borderColor: blackColor, backgroundColor: blackColor + "22", tension: 0.3, pointRadius: 5, borderWidth: 2 },
+          { label: "Total", data: totals, borderColor: accent, backgroundColor: accent + "22", tension: 0.3, pointRadius: 5, borderWidth: 2, borderDash: [4, 3] },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 16 } },
+        },
+        scales: {
+          x: { grid: { display: false } },
+          y: { beginAtZero: true, grid: { color: "rgba(45, 58, 79, 0.6)" }, ticks: { precision: 0 } },
+        },
+      },
+    });
+  }
+
   function renderHomeCharts(payload) {
     renderTopPlayersChart(payload);
     renderWhiteBlackChart(payload);
     renderPaceChart(payload);
+    renderClubsBarChart(payload);
   }
+
+  window.renderSeasonTrendChart = renderSeasonTrendChart;
 
   window.renderHomeCharts = renderHomeCharts;
 
@@ -213,6 +296,13 @@
   if (dataEl) {
     try {
       renderHomeCharts(JSON.parse(dataEl.textContent));
+    } catch (_e) { /* ignore */ }
+  }
+
+  var trendEl = document.getElementById("season-trend-data");
+  if (trendEl) {
+    try {
+      renderSeasonTrendChart(JSON.parse(trendEl.textContent));
     } catch (_e) { /* ignore */ }
   }
 })();

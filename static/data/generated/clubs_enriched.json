@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "season": 2026,
+  "season": 2024,
   "lastUpdated": "2026-08-04",
   "clubs": [
     {
@@ -12,15 +12,15 @@
       "active": true,
       "roster": [
         {
-          "id": "aslam-chicktey",
-          "name": "Aslam Chicktey",
-          "white": 0,
-          "black": 1,
-          "total": 1
-        },
-        {
           "id": "asif-khan",
           "name": "Asif Khan",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "aslam-chicktey",
+          "name": "Aslam Chicktey",
           "white": 0,
           "black": 0,
           "total": 0
@@ -35,27 +35,11 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "slamCount": 1
+        "black": 0,
+        "total": 0,
+        "slamCount": 0
       },
-      "slams": [
-        {
-          "id": "slam-2026-005",
-          "playerId": "aslam-chicktey",
-          "season": 2026,
-          "type": "black",
-          "source": "club",
-          "clubId": "champions-carrom-academy",
-          "tournament": null,
-          "date": null,
-          "location": null,
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true
-        }
-      ]
+      "slams": []
     },
     {
       "id": "feathers-carrom-academy",
@@ -97,13 +81,6 @@
       "active": true,
       "roster": [
         {
-          "id": "anil-taishetty",
-          "name": "Anil Taishetty",
-          "white": 1,
-          "black": 0,
-          "total": 1
-        },
-        {
           "id": "akshay-dey",
           "name": "Akshay Dey",
           "white": 0,
@@ -113,6 +90,13 @@
         {
           "id": "amol",
           "name": "Amol",
+          "white": 0,
+          "black": 0,
+          "total": 0
+        },
+        {
+          "id": "anil-taishetty",
+          "name": "Anil Taishetty",
           "white": 0,
           "black": 0,
           "total": 0
@@ -371,28 +355,12 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "slamCount": 1
+        "total": 0,
+        "slamCount": 0
       },
-      "slams": [
-        {
-          "id": "slam-2026-006",
-          "playerId": "anil-taishetty",
-          "season": 2026,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": null,
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true
-        }
-      ]
+      "slams": []
     },
     {
       "id": "shakti-carrom-club",

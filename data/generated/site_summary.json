@@ -1,15 +1,16 @@
 {
-  "season": 2025,
-  "currentSeason": 2025,
-  "lastUpdated": "2026-07-26",
+  "season": 2024,
+  "currentSeason": 2026,
+  "landingSeason": 2024,
+  "lastUpdated": "2026-08-04",
   "district": "Thane",
-  "playerCount": 49,
-  "clubCount": 2,
-  "slamCount": 0,
+  "playerCount": 55,
+  "clubCount": 4,
+  "slamCount": 174,
   "totals": {
-    "white": 0,
-    "black": 0,
-    "all": 0
+    "white": 121,
+    "black": 53,
+    "all": 174
   },
   "seasons": [
     {
@@ -17,14 +18,27 @@
       "label": "2024–25",
       "start": "2024-04-01",
       "end": "2025-03-31",
-      "slamCount": 174
+      "slamCount": 174,
+      "white": 121,
+      "black": 53
     },
     {
       "year": 2025,
       "label": "2025–26",
       "start": "2025-04-01",
       "end": "2026-03-31",
-      "slamCount": 0
+      "slamCount": 0,
+      "white": 0,
+      "black": 0
+    },
+    {
+      "year": 2026,
+      "label": "2026-27",
+      "start": "2026-04-01",
+      "end": "2027-03-31",
+      "slamCount": 0,
+      "white": 0,
+      "black": 0
     }
   ],
   "allTime": {
@@ -45,7 +59,7 @@
     "topBlack": [
       {
         "id": "babu-bhai",
-        "name": "Babu Bhai",
+        "name": "Mahesh Thakur",
         "count": 9
       }
     ],

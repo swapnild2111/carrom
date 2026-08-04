@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "season": 2025,
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-08-04",
   "players": [
     {
       "id": "akshay-dey",
@@ -103,13 +103,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -134,13 +134,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -190,19 +190,81 @@
       "timelineGroups": []
     },
     {
-      "id": "babu-bhai",
-      "name": "Babu Bhai",
+      "id": "asif-khan",
+      "name": "Asif Khan",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "champions-carrom-academy"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "champions-carrom-academy",
+          "name": "Champions Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
+      "id": "aslam-chicktey",
+      "name": "Aslam Chicktey",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "champions-carrom-academy"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "champions-carrom-academy",
+          "name": "Champions Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
+      "id": "babu-bhai",
+      "name": "Mahesh Thakur",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -345,6 +407,68 @@
       "timelineGroups": []
     },
     {
+      "id": "fouzan-shaikh",
+      "name": "Fouzan Shaikh",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "feathers-carrom-academy"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "feathers-carrom-academy",
+          "name": "Feathers Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
+      "id": "furqan-momin",
+      "name": "Furqan Momin",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "shakti-carrom-club"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
       "id": "harish-bhai",
       "name": "Harish Bhai",
       "aliases": [],
@@ -413,13 +537,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -568,13 +692,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -661,13 +785,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -748,19 +872,50 @@
       "timelineGroups": []
     },
     {
+      "id": "naeem-shekhani",
+      "name": "Naeem Shekhani",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "champions-carrom-academy"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "champions-carrom-academy",
+          "name": "Champions Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
       "id": "naushad-shaikh",
       "name": "Naushad Shaikh",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -1095,13 +1250,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -1182,19 +1337,50 @@
       "timelineGroups": []
     },
     {
+      "id": "sharik-khan",
+      "name": "Sharik Khan",
+      "aliases": [],
+      "district": "Thane",
+      "gender": "male",
+      "clubIds": [
+        "feathers-carrom-academy"
+      ],
+      "active": true,
+      "clubs": [
+        {
+          "id": "feathers-carrom-academy",
+          "name": "Feathers Carrom Academy"
+        }
+      ],
+      "stats": {
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
+      },
+      "ranks": {
+        "white": null,
+        "black": null,
+        "total": null
+      },
+      "timeline": [],
+      "timelineGroups": []
+    },
+    {
       "id": "shehbazh",
       "name": "Shehbazh",
       "aliases": [],
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {
@@ -1281,13 +1467,13 @@
       "district": "Thane",
       "gender": "male",
       "clubIds": [
-        "sai-carrom"
+        "shakti-carrom-club"
       ],
       "active": true,
       "clubs": [
         {
-          "id": "sai-carrom",
-          "name": "Sai Carrom"
+          "id": "shakti-carrom-club",
+          "name": "Shakti Carrom Club"
         }
       ],
       "stats": {

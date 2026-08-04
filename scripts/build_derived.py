@@ -323,6 +323,18 @@ def main() -> int:
 
     current_bundle = bundles.get(current_season) or next(iter(bundles.values()))
 
+    # Landing season: the season whose data drives the default home-page view.
+    # Prefer today's fiscal-year season, but fall back to the newest season
+    # with actual slams so visitors don't land on an empty leaderboard.
+    if current_bundle["totals"]["all"] > 0:
+        landing_season = current_season
+    else:
+        seasons_with_data = sorted(
+            (y for y, b in bundles.items() if b["totals"]["all"] > 0),
+            reverse=True,
+        )
+        landing_season = seasons_with_data[0] if seasons_with_data else current_season
+
     all_time = compute_all_time_leaders(players, all_slams)
     save_json(GENERATED / "all_time_leaders.json", {**all_time, "lastUpdated": today})
 
@@ -347,22 +359,27 @@ def main() -> int:
             "clubs": bundle["enriched_clubs"],
         })
 
+    landing_bundle = bundles.get(landing_season) or current_bundle
+
     site_summary = {
-        "season": current_season,
+        "season": landing_season,
         "currentSeason": current_season,
+        "landingSeason": landing_season,
         "lastUpdated": today,
         "district": "Thane",
-        "playerCount": len(current_bundle["enriched_players"]),
-        "clubCount": len(current_bundle["enriched_clubs"]),
-        "slamCount": len(current_bundle["slams"]),
-        "totals": current_bundle["totals"],
+        "playerCount": len(landing_bundle["enriched_players"]),
+        "clubCount": len(landing_bundle["enriched_clubs"]),
+        "slamCount": len(landing_bundle["slams"]),
+        "totals": landing_bundle["totals"],
         "seasons": [
             {
                 "year": int(s["year"]),
                 "label": s["label"],
                 "start": s["start"],
                 "end": s["end"],
-                "slamCount": len(bundles[int(s["year"])]["slams"]),
+                "slamCount": bundles[int(s["year"])]["totals"]["all"],
+                "white": bundles[int(s["year"])]["totals"]["white"],
+                "black": bundles[int(s["year"])]["totals"]["black"],
             }
             for s in seasons
             if int(s["year"]) in bundles
@@ -372,21 +389,21 @@ def main() -> int:
     save_json(GENERATED / "site_summary.json", site_summary)
 
     save_json(GENERATED / "leaderboard.json", {
-        "season": current_season,
+        "season": landing_season,
         "district": "Thane",
         "lastUpdated": today,
-        "players": current_bundle["leaderboard"],
+        "players": landing_bundle["leaderboard"],
     })
-    save_json(GENERATED / "awards.json", {**current_bundle["awards"], "lastUpdated": today})
+    save_json(GENERATED / "awards.json", {**landing_bundle["awards"], "lastUpdated": today})
     save_json(GENERATED / "players_enriched.json", {
         "schemaVersion": 1,
-        "season": current_season,
+        "season": landing_season,
         "lastUpdated": today,
-        "players": current_bundle["enriched_players"],
+        "players": landing_bundle["enriched_players"],
     })
     save_json(GENERATED / "clubs_enriched.json", {
         "schemaVersion": 1,
-        "season": current_season,
+        "season": landing_season,
         "lastUpdated": today,
         "clubs": current_bundle["enriched_clubs"],
     })

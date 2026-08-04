@@ -497,6 +497,175 @@
     fillEditPlayerForm(player);
     renderEditPlayerPicker();
     renderEditPlayerPreview(player);
+    renderPlayerSlamLog();
+  }
+
+  function currentSlamLogSeason() {
+    const select = document.getElementById("edit-player-slamlog-season");
+    if (select && select.value) return parseInt(select.value, 10);
+    const currentYear = seasons.find((s) => s.available !== false)?.year;
+    return currentYear ? parseInt(currentYear, 10) : new Date().getFullYear();
+  }
+
+  function playerSeasonSlams(playerId, season) {
+    return slams.filter((s) => s.playerId === playerId && parseInt(s.season, 10) === parseInt(season, 10));
+  }
+
+  function slamHasDetail(slam) {
+    return Boolean(slam.date || slam.videoUrl || slam.matchRef || slam.tournament || slam.notes);
+  }
+
+  function bestSeasonForPlayer(playerId) {
+    if (!playerId) return null;
+    const counts = {};
+    slams.forEach((s) => {
+      if (s.playerId !== playerId) return;
+      const y = parseInt(s.season, 10);
+      counts[y] = (counts[y] || 0) + 1;
+    });
+    const years = Object.keys(counts);
+    if (!years.length) return null;
+    years.sort((a, b) => counts[b] - counts[a] || parseInt(b, 10) - parseInt(a, 10));
+    return parseInt(years[0], 10);
+  }
+
+  function populateSlamLogSeasonSelect() {
+    const select = document.getElementById("edit-player-slamlog-season");
+    if (!select) return;
+    const previous = select.value;
+    select.innerHTML = "";
+    seasons.forEach((s) => {
+      const opt = document.createElement("option");
+      opt.value = s.year;
+      opt.textContent = s.label || String(s.year);
+      select.appendChild(opt);
+    });
+    const best = bestSeasonForPlayer(selectedEditPlayerId);
+    if (previous && seasons.some((s) => String(s.year) === previous)) {
+      select.value = previous;
+    } else if (best && seasons.some((s) => parseInt(s.year, 10) === best)) {
+      select.value = String(best);
+    } else {
+      const current = seasons.find((s) => s.available !== false) || seasons[seasons.length - 1];
+      if (current) select.value = current.year;
+    }
+  }
+
+  function populateBulkSlamClubSelect(player) {
+    const select = document.getElementById("bulk-slam-club");
+    if (!select) return;
+    const preferred = (player?.clubIds || [])[0] || "";
+    select.innerHTML = "";
+    const blank = document.createElement("option");
+    blank.value = "";
+    blank.textContent = "— player's default —";
+    select.appendChild(blank);
+    clubs.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name;
+      if (c.id === preferred) opt.selected = true;
+      select.appendChild(opt);
+    });
+  }
+
+  function renderPlayerSlamLog() {
+    const wrap = document.getElementById("edit-player-slamlog");
+    if (!wrap) return;
+    if (!selectedEditPlayerId) {
+      wrap.hidden = true;
+      return;
+    }
+    wrap.hidden = false;
+
+    populateSlamLogSeasonSelect();
+    const player = players.find((p) => p.id === selectedEditPlayerId);
+    populateBulkSlamClubSelect(player);
+
+    const season = currentSlamLogSeason();
+    const rows = playerSeasonSlams(selectedEditPlayerId, season)
+      .slice()
+      .sort((a, b) => b.id.localeCompare(a.id));
+
+    const whiteCount = rows.filter((s) => s.type === "white").length;
+    const blackCount = rows.filter((s) => s.type === "black").length;
+    document.getElementById("edit-player-slamlog-white").textContent = String(whiteCount);
+    document.getElementById("edit-player-slamlog-black").textContent = String(blackCount);
+    document.getElementById("edit-player-slamlog-total").textContent = String(rows.length);
+    const legend = document.getElementById("edit-player-slamlog-legend");
+    if (legend) legend.textContent = rows.length ? `(${rows.length} rows)` : "";
+
+    const tbody = document.getElementById("edit-player-slamlog-tbody");
+    const empty = document.getElementById("edit-player-slamlog-empty");
+    tbody.innerHTML = "";
+    if (!rows.length) {
+      empty.hidden = false;
+      return;
+    }
+    empty.hidden = true;
+
+    rows.forEach((slam) => {
+      const tr = document.createElement("tr");
+      tr.dataset.slamId = slam.id;
+      const clubName = slam.clubId ? clubLabel(slam.clubId) : "—";
+      const hasDetail = slamHasDetail(slam);
+      tr.innerHTML =
+        '<td class="admin-slamlog-id">' + slam.id + '</td>' +
+        '<td><span class="badge badge-' + slam.type + '">' + slam.type + '</span></td>' +
+        '<td>' + (slam.source || "—") + '</td>' +
+        '<td>' + clubName + '</td>' +
+        '<td>' + (slam.date || "—") + '</td>' +
+        '<td>' + (hasDetail
+          ? '<span class="admin-slamlog-detail" title="Has date/video/match detail">★</span>'
+          : '<span class="text-muted">—</span>') + '</td>' +
+        '<td><button type="button" class="btn-admin btn-secondary btn-small admin-slamlog-delete" data-slam-id="' + slam.id + '" data-detail="' + (hasDetail ? '1' : '0') + '">Delete</button></td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  function wireSlamLogControls() {
+    const seasonSelect = document.getElementById("edit-player-slamlog-season");
+    if (seasonSelect) {
+      seasonSelect.addEventListener("change", () => renderPlayerSlamLog());
+    }
+    const tbody = document.getElementById("edit-player-slamlog-tbody");
+    if (tbody) {
+      tbody.addEventListener("click", handleSlamLogDeleteClick);
+    }
+  }
+
+  async function handleSlamLogDeleteClick(event) {
+    const btn = event.target.closest(".admin-slamlog-delete");
+    if (!btn) return;
+    const slamId = btn.dataset.slamId;
+    const hasDetail = btn.dataset.detail === "1";
+    if (hasDetail) {
+      const proceed = window.confirm(
+        "Slam " + slamId + " has a date, video, or match reference. Delete anyway?"
+      );
+      if (!proceed) return;
+    }
+    const token = getStoredToken();
+    if (!token) {
+      show(loginEl);
+      return;
+    }
+    setStatus("Submitting delete for " + slamId + "…", "pending");
+    btn.disabled = true;
+    try {
+      const issue = await createIssue(token, {
+        title: "[Edit slam] " + slamId + " — delete",
+        labels: ["edit-slam"],
+        body: issueBody({
+          "Slam ID": slamId,
+          Action: "delete",
+        }),
+      });
+      setStatus("Issue #" + issue.number + " created — slam will be deleted after validation.", "success");
+    } catch (err) {
+      setStatus(err.message, "error");
+      btn.disabled = false;
+    }
   }
 
   function renderEditPlayerPicker() {
@@ -591,6 +760,7 @@
     renderEditPlayerPicker();
     updateEditPlayerActionState();
     populateEditPlayerClubSelect("");
+    renderPlayerSlamLog();
   }
 
   function playerLabel(playerId) {
@@ -856,10 +1026,58 @@
     populateEditFilters();
     renderEditPlayerPicker();
     populateEditPlayerClubSelect("");
+    populateEditClubPicker();
     populateSeasonList();
     populateEditSeasonSelect();
     enhanceAllSelects();
     updateCatalogStats();
+  }
+
+  function populateEditClubPicker() {
+    const select = document.getElementById("edit-club-picker");
+    if (!select) return;
+    const previous = select.value;
+    select.innerHTML = '<option value="">Select…</option>';
+    clubs.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.active === false ? `${c.name} (inactive)` : c.name;
+      select.appendChild(opt);
+    });
+    if (previous && clubs.some((c) => c.id === previous)) select.value = previous;
+  }
+
+  function fillEditClubForm(clubId) {
+    const club = clubs.find((c) => c.id === clubId);
+    const nameEl = document.getElementById("edit-club-name");
+    const contactEl = document.getElementById("edit-club-contact");
+    const notesEl = document.getElementById("edit-club-notes");
+    if (!club) {
+      if (nameEl) nameEl.value = "";
+      if (contactEl) contactEl.value = "";
+      if (notesEl) notesEl.value = "";
+      return;
+    }
+    if (nameEl) nameEl.value = club.name || "";
+    if (contactEl) contactEl.value = club.contact || "";
+    if (notesEl) notesEl.value = club.notes || "";
+  }
+
+  function updateEditClubActionState() {
+    const action = document.getElementById("edit-club-action");
+    const fields = document.getElementById("edit-club-fields");
+    const warning = document.getElementById("edit-club-deactivate-warning");
+    const isDeactivate = action?.value === "deactivate";
+    if (fields) fields.hidden = isDeactivate;
+    if (warning) warning.hidden = !isDeactivate;
+  }
+
+  function setupEditClubForm() {
+    document.getElementById("edit-club-picker")?.addEventListener("change", (event) => {
+      fillEditClubForm(event.target.value);
+    });
+    document.getElementById("edit-club-action")?.addEventListener("change", updateEditClubActionState);
+    updateEditClubActionState();
   }
 
   function populateSeasonList() {
@@ -904,7 +1122,7 @@
         tab.classList.add("is-active");
         tab.setAttribute("aria-selected", "true");
         const name = tab.dataset.tab;
-        ["player", "edit-player", "club", "slam", "edit", "season"].forEach((panel) => {
+        ["player", "edit-player", "club", "edit-club", "slam", "edit", "season"].forEach((panel) => {
           const el = document.getElementById(`panel-${panel}`);
           if (el) el.hidden = panel !== name;
         });
@@ -1225,6 +1443,100 @@
     }
   });
 
+  document.getElementById("admin-bulk-slam-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    if (!selectedEditPlayerId) {
+      setStatus("Select a player first.", "error");
+      return;
+    }
+
+    const form = event.target;
+    const type = form.type.value;
+    const count = parseInt(form.count.value, 10);
+    const source = form.source.value || "club";
+    const clubId = form.clubId.value || "";
+    const season = currentSlamLogSeason();
+
+    if (!count || count <= 0) {
+      setStatus("Count must be greater than zero.", "error");
+      return;
+    }
+    if (count > 100) {
+      setStatus("Count exceeds bulk limit of 100.", "error");
+      return;
+    }
+
+    setStatus("Submitting…", "pending");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setButtonLoading(submitBtn, true, "Submitting…");
+    try {
+      const player = players.find((p) => p.id === selectedEditPlayerId);
+      const issue = await createIssue(token, {
+        title: `[Bulk slam] ${player?.name || selectedEditPlayerId} — +${count} ${type}`,
+        labels: ["bulk-add-slam"],
+        body: issueBody({
+          "Player id": selectedEditPlayerId,
+          Season: String(season),
+          Type: type,
+          Count: String(count),
+          Source: source,
+          "Club id": clubId,
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — ${count} ${type} slam(s) will be added after validation.`, "success");
+      form.count.value = "1";
+    } catch (err) {
+      setStatus(err.message, "error");
+    } finally {
+      setButtonLoading(submitBtn, false);
+    }
+  });
+
+  document.getElementById("admin-edit-club-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const token = getStoredToken();
+    if (!token) return show(loginEl);
+
+    const form = event.target;
+    const clubId = form.clubId.value;
+    if (!clubId) {
+      setStatus("Select a club to edit.", "error");
+      return;
+    }
+    const action = form.action.value || "update";
+
+    setStatus("Submitting…", "pending");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setButtonLoading(submitBtn, true, "Submitting…");
+    try {
+      const club = clubs.find((c) => c.id === clubId);
+      const fields = action === "deactivate"
+        ? { "Club id": clubId, Action: "deactivate" }
+        : {
+            "Club id": clubId,
+            Action: "update",
+            "Name (optional)": form.name.value.trim(),
+            "Contact (optional)": form.contact.value.trim(),
+            "Notes (optional)": form.notes.value.trim(),
+          };
+      const issue = await createIssue(token, {
+        title: `[Edit club] ${club?.name || clubId}`,
+        labels: ["edit-club"],
+        body: issueBody(fields, {
+          always: action === "update" ? ["Contact (optional)", "Notes (optional)"] : [],
+        }),
+      });
+      setStatus(`Issue #${issue.number} created — club will update after validation.`, "success");
+    } catch (err) {
+      setStatus(err.message, "error");
+    } finally {
+      setButtonLoading(submitBtn, false);
+    }
+  });
+
   document.getElementById("admin-season-form")?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const token = getStoredToken();
@@ -1319,6 +1631,8 @@
   setupEditSlamPicker();
   setupEditPlayerPicker();
   setupEditToggle();
+  wireSlamLogControls();
+  setupEditClubForm();
   setupMultiSelectFilter("player-clubs", "player-clubs-search");
   setupMultiSelectFilter("edit-player-clubs", "edit-player-clubs-search");
   enhanceAllSelects();
