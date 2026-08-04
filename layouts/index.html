@@ -52,13 +52,13 @@
 
 <section class="hero hero-compact">
   <div class="hero-inner">
-    <p class="hero-eyebrow">{{ $currentLabel }} season · {{ $summary.district }} District</p>
+    <p class="hero-eyebrow"><span data-season-label>{{ $currentLabel }}</span> season · {{ $summary.district }} District</p>
     <h2 class="hero-title">Thane Slam Tracker</h2>
     <p class="hero-lead">
       Every white and black slam for Thane players — from club matches, tournaments, and the Carrom and Flute YouTube channel.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ (printf "awards/%d/" (int $summary.landingSeason)) | relURL }}">View {{ $currentLabel }} awards</a>
+      <a class="btn btn-primary" href="{{ (printf "awards/%d/" (int $summary.landingSeason)) | relURL }}" data-season-link data-season-awards>View <span data-season-label>{{ $currentLabel }}</span> awards</a>
     </div>
   </div>
 </section>
@@ -92,7 +92,7 @@
   <div class="season-empty-inner">
     <span class="season-empty-icon" aria-hidden="true">✧</span>
     <div>
-      <h4>No slams recorded for {{ $currentLabel }} yet.</h4>
+      <h4>No slams recorded for <span data-season-label>{{ $currentLabel }}</span> yet.</h4>
       <p>Season runs {{ $seasonRangeStart }} → {{ $seasonRangeEnd }}. When new slams start landing they'll show up here.</p>
     </div>
   </div>
@@ -103,7 +103,7 @@
   <div class="dashboard-leaderboard" id="leaderboard">
     <div class="section-header">
       <div class="section-heading section-heading-inline">
-        <h3>{{ $currentLabel }} leaderboard</h3>
+        <h3><span data-season-label>{{ $currentLabel }}</span> leaderboard</h3>
         <p class="section-desc">{{ $summary.playerCount }} players ranked by total slams.</p>
       </div>
       <div class="search-field">
@@ -125,7 +125,7 @@
         <tbody>
           {{ if eq (int $summary.totals.all) 0 }}
           <tr class="leaderboard-empty-row">
-            <td colspan="5" class="leaderboard-empty">No slams recorded for {{ $currentLabel }} yet.</td>
+            <td colspan="5" class="leaderboard-empty">No slams recorded for <span data-season-label>{{ $currentLabel }}</span> yet.</td>
           </tr>
           {{ else }}
           {{ range $index, $p := $leaderboard.players }}
@@ -207,7 +207,7 @@
 {{ with $awards }}
 <section class="awards-preview page-section">
   <div class="section-heading">
-    <h3>{{ $currentLabel }} award leaders</h3>
+    <h3><span data-season-label>{{ $currentLabel }}</span> award leaders</h3>
     <p class="section-desc">Who's on track for the white and black slam trophies at season end.</p>
   </div>
   <div class="awards-preview-grid">
