@@ -180,7 +180,15 @@
     slams = slamsData.slams || [];
     seasons = (seasonsData.seasons || []).slice().sort((a, b) => a.year - b.year);
     currentSeasonYear = pickCurrentSeason();
-    if (!activeSeasonYear) activeSeasonYear = currentSeasonYear;
+    // Active season follows the URL's ?season=YYYY set by the site header
+    // picker in baseof.html — admin doesn't duplicate the dropdown.
+    const requested = new URLSearchParams(window.location.search).get("season");
+    const requestedYear = requested ? parseInt(requested, 10) : NaN;
+    if (Number.isFinite(requestedYear) && seasons.some((s) => parseInt(s.year, 10) === requestedYear)) {
+      activeSeasonYear = requestedYear;
+    } else {
+      activeSeasonYear = currentSeasonYear;
+    }
   }
 
   function pickCurrentSeason() {
@@ -193,16 +201,12 @@
   }
 
   function renderTopbar() {
-    const seasonSelect = document.getElementById("admin-season-select");
-    if (seasonSelect) {
-      seasonSelect.innerHTML = "";
-      seasons.forEach((s) => {
-        const opt = document.createElement("option");
-        opt.value = s.year;
-        opt.textContent = `${s.label || s.year}${parseInt(s.year, 10) === currentSeasonYear ? " · current" : ""}`;
-        if (parseInt(s.year, 10) === activeSeasonYear) opt.selected = true;
-        seasonSelect.appendChild(opt);
-      });
+    const badge = document.getElementById("admin-season-badge");
+    if (badge) {
+      const s = seasons.find((ss) => parseInt(ss.year, 10) === activeSeasonYear);
+      const label = s ? (s.label || String(s.year)) : String(activeSeasonYear);
+      const isCurrent = activeSeasonYear === currentSeasonYear;
+      badge.textContent = isCurrent ? `${label} · current` : label;
     }
     const stats = document.getElementById("admin-catalog-stats");
     if (stats) {
@@ -1083,13 +1087,6 @@
 
   document.getElementById("admin-logout-btn")?.addEventListener("click", signOut);
   document.getElementById("admin-logout-denied")?.addEventListener("click", signOut);
-
-  document.getElementById("admin-season-select")?.addEventListener("change", (e) => {
-    activeSeasonYear = parseInt(e.target.value, 10);
-    renderTopbar();
-    renderPlayerList();
-    if (selectedPlayerId) updateDrawerSlamCounts(selectedPlayerId, activeSeasonYear);
-  });
 
   document.getElementById("admin-player-search")?.addEventListener("input", renderPlayerList);
 

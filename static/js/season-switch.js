@@ -20,6 +20,10 @@
   }
 
   var isDifferent = requestedSeason && requestedSeason !== currentSeason;
+  // Stamp season on cross-page nav links whenever a season is chosen via
+  // the URL, so navigating home → admin → clubs keeps the selection sticky
+  // even when the user picked the landing season explicitly.
+  var stampSeason = Boolean(requested);
 
   picker.addEventListener("change", function () {
     navigateToSeason(parseInt(picker.value, 10));
@@ -27,11 +31,7 @@
 
   function navigateToSeason(val) {
     var url = new URL(window.location.href);
-    if (val === currentSeason) {
-      url.searchParams.delete("season");
-    } else {
-      url.searchParams.set("season", String(val));
-    }
+    url.searchParams.set("season", String(val));
     window.location.href = url.toString();
   }
 
@@ -43,7 +43,7 @@
       var href = link.getAttribute("href") || "";
       link.setAttribute("href", href.replace(/\/awards\/\d+\//, "/awards/" + requestedSeason + "/"));
     }
-    if (isDifferent) {
+    if (stampSeason) {
       var url = new URL(link.href, window.location.origin);
       url.searchParams.set("season", String(requestedSeason));
       link.setAttribute("href", url.pathname + url.search + url.hash);
@@ -53,8 +53,6 @@
   if (isDifferent) {
     document.documentElement.setAttribute("data-season", String(requestedSeason));
     swapHomePageIfPresent(requestedSeason, seasonLabel);
-    swapPlayerPageBannerIfPresent(seasonLabel, requestedSeason);
-    swapClubPageBannerIfPresent(seasonLabel, requestedSeason);
     swapAwardsPageIfPresent(requestedSeason);
   }
 
@@ -199,30 +197,72 @@
 
     var stats = document.querySelector("[data-season-stats]");
     if (stats) stats.textContent = players.length + " players · " + (totalWhite + totalBlack) + " slams";
+
+    // Toggle the stat-cards vs season-empty block based on whether the
+    // target season has data. Also fill in the season's real date range.
+    var hasData = (totalWhite + totalBlack) > 0;
+    var statCards = document.querySelector(".stat-cards");
+    var emptyBlock = document.querySelector(".season-empty");
+    if (statCards) statCards.hidden = !hasData;
+    if (emptyBlock) emptyBlock.hidden = hasData;
+
+    if (!hasData) {
+      var seasonMeta = findSeasonMeta();
+      if (seasonMeta) {
+        var startEl = document.querySelector("[data-season-range-start]");
+        var endEl = document.querySelector("[data-season-range-end]");
+        if (startEl && seasonMeta.start) startEl.textContent = seasonMeta.start;
+        if (endEl && seasonMeta.end) endEl.textContent = seasonMeta.end;
+      }
+    }
+  }
+
+  function findSeasonMeta() {
+    // Pull season start/end from the site_summary embedded in season-trend-data
+    var trendEl = document.getElementById("season-trend-data");
+    if (!trendEl) return null;
+    try {
+      var payload = JSON.parse(trendEl.textContent);
+      var seasons = (payload && payload.seasons) || [];
+      var current = parseInt((new URLSearchParams(window.location.search)).get("season"), 10);
+      if (!current) return null;
+      for (var i = 0; i < seasons.length; i++) {
+        if (parseInt(seasons[i].year, 10) === current) return seasons[i];
+      }
+    } catch (_e) { /* ignore */ }
+    return null;
   }
 
   function renderAwardsPreview(awards) {
-    var whiteContainer = document.querySelector(".award-card-white");
-    var blackContainer = document.querySelector(".award-card-black");
+    var whiteContainer = document.querySelector(".awards-race-white");
+    var blackContainer = document.querySelector(".awards-race-black");
     if (!whiteContainer || !blackContainer) return;
 
-    renderAwardRow(whiteContainer, awards.maxWhiteSlams, "white");
-    renderAwardRow(blackContainer, awards.maxBlackSlams, "black");
+    renderAwardsRaceCard(whiteContainer, awards.maxWhiteSlams, "white");
+    renderAwardsRaceCard(blackContainer, awards.maxBlackSlams, "black");
   }
 
-  function renderAwardRow(container, winners, kind) {
-    var iconHtml = '<span class="award-preview-icon" aria-hidden="true">' + (kind === "white" ? "○" : "●") + "</span>";
-    var heading = "<h4>Max " + kind + " slams</h4>";
+  function renderAwardsRaceCard(container, winners, kind) {
+    var dot = kind === "white" ? "○" : "●";
+    var head =
+      '<header class="awards-race-head">' +
+      '<span class="awards-race-dot" aria-hidden="true">' + dot + '</span>' +
+      '<span class="awards-race-cat">Max ' + kind + ' slams</span>' +
+      '</header>';
     var body = "";
     if (winners && winners.length) {
       for (var i = 0; i < winners.length; i++) {
         var w = winners[i];
-        body += '<p class="award-preview-row award-preview-winner"><a href="players/' + w.slug + '/">' + w.name + "</a> <strong>" + w.count + "</strong></p>";
+        body +=
+          '<p class="awards-race-winner">' +
+          '<a href="players/' + w.slug + '/">' + w.name + '</a>' +
+          '<span class="awards-race-count">' + w.count + '</span>' +
+          '</p>';
       }
     } else {
-      body = '<p class="text-muted">No slams recorded yet.</p>';
+      body = '<p class="awards-race-empty text-muted">No ' + kind + ' slams recorded yet this season.</p>';
     }
-    container.innerHTML = iconHtml + heading + body;
+    container.innerHTML = head + body;
   }
 
   function showEmptyBanner(label) {
@@ -232,18 +272,6 @@
     updateStatCards({}, []);
   }
 
-  function swapPlayerPageBannerIfPresent(label, season) {
-    var hero = document.querySelector(".player-hero");
-    if (!hero) return;
-    insertSeasonBanner(hero, label, season, "player");
-  }
-
-  function swapClubPageBannerIfPresent(label, season) {
-    var header = document.querySelector(".entity-header");
-    if (!header) return;
-    insertSeasonBanner(header, label, season, "club");
-  }
-
   function swapAwardsPageIfPresent(season) {
     var header = document.querySelector(".awards-page-header");
     if (!header) return;
@@ -251,16 +279,5 @@
     if (url !== window.location.pathname) {
       window.location.href = url + window.location.search;
     }
-  }
-
-  function insertSeasonBanner(anchor, label, season, kind) {
-    var banner = document.createElement("div");
-    banner.className = "season-banner";
-    banner.setAttribute("role", "note");
-    banner.innerHTML =
-      '<span>Viewing <strong>' + label + '</strong> season. The stats on this ' + kind +
-      ' page reflect the current season only.</span> ' +
-      '<a href="./?season=' + season + '">Back to ' + label + ' leaderboard</a>';
-    anchor.parentNode.insertBefore(banner, anchor);
   }
 })();

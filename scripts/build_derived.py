@@ -323,17 +323,11 @@ def main() -> int:
 
     current_bundle = bundles.get(current_season) or next(iter(bundles.values()))
 
-    # Landing season: the season whose data drives the default home-page view.
-    # Prefer today's fiscal-year season, but fall back to the newest season
-    # with actual slams so visitors don't land on an empty leaderboard.
-    if current_bundle["totals"]["all"] > 0:
-        landing_season = current_season
-    else:
-        seasons_with_data = sorted(
-            (y for y, b in bundles.items() if b["totals"]["all"] > 0),
-            reverse=True,
-        )
-        landing_season = seasons_with_data[0] if seasons_with_data else current_season
+    # Landing season is always the fiscal-year that contains today. If it
+    # has no slams yet, the empty-state UI communicates that — we deliberately
+    # do NOT fall back to a past season, so the entire site (home + admin)
+    # always agrees on "the current season".
+    landing_season = current_season
 
     all_time = compute_all_time_leaders(players, all_slams)
     save_json(GENERATED / "all_time_leaders.json", {**all_time, "lastUpdated": today})

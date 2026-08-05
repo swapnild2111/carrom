@@ -34,7 +34,7 @@ Every white and black slam for Thane players — logged, ranked, and celebrated 
 
 | Section | What's there | What you do |
 |---------|--------------|-------------|
-| 🏠 **Home** | All-time leaders strip, season leaderboard beside top-10 chart, W/B doughnut, podium radar, slams-by-club bar, season-over-season trend line | See who's leading now, who's leading ever, at a glance |
+| 🏠 **Home** | All-time hall of fame band, prominent trophy race for the season, leaderboard beside top-10 chart, slams-by-club bar, season-over-season trend, deeper analytics (W/B split + top-3 radar) | See who's leading now, who's leading ever, at a glance |
 | 👤 **Players** | Profile per player — stats, slam-mix chart, timeline, standing vs leader (season-aware via `?season=YYYY`) | Click any name on the leaderboard |
 | 🏛️ **Clubs** | Club roster and slams logged through each club | Browse from `/clubs/` |
 | 🏆 **Awards** | Max white & max black slam leaders per season, ceremony video, top-five race | One awards page per season |
@@ -61,11 +61,15 @@ It started as a season tracker for **Team Carrom and Flute**. It grew into a ful
 
 ### 🏆 Hall of Fame band + season-aware dashboard
 
-A gold-tinted strip at the top of the home page celebrates all-time record holders across every season. Below it, the season dropdown in the header scopes everything to a chosen fiscal year — leaderboard, charts, awards preview all swap client-side.
+A gold-tinted strip at the top of the home page celebrates all-time record holders across every season. Below it, the season dropdown in the header scopes everything to a chosen fiscal year — trophy race, leaderboard, charts, stat cards all swap client-side without a full page reload.
+
+### 🏅 Prominent trophy race
+
+The season's white-slam and black-slam category leaders sit high on the page in bold gold-tinted cards. It's the first thing a returning player checks: *who's on track for the trophy?*
 
 ### 📈 Five live charts on the home page
 
-Top-10 stacked bar (leaderboard side-by-side), white/black doughnut, top-three radar, slams-by-club horizontal bar, and a season-over-season trend line. All rendered from `slams.json` at build time; nothing painted by hand.
+Top-10 stacked bar (side-by-side with the leaderboard), slams-by-club horizontal bar, season-over-season trend line, plus a "deeper analytics" band lower down with the white/black doughnut and top-three radar. All rendered from `slams.json` at build time; nothing painted by hand.
 
 ### 👤 Rich player profiles
 

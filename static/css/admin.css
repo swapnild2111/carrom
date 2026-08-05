@@ -983,16 +983,40 @@
    Player-First Admin Redesign
    ============================================ */
 
-/* Top toolbar — single compact row */
+/* ═══════════════════════════════════════════
+   Admin topbar — control chrome
+   ═══════════════════════════════════════════ */
 .admin-topbar {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.55rem 0.75rem;
-  background: var(--surface);
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background:
+    radial-gradient(circle at 0% 50%, rgba(74, 158, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 100% 50%, rgba(167, 139, 250, 0.05), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent),
+    var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  min-height: 3.25rem;
+  min-height: 3.5rem;
+  margin-bottom: 1.35rem;
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  position: relative;
+}
+
+.admin-topbar::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(74, 158, 255, 0.35) 25%,
+    rgba(167, 139, 250, 0.28) 60%,
+    transparent 100%);
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .admin-topbar-left {
@@ -1009,28 +1033,73 @@
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
+  padding-left: 0.6rem;
+  border-left: 1px solid var(--border-subtle);
 }
 
-/* Topbar buttons keep base height (2.4rem); only font-size shrinks slightly. */
 .admin-topbar-right .btn-admin {
   font-size: 0.85rem;
-  padding: 0 0.9rem;
+  padding: 0 0.95rem;
 }
 
+/* User pill — softer, with accent glow */
 .admin-topbar .admin-user-pill {
-  padding: 0.28rem 0.7rem 0.28rem 0.35rem;
-  font-size: 0.82rem;
+  padding: 0.28rem 0.75rem 0.28rem 0.35rem;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.12), rgba(74, 158, 255, 0.04));
+  border-color: rgba(74, 158, 255, 0.35);
+  color: var(--text);
 }
 
 .admin-topbar .admin-user-avatar {
-  width: 1.35rem;
-  height: 1.35rem;
-  font-size: 0.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.72rem;
+  background: linear-gradient(135deg, var(--accent), #6b8fff);
+  box-shadow: 0 2px 6px rgba(74, 158, 255, 0.35);
 }
 
-.admin-topbar .admin-season-select select {
-  padding: 0.32rem 0.55rem;
+/* Season badge — reads current fiscal year at a glance, non-interactive */
+.admin-season-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.75rem 0.32rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(232, 197, 71, 0.1);
+  border: 1px solid rgba(232, 197, 71, 0.32);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.admin-season-badge::before {
+  content: "◷";
   font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.9;
+}
+
+/* Stats line — subdued so it doesn't fight the badges */
+.admin-topbar .admin-stats {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  padding: 0 0.15rem;
+}
+
+@media (max-width: 640px) {
+  .admin-topbar-right {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.6rem;
+    margin-top: 0.4rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1159,12 +1228,12 @@
 .admin-list-table thead th {
   position: sticky;
   top: 0;
-  background: var(--surface);
-  padding: 0.6rem 0.75rem;
+  background: var(--bg-elevated);
+  padding: 0.75rem 0.85rem;
   text-align: left;
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   font-weight: 700;
   border-bottom: 1px solid var(--border);

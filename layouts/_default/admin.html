@@ -1,6 +1,6 @@
 {{ define "head-extra" }}
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="{{ "css/admin.css" | relURL }}?v=10">
+<link rel="stylesheet" href="{{ "css/admin.css" | relURL }}?v=12">
 {{ end }}
 
 {{ define "main" }}
@@ -62,10 +62,7 @@
           <span class="admin-user-avatar" aria-hidden="true">@</span>
           <span id="admin-user-label">Signed in</span>
         </span>
-        <label class="admin-season-select">
-          <span class="sr-only">Season</span>
-          <select id="admin-season-select"></select>
-        </label>
+        <span class="admin-season-badge" id="admin-season-badge" aria-live="polite"></span>
         <span class="admin-stats" id="admin-catalog-stats" aria-live="polite"></span>
       </div>
       <div class="admin-topbar-right">

@@ -64,8 +64,53 @@
 </section>
 
 <div class="season-block">
-{{ if $seasonHasData }}
-<section class="stat-cards" aria-label="Season summary">
+
+{{/* ── PRIORITY 1: Awards race — who's on track for the trophy ── */}}
+{{ with $awards }}
+<section class="awards-race page-section">
+  <div class="section-heading">
+    <h3><span data-season-label>{{ $currentLabel }}</span> trophy race</h3>
+    <p class="section-desc">Category leaders on track for the season-end awards.</p>
+  </div>
+  <div class="awards-race-grid">
+    <article class="awards-race-card awards-race-white">
+      <header class="awards-race-head">
+        <span class="awards-race-dot" aria-hidden="true">○</span>
+        <span class="awards-race-cat">Max white slams</span>
+      </header>
+      {{ if .maxWhiteSlams }}
+      {{ range .maxWhiteSlams }}
+      <p class="awards-race-winner">
+        <a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a>
+        <span class="awards-race-count">{{ .count }}</span>
+      </p>
+      {{ end }}
+      {{ else }}
+      <p class="awards-race-empty text-muted">No white slams recorded yet this season.</p>
+      {{ end }}
+    </article>
+    <article class="awards-race-card awards-race-black">
+      <header class="awards-race-head">
+        <span class="awards-race-dot" aria-hidden="true">●</span>
+        <span class="awards-race-cat">Max black slams</span>
+      </header>
+      {{ if .maxBlackSlams }}
+      {{ range .maxBlackSlams }}
+      <p class="awards-race-winner">
+        <a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a>
+        <span class="awards-race-count">{{ .count }}</span>
+      </p>
+      {{ end }}
+      {{ else }}
+      <p class="awards-race-empty text-muted">No black slams recorded yet this season.</p>
+      {{ end }}
+    </article>
+  </div>
+</section>
+{{ end }}
+
+{{/* ── Stat cards + empty state — both rendered; JS toggles by target season ── */}}
+<section class="stat-cards" aria-label="Season summary"{{ if not $seasonHasData }} hidden{{ end }}>
   <div class="stat-card stat-white">
     <span class="stat-icon" aria-hidden="true">○</span>
     <span class="stat-value">{{ $summary.totals.white }}</span>
@@ -87,18 +132,17 @@
     <span class="stat-label">Players</span>
   </div>
 </section>
-{{ else }}
-<section class="season-empty" aria-label="Season summary">
+<section class="season-empty" aria-label="Season summary"{{ if $seasonHasData }} hidden{{ end }}>
   <div class="season-empty-inner">
     <span class="season-empty-icon" aria-hidden="true">✧</span>
     <div>
       <h4>No slams recorded for <span data-season-label>{{ $currentLabel }}</span> yet.</h4>
-      <p>Season runs {{ $seasonRangeStart }} → {{ $seasonRangeEnd }}. When new slams start landing they'll show up here.</p>
+      <p>Season runs <span data-season-range-start>{{ $seasonRangeStart }}</span> → <span data-season-range-end>{{ $seasonRangeEnd }}</span>. When new slams start landing they'll show up here.</p>
     </div>
   </div>
 </section>
-{{ end }}
 
+{{/* ── Leaderboard + top-10 chart ── */}}
 <section class="dashboard-grid page-section" aria-label="Season dashboard">
   <div class="dashboard-leaderboard" id="leaderboard">
     <div class="section-header">
@@ -162,34 +206,17 @@
   </aside>
 </section>
 
-<section class="charts-section page-section" aria-label="Season breakdowns">
+{{/* ── Slams by club (wider, standalone) ── */}}
+<section class="charts-section page-section" aria-label="Club standings">
   <div class="section-heading">
-    <h3>Breakdowns</h3>
-    <p class="section-desc">White vs black split, podium comparison, and which clubs saw the most slams this season.</p>
+    <h3>Slams by club</h3>
+    <p class="section-desc">Where the season's slams are being logged.</p>
   </div>
-  <div class="charts-grid charts-grid-3">
-    <article class="chart-card">
-      <h4>White vs black</h4>
-      <p class="chart-caption">Share of all recorded slams this season.</p>
-      <div class="chart-canvas-wrap">
-        <canvas id="chart-white-black" role="img" aria-label="Doughnut chart of white versus black slams"></canvas>
-      </div>
-    </article>
-    <article class="chart-card">
-      <h4>Podium comparison</h4>
-      <p class="chart-caption">How the top three compare across categories.</p>
-      <div class="chart-canvas-wrap">
-        <canvas id="chart-leaders-pace" role="img" aria-label="Radar chart comparing top three players"></canvas>
-      </div>
-    </article>
-    <article class="chart-card">
-      <h4>Slams by club</h4>
-      <p class="chart-caption">Which clubs saw the most slam moments this season.</p>
-      <div class="chart-canvas-wrap">
-        <canvas id="chart-slams-by-club" role="img" aria-label="Horizontal bar chart of slams grouped by club"></canvas>
-      </div>
-    </article>
-  </div>
+  <article class="chart-card chart-card-wide">
+    <div class="chart-canvas-wrap chart-canvas-tall">
+      <canvas id="chart-slams-by-club" role="img" aria-label="Horizontal bar chart of slams grouped by club"></canvas>
+    </div>
+  </article>
 </section>
 
 {{ $topPlayersJSON := slice }}
@@ -204,36 +231,9 @@
 {"totals":{{ $summary.totals | jsonify | safeJS }},"topPlayers":{{ $topPlayersJSON | jsonify | safeJS }},"clubs":{{ $clubsJSON | jsonify | safeJS }}}
 </script>
 
-{{ with $awards }}
-<section class="awards-preview page-section">
-  <div class="section-heading">
-    <h3><span data-season-label>{{ $currentLabel }}</span> award leaders</h3>
-    <p class="section-desc">Who's on track for the white and black slam trophies at season end.</p>
-  </div>
-  <div class="awards-preview-grid">
-    <div class="award-preview-card award-card-white">
-      <span class="award-preview-icon" aria-hidden="true">○</span>
-      <h4>Max white slams</h4>
-      {{ range .maxWhiteSlams }}
-      <p class="award-preview-row award-preview-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
-      {{ else }}
-      <p class="text-muted">No slams recorded yet.</p>
-      {{ end }}
-    </div>
-    <div class="award-preview-card award-card-black">
-      <span class="award-preview-icon" aria-hidden="true">●</span>
-      <h4>Max black slams</h4>
-      {{ range .maxBlackSlams }}
-      <p class="award-preview-row award-preview-winner"><a href="{{ (printf "players/%s/" .slug) | relURL }}">{{ .name }}</a> <strong>{{ .count }}</strong></p>
-      {{ else }}
-      <p class="text-muted">No slams recorded yet.</p>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
 </div>{{/* end season-block */}}
 
+{{/* ── Season-over-season trend (cross-season) ── */}}
 <section class="season-trend page-section" aria-labelledby="trend-heading" data-static-across-seasons>
   <div class="section-heading">
     <h3 id="trend-heading">Season-over-season</h3>
@@ -249,6 +249,30 @@
 <script type="application/json" id="season-trend-data">
 {"seasons": {{ $summary.seasons | jsonify | safeJS }}}
 </script>
+
+{{/* ── Deeper analytics: doughnut + radar (garnish) ── */}}
+<section class="charts-section page-section" aria-label="Deeper analytics">
+  <div class="section-heading">
+    <h3>Deeper analytics</h3>
+    <p class="section-desc">White/black split and podium comparison for anyone who wants a closer look.</p>
+  </div>
+  <div class="charts-grid charts-grid-2">
+    <article class="chart-card">
+      <h4>White vs black split</h4>
+      <p class="chart-caption">Share of all recorded slams this season.</p>
+      <div class="chart-canvas-wrap">
+        <canvas id="chart-white-black" role="img" aria-label="Doughnut chart of white versus black slams"></canvas>
+      </div>
+    </article>
+    <article class="chart-card">
+      <h4>Top-3 podium</h4>
+      <p class="chart-caption">How the top three compare across white, black, and total.</p>
+      <div class="chart-canvas-wrap">
+        <canvas id="chart-leaders-pace" role="img" aria-label="Radar chart comparing top three players"></canvas>
+      </div>
+    </article>
+  </div>
+</section>
 
 <section class="clubs-section page-section">
   <div class="section-heading">

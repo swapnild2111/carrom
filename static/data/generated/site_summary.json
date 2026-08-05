@@ -1,16 +1,16 @@
 {
-  "season": 2024,
+  "season": 2026,
   "currentSeason": 2026,
-  "landingSeason": 2024,
-  "lastUpdated": "2026-08-04",
+  "landingSeason": 2026,
+  "lastUpdated": "2026-08-05",
   "district": "Thane",
   "playerCount": 56,
   "clubCount": 4,
-  "slamCount": 180,
+  "slamCount": 0,
   "totals": {
-    "white": 127,
-    "black": 53,
-    "all": 180
+    "white": 0,
+    "black": 0,
+    "all": 0
   },
   "seasons": [
     {

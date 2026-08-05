@@ -7,7 +7,7 @@
   <meta name="description" content="{{ .Site.Params.description }}">
   <link rel="icon" href="{{ "images/carrom-logo.svg" | relURL }}" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=2">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=3">
   {{ block "head-extra" . }}{{ end }}
 </head>
 <body>
@@ -50,7 +50,7 @@
         <a href="{{ .Site.Home.RelPermalink }}" class="nav-link{{ if .IsHome }} is-active{{ end }}" data-season-link>Leaderboard</a>
         <a href="{{ "clubs/" | relURL }}" class="nav-link{{ if eq .Section "clubs" }} is-active{{ end }}" data-season-link>Clubs</a>
         <a href="{{ (printf "awards/%d/" (int $currentSeasonYear)) | relURL }}" class="nav-link{{ if strings.Contains .RelPermalink "awards" }} is-active{{ end }}" data-season-link data-season-awards>Awards</a>
-        <a href="{{ "admin/" | relURL }}" class="nav-link nav-link-muted{{ if strings.Contains .RelPermalink "admin" }} is-active{{ end }}">Admin</a>
+        <a href="{{ "admin/" | relURL }}" class="nav-link nav-link-muted{{ if strings.Contains .RelPermalink "admin" }} is-active{{ end }}" data-season-link>Admin</a>
       </nav>
     </div>
   </header>

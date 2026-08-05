@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "season": 2024,
-  "lastUpdated": "2026-08-04",
+  "season": 2026,
+  "lastUpdated": "2026-08-05",
   "players": [
     {
       "id": "akshay-dey",
@@ -20,170 +20,19 @@
         }
       ],
       "stats": {
-        "white": 8,
+        "white": 0,
         "black": 0,
-        "total": 8,
-        "bySource": {
-          "club": 8
-        },
-        "byClub": {
-          "sai-carrom": 8
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 3,
+        "white": null,
         "black": null,
-        "total": 6
+        "total": null
       },
-      "timeline": [
-        {
-          "id": "slam-2024-180",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "id": "slam-2024-179",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "id": "slam-2024-178",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "id": "slam-2024-177",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "id": "slam-2024-176",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "id": "slam-2024-175",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true
-        },
-        {
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0145",
-          "aggregate": true
-        },
-        {
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0144",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "id": "slam-2024-180",
-          "playerId": "akshay-dey",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "aggregate": true,
-          "count": 8
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "amol",
@@ -202,91 +51,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "amol",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0141",
-          "aggregate": true
-        },
-        {
-          "playerId": "amol",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0140",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "amol",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0141",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "amol",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0140",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "anil-taishetty",
@@ -305,74 +82,19 @@
         }
       ],
       "stats": {
-        "white": 2,
+        "white": 0,
         "black": 0,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 17,
+        "white": null,
         "black": null,
-        "total": 18
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "anil-taishetty",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0149",
-          "aggregate": true
-        },
-        {
-          "playerId": "anil-taishetty",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0148",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "anil-taishetty",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0149",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "anilkumar-singh",
@@ -391,186 +113,19 @@
         }
       ],
       "stats": {
-        "white": 9,
+        "white": 0,
         "black": 0,
-        "total": 9,
-        "bySource": {
-          "club": 9
-        },
-        "byClub": {
-          "sai-carrom": 9
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 2,
+        "white": null,
         "black": null,
-        "total": 5
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0077",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0076",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0075",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0074",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0073",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0072",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0071",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0070",
-          "aggregate": true
-        },
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0069",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "anilkumar-singh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0077",
-          "aggregate": true,
-          "count": 9
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "arif-bhai",
@@ -589,58 +144,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "arif-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0166",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "arif-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0166",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "arif-shaikh",
@@ -660,55 +176,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "youtube": 1
-        },
+        "black": 0,
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "arif-shaikh",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0153",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "arif-shaikh",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0153",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "asif-khan",
@@ -789,56 +268,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "youtube": 1
-        },
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "bhavesh-parmar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0161",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "bhavesh-parmar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0161",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "bhavesh-rane",
@@ -857,91 +299,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "bhavesh-rane",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0143",
-          "aggregate": true
-        },
-        {
-          "playerId": "bhavesh-rane",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0142",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "bhavesh-rane",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0143",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "bhavesh-rane",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0142",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "darshan",
@@ -961,57 +331,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "darshan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0154",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "darshan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0154",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "dharam",
@@ -1031,57 +362,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "dharam",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0157",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "dharam",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0157",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "fouzan-shaikh",
@@ -1162,251 +454,19 @@
         }
       ],
       "stats": {
-        "white": 8,
-        "black": 4,
-        "total": 12,
-        "bySource": {
-          "club": 12
-        },
-        "byClub": {
-          "sai-carrom": 12
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 3,
-        "black": 4,
-        "total": 3
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0056",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0055",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0054",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0053",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0052",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0051",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0050",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0049",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0048",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0047",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0046",
-          "aggregate": true
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0045",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0052",
-          "aggregate": true,
-          "count": 8
-        },
-        {
-          "playerId": "harish-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0056",
-          "aggregate": true,
-          "count": 4
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "imran-k",
@@ -1425,58 +485,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "imran-k",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0152",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "imran-k",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0152",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "imran-memon",
@@ -1496,57 +517,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "imran-memon",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0156",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "imran-memon",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0156",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "imran-quereshi",
@@ -1566,57 +548,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "imran-quereshi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0158",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "imran-quereshi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0158",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "javed-khan",
@@ -1635,171 +578,19 @@
         }
       ],
       "stats": {
-        "white": 4,
-        "black": 3,
-        "total": 7,
-        "bySource": {
-          "club": 7
-        },
-        "byClub": {
-          "sai-carrom": 7
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 11,
-        "black": 6,
-        "total": 7
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0091",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0090",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0089",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0088",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0087",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0086",
-          "aggregate": true
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0085",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0088",
-          "aggregate": true,
-          "count": 4
-        },
-        {
-          "playerId": "javed-khan",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0091",
-          "aggregate": true,
-          "count": 3
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "kiran-soman",
@@ -1818,90 +609,19 @@
         }
       ],
       "stats": {
-        "white": 3,
+        "white": 0,
         "black": 0,
-        "total": 3,
-        "bySource": {
-          "club": 3
-        },
-        "byClub": {
-          "sai-carrom": 3
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 12,
+        "white": null,
         "black": null,
-        "total": 14
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "kiran-soman",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0131",
-          "aggregate": true
-        },
-        {
-          "playerId": "kiran-soman",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0130",
-          "aggregate": true
-        },
-        {
-          "playerId": "kiran-soman",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0129",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "kiran-soman",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0131",
-          "aggregate": true,
-          "count": 3
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "kunal-raut",
@@ -1920,523 +640,19 @@
         }
       ],
       "stats": {
-        "white": 22,
-        "black": 7,
-        "total": 29,
-        "bySource": {
-          "club": 29
-        },
-        "byClub": {
-          "sai-carrom": 29
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 1,
-        "black": 2,
-        "total": 1
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0029",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0028",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0027",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0026",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0025",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0024",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0023",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0022",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0021",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0020",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0019",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0018",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0017",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0016",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0015",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0014",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0013",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0012",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0011",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0010",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0009",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0008",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0007",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0006",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0005",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0004",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0003",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0002",
-          "aggregate": true
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0001",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0022",
-          "aggregate": true,
-          "count": 22
-        },
-        {
-          "playerId": "kunal-raut",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0029",
-          "aggregate": true,
-          "count": 7
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "madhura-devle",
@@ -2455,58 +671,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "madhura-devle",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0165",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "madhura-devle",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0165",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "mahesh-shetye",
@@ -2526,55 +703,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "youtube": 1
-        },
+        "black": 0,
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "mahesh-shetye",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0174",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "mahesh-shetye",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0174",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "babu-bhai",
@@ -2593,299 +733,19 @@
         }
       ],
       "stats": {
-        "white": 6,
-        "black": 9,
-        "total": 15,
-        "bySource": {
-          "club": 15
-        },
-        "byClub": {
-          "sai-carrom": 15
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 5,
-        "black": 1,
-        "total": 2
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0044",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0043",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0042",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0041",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0040",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0039",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0038",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0037",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0036",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0035",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0034",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0033",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0032",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0031",
-          "aggregate": true
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0030",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0044",
-          "aggregate": true,
-          "count": 9
-        },
-        {
-          "playerId": "babu-bhai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0035",
-          "aggregate": true,
-          "count": 6
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "mandar-barde",
@@ -2904,171 +764,19 @@
         }
       ],
       "stats": {
-        "white": 5,
-        "black": 2,
-        "total": 7,
-        "bySource": {
-          "club": 7
-        },
-        "byClub": {
-          "sai-carrom": 7
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 7,
-        "black": 7,
-        "total": 7
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0084",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0083",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0082",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0081",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0080",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0079",
-          "aggregate": true
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0078",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0082",
-          "aggregate": true,
-          "count": 5
-        },
-        {
-          "playerId": "mandar-barde",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0084",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "manish-patil",
@@ -3087,91 +795,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "manish-patil",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0139",
-          "aggregate": true
-        },
-        {
-          "playerId": "manish-patil",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0138",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "manish-patil",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0139",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "manish-patil",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0138",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "mujeeb-sayyed",
@@ -3190,108 +826,19 @@
         }
       ],
       "stats": {
-        "white": 3,
+        "white": 0,
         "black": 0,
-        "total": 3,
-        "bySource": {
-          "club": 2,
-          "youtube": 1
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 12,
+        "white": null,
         "black": null,
-        "total": 14
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "mujeeb-sayyed",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0122",
-          "aggregate": true
-        },
-        {
-          "playerId": "mujeeb-sayyed",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0121",
-          "aggregate": true
-        },
-        {
-          "playerId": "mujeeb-sayyed",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0120",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "mujeeb-sayyed",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0121",
-          "aggregate": true,
-          "count": 2
-        },
-        {
-          "playerId": "mujeeb-sayyed",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0122",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "mukesh-mandodare",
@@ -3310,58 +857,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "mukesh-mandodare",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0173",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "mukesh-mandodare",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0173",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "naeem-shekhani",
@@ -3411,56 +919,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "youtube": 1
-        },
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "naushad-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0160",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "naushad-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0160",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "navnath-kamble",
@@ -3479,155 +950,19 @@
         }
       ],
       "stats": {
-        "white": 5,
-        "black": 1,
-        "total": 6,
-        "bySource": {
-          "club": 6
-        },
-        "byClub": {
-          "sai-carrom": 6
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 7,
-        "black": 8,
-        "total": 9
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0109",
-          "aggregate": true
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0108",
-          "aggregate": true
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0107",
-          "aggregate": true
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0106",
-          "aggregate": true
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0105",
-          "aggregate": true
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0104",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0108",
-          "aggregate": true,
-          "count": 5
-        },
-        {
-          "playerId": "navnath-kamble",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0109",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "omkar",
@@ -3646,58 +981,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "omkar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0163",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "omkar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0163",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "pankaj-pawar",
@@ -3716,153 +1012,19 @@
         }
       ],
       "stats": {
-        "white": 5,
-        "black": 1,
-        "total": 6,
-        "bySource": {
-          "youtube": 6
-        },
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
-        "white": 7,
-        "black": 8,
-        "total": 9
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0115",
-          "aggregate": true
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0114",
-          "aggregate": true
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0113",
-          "aggregate": true
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0112",
-          "aggregate": true
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0111",
-          "aggregate": true
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0110",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0114",
-          "aggregate": true,
-          "count": 5
-        },
-        {
-          "playerId": "pankaj-pawar",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0115",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "parag-desai",
@@ -3881,58 +1043,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "parag-desai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0170",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "parag-desai",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0170",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "pradeep-satam",
@@ -3952,57 +1075,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "pradeep-satam",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0159",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "pradeep-satam",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0159",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "pravin-raut",
@@ -4021,58 +1105,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "pravin-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0172",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "pravin-raut",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0172",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "premkumar-mishra",
@@ -4091,141 +1136,19 @@
         }
       ],
       "stats": {
-        "white": 3,
-        "black": 1,
-        "total": 4,
-        "bySource": {
-          "club": 2,
-          "youtube": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 12,
-        "black": 8,
-        "total": 13
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0119",
-          "aggregate": true
-        },
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0118",
-          "aggregate": true
-        },
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0117",
-          "aggregate": true
-        },
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0116",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0119",
-          "aggregate": true,
-          "count": 2
-        },
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0117",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "premkumar-mishra",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0116",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "reylond",
@@ -4244,91 +1167,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "reylond",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0137",
-          "aggregate": true
-        },
-        {
-          "playerId": "reylond",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0136",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "reylond",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0137",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "reylond",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0136",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "sachin-chalwadi",
@@ -4347,251 +1198,19 @@
         }
       ],
       "stats": {
-        "white": 5,
-        "black": 7,
-        "total": 12,
-        "bySource": {
-          "club": 12
-        },
-        "byClub": {
-          "sai-carrom": 12
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 7,
-        "black": 2,
-        "total": 3
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0068",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0067",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0066",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0065",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0064",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0063",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0062",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0061",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0060",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0059",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0058",
-          "aggregate": true
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0057",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0068",
-          "aggregate": true,
-          "count": 7
-        },
-        {
-          "playerId": "sachin-chalwadi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0061",
-          "aggregate": true,
-          "count": 5
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "samir-ansari",
@@ -4610,56 +1229,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "youtube": 1
-        },
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "samir-ansari",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0162",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "samir-ansari",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0162",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "satya-arekar",
@@ -4678,91 +1260,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "satya-arekar",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0135",
-          "aggregate": true
-        },
-        {
-          "playerId": "satya-arekar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0134",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "satya-arekar",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0135",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "satya-arekar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0134",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "saurabh-gulati",
@@ -4781,74 +1291,19 @@
         }
       ],
       "stats": {
-        "white": 2,
+        "white": 0,
         "black": 0,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 17,
+        "white": null,
         "black": null,
-        "total": 18
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "saurabh-gulati",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0151",
-          "aggregate": true
-        },
-        {
-          "playerId": "saurabh-gulati",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0150",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "saurabh-gulati",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0151",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "shanu-quereshi",
@@ -4867,58 +1322,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "shanu-quereshi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0167",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "shanu-quereshi",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0167",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "sharik-khan",
@@ -4968,90 +1384,19 @@
         }
       ],
       "stats": {
-        "white": 3,
+        "white": 0,
         "black": 0,
-        "total": 3,
-        "bySource": {
-          "club": 3
-        },
-        "byClub": {
-          "sai-carrom": 3
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 12,
+        "white": null,
         "black": null,
-        "total": 14
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "shehbazh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0128",
-          "aggregate": true
-        },
-        {
-          "playerId": "shehbazh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0127",
-          "aggregate": true
-        },
-        {
-          "playerId": "shehbazh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0126",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "shehbazh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0128",
-          "aggregate": true,
-          "count": 3
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "sudhir-shinde",
@@ -5070,138 +1415,19 @@
         }
       ],
       "stats": {
-        "white": 6,
+        "white": 0,
         "black": 0,
-        "total": 6,
-        "bySource": {
-          "club": 6
-        },
-        "byClub": {
-          "sai-carrom": 6
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 5,
+        "white": null,
         "black": null,
-        "total": 9
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0103",
-          "aggregate": true
-        },
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0102",
-          "aggregate": true
-        },
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0101",
-          "aggregate": true
-        },
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0100",
-          "aggregate": true
-        },
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0099",
-          "aggregate": true
-        },
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0098",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "sudhir-shinde",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0103",
-          "aggregate": true,
-          "count": 6
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "suhas-wakankar",
@@ -5220,74 +1446,19 @@
         }
       ],
       "stats": {
-        "white": 2,
+        "white": 0,
         "black": 0,
-        "total": 2,
-        "bySource": {
-          "club": 2
-        },
-        "byClub": {
-          "sai-carrom": 2
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 17,
+        "white": null,
         "black": null,
-        "total": 18
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "suhas-wakankar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0147",
-          "aggregate": true
-        },
-        {
-          "playerId": "suhas-wakankar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0146",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "suhas-wakankar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0147",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "swaraj",
@@ -5306,155 +1477,19 @@
         }
       ],
       "stats": {
-        "white": 2,
-        "black": 4,
-        "total": 6,
-        "bySource": {
-          "club": 6
-        },
-        "byClub": {
-          "sai-carrom": 6
-        }
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 17,
-        "black": 4,
-        "total": 9
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0097",
-          "aggregate": true
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0096",
-          "aggregate": true
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0095",
-          "aggregate": true
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0094",
-          "aggregate": true
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0093",
-          "aggregate": true
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0092",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0097",
-          "aggregate": true,
-          "count": 4
-        },
-        {
-          "playerId": "swaraj",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0093",
-          "aggregate": true,
-          "count": 2
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "tanmay-mane",
@@ -5473,58 +1508,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "tanmay-mane",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0169",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "tanmay-mane",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0169",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "taufiq-shaikh",
@@ -5543,90 +1539,19 @@
         }
       ],
       "stats": {
-        "white": 3,
+        "white": 0,
         "black": 0,
-        "total": 3,
-        "bySource": {
-          "club": 3
-        },
-        "byClub": {
-          "sai-carrom": 3
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 12,
+        "white": null,
         "black": null,
-        "total": 14
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "taufiq-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0125",
-          "aggregate": true
-        },
-        {
-          "playerId": "taufiq-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0124",
-          "aggregate": true
-        },
-        {
-          "playerId": "taufiq-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0123",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "taufiq-shaikh",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0125",
-          "aggregate": true,
-          "count": 3
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "test-player",
@@ -5669,58 +1594,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "vaibhav-jadhav",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0168",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "vaibhav-jadhav",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0168",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "vaibhav-koregaonkar",
@@ -5739,58 +1625,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "vaibhav-koregaonkar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0171",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "vaibhav-koregaonkar",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0171",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "vakas-shaikh",
@@ -5810,57 +1657,18 @@
       ],
       "stats": {
         "white": 0,
-        "black": 1,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "black": 0,
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
         "white": null,
-        "black": 8,
-        "total": 27
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "vakas-shaikh",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0155",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "vakas-shaikh",
-          "season": 2024,
-          "type": "black",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0155",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "vijay",
@@ -5879,58 +1687,19 @@
         }
       ],
       "stats": {
-        "white": 1,
+        "white": 0,
         "black": 0,
-        "total": 1,
-        "bySource": {
-          "club": 1
-        },
-        "byClub": {
-          "sai-carrom": 1
-        }
+        "total": 0,
+        "bySource": {},
+        "byClub": {}
       },
       "ranks": {
-        "white": 21,
+        "white": null,
         "black": null,
-        "total": 27
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "vijay",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0164",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "vijay",
-          "season": 2024,
-          "type": "white",
-          "source": "club",
-          "clubId": "sai-carrom",
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0164",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     },
     {
       "id": "zaid-ahmed-farooquee",
@@ -5949,89 +1718,19 @@
         }
       ],
       "stats": {
-        "white": 1,
-        "black": 1,
-        "total": 2,
-        "bySource": {
-          "youtube": 2
-        },
+        "white": 0,
+        "black": 0,
+        "total": 0,
+        "bySource": {},
         "byClub": {}
       },
       "ranks": {
-        "white": 21,
-        "black": 8,
-        "total": 18
+        "white": null,
+        "black": null,
+        "total": null
       },
-      "timeline": [
-        {
-          "playerId": "zaid-ahmed-farooquee",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0133",
-          "aggregate": true
-        },
-        {
-          "playerId": "zaid-ahmed-farooquee",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0132",
-          "aggregate": true
-        }
-      ],
-      "timelineGroups": [
-        {
-          "playerId": "zaid-ahmed-farooquee",
-          "season": 2024,
-          "type": "black",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0133",
-          "aggregate": true,
-          "count": 1
-        },
-        {
-          "playerId": "zaid-ahmed-farooquee",
-          "season": 2024,
-          "type": "white",
-          "source": "youtube",
-          "clubId": null,
-          "tournament": null,
-          "date": null,
-          "location": "Thane",
-          "videoUrl": null,
-          "matchRef": null,
-          "notes": null,
-          "active": true,
-          "id": "slam-2024-0132",
-          "aggregate": true,
-          "count": 1
-        }
-      ]
+      "timeline": [],
+      "timelineGroups": []
     }
   ]
 }

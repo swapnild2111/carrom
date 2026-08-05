@@ -2394,30 +2394,6 @@ details[open] .col-expand {
   outline: none;
 }
 
-.season-banner {
-  margin: 0.5rem 0 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  background: var(--surface-hover);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.season-banner strong {
-  color: var(--text);
-}
-
-.season-banner a {
-  color: var(--accent);
-  font-weight: 600;
-}
-
 .chart-empty-msg {
   text-align: center;
   padding: 2rem 1rem;
@@ -2648,11 +2624,16 @@ details[open] .col-expand {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.charts-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 @media (max-width: 900px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
-  .charts-grid-3 {
+  .charts-grid-3,
+  .charts-grid-2 {
     grid-template-columns: 1fr;
   }
   .dashboard-leaderboard .table-wrap {
@@ -3655,4 +3636,118 @@ details[open] .col-expand {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+}
+
+/* ═══════════════════════════════════════════
+   Awards race — trophy leaders (prominent)
+   ═══════════════════════════════════════════ */
+.awards-race {
+  margin: 1.5rem 0 2rem;
+}
+
+.awards-race-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.awards-race-card {
+  position: relative;
+  padding: 1.25rem 1.35rem 1.15rem;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(232, 197, 71, 0.14), transparent 55%),
+    var(--surface);
+  border: 1px solid rgba(232, 197, 71, 0.28);
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 4px 18px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.awards-race-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.awards-race-white::before {
+  background: linear-gradient(90deg, transparent, var(--white-slam), transparent);
+}
+
+.awards-race-black::before {
+  background: linear-gradient(90deg, transparent, #c9a227, transparent);
+}
+
+.awards-race-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.awards-race-dot {
+  font-size: 1.1rem;
+}
+
+.awards-race-white .awards-race-dot { color: var(--white-slam); }
+.awards-race-black .awards-race-dot { color: #c9a227; }
+
+.awards-race-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.awards-race-winner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0 0 0.4rem;
+  padding: 0.4rem 0;
+  font-size: 1.15rem;
+}
+
+.awards-race-winner:last-child {
+  margin-bottom: 0;
+}
+
+.awards-race-winner a {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+.awards-race-winner a:hover {
+  color: var(--gold);
+}
+
+.awards-race-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 2.2rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), #c9a227);
+  color: #1a1a1a;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  box-shadow: 0 3px 10px rgba(232, 197, 71, 0.3);
+}
+
+.awards-race-empty {
+  margin: 0.2rem 0 0;
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
 }
