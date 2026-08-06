@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "carrom-thane",
+    "prod": "carrom-thane"
+  }
+}

@@ -1,0 +1,89 @@
+rules_version = '2';
+
+// Carrom Thane — Firestore security rules
+//
+// Model:
+//   - Anyone can read all data collections (public site is public).
+//   - Writes require the caller's UID to exist in /admins/{uid}.
+//   - Every write must stamp updatedBy=auth.uid, updatedAt=serverTimestamp.
+//   - Hard-delete is forbidden; use active=false soft-delete instead.
+//   - /admins itself is writable only by users with role="owner".
+//   - /audit_log is append-only for admins, readable by admins.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isOwner() {
+      return isAdmin()
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == "owner";
+    }
+
+    // Every admin write must stamp itself with the caller's uid + a server timestamp.
+    function stampsUpdater() {
+      return request.resource.data.updatedBy == request.auth.uid
+        && request.resource.data.updatedAt == request.time;
+    }
+
+    // On create, createdBy/createdAt must ALSO be the caller (not spoofed).
+    function stampsCreator() {
+      return request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && stampsUpdater();
+    }
+
+    // ── Data collections ────────────────────────────────────────────
+    match /players/{playerId} {
+      allow read: if true;
+      allow create: if isAdmin() && stampsCreator();
+      allow update: if isAdmin() && stampsUpdater();
+      allow delete: if false;
+    }
+
+    match /clubs/{clubId} {
+      allow read: if true;
+      allow create: if isAdmin() && stampsCreator();
+      allow update: if isAdmin() && stampsUpdater();
+      allow delete: if false;
+    }
+
+    match /slams/{slamId} {
+      allow read: if true;
+      allow create: if isAdmin() && stampsCreator();
+      allow update: if isAdmin() && stampsUpdater();
+      allow delete: if false;
+    }
+
+    match /seasons/{seasonId} {
+      allow read: if true;
+      allow create: if isAdmin() && stampsCreator();
+      allow update: if isAdmin() && stampsUpdater();
+      allow delete: if false;
+    }
+
+    // ── Admin roster ────────────────────────────────────────────────
+    // Only owners can modify. Public can't read the admin list.
+    match /admins/{uid} {
+      allow read: if isAdmin();
+      allow write: if isOwner();
+    }
+
+    // ── Audit log ───────────────────────────────────────────────────
+    // Append-only. Admins can read. Nothing can update or delete.
+    match /audit_log/{entryId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.actorUid == request.auth.uid
+        && request.resource.data.at == request.time;
+      allow update, delete: if false;
+    }
+  }
+}

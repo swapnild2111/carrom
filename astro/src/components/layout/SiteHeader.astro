@@ -1,0 +1,29 @@
+---
+// Header nav — same shape as Hugo's baseof.html header. The season picker
+// hydrates on the client (below the fold) via a Svelte island so its options
+// come from Firestore, not build-time data.
+import SeasonPicker from "./SeasonPicker.svelte";
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-brand">
+      <a class="site-logo" href="/" aria-label="Thane Carrom Slams home">
+        <img src="/images/carrom-logo.svg" width="52" height="52" alt="" />
+      </a>
+      <div class="header-titles">
+        <h1 class="site-title"><a href="/">Thane Carrom Slams</a></h1>
+        <p class="site-tagline">
+          <span data-season-label>—</span> season · Thane District
+          <span data-season-stats>— · —</span>
+        </p>
+      </div>
+    </div>
+    <nav class="header-nav" aria-label="Main">
+      <SeasonPicker client:load />
+      <a href="/" class="nav-link" data-season-link>Leaderboard</a>
+      <a href="/clubs/" class="nav-link" data-season-link>Clubs</a>
+      <a href="/awards/" class="nav-link" data-season-link data-season-awards>Awards</a>
+      <a href="/admin/" class="nav-link nav-link-muted" data-season-link>Admin</a>
+    </nav>
+  </div>
+</header>

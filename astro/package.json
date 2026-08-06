@@ -1,0 +1,27 @@
+{
+  "name": "carrom-thane-astro",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Thane Carrom Slams — Astro + Firebase (in-progress migration from Hugo)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "emulators": "firebase emulators:start",
+    "seed:emulator": "FIRESTORE_EMULATOR_HOST=localhost:8080 python ../scripts/migrate_json_to_firestore.py --project demo-carrom",
+    "seed:prod": "python ../scripts/migrate_json_to_firestore.py --project carrom-thane"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^7.0.0",
+    "astro": "^5.0.0",
+    "chart.js": "^4.4.7",
+    "firebase": "^11.0.0",
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

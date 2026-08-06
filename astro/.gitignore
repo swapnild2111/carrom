@@ -1,0 +1,11 @@
+# Astro
+dist/
+.astro/
+node_modules/
+
+# Firebase
+.firebase/
+*.log
+firebase-debug.log
+firestore-debug.log
+ui-debug.log

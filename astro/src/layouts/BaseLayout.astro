@@ -1,0 +1,43 @@
+---
+// Site-wide shell. Ports layouts/_default/baseof.html — same nav structure,
+// same season picker, same footer. Everything data-driven now hydrates from
+// Firestore inside islands.
+import "../styles/global.css";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Thane Carrom Slams",
+  description = "Live leaderboard, player profiles, club records, and season awards for Thane District carrom.",
+} = Astro.props;
+
+const copyrightEnd = new Date().getFullYear();
+const copyrightStart = 2025;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="/images/carrom-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <SiteHeader />
+
+  <main class="container" id="main-content">
+    <slot />
+  </main>
+
+  <SiteFooter copyrightStart={copyrightStart} copyrightEnd={copyrightEnd} />
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  copyrightStart: number;
+  copyrightEnd: number;
+}
+const { copyrightStart, copyrightEnd } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="container site-footer-inner">
+    <div class="footer-primary">
+      <img class="footer-logo" src="/images/carrom-logo.svg" width="36" height="36" alt="" />
+      <div>
+        <p class="footer-title">Thane Carrom Slams</p>
+        <p class="footer-meta">Team Carrom and Flute · Firebase-powered</p>
+      </div>
+    </div>
+    <p class="footer-copyright">
+      © {copyrightEnd > copyrightStart ? `${copyrightStart}–${copyrightEnd}` : copyrightStart} Swapnil Deshpande.
+    </p>
+  </div>
+</footer>
