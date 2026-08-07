@@ -1,211 +1,161 @@
-# Carrom Thane — Astro + Firebase (PR 1)
+# Carrom Thane — Astro app
 
-Astro replaces Hugo. Firestore replaces `data/*.json`. Firebase Auth replaces GitHub PATs. Firebase Hosting replaces GitHub Pages.
+Astro static site (Svelte islands) backed by Firestore + Firebase Auth. Deployed to Firebase Hosting.
 
-This subdir lives **alongside** the current Hugo project during migration. The live GitHub Pages site keeps running unchanged. Once PR 3 lands we delete Hugo.
+**Live**: https://carrom-thane.web.app/
 
-## What's in PR 1
+For a high-level overview see the [root README](../README.md). This document covers local development, credentials, and deploys.
 
-- Astro project scaffolded with Svelte islands
-- Firebase config: `firebase.json`, `firestore.rules`, `firestore.indexes.json`, `.firebaserc`
-- Client-side Firebase SDK init (`src/lib/firebase.ts`)
-- TypeScript types + Firestore read helpers ported from `scripts/build_derived.py`
-- Migration script (`scripts/migrate_json_to_firestore.py`) that seeds Firestore from current `data/*.json`
-- Home page (`src/pages/index.astro`) — all-time strip, trophy race, season stat cards, leaderboard — hydrated live from Firestore
-- Preview deploy workflow (`.github/workflows/deploy-firebase-preview.yml`)
+## Prerequisites
 
-## What's NOT in PR 1
+- Node 20+
+- Python 3.12+ (only if you run the backup or admin-provisioning scripts)
+- [Firebase CLI](https://firebase.google.com/docs/cli): `npm install -g firebase-tools` → `firebase login`
+- A service-account JSON for the `carrom-thane` Firebase project, kept outside the repo (see [Credentials](#credentials))
 
-- Admin auth + write path (PR 2)
-- Player detail, club detail, awards pages (PR 2/3)
-- Cutover of the production DNS (PR 3)
-- Deletion of Hugo tree + `*_from_issue.py` scripts (PR 3)
-
----
-
-## Local dev — first-time setup
-
-You need Node 20+, Python 3.12+, and the Firebase CLI.
-
-### 1. Install prerequisites
+## Install
 
 ```bash
-# One-time
-npm install -g firebase-tools
-
-# In the astro/ subdir
 cd astro
 npm install
 ```
 
-### 2. Sign in to Firebase (opens a browser)
+## Credentials
 
-```bash
-firebase login
-```
+Both `npm run build` and the admin Python scripts read Firestore via the Firebase Admin SDK, which needs a service-account key. Get one once:
 
-Use the Google account that owns the `carrom-thane` Firebase project.
+1. Open the [Firebase service accounts settings](https://console.firebase.google.com/project/carrom-thane/settings/serviceaccounts/adminsdk)
+2. Click **Generate new private key** — a JSON downloads
+3. Move it outside the repo, e.g. `~/.config/carrom-thane-admin.json`, and set permissions:
+   ```bash
+   chmod 600 ~/.config/carrom-thane-admin.json
+   ```
+4. Copy `astro/.env.example` to `astro/.env` and set the path:
+   ```
+   GOOGLE_APPLICATION_CREDENTIALS=/Users/YOU/.config/carrom-thane-admin.json
+   ```
 
-### 3. Install Python deps for the migration script
+`.gitignore` blocks `*firebase-adminsdk*.json` and `.env` as a safety net, but the JSON should live **outside** the repo regardless. Without credentials, `npm run build` still succeeds but pages ship with empty tables — a warning is printed in the build log.
 
-```bash
-cd ..                     # back to repo root
-source .venv/bin/activate
-pip install -r scripts/requirements.txt
-```
-
-`firebase-admin` was added — that's the SDK the migration script uses.
-
----
-
-## Two ways to run the site locally
-
-### Option A: Astro dev server against the Firebase emulator (recommended)
-
-Fully offline development. No cost. No risk of touching prod.
-
-```bash
-# Terminal 1 — start emulator suite (Firestore on :8080, Auth on :9099, UI on :4000)
-cd astro
-firebase emulators:start
-
-# Terminal 2 — seed the emulator with current JSON data
-cd ..
-source .venv/bin/activate
-FIRESTORE_EMULATOR_HOST=localhost:8080 \
-  python scripts/migrate_json_to_firestore.py --project demo-carrom
-
-# Terminal 3 — start Astro dev server
-cd astro
-npm run dev
-```
-
-Open http://localhost:4323.
-
-The Firebase client SDK **auto-detects** localhost and connects to the emulator on port 8080 — no config change needed. See `src/lib/firebase.ts:shouldUseEmulator()`.
-
-The emulator UI at http://localhost:4000 lets you inspect Firestore collections and Auth users.
-
-### Option B: Astro dev server against the real Firebase project
-
-Only for verifying real production data. Won't work until Firestore has been seeded (Step 3 below).
+## Local development
 
 ```bash
 cd astro
 npm run dev
 ```
 
-Open http://localhost:4323. Client SDK will connect to Firestore in the `carrom-thane` project. Reads work; writes fail (nothing is signed in yet).
+Open http://localhost:4323/.
 
----
-
-## Seeding the real Firestore project (once)
-
-Do this **once** to move current data from `data/*.json` into Firestore.
-
-### 1. Grant your local machine credentials to write to the project
+The dev server does NOT need the emulator — it talks to the real `carrom-thane` Firestore project. Public reads work anonymously; writes need Google sign-in at `/admin/`. The Astro dev command re-runs the page frontmatter (which fetches Firestore) on every request, so it's slower than a production build — for a Hugo-fast experience use:
 
 ```bash
-gcloud auth application-default login
+npm run build && npm run preview -- --port 4324
 ```
 
-This opens a browser and stores a token at `~/.config/gcloud/application_default_credentials.json`. The `firebase-admin` SDK picks it up automatically.
+Then visit http://localhost:4324/.
 
-If you don't have `gcloud`, install it from https://cloud.google.com/sdk/docs/install or use a service-account JSON instead.
+### A note on the dev port
 
-### 2. Dry-run first (no writes)
+`astro.config.mjs` pins the dev server to port **4323** (not Astro's default 4321) because port 4321 collides with a separate project on this machine.
+
+## Deploying
+
+Push to `main` and `.github/workflows/deploy.yml` builds the site (with Firestore data baked in) and deploys to the Firebase Hosting live channel at `carrom-thane.web.app`.
+
+For a manual deploy from your workstation:
 
 ```bash
-source .venv/bin/activate
-python scripts/migrate_json_to_firestore.py --project carrom-thane --dry-run
+cd astro
+GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json npm run build
+firebase deploy --project carrom-thane
 ```
-
-Expected output:
-```
-→ Real project mode (carrom-thane). Using Application Default Credentials.
-→ Dry run — no writes will be made.
-  players: 56 rows
-  clubs: 4 rows
-  slams: 180 rows
-  seasons: 3 rows
-  pending_admins: 2 usernames
-```
-
-### 3. Real migration
-
-```bash
-python scripts/migrate_json_to_firestore.py --project carrom-thane
-```
-
-Expected: 5 collections written, ~245 documents total. Idempotent — running twice is safe.
-
-### 4. Verify in the console
-
-Open https://console.firebase.google.com/project/carrom-thane/firestore → you should see collections: `players`, `clubs`, `slams`, `seasons`, `pending_admins`. Click into `players/kunal-raut` to spot-check the doc shape.
-
----
 
 ## How data gets into pages
 
-Every read page (home, player detail, club detail, awards) is **pre-rendered at build time** — the Astro build fetches Firestore via the Firebase Admin SDK and bakes the data into the HTML. First paint is instant with no client-side Firestore fetch; the picker and layout stay locked in place across navigations thanks to Astro's `<ClientRouter />` view transitions.
+Every read page (home, player detail, club detail, awards) is **pre-rendered at build time** — the Astro build fetches Firestore via the Firebase Admin SDK and bakes the data into HTML. First paint is instant with no client-side Firestore fetch. Astro's `<ClientRouter />` view transitions keep the header/nav/picker locked in place across navigations; only the main content region crossfades.
 
-Local `npm run build` reads credentials from `astro/.env`:
+**Admin edits go directly to Firestore** and land in ~1 second. But because the public pages are pre-rendered, edits **don't appear on the public site until the next deploy**. Any push to `main` triggers a fresh build, so the usual workflow is: admin makes edits during a session → commit and push a docs change (or trigger the workflow manually) → public site refreshes within ~1 minute.
 
-```bash
-# astro/.env (not committed)
-GOOGLE_APPLICATION_CREDENTIALS=/Users/YOU/.config/carrom-thane-admin.json
+The Astro build reads Firestore server-side via the Admin SDK, so security rules are irrelevant to the build path — the SDK bypasses them. All security is enforced on client-side writes (auth token verification + rule evaluation) and public reads (rules allow everyone to read data collections).
+
+## Project layout
+
+```
+astro/
+  src/
+    pages/                    Static routes
+      index.astro             Home (leaderboard + charts)
+      admin.astro             Admin surface (auth-gated)
+      players/[id].astro      Per-player detail page
+      clubs/index.astro       Club grid
+      clubs/[id].astro        Per-club roster
+      awards/index.astro      Redirects to current season
+      awards/[year].astro     Per-season awards page
+    components/
+      layout/                 Header, footer, season picker
+      home/HomeDashboard.svelte
+      player/PlayerDetail.svelte
+      club/ClubList.svelte, ClubDetail.svelte
+      awards/AwardsPage.svelte, AwardsIndex.svelte
+      admin/AdminApp.svelte, ManageModal.svelte
+      auth/AdminGate.svelte, SignIn.svelte
+    lib/
+      firebase.ts             Client Firebase SDK init
+      firestore-server.ts     Build-time Firestore reads (Admin SDK)
+      firestore-reads.ts      Client Firestore reads + derivations (leaderboard, ranks)
+      firestore-writes.ts     Client mutations with audit stamping
+      firestore-schema.ts     TypeScript types for every doc shape
+      auth.ts                 Auth wrapper + pending-admin auto-promote
+    styles/
+      global.css              Site-wide styles (dark theme)
+  public/                     Static assets (logo, favicon)
+  firebase.json               Hosting + Firestore config
+  firestore.rules             Security rules (deploy with `firebase deploy --only firestore:rules`)
+  firestore.indexes.json      Composite indexes
+  astro.config.mjs            Astro config (Svelte, port 4323)
 ```
 
-Copy `.env.example` to `.env` and adjust the path. The service-account JSON must live **outside** the repo; `.gitignore` blocks `*firebase-adminsdk*.json` and `serviceAccountKey*.json` as a safety net.
+## Admin operations
 
-Missing credentials fall through to empty data — the build still succeeds but pages show empty tables. Warning is printed in the build log.
+### Add a new admin
 
-**GitHub Actions build** reads the same JSON from the `FIREBASE_SERVICE_ACCOUNT_CARROM_THANE` secret via `FIREBASE_SERVICE_ACCOUNT_JSON` env var. Same secret used for the Firebase Hosting deploy step.
+```bash
+cd ..                                       # repo root
+source .venv/bin/activate 2>/dev/null || true
+export GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json
+python scripts/add_pending_admin.py --project carrom-thane \
+    new-admin@example.com \
+    --role owner \
+    --display-name "Full Name"
+```
 
-## Admin edits vs read pages
+The next time that person signs in at `/admin/`, the client detects their pending record, creates `/admins/{uid}` with the queued role, and deletes the pending entry.
 
-Admin writes go directly to Firestore (~1s round trip). Because read pages are pre-rendered at build time, an admin edit **won't** appear on the public site until the next `firebase deploy`. Trigger a rebuild manually or wire an admin-write hook to kick a Cloud Build if you need live public updates.
+### Set an awards ceremony video
 
-## Deploying the Astro preview
+```bash
+python scripts/set_season_ceremony_url.py --project carrom-thane \
+    2024 https://www.youtube.com/watch?v=xxxxxxxx
+```
 
-The preview channel lives at `https://carrom-thane--astro-preview-<hash>.web.app` — separate from the eventual production `carrom-thane.web.app`. Deploy is triggered by any push under `astro/**` on the `main` branch (after the workflow is set up).
+Then trigger a rebuild for the change to show on the public site.
 
-### One-time setup for the workflow
+### Manual Firestore backup
 
-The GitHub Action needs a service-account JSON to auth into Firebase Hosting.
+```bash
+python scripts/export_firestore_backup.py --project carrom-thane \
+    --output backups/$(date -u +%Y-%m-%d).json.gz
+```
 
-1. In the Firebase console → ⚙ **Project settings** → **Service accounts** → click **"Generate new private key"**. A JSON downloads.
-2. In GitHub: repo **Settings** → **Secrets and variables** → **Actions** → **New repository secret**:
-   - Name: `FIREBASE_SERVICE_ACCOUNT_CARROM_THANE`
-   - Value: paste the entire contents of the JSON file
-3. Save.
+Nightly backups also run automatically — see [`.github/workflows/firestore-backup.yml`](../.github/workflows/firestore-backup.yml).
 
-Next push to `astro/**` on main will build + deploy. The workflow comments the preview URL on the commit.
+## Deploying Firestore security rules
 
-### Manual deploy (skip GitHub Action)
+Rules live in [`firestore.rules`](firestore.rules). After editing:
 
 ```bash
 cd astro
-npm run build
-firebase hosting:channel:deploy astro-preview --expires 30d
+firebase deploy --only firestore:rules --project carrom-thane
 ```
 
-Firebase CLI prints the preview URL.
-
----
-
-## Verifying end-to-end
-
-1. Emulator seeded with real JSON: `python scripts/migrate_json_to_firestore.py --project demo-carrom` after `firebase emulators:start`.
-2. Astro dev server up on `npm run dev`.
-3. Open `http://localhost:4323` — you should see the all-time strip with Kunal Raut 29, trophy race with Kunal + Babu Bhai, leaderboard populated.
-4. Switch the season dropdown to 2024-25 → data reflects that season. To 2026-27 → empty state.
-5. All timing under 1 second (local emulator).
-
-Then repeat against the real project (`carrom-thane`) at the preview URL.
-
----
-
-## What's next (PR 2)
-
-Firebase Auth admin sign-in + Svelte drawer that writes directly to Firestore. Deletes all `*_from_issue.py` scripts, `process-*.yml` workflows, admin issue templates. That's the moment latency drops from ~2min to <1s.
+The deploy is separate from Hosting so rule changes are immediate — no full site rebuild required.

@@ -8,7 +8,6 @@
 __pycache__/
 *.pyc
 .venv/
-.pytest_cache/
 
 # Local-only source data
 Carrom_records.xlsx
