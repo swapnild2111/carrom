@@ -1,0 +1,75 @@
+name: Firestore backup
+
+# Dumps every Firestore collection to a gzipped JSON file and commits it to
+# the `backups` branch. Runs nightly at 21:00 UTC (02:30 IST). A manual
+# workflow_dispatch is also available for on-demand backups.
+#
+# The backups branch is orphan-style — history is limited to the last 30 days
+# via a cleanup step. To restore, checkout the backup file and pass it to
+# scripts/migrate_json_to_firestore.py --input <file>.
+
+on:
+  schedule:
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: firestore-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install firebase-admin
+
+      - name: Write service-account JSON
+        env:
+          SA_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CARROM_THANE }}
+        run: |
+          echo "$SA_JSON" > /tmp/sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json" >> "$GITHUB_ENV"
+
+      - name: Export Firestore
+        run: |
+          mkdir -p .backup
+          python scripts/export_firestore_backup.py \
+            --project carrom-thane \
+            --output ".backup/$(date -u +%Y-%m-%d).json.gz"
+
+      - name: Commit to backups branch
+        run: |
+          git config user.name "carrom-backup-bot"
+          git config user.email "backup-bot@carrom-thane.local"
+
+          # Fetch or create the backups branch
+          git fetch origin backups:backups 2>/dev/null || git branch backups
+
+          # Work on a detached copy so we don't move main
+          git worktree add /tmp/backups-tree backups
+          cp .backup/*.json.gz /tmp/backups-tree/
+
+          cd /tmp/backups-tree
+
+          # Trim files older than 30 days
+          find . -maxdepth 1 -name "*.json.gz" -mtime +30 -delete
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Firestore backup $(date -u +%Y-%m-%d)"
+          git push origin backups

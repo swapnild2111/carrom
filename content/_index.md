@@ -1,3 +1,0 @@
----
-title: "Thane Carrom Slams"
----

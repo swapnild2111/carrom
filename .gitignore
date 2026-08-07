@@ -1,26 +1,16 @@
-# Hugo build output
-/public/
-/resources/_gen/
-.hugo_build.lock
-
-# Generated at build time (run scripts/build_derived.py before hugo server)
-/content/players/
-/content/clubs/*.md
-!/content/clubs/_index.md
-/content/awards/*.md
-
 # OS & editor
 .DS_Store
 *.swp
 .idea/
 .vscode/
 
-# Python
+# Python (used by scripts/ helpers)
 __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
 
+# Local-only source data
 Carrom_records.xlsx
 
 # Firebase Admin SDK service-account keys — NEVER commit these
@@ -29,3 +19,8 @@ serviceAccountKey*.json
 .firebase/
 .env
 .env.local
+
+# Astro / Node
+astro/node_modules/
+astro/dist/
+astro/.astro/

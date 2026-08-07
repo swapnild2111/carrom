@@ -1,4 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy Astro to Firebase Hosting
+
+# Builds the Astro site with Firestore data baked in and deploys to the
+# LIVE Firebase Hosting channel at https://carrom-thane.web.app.
+#
+# Runs on any push to main (any file change) and on manual dispatch.
+# Firestore data is fetched at build time via the Firebase Admin SDK, so
+# admin edits will show up on the public site on the NEXT deploy — a push
+# to main is the trigger.
 
 on:
   push:
@@ -7,51 +15,40 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  checks: write
 
 concurrency:
-  group: pages
+  group: firebase-hosting-live
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.12"
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: astro/package-lock.json
 
       - name: Install dependencies
-        run: pip install -r scripts/requirements.txt
+        working-directory: astro
+        run: npm ci || npm install
 
-      - name: Validate and build derived data
-        run: |
-          python scripts/validate_schema.py
-          python scripts/build_derived.py
+      - name: Build Astro (with Firestore data baked in)
+        working-directory: astro
+        env:
+          # firestore-server.ts reads this to fetch data during build.
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CARROM_THANE }}
+        run: npm run build
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+      - name: Deploy to Firebase Hosting live channel
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          hugo-version: "0.139.4"
-
-      - name: Build site
-        run: hugo --minify
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CARROM_THANE }}
+          projectId: carrom-thane
+          entryPoint: astro
+          channelId: live
