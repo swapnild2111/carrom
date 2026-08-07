@@ -163,6 +163,10 @@ export function watchAuth(callback: (state: AuthState) => void): () => void {
         callback({ status: "signed-out", user: null, admin: null });
         return;
       }
+      // Emit "loading" while we resolve the admin doc (and, on first sign-in,
+      // the pending-admin promotion). Prevents the SignIn card from flashing
+      // back briefly between "popup closed" and "admin surface rendered".
+      callback({ status: "loading", user, admin: null });
       let admin: Admin | null = null;
       try {
         admin = await fetchAdminProfile(user.uid);

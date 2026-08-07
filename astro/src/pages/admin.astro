@@ -4,15 +4,17 @@ import AdminGate from "../components/auth/AdminGate.svelte";
 import AdminApp from "../components/admin/AdminApp.svelte";
 ---
 <BaseLayout title="Admin · Thane Carrom Slams">
-  <section class="page-section admin-shell">
+  <div class="admin-shell">
     <AdminGate client:load>
       <AdminApp client:load />
     </AdminGate>
-  </section>
+  </div>
 </BaseLayout>
 
 <style>
+  /* Not a .page-section — that class adds a 2.5rem top margin meant for
+     narrative pages. Admin should sit right below the site header. */
   .admin-shell {
-    padding: 1.25rem 0 3rem;
+    padding: 0.85rem 0 2rem;
   }
 </style>

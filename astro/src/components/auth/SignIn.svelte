@@ -5,15 +5,20 @@
 
   let email = $state("");
   let sending = $state(false);
+  let googlePopupOpen = $state(false);
   let magicLinkSent = $state(false);
   let error = $state("");
 
   async function doGoogle() {
     error = "";
+    googlePopupOpen = true;
     try {
       await signInWithGoogle();
-      // AdminGate re-renders on auth-state change automatically.
+      // After the popup resolves, AdminGate flips to status:"loading" while
+      // it looks up the admin doc, then renders the app. Keep googlePopupOpen
+      // true so we don't briefly re-show the sign-in form.
     } catch (e) {
+      googlePopupOpen = false;
       error = e instanceof Error ? e.message : String(e);
     }
   }
@@ -36,6 +41,13 @@
   }
 </script>
 
+{#if googlePopupOpen}
+  <div class="signin-card signin-loading" role="status" aria-live="polite">
+    <span class="signin-spinner" aria-hidden="true"></span>
+    <p class="signin-loading-text">Signing you in…</p>
+    <p class="signin-loading-sub">Waiting for Google to confirm your account.</p>
+  </div>
+{:else}
 <div class="signin-card">
   <div class="signin-head">
     <h3>Admin sign-in</h3>
@@ -81,8 +93,37 @@
     <p class="signin-error">{error}</p>
   {/if}
 </div>
+{/if}
 
 <style>
+  .signin-loading {
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .signin-loading-text {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .signin-loading-sub {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .signin-spinner {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 3px solid rgba(74, 158, 255, 0.2);
+    border-top-color: var(--accent);
+    animation: signin-spin 720ms linear infinite;
+  }
+  @keyframes signin-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .signin-spinner { animation-duration: 1.6s; }
+  }
   .signin-card {
     max-width: 26rem;
     margin: 2rem auto;

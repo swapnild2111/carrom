@@ -23,7 +23,10 @@
 </script>
 
 {#if state.status === "loading"}
-  <p class="gate-loading">Checking sign-in…</p>
+  <div class="gate-loading" role="status" aria-live="polite">
+    <span class="gate-loading-spinner" aria-hidden="true"></span>
+    <p class="gate-loading-text">{state.user ? "Signing you in…" : "Checking sign-in…"}</p>
+  </div>
 {:else if state.status === "signed-out"}
   <SignIn />
 {:else if state.status === "signed-in-not-admin"}
@@ -44,9 +47,32 @@
 
 <style>
   .gate-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
     padding: 3rem 1rem;
-    text-align: center;
     color: var(--text-muted);
+  }
+  .gate-loading-text {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .gate-loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 3px solid rgba(74, 158, 255, 0.2);
+    border-top-color: var(--accent);
+    animation: gate-loading-spin 720ms linear infinite;
+  }
+  @keyframes gate-loading-spin {
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gate-loading-spinner { animation-duration: 1.6s; }
   }
   .gate-denied {
     max-width: 30rem;
