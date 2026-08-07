@@ -80,7 +80,7 @@ cd astro
 npm run dev
 ```
 
-Open http://localhost:4321 (or 4322 if 4321's busy).
+Open http://localhost:4323.
 
 The Firebase client SDK **auto-detects** localhost and connects to the emulator on port 8080 — no config change needed. See `src/lib/firebase.ts:shouldUseEmulator()`.
 
@@ -95,7 +95,7 @@ cd astro
 npm run dev
 ```
 
-Open http://localhost:4321. Client SDK will connect to Firestore in the `carrom-thane` project. Reads work; writes fail (nothing is signed in yet).
+Open http://localhost:4323. Client SDK will connect to Firestore in the `carrom-thane` project. Reads work; writes fail (nothing is signed in yet).
 
 ---
 
@@ -145,6 +145,27 @@ Open https://console.firebase.google.com/project/carrom-thane/firestore → you 
 
 ---
 
+## How data gets into pages
+
+Every read page (home, player detail, club detail, awards) is **pre-rendered at build time** — the Astro build fetches Firestore via the Firebase Admin SDK and bakes the data into the HTML. First paint is instant with no client-side Firestore fetch; the picker and layout stay locked in place across navigations thanks to Astro's `<ClientRouter />` view transitions.
+
+Local `npm run build` reads credentials from `astro/.env`:
+
+```bash
+# astro/.env (not committed)
+GOOGLE_APPLICATION_CREDENTIALS=/Users/YOU/.config/carrom-thane-admin.json
+```
+
+Copy `.env.example` to `.env` and adjust the path. The service-account JSON must live **outside** the repo; `.gitignore` blocks `*firebase-adminsdk*.json` and `serviceAccountKey*.json` as a safety net.
+
+Missing credentials fall through to empty data — the build still succeeds but pages show empty tables. Warning is printed in the build log.
+
+**GitHub Actions build** reads the same JSON from the `FIREBASE_SERVICE_ACCOUNT_CARROM_THANE` secret via `FIREBASE_SERVICE_ACCOUNT_JSON` env var. Same secret used for the Firebase Hosting deploy step.
+
+## Admin edits vs read pages
+
+Admin writes go directly to Firestore (~1s round trip). Because read pages are pre-rendered at build time, an admin edit **won't** appear on the public site until the next `firebase deploy`. Trigger a rebuild manually or wire an admin-write hook to kick a Cloud Build if you need live public updates.
+
 ## Deploying the Astro preview
 
 The preview channel lives at `https://carrom-thane--astro-preview-<hash>.web.app` — separate from the eventual production `carrom-thane.web.app`. Deploy is triggered by any push under `astro/**` on the `main` branch (after the workflow is set up).
@@ -177,7 +198,7 @@ Firebase CLI prints the preview URL.
 
 1. Emulator seeded with real JSON: `python scripts/migrate_json_to_firestore.py --project demo-carrom` after `firebase emulators:start`.
 2. Astro dev server up on `npm run dev`.
-3. Open `http://localhost:4321` — you should see the all-time strip with Kunal Raut 29, trophy race with Kunal + Babu Bhai, leaderboard populated.
+3. Open `http://localhost:4323` — you should see the all-time strip with Kunal Raut 29, trophy race with Kunal + Babu Bhai, leaderboard populated.
 4. Switch the season dropdown to 2024-25 → data reflects that season. To 2026-27 → empty state.
 5. All timing under 1 second (local emulator).
 

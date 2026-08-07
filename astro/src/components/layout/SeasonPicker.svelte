@@ -1,61 +1,90 @@
 <script lang="ts">
-  // Season picker — fetches seasons from Firestore on mount and drives the
-  // ?season=YYYY URL param, mirroring the old static/js/season-switch.js
-  // behavior. Nav links carrying `data-season-link` get the season stamped
-  // onto their href so navigation preserves the selection.
+  // Season picker — options are baked into the page at build time (passed as a
+  // prop from SiteHeader.astro), so the <select> renders synchronously.
+  //
+  // Navigation uses Astro View Transitions (via <ClientRouter /> in the layout):
+  // clicking a season triggers a soft SPA-style navigation with a crossfade,
+  // no full page reload, no white flash. `navigate()` is imported dynamically
+  // so this island still renders on non-transition contexts if needed.
   import { onMount } from "svelte";
-  import { listSeasons, resolveCurrentSeason } from "@/lib/firestore-reads";
+  import { resolveCurrentSeason } from "@/lib/firestore-reads";
   import type { Season } from "@/lib/firestore-schema";
 
-  let seasons: Season[] = $state([]);
-  let currentSeasonYear: number | null = $state(null);
-  let requestedSeasonYear: number | null = $state(null);
-  let loaded = $state(false);
+  interface Props { seasons: Season[] }
+  let { seasons }: Props = $props();
 
-  onMount(async () => {
-    seasons = (await listSeasons()).filter((s) => s.available !== false);
-    currentSeasonYear = resolveCurrentSeason(seasons);
-    const urlSeason = new URLSearchParams(location.search).get("season");
-    requestedSeasonYear = urlSeason ? parseInt(urlSeason, 10) : currentSeasonYear;
-    if (!seasons.some((s) => s.year === requestedSeasonYear)) {
-      requestedSeasonYear = currentSeasonYear;
-    }
-    loaded = true;
+  const currentSeasonYear = resolveCurrentSeason(seasons);
+
+  function readSeasonFromUrl(): number {
+    const urlSeason = typeof location !== "undefined" ? new URLSearchParams(location.search).get("season") : null;
+    const parsed = urlSeason ? parseInt(urlSeason, 10) : NaN;
+    return seasons.some((s) => s.year === parsed) ? parsed : currentSeasonYear;
+  }
+
+  // Reactive so the <select> updates when the URL changes via ClientRouter.
+  let requestedSeasonYear: number = $state(readSeasonFromUrl());
+
+  onMount(() => {
     applyToDom();
+    const onNavigate = () => {
+      requestedSeasonYear = readSeasonFromUrl();
+      applyToDom();
+    };
+    document.addEventListener("astro:page-load", onNavigate);
+    return () => document.removeEventListener("astro:page-load", onNavigate);
   });
 
-  function navigateToSeason(year: number) {
+  async function navigateToSeason(year: number) {
     const url = new URL(location.href);
     url.searchParams.set("season", String(year));
-    location.href = url.toString();
+    try {
+      const { navigate } = await import("astro:transitions/client");
+      navigate(url.pathname + url.search);
+    } catch {
+      // If the transitions runtime isn't available (dev-time edge case), fall back.
+      location.href = url.toString();
+    }
   }
 
   function applyToDom() {
-    if (!requestedSeasonYear) return;
-    const label = seasons.find((s) => s.year === requestedSeasonYear)?.label ?? String(requestedSeasonYear);
+    const urlNow = new URLSearchParams(location.search).get("season");
+    const parsedNow = urlNow ? parseInt(urlNow, 10) : NaN;
+    const activeYear = seasons.some((s) => s.year === parsedNow) ? parsedNow : currentSeasonYear;
+    const label = seasons.find((s) => s.year === activeYear)?.label ?? String(activeYear);
     document.querySelectorAll<HTMLElement>("[data-season-label]").forEach((el) => {
       el.textContent = label;
     });
     document.querySelectorAll<HTMLAnchorElement>("a[data-season-link]").forEach((a) => {
       const u = new URL(a.href, location.origin);
-      u.searchParams.set("season", String(requestedSeasonYear));
+      u.searchParams.set("season", String(activeYear));
       a.setAttribute("href", u.pathname + u.search + u.hash);
     });
-    document.documentElement.setAttribute("data-season", String(requestedSeasonYear));
+    document.documentElement.setAttribute("data-season", String(activeYear));
+
+    // Highlight the nav tab whose pathname matches the current route.
+    // Leaderboard = "/", Clubs = "/clubs/*", Awards = "/awards/*", Admin = "/admin/*".
+    const currentPath = location.pathname;
+    document.querySelectorAll<HTMLAnchorElement>(".header-nav .nav-link").forEach((a) => {
+      const linkPath = new URL(a.href, location.origin).pathname;
+      const isHome = linkPath === "/" || linkPath === "";
+      const active = isHome
+        ? currentPath === "/" || currentPath === ""
+        : currentPath === linkPath || currentPath.startsWith(linkPath.endsWith("/") ? linkPath : `${linkPath}/`);
+      a.classList.toggle("is-active", active);
+    });
   }
 </script>
 
-{#if loaded && requestedSeasonYear != null}
-  <label class="season-picker-label">
-    <span class="sr-only">Season</span>
-    <select
-      class="season-picker-select"
-      value={requestedSeasonYear}
-      onchange={(e) => navigateToSeason(parseInt((e.currentTarget as HTMLSelectElement).value, 10))}
-    >
-      {#each seasons as s (s.year)}
-        <option value={s.year}>{s.label}{s.year === currentSeasonYear ? " · current" : ""}</option>
-      {/each}
-    </select>
-  </label>
-{/if}
+<label class="season-picker-label">
+  <span class="sr-only">Season</span>
+  <select
+    class="season-picker-select"
+    value={requestedSeasonYear}
+    onchange={(e) => navigateToSeason(parseInt((e.currentTarget as HTMLSelectElement).value, 10))}
+  >
+    {#each seasons as s (s.year)}
+      <option value={s.year}>{s.label}{s.year === currentSeasonYear ? " · current" : ""}</option>
+    {/each}
+  </select>
+</label>
+

@@ -1,16 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AdminGate from "../components/auth/AdminGate.svelte";
+import AdminApp from "../components/admin/AdminApp.svelte";
 ---
 <BaseLayout title="Admin · Thane Carrom Slams">
-  <section class="page-section">
-    <div class="section-heading">
-      <h3>Admin</h3>
-      <p class="section-desc">Coming in PR 2 — Firebase Auth sign-in + drawer-based editing.</p>
-    </div>
-    <p class="text-muted" style="max-width: 60ch;">
-      The admin panel is being rebuilt on Firebase Auth. The current Hugo admin
-      at <a href="https://swapnild2111.github.io/carrom/admin/">the production URL</a>
-      still works while this Astro build stabilises.
-    </p>
+  <section class="page-section admin-shell">
+    <AdminGate client:load>
+      <AdminApp client:load />
+    </AdminGate>
   </section>
 </BaseLayout>
+
+<style>
+  .admin-shell {
+    padding: 1.25rem 0 3rem;
+  }
+</style>

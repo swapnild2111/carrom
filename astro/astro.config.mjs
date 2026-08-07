@@ -10,4 +10,8 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  // 4321 is taken by the carromscore project's dev server on this machine.
+  server: {
+    port: 4323,
+  },
 });

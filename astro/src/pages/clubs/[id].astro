@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClubDetail from "../../components/club/ClubDetail.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+
+export async function getStaticPaths() {
+  const snapshot = await fetchHomeSnapshot();
+  return snapshot.clubs.map((c) => ({
+    params: { id: c.id },
+    props: { snapshot, clubId: c.id },
+  }));
+}
+
+const { snapshot, clubId } = Astro.props;
+const club = snapshot.clubs.find((c) => c.id === clubId);
+---
+<BaseLayout title={club ? `${club.name} · Thane Carrom Slams` : "Club · Thane Carrom Slams"}>
+  <ClubDetail client:load snapshot={snapshot} clubId={clubId} />
+</BaseLayout>

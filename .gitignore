@@ -22,3 +22,10 @@ __pycache__/
 .pytest_cache/
 
 Carrom_records.xlsx
+
+# Firebase Admin SDK service-account keys — NEVER commit these
+*firebase-adminsdk*.json
+serviceAccountKey*.json
+.firebase/
+.env
+.env.local

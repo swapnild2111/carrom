@@ -1,8 +1,11 @@
 ---
-// Header nav — same shape as Hugo's baseof.html header. The season picker
-// hydrates on the client (below the fold) via a Svelte island so its options
-// come from Firestore, not build-time data.
+// Header nav — same shape as Hugo's baseof.html header. Seasons are baked
+// into the page at build time (via fetchHomeSnapshot) so the picker renders
+// synchronously — no client Firestore fetch, no disappear/reappear flash.
 import SeasonPicker from "./SeasonPicker.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+const snapshot = await fetchHomeSnapshot();
+const seasons = snapshot.seasons.filter((s) => s.available !== false);
 ---
 <header class="site-header">
   <div class="container header-inner">
@@ -19,7 +22,7 @@ import SeasonPicker from "./SeasonPicker.svelte";
       </div>
     </div>
     <nav class="header-nav" aria-label="Main">
-      <SeasonPicker client:load />
+      <SeasonPicker client:load seasons={seasons} />
       <a href="/" class="nav-link" data-season-link>Leaderboard</a>
       <a href="/clubs/" class="nav-link" data-season-link>Clubs</a>
       <a href="/awards/" class="nav-link" data-season-link data-season-awards>Awards</a>

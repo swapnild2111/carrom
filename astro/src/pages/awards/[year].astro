@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AwardsPage from "../../components/awards/AwardsPage.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+
+export async function getStaticPaths() {
+  const snapshot = await fetchHomeSnapshot();
+  return snapshot.seasons
+    .filter((s) => s.available !== false)
+    .map((s) => ({
+      params: { year: String(s.year) },
+      props: { snapshot, year: s.year },
+    }));
+}
+
+const { snapshot, year } = Astro.props;
+const label = snapshot.seasons.find((s) => s.year === year)?.label ?? String(year);
+---
+<BaseLayout title={`${label} awards · Thane Carrom Slams`}>
+  <AwardsPage client:load snapshot={snapshot} year={year} />
+</BaseLayout>

@@ -61,6 +61,7 @@ export interface Season extends Partial<AuditFields> {
   start: string;                  // YYYY-MM-DD (April 1)
   end: string;                    // YYYY-MM-DD (March 31 next year)
   available: boolean;             // hide from public dropdown when false
+  ceremonyVideoUrl?: string | null; // Optional YouTube URL for that season's award ceremony
 }
 
 // ── /admins/{uid} ──────────────────────────────────────────────────

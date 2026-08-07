@@ -1,7 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeDashboard from "../components/home/HomeDashboard.svelte";
+import { fetchHomeSnapshot } from "../lib/firestore-server";
+// Runs at build time — Firestore data is baked into the HTML.
+const snapshot = await fetchHomeSnapshot();
 ---
 <BaseLayout>
-  <HomeDashboard client:load />
+  <script type="application/json" id="home-snapshot" set:html={JSON.stringify(snapshot)} />
+  <HomeDashboard client:load snapshot={snapshot} />
 </BaseLayout>

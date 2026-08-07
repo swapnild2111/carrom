@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlayerDetail from "../../components/player/PlayerDetail.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+
+export async function getStaticPaths() {
+  const snapshot = await fetchHomeSnapshot();
+  return snapshot.players.map((p) => ({
+    params: { id: p.id },
+    props: { snapshot, playerId: p.id },
+  }));
+}
+
+const { snapshot, playerId } = Astro.props;
+const player = snapshot.players.find((p) => p.id === playerId);
+---
+<BaseLayout title={player ? `${player.name} · Thane Carrom Slams` : "Player · Thane Carrom Slams"}>
+  <PlayerDetail client:load snapshot={snapshot} playerId={playerId} />
+</BaseLayout>

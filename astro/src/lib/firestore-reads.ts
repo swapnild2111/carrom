@@ -230,6 +230,163 @@ export function computeAllTimeLeaders(
   };
 }
 
+// ── Per-player enrichment (mirrors compute_player_stats + group_timeline) ─
+
+export interface PlayerSourceBreakdown {
+  [source: string]: number;
+}
+export interface PlayerClubBreakdown {
+  [clubId: string]: number;
+}
+export interface TimelineGroup {
+  id: string;
+  type: "white" | "black";
+  source: string;
+  clubId: string | null;
+  tournament: string | null;
+  location: string | null;
+  date: string | null;
+  videoUrl: string | null;
+  matchRef: string | null;
+  notes: string | null;
+  count: number;
+}
+export interface EnrichedPlayer {
+  player: Player;
+  clubs: Club[];
+  stats: PlayerStats & {
+    bySource: PlayerSourceBreakdown;
+    byClub: PlayerClubBreakdown;
+  };
+  rank: { white: number | null; black: number | null; total: number | null };
+  timelineGroups: TimelineGroup[];
+}
+
+/**
+ * Compute the full detail-page payload for one player in one season.
+ * The rank fields are pulled from a pre-built leaderboard so ranking is consistent.
+ */
+export function enrichPlayer(
+  player: Player,
+  leaderboard: LeaderboardRow[],
+  clubs: Club[],
+  seasonSlams: Slam[]
+): EnrichedPlayer {
+  const clubsById = new Map(clubs.map((c) => [c.id, c]));
+  const playerClubs = (player.clubIds ?? [])
+    .map((cid) => clubsById.get(cid))
+    .filter((c): c is Club => !!c);
+
+  const playerSlams = seasonSlams.filter((s) => s.playerId === player.id);
+  const bySource: PlayerSourceBreakdown = {};
+  const byClub: PlayerClubBreakdown = {};
+  for (const s of playerSlams) {
+    bySource[s.source] = (bySource[s.source] ?? 0) + 1;
+    if (s.clubId) byClub[s.clubId] = (byClub[s.clubId] ?? 0) + 1;
+  }
+
+  const timeline = [...playerSlams].sort((a, b) => {
+    const ad = a.date ?? "";
+    const bd = b.date ?? "";
+    if (ad !== bd) return bd.localeCompare(ad);
+    return b.id.localeCompare(a.id);
+  });
+  const timelineGroups = groupTimeline(timeline);
+
+  const lbRow = leaderboard.find((r) => r.player.id === player.id);
+  const stats = lbRow?.stats ?? { white: 0, black: 0, total: 0 };
+  const rank = lbRow?.rank ?? { white: null, black: null, total: null };
+
+  return {
+    player,
+    clubs: playerClubs,
+    stats: { ...stats, bySource, byClub },
+    rank,
+    timelineGroups,
+  };
+}
+
+/**
+ * Collapse identical aggregate slams into a single row with a count. Dated
+ * or annotated slams (video, tournament, notes) stay as standalone rows.
+ */
+function groupTimeline(timeline: Slam[]): TimelineGroup[] {
+  const buckets = new Map<string, TimelineGroup>();
+  const standalone: TimelineGroup[] = [];
+
+  for (const s of timeline) {
+    const hasDetail = !!(s.date || s.videoUrl || s.matchRef || s.notes);
+    const group: TimelineGroup = {
+      id: s.id,
+      type: s.type,
+      source: s.source,
+      clubId: s.clubId ?? null,
+      tournament: s.tournament ?? null,
+      location: s.location ?? null,
+      date: s.date ?? null,
+      videoUrl: s.videoUrl ?? null,
+      matchRef: s.matchRef ?? null,
+      notes: s.notes ?? null,
+      count: 1,
+    };
+    if (hasDetail) {
+      standalone.push(group);
+      continue;
+    }
+    const key = [s.type, s.source, s.clubId ?? "", s.tournament ?? "", s.location ?? ""].join("|");
+    const existing = buckets.get(key);
+    if (existing) existing.count += 1;
+    else buckets.set(key, group);
+  }
+
+  const grouped = [...buckets.values(), ...standalone];
+  grouped.sort((a, b) => {
+    if (b.count !== a.count) return b.count - a.count;
+    if (a.type !== b.type) return a.type.localeCompare(b.type);
+    const ad = a.date ?? "";
+    const bd = b.date ?? "";
+    if (ad !== bd) return bd.localeCompare(ad);
+    return a.id.localeCompare(b.id);
+  });
+  return grouped;
+}
+
+// ── Club enrichment (mirrors build_derived.py clubs loop) ─────────
+
+export interface ClubRosterRow {
+  id: string;
+  name: string;
+  white: number;
+  black: number;
+  total: number;
+}
+export interface EnrichedClub {
+  club: Club;
+  stats: PlayerStats;
+  roster: ClubRosterRow[];
+}
+
+export function enrichClub(
+  club: Club,
+  players: Player[],
+  seasonSlams: Slam[]
+): EnrichedClub {
+  const rosterPlayers = players.filter((p) => (p.clubIds ?? []).includes(club.id));
+  const clubSlams = seasonSlams.filter((s) => s.clubId === club.id);
+  const white = clubSlams.filter((s) => s.type === "white").length;
+  const black = clubSlams.filter((s) => s.type === "black").length;
+
+  const roster: ClubRosterRow[] = rosterPlayers.map((p) => {
+    const own = clubSlams.filter((s) => s.playerId === p.id);
+    const w = own.filter((s) => s.type === "white").length;
+    const b = own.filter((s) => s.type === "black").length;
+    return { id: p.id, name: p.name, white: w, black: b, total: w + b };
+  });
+  roster.sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+
+  return { club, stats: { white, black, total: white + black }, roster };
+}
+
 // ── Season resolution (mirror lib.py::resolve_season) ─────────────
 
 /**

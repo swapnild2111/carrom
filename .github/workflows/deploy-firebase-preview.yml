@@ -39,8 +39,11 @@ jobs:
         working-directory: astro
         run: npm ci || npm install
 
-      - name: Build Astro
+      - name: Build Astro (with Firestore data baked in)
         working-directory: astro
+        env:
+          # firestore-server.ts reads this to fetch data during build.
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CARROM_THANE }}
         run: npm run build
 
       - name: Deploy to Firebase preview channel

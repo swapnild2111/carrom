@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClubList from "../../components/club/ClubList.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+const snapshot = await fetchHomeSnapshot();
+---
+<BaseLayout title="Clubs · Thane Carrom Slams">
+  <ClubList client:load snapshot={snapshot} />
+</BaseLayout>

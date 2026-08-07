@@ -2365,15 +2365,25 @@ details[open] .col-expand {
   font-weight: 600;
 }
 
+/* Admin gets a distinct gold treatment when active so it stands out from the
+   accent-blue leaderboard/clubs/awards tabs — signals "you are in admin mode". */
 .header-nav .nav-link-muted.is-active {
-  background: var(--surface-hover);
-  color: var(--text);
+  background: var(--gold);
+  color: #0c1017;
+  font-weight: 700;
 }
 
 .season-picker {
   display: flex;
   align-items: center;
   margin-right: 0.25rem;
+}
+
+.season-picker-label {
+  display: inline-flex;
+  align-items: center;
+  min-width: 12.5rem;
+  flex-shrink: 0;
 }
 
 .season-picker-select {
@@ -2386,6 +2396,13 @@ details[open] .col-expand {
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.12s, border-color 0.12s;
+  /* Force a stable width regardless of which season label is selected.
+     Native <select> intrinsic width tracks the selected option's text, which
+     makes the control shrink for "2025-26" (short) versus grow for
+     "2026-27 · current" (long). Pinning width + box-sizing eliminates jitter. */
+  width: 100%;
+  min-width: 12.5rem;
+  box-sizing: border-box;
 }
 
 .season-picker-select:hover,

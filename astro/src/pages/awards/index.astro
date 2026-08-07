@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AwardsIndex from "../../components/awards/AwardsIndex.svelte";
+import { fetchHomeSnapshot } from "../../lib/firestore-server";
+const snapshot = await fetchHomeSnapshot();
+---
+<BaseLayout title="Awards · Thane Carrom Slams">
+  <AwardsIndex client:load snapshot={snapshot} />
+</BaseLayout>

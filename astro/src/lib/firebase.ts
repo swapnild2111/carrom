@@ -39,8 +39,9 @@ export function getFirebaseApp(): FirebaseApp {
 
 /**
  * Return the Firestore instance, wired with offline persistence.
- * Automatically connects to the local emulator when running against
- * localhost (detected via window.location).
+ * Connects to the local Firestore emulator ONLY when
+ * PUBLIC_USE_EMULATOR=1 is set at Astro build/dev time.
+ * Default: talks to the real Firestore project.
  */
 export function getDb(): Firestore {
   if (_db) return _db;
@@ -54,8 +55,6 @@ export function getDb(): Firestore {
   return _db;
 }
 
-function shouldUseEmulator(): boolean {
-  if (typeof window === "undefined") return false;
-  const host = window.location.hostname;
-  return host === "localhost" || host === "127.0.0.1";
+export function shouldUseEmulator(): boolean {
+  return import.meta.env.PUBLIC_USE_EMULATOR === "1";
 }
