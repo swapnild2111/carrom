@@ -168,14 +168,21 @@ export function watchAuth(callback: (state: AuthState) => void): () => void {
       // back briefly between "popup closed" and "admin surface rendered".
       callback({ status: "loading", user, admin: null });
       let admin: Admin | null = null;
+      // fetchAdminProfile reads /admins/{uid} which is only readable by
+      // existing admins — for non-admins the read throws permission-denied.
+      // We swallow that specifically so `tryPromoteFromPending` still gets
+      // a chance to run on the caller's first sign-in.
       try {
         admin = await fetchAdminProfile(user.uid);
-        if (!admin) {
-          // First sign-in? See if an owner queued this email as pending.
-          admin = await tryPromoteFromPending(user);
-        }
       } catch (e) {
-        console.error("[auth] admin check failed:", e);
+        console.debug("[auth] admin doc read denied (expected for non-admins):", e);
+      }
+      if (!admin) {
+        try {
+          admin = await tryPromoteFromPending(user);
+        } catch (e) {
+          console.error("[auth] pending-admin promotion failed:", e);
+        }
       }
       callback({
         status: admin ? "admin" : "signed-in-not-admin",
