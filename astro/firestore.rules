@@ -99,6 +99,17 @@ service cloud.firestore {
         || (isSignedIn() && request.auth.token.email.lower() == emailKey);
     }
 
+    // ── System state ────────────────────────────────────────────────
+    // /system/publish_status coordinates the auto-rebuild cron. Any admin
+    // can mark it dirty after a successful write; the cron running under a
+    // service-account bypasses these rules and manages `lastPublishedAt`.
+    // Public visitors don't need to see this at all.
+    match /system/{docId} {
+      allow read: if isAdmin();
+      allow create, update: if isAdmin();
+      allow delete: if false;
+    }
+
     // ── Audit log ───────────────────────────────────────────────────
     // Append-only. Admins can read. Nothing can update or delete.
     match /audit_log/{entryId} {

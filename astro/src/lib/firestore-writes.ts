@@ -77,6 +77,31 @@ async function writeAuditLog(
     actorEmail: actor.email,
     at: serverTimestamp(),
   });
+  // Public read pages are pre-rendered at build time, so any Firestore
+  // write means the public site is out of date. Flip a "dirty" flag that a
+  // GitHub Actions cron polls every ~5 min and triggers a fresh deploy.
+  await markPublishDirty(db, actor);
+}
+
+async function markPublishDirty(
+  db: Firestore,
+  actor: { uid: string; email: string }
+): Promise<void> {
+  try {
+    await setDoc(
+      doc(db, "system", "publish_status"),
+      {
+        dirty: true,
+        dirtyAt: serverTimestamp(),
+        dirtyBy: actor.uid,
+        dirtyByEmail: actor.email,
+      },
+      { merge: true }
+    );
+  } catch (e) {
+    // Non-fatal: the write itself already succeeded. Log for visibility.
+    console.warn("[firestore-writes] markPublishDirty failed:", e);
+  }
 }
 
 // ── Slugify (port of scripts/lib.py::slugify) ────────────────────
