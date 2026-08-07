@@ -70,10 +70,33 @@ service cloud.firestore {
     }
 
     // ── Admin roster ────────────────────────────────────────────────
-    // Only owners can modify. Public can't read the admin list.
+    // Owners can add/edit/remove admins. Existing admins can read the list.
+    // A signed-in user can also CREATE their own /admins/{uid} doc IF a
+    // matching /pending_admins_by_email/{email} record exists — this powers
+    // the auto-promote-on-first-sign-in flow. The created doc must match
+    // the pending record's role and be stamped with the caller's uid/email.
     match /admins/{uid} {
       allow read: if isAdmin();
-      allow write: if isOwner();
+      allow create: if isOwner()
+        || (
+          isSignedIn()
+          && request.auth.uid == uid
+          && exists(/databases/$(database)/documents/pending_admins_by_email/$(request.auth.token.email.lower()))
+          && request.resource.data.role == get(/databases/$(database)/documents/pending_admins_by_email/$(request.auth.token.email.lower())).data.role
+          && request.resource.data.email == request.auth.token.email
+        );
+      allow update, delete: if isOwner();
+    }
+
+    // ── Pending admins (by email) ───────────────────────────────────
+    // Owners maintain this list; the auto-promote flow reads/deletes the
+    // caller's own record on first sign-in. Not public.
+    match /pending_admins_by_email/{emailKey} {
+      allow read: if isAdmin()
+        || (isSignedIn() && request.auth.token.email.lower() == emailKey);
+      allow create, update: if isOwner();
+      allow delete: if isOwner()
+        || (isSignedIn() && request.auth.token.email.lower() == emailKey);
     }
 
     // ── Audit log ───────────────────────────────────────────────────

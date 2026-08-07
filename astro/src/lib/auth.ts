@@ -18,7 +18,7 @@ import {
   type Auth,
   type User,
 } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 import type { Admin } from "./firestore-schema";
 
 const EMAIL_LINK_STORAGE_KEY = "carrom_email_signin";
@@ -98,6 +98,42 @@ export async function fetchAdminProfile(uid: string): Promise<Admin | null> {
   return snap.exists() ? (snap.data() as Admin) : null;
 }
 
+/**
+ * Look for a pending-admin record for this signed-in user's email. If one
+ * exists, promote the user by creating /admins/{uid} with the pending role
+ * and deleting the pending record.
+ *
+ * Returns the newly-created Admin doc, or null if there was nothing pending.
+ * Failures are logged but never rethrow — the caller falls back to
+ * "signed-in-not-admin" state.
+ */
+async function tryPromoteFromPending(user: User): Promise<Admin | null> {
+  const email = user.email?.toLowerCase();
+  if (!email) return null;
+  const db = getDb();
+  const pendingRef = doc(db, "pending_admins_by_email", email);
+  try {
+    const snap = await getDoc(pendingRef);
+    if (!snap.exists()) return null;
+    const pending = snap.data() as { role?: "owner" | "editor"; displayName?: string };
+    const role = pending.role ?? "editor";
+    const now = serverTimestamp();
+    const adminDoc: Admin & { addedAt: unknown } = {
+      email: user.email!,
+      role,
+      displayName: pending.displayName ?? user.displayName ?? "",
+      addedBy: "pending-promotion",
+      addedAt: now,
+    };
+    await setDoc(doc(db, "admins", user.uid), adminDoc);
+    await deleteDoc(pendingRef);
+    return adminDoc;
+  } catch (e) {
+    console.warn("[auth] pending-admin promotion failed:", e);
+    return null;
+  }
+}
+
 // ── Reactive helper for Svelte components ────────────────────────
 
 export interface AuthState {
@@ -130,8 +166,12 @@ export function watchAuth(callback: (state: AuthState) => void): () => void {
       let admin: Admin | null = null;
       try {
         admin = await fetchAdminProfile(user.uid);
+        if (!admin) {
+          // First sign-in? See if an owner queued this email as pending.
+          admin = await tryPromoteFromPending(user);
+        }
       } catch (e) {
-        console.error("[auth] fetchAdminProfile failed:", e);
+        console.error("[auth] admin check failed:", e);
       }
       callback({
         status: admin ? "admin" : "signed-in-not-admin",
