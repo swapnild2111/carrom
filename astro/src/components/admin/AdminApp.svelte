@@ -346,6 +346,15 @@
         {/if}
       </div>
       <button type="button" class="btn-manage" onclick={() => (manageOpen = true)}>Manage</button>
+      <a
+        class="btn-publish"
+        href="https://github.com/swapnild2111/carrom/actions/workflows/auto-publish.yml"
+        target="_blank"
+        rel="noopener"
+        title="Force the public site to rebuild now (~1 min). Otherwise a cron picks up saved edits within ~5-60 min."
+      >
+        Publish now ↗
+      </a>
       <button type="button" class="btn-signout" onclick={() => signOut()}>Sign out</button>
     </div>
   </div>
@@ -603,6 +612,30 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
+  /* Publish-now link: opens the auto-publish workflow's Run-workflow page in
+     a new tab. Admin clicks "Run workflow" there to trigger an immediate
+     deploy (~1 min) instead of waiting for the 5-min cron (which GitHub
+     often coalesces to 30-60 min on low-activity repos). */
+  .btn-publish {
+    display: inline-flex;
+    align-items: center;
+    height: 2.3rem;
+    padding: 0 0.95rem;
+    border: 1px solid rgba(232, 197, 71, 0.4);
+    border-radius: var(--radius-sm);
+    background: rgba(232, 197, 71, 0.1);
+    color: var(--gold);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-publish:hover {
+    background: rgba(232, 197, 71, 0.18);
+    text-decoration: none;
+  }
+
   .btn-signout {
     appearance: none;
     height: 2.3rem;
