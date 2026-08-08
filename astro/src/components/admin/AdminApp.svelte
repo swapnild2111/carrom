@@ -348,10 +348,10 @@
       <button type="button" class="btn-manage" onclick={() => (manageOpen = true)}>Manage</button>
       <a
         class="btn-publish"
-        href="https://github.com/swapnild2111/carrom/actions/workflows/auto-publish.yml"
+        href="https://github.com/swapnild2111/carrom/actions/workflows/deploy.yml"
         target="_blank"
         rel="noopener"
-        title="Force the public site to rebuild now (~1 min). Otherwise a cron picks up saved edits within ~5-60 min."
+        title="Rebuild the public site with your latest edits (~1 min). Click, then Run workflow → Run workflow on the GitHub page."
       >
         Publish now ↗
       </a>

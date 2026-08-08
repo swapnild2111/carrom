@@ -74,13 +74,13 @@ firebase deploy --project carrom-thane
 
 Every read page (home, player detail, club detail, awards) is **pre-rendered at build time** — the Astro build fetches Firestore via the Firebase Admin SDK and bakes the data into HTML. First paint is instant with no client-side Firestore fetch. Astro's `<ClientRouter />` view transitions keep the header/nav/picker locked in place across navigations; only the main content region crossfades.
 
-**Admin edits go directly to Firestore** and land in ~1 second. Because the public pages are pre-rendered, edits appear on the public site on the next deploy — which happens automatically:
+**Admin edits go directly to Firestore** and land in ~1 second. Because the public pages are pre-rendered, edits appear on the public site only after a fresh build+deploy.
 
-- After every successful admin write, the client sets `/system/publish_status.dirty = true` in Firestore.
-- `.github/workflows/auto-publish.yml` runs every 5 minutes. When it sees the dirty flag it rebuilds, deploys to the live channel, and clears the flag.
-- Public visitors see admin changes within **~5 minutes** with no manual step.
+Admins trigger that deploy on demand from the gold **"Publish now ↗"** button in the admin topbar — it opens `.github/workflows/deploy.yml`'s Run-workflow page. Clicking **Run workflow → Run workflow** kicks the build; public site updates within ~1 min.
 
-An admin can also trigger an immediate publish by running `gh workflow run "Auto-publish on admin edits" -R swapnild2111/carrom` (or clicking Run workflow from the Actions tab).
+Same effect from CLI: `gh workflow run "Deploy Astro to Firebase Hosting" -R swapnild2111/carrom`.
+
+Any push to `main` also triggers the same workflow, so ordinary code-change deploys keep the site fresh too.
 
 The Astro build reads Firestore server-side via the Admin SDK, so security rules are irrelevant to the build path — the SDK bypasses them. All security is enforced on client-side writes (auth token verification + rule evaluation) and public reads (rules allow everyone to read data collections).
 

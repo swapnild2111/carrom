@@ -79,19 +79,20 @@ The next time that person signs in at `/admin/`, the client detects their pendin
 
 ## Deploying
 
-Three trigger paths, all landing on the same build+deploy → `carrom-thane.web.app`:
+Read pages are pre-rendered at build time — Firestore is instantly writeable, but the public HTML is regenerated only when a fresh build runs. See [`astro/README.md`](astro/README.md#how-data-gets-into-pages) for the full explanation.
+
+Two trigger paths, both landing on the same build+deploy → `carrom-thane.web.app`:
 
 1. **On code change**: any push to `main` runs `.github/workflows/deploy.yml`.
-2. **On admin edit**: `.github/workflows/auto-publish.yml` polls Firestore every 5 minutes. When any admin Save flips `/system/publish_status.dirty = true`, the next cron tick rebuilds the site so the public page catches up to the new data within ~5 minutes.
-3. **Manual** from your machine:
-   ```bash
-   cd astro
-   GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json npm run build
-   firebase deploy --project carrom-thane
-   ```
-   Or trigger the auto-publish workflow immediately: `gh workflow run "Auto-publish on admin edits" -R swapnild2111/carrom`.
+2. **On demand** after admin edits: click the gold **"Publish now ↗"** button in the admin topbar. It opens the deploy workflow's Actions page — hit **Run workflow → Run workflow** and the deploy starts within ~1 min. Same effect from CLI: `gh workflow run "Deploy Astro to Firebase Hosting" -R swapnild2111/carrom`.
 
-The pre-render architecture means Firestore is instantly writeable but the public HTML is regenerated only when the build runs. See [`astro/README.md`](astro/README.md#how-data-gets-into-pages) for the full explanation.
+Manual deploy from a workstation (bypasses GitHub Actions):
+
+```bash
+cd astro
+GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json npm run build
+firebase deploy --project carrom-thane
+```
 
 ## Backups
 
