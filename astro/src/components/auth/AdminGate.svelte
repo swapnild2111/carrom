@@ -4,16 +4,13 @@
   //   - <SignIn /> when not signed in
   //   - "not an admin" message when signed in but no /admins/{uid} doc
   //   - <slot /> when authorized
-  // Also handles the email-link return flow on page load.
   import { onMount } from "svelte";
-  import { watchAuth, completeEmailLinkSignIn, signOut, type AuthState } from "@/lib/auth";
+  import { watchAuth, signOut, type AuthState } from "@/lib/auth";
   import SignIn from "./SignIn.svelte";
 
   let state: AuthState = $state({ status: "loading", user: null, admin: null });
 
   onMount(() => {
-    // If we arrived from an email magic-link, finish the sign-in.
-    completeEmailLinkSignIn().catch((e) => console.warn("email link failed:", e));
     return watchAuth((s) => { state = s; });
   });
 
@@ -33,10 +30,7 @@
   <div class="gate-denied">
     <h3>Not an admin</h3>
     <p>You're signed in as <strong>{state.user?.email}</strong>, but this account isn't in the admin allowlist.</p>
-    <p class="gate-denied-help">
-      Ask an existing admin (owner role) to add your account. They'll need your <strong>User UID</strong>,
-      visible in the Firebase console → Authentication → Users after your first sign-in.
-    </p>
+    <p class="gate-denied-help">Contact the site administrator to get access.</p>
     <button type="button" class="btn-signout" onclick={doSignOut}>Sign out</button>
   </div>
 {:else}
