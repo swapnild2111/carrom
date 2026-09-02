@@ -9,6 +9,7 @@
     googlePopupOpen = true;
     try {
       await signInWithGoogle();
+      // On mobile this returns null (redirect) — page reloads, nothing more to do.
     } catch (e) {
       googlePopupOpen = false;
       error = e instanceof Error ? e.message : String(e);

@@ -9,6 +9,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut as fbSignOut,
   onAuthStateChanged,
   connectAuthEmulator,
@@ -31,11 +33,31 @@ export function getFbAuth(): Auth {
 
 // ── Sign-in flows ──────────────────────────────────────────────────
 
-export async function signInWithGoogle(): Promise<User> {
+function isMobile(): boolean {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+export async function signInWithGoogle(): Promise<User | null> {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
-  const result = await signInWithPopup(getFbAuth(), provider);
+  const auth = getFbAuth();
+  if (isMobile()) {
+    // Popup is unreliable on mobile Safari/Chrome — use redirect flow instead.
+    // The page reloads; onAuthStateChanged fires with the user after return.
+    await signInWithRedirect(auth, provider);
+    return null; // never reached — page redirects
+  }
+  const result = await signInWithPopup(auth, provider);
   return result.user;
+}
+
+// Call once on mount in AdminGate to resolve any pending redirect result.
+export async function handleRedirectResult(): Promise<void> {
+  try {
+    await getRedirectResult(getFbAuth());
+  } catch (e) {
+    console.warn("[auth] redirect result error:", e);
+  }
 }
 
 export async function signOut(): Promise<void> {

@@ -690,6 +690,14 @@
   }
   .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 520px) {
+    .admin-modal-panel { max-height: 92vh; }
+    .form-row-2, .form-row-3 { grid-template-columns: 1fr; }
+    .admin-modal-tabs { gap: 0; overflow-x: auto; }
+    .admin-modal-tabs button { padding: 0.65rem 0.7rem; font-size: 0.82rem; white-space: nowrap; }
+    .admin-modal-list li { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+    .admin-modal-list li > button, .admin-modal-list li > span { align-self: flex-start; }
+  }
   .field-hint { margin: 0.2rem 0 0; font-size: 0.78rem; color: var(--text-muted); }
   .required { color: #ff8a8a; margin-left: 0.15rem; font-weight: 600; }
   .text-muted { color: var(--text-muted); }

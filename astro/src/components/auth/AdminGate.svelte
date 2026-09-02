@@ -5,12 +5,14 @@
   //   - "not an admin" message when signed in but no /admins/{uid} doc
   //   - <slot /> when authorized
   import { onMount } from "svelte";
-  import { watchAuth, signOut, type AuthState } from "@/lib/auth";
+  import { watchAuth, handleRedirectResult, signOut, type AuthState } from "@/lib/auth";
   import SignIn from "./SignIn.svelte";
 
   let state: AuthState = $state({ status: "loading", user: null, admin: null });
 
   onMount(() => {
+    // Resolve any pending Google redirect sign-in (mobile flow).
+    handleRedirectResult();
     return watchAuth((s) => { state = s; });
   });
 
