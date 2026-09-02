@@ -60,10 +60,10 @@
     if (!newAdminEmail.trim()) { onActivity?.("error", "Email is required."); return; }
     if (!newAdminName.trim()) { onActivity?.("error", "Display name is required."); return; }
     newAdminSubmitting = true;
-    onActivity?.("pending", "Adding admin invite…");
+    onActivity?.("pending", "Adding admin…");
     try {
       await addPendingAdmin({ email: newAdminEmail.trim(), displayName: newAdminName.trim(), role: newAdminRole });
-      onActivity?.("success", `Invite sent to ${newAdminEmail.trim()}. They'll get access on first sign-in.`);
+      onActivity?.("success", `${newAdminName.trim()} added. Access granted on first sign-in.`);
       newAdminEmail = "";
       newAdminName = "";
       newAdminRole = "editor";
@@ -473,11 +473,11 @@
           {/each}
         </ul>
 
-        <!-- Pending invites -->
+        <!-- Awaiting first sign-in -->
         {#if pendingAdmins.length > 0}
           <div class="admin-modal-panel-subheader">
-            <h5>Pending invites</h5>
-            <p class="field-hint">These people will get access the first time they sign in with the matching Google account.</p>
+            <h5>Awaiting first sign-in</h5>
+            <p class="field-hint">Access is granted the moment they sign in at /admin/ with the listed Google account.</p>
           </div>
           <ul class="admin-modal-list">
             {#each pendingAdmins as p (p.email)}
@@ -486,9 +486,9 @@
                   <strong>{p.displayName || p.email}</strong>
                   <span class="text-muted"> · {p.email}</span>
                   <br />
-                  <span class="role-badge role-badge-{p.role}">{p.role === "owner" ? "Super Admin" : "Admin"} · pending</span>
+                  <span class="role-badge role-badge-{p.role}">{p.role === "owner" ? "Super Admin" : "Admin"} · not signed in yet</span>
                 </div>
-                <button type="button" class="btn-admin btn-secondary btn-small" onclick={() => doCancelInvite(p.email)}>Cancel</button>
+                <button type="button" class="btn-admin btn-danger btn-small" onclick={() => doCancelInvite(p.email)}>Remove</button>
               </li>
             {/each}
           </ul>
@@ -497,9 +497,9 @@
         <!-- Add admin form -->
         <div class="admin-modal-form">
           <div class="admin-modal-form-header">
-            <h5>Invite a new admin</h5>
+            <h5>Add admin</h5>
           </div>
-          <p class="field-hint">Enter their Gmail address. They'll get access the first time they sign in at /admin/.</p>
+          <p class="field-hint">Enter their Gmail address. They'll have access as soon as they sign in at /admin/.</p>
           <label class="form-field">
             <span>Gmail address <span class="required">*</span></span>
             <input type="email" bind:value={newAdminEmail} placeholder="someone@gmail.com" autocomplete="off" />
@@ -519,7 +519,7 @@
           </div>
           <div class="admin-modal-form-actions admin-modal-form-actions-end">
             <button type="button" class="btn-admin btn-primary" onclick={submitAddAdmin} disabled={newAdminSubmitting}>
-              {newAdminSubmitting ? "Inviting…" : "Send invite"}
+              {newAdminSubmitting ? "Adding…" : "Add"}
             </button>
           </div>
         </div>
