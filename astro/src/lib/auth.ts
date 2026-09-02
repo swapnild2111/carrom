@@ -105,8 +105,12 @@ async function tryPromoteFromPending(user: User): Promise<Admin | null> {
     await setDoc(doc(db, "admins", user.uid), adminDoc);
     await deleteDoc(pendingRef);
     return adminDoc;
-  } catch (e) {
-    console.warn("[auth] pending-admin promotion failed:", e);
+  } catch (e: unknown) {
+    // permission-denied is expected when there's no pending record — not an error
+    const code = (e as { code?: string })?.code;
+    if (code !== "permission-denied") {
+      console.warn("[auth] pending-admin promotion failed:", e);
+    }
     return null;
   }
 }
@@ -158,7 +162,7 @@ export function watchAuth(callback: (state: AuthState) => void): () => void {
         try {
           admin = await tryPromoteFromPending(user);
         } catch (e) {
-          console.error("[auth] pending-admin promotion failed:", e);
+          console.debug("[auth] tryPromoteFromPending threw:", e);
         }
       }
       callback({
