@@ -1,24 +1,100 @@
 <script lang="ts">
-  // Manage modal — three tabs (Players / Clubs / Seasons). Handles:
-  //   - Add player (form)
-  //   - Add + edit clubs
-  //   - Add + edit seasons
-  //
-  // Ports the Hugo admin's ManageModal wholesale to Svelte 5.
-  import { createPlayer, createClub, updateClub, createSeason, updateSeason, slugify } from "@/lib/firestore-writes";
-  import type { Club, Season } from "@/lib/firestore-schema";
+  // Manage modal — tabs: Players / Clubs / Seasons / Admins (owner-only).
+  import { onMount, onDestroy } from "svelte";
+  import { collection, onSnapshot, type Unsubscribe } from "firebase/firestore";
+  import { getDb } from "@/lib/firebase";
+  import { createPlayer, createClub, updateClub, createSeason, updateSeason, slugify, addPendingAdmin, removeAdmin, cancelPendingAdmin } from "@/lib/firestore-writes";
+  import type { Club, Season, Admin } from "@/lib/firestore-schema";
+
+  interface AdminDoc extends Admin { uid: string; }
+  interface PendingAdmin {
+    email: string;
+    displayName?: string;
+    role: "owner" | "editor";
+    addedByEmail?: string;
+  }
 
   interface Props {
     onClose: () => void;
     clubs: Club[];
     seasons: Season[];
-    // Route success/error/pending events into the parent's activity bell
-    // so the admin has one unified notification surface.
+    isOwner?: boolean;
+    currentUid?: string;
     onActivity?: (kind: "success" | "error" | "pending", text: string) => void;
   }
-  let { onClose, clubs, seasons, onActivity }: Props = $props();
+  let { onClose, clubs, seasons, isOwner = false, currentUid = "", onActivity }: Props = $props();
 
-  let activeTab: "players" | "clubs" | "seasons" = $state("players");
+  let activeTab: "players" | "clubs" | "seasons" | "admins" = $state("players");
+
+  // ── Admin roster state (only loaded when isOwner) ─────────────
+  let admins: AdminDoc[] = $state([]);
+  let pendingAdmins: PendingAdmin[] = $state([]);
+  let adminUnsubs: Unsubscribe[] = [];
+
+  onMount(() => {
+    if (!isOwner) return;
+    const db = getDb();
+    adminUnsubs.push(
+      onSnapshot(collection(db, "admins"), (snap) => {
+        admins = snap.docs.map((d) => ({ uid: d.id, ...(d.data() as Admin) }));
+      })
+    );
+    adminUnsubs.push(
+      onSnapshot(collection(db, "pending_admins_by_email"), (snap) => {
+        pendingAdmins = snap.docs.map((d) => d.data() as PendingAdmin);
+      })
+    );
+  });
+
+  onDestroy(() => {
+    for (const un of adminUnsubs) un();
+  });
+
+  // ── Add admin form ─────────────────────────────────────────────
+  let newAdminEmail = $state("");
+  let newAdminName = $state("");
+  let newAdminRole: "owner" | "editor" = $state("editor");
+  let newAdminSubmitting = $state(false);
+
+  async function submitAddAdmin() {
+    if (!newAdminEmail.trim()) { onActivity?.("error", "Email is required."); return; }
+    if (!newAdminName.trim()) { onActivity?.("error", "Display name is required."); return; }
+    newAdminSubmitting = true;
+    onActivity?.("pending", "Adding admin invite…");
+    try {
+      await addPendingAdmin({ email: newAdminEmail.trim(), displayName: newAdminName.trim(), role: newAdminRole });
+      onActivity?.("success", `Invite sent to ${newAdminEmail.trim()}. They'll get access on first sign-in.`);
+      newAdminEmail = "";
+      newAdminName = "";
+      newAdminRole = "editor";
+    } catch (e) {
+      onActivity?.("error", e instanceof Error ? e.message : String(e));
+    } finally {
+      newAdminSubmitting = false;
+    }
+  }
+
+  async function doRemoveAdmin(uid: string, email: string) {
+    if (!confirm(`Remove admin access for ${email}? They will no longer be able to sign in.`)) return;
+    onActivity?.("pending", `Removing ${email}…`);
+    try {
+      await removeAdmin(uid, email);
+      onActivity?.("success", `${email} removed.`);
+    } catch (e) {
+      onActivity?.("error", e instanceof Error ? e.message : String(e));
+    }
+  }
+
+  async function doCancelInvite(email: string) {
+    if (!confirm(`Cancel invite for ${email}?`)) return;
+    onActivity?.("pending", `Cancelling invite for ${email}…`);
+    try {
+      await cancelPendingAdmin(email);
+      onActivity?.("success", `Invite for ${email} cancelled.`);
+    } catch (e) {
+      onActivity?.("error", e instanceof Error ? e.message : String(e));
+    }
+  }
 
   // ── Add player form state ──────────────────────────────────────
   let playerName = $state("");
@@ -207,6 +283,9 @@
       <button type="button" class:is-active={activeTab === "players"} onclick={() => (activeTab = "players")}>Players</button>
       <button type="button" class:is-active={activeTab === "clubs"} onclick={() => (activeTab = "clubs")}>Clubs</button>
       <button type="button" class:is-active={activeTab === "seasons"} onclick={() => (activeTab = "seasons")}>Seasons</button>
+      {#if isOwner}
+        <button type="button" class="tab-admins" class:is-active={activeTab === "admins"} onclick={() => (activeTab = "admins")}>Admins</button>
+      {/if}
     </div>
 
     <div class="admin-modal-body">
@@ -368,6 +447,82 @@
             </div>
           </div>
         {/if}
+      {:else if activeTab === "admins" && isOwner}
+        <!-- Current admins -->
+        <div class="admin-modal-panel-header">
+          <div>
+            <h4>Admins</h4>
+            <p class="field-hint">{admins.length} admin{admins.length === 1 ? "" : "s"} with access.</p>
+          </div>
+        </div>
+        <ul class="admin-modal-list">
+          {#each admins as a (a.uid)}
+            <li>
+              <div>
+                <strong>{a.displayName || a.email}</strong>
+                <span class="text-muted"> · {a.email}</span>
+                <br />
+                <span class="role-badge role-badge-{a.role}">{a.role === "owner" ? "Super Admin" : "Admin"}</span>
+              </div>
+              {#if a.uid !== currentUid}
+                <button type="button" class="btn-admin btn-danger btn-small" onclick={() => doRemoveAdmin(a.uid, a.email)}>Remove</button>
+              {:else}
+                <span class="you-badge">you</span>
+              {/if}
+            </li>
+          {/each}
+        </ul>
+
+        <!-- Pending invites -->
+        {#if pendingAdmins.length > 0}
+          <div class="admin-modal-panel-subheader">
+            <h5>Pending invites</h5>
+            <p class="field-hint">These people will get access the first time they sign in with the matching Google account.</p>
+          </div>
+          <ul class="admin-modal-list">
+            {#each pendingAdmins as p (p.email)}
+              <li>
+                <div>
+                  <strong>{p.displayName || p.email}</strong>
+                  <span class="text-muted"> · {p.email}</span>
+                  <br />
+                  <span class="role-badge role-badge-{p.role}">{p.role === "owner" ? "Super Admin" : "Admin"} · pending</span>
+                </div>
+                <button type="button" class="btn-admin btn-secondary btn-small" onclick={() => doCancelInvite(p.email)}>Cancel</button>
+              </li>
+            {/each}
+          </ul>
+        {/if}
+
+        <!-- Add admin form -->
+        <div class="admin-modal-form">
+          <div class="admin-modal-form-header">
+            <h5>Invite a new admin</h5>
+          </div>
+          <p class="field-hint">Enter their Gmail address. They'll get access the first time they sign in at /admin/.</p>
+          <label class="form-field">
+            <span>Gmail address <span class="required">*</span></span>
+            <input type="email" bind:value={newAdminEmail} placeholder="someone@gmail.com" autocomplete="off" />
+          </label>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span>Display name <span class="required">*</span></span>
+              <input type="text" bind:value={newAdminName} placeholder="Full name" autocomplete="off" />
+            </label>
+            <label class="form-field">
+              <span>Role</span>
+              <select bind:value={newAdminRole}>
+                <option value="editor">Admin — can edit data</option>
+                <option value="owner">Super Admin — can also manage admins</option>
+              </select>
+            </label>
+          </div>
+          <div class="admin-modal-form-actions admin-modal-form-actions-end">
+            <button type="button" class="btn-admin btn-primary" onclick={submitAddAdmin} disabled={newAdminSubmitting}>
+              {newAdminSubmitting ? "Inviting…" : "Send invite"}
+            </button>
+          </div>
+        </div>
       {/if}
     </div>
   </div>
@@ -583,5 +738,60 @@
   .btn-primary:disabled { opacity: 0.6; cursor: wait; }
   .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-muted); }
   .btn-secondary:hover { color: var(--text); background: var(--surface-hover); }
+  .btn-danger {
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.35);
+  }
+  .btn-danger:hover { background: rgba(239, 68, 68, 0.22); }
+
+  .tab-admins {
+    margin-left: auto;
+    color: var(--gold) !important;
+  }
+  .tab-admins.is-active { border-bottom-color: var(--gold) !important; }
+
+  .admin-modal-panel-subheader {
+    margin: 1.25rem 0 0.5rem;
+  }
+  .admin-modal-panel-subheader h5 {
+    margin: 0 0 0.2rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  .role-badge {
+    display: inline-block;
+    padding: 0.08rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .role-badge-owner {
+    background: rgba(232, 197, 71, 0.14);
+    border: 1px solid rgba(232, 197, 71, 0.4);
+    color: var(--gold);
+  }
+  .role-badge-editor {
+    background: rgba(74, 158, 255, 0.1);
+    border: 1px solid rgba(74, 158, 255, 0.35);
+    color: var(--accent);
+  }
+
+  .you-badge {
+    display: inline-block;
+    padding: 0.08rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+  }
 
 </style>

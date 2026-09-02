@@ -1,12 +1,7 @@
 <script lang="ts">
-  // Sign-in card. Two paths: Google popup (primary) or email magic-link.
-  // Rendered inside AdminGate when auth state is "signed-out".
-  import { signInWithGoogle, sendMagicLink } from "@/lib/auth";
+  import { signInWithGoogle } from "@/lib/auth";
 
-  let email = $state("");
-  let sending = $state(false);
   let googlePopupOpen = $state(false);
-  let magicLinkSent = $state(false);
   let error = $state("");
 
   async function doGoogle() {
@@ -14,29 +9,9 @@
     googlePopupOpen = true;
     try {
       await signInWithGoogle();
-      // After the popup resolves, AdminGate flips to status:"loading" while
-      // it looks up the admin doc, then renders the app. Keep googlePopupOpen
-      // true so we don't briefly re-show the sign-in form.
     } catch (e) {
       googlePopupOpen = false;
       error = e instanceof Error ? e.message : String(e);
-    }
-  }
-
-  async function doMagicLink() {
-    error = "";
-    if (!email.trim()) {
-      error = "Enter an email address first.";
-      return;
-    }
-    sending = true;
-    try {
-      await sendMagicLink(email.trim());
-      magicLinkSent = true;
-    } catch (e) {
-      error = e instanceof Error ? e.message : String(e);
-    } finally {
-      sending = false;
     }
   }
 </script>
@@ -51,7 +26,7 @@
 <div class="signin-card">
   <div class="signin-head">
     <h3>Admin sign-in</h3>
-    <p>Only allowlisted admins can add or edit data. Sign in with Google, or ask for a one-time email link.</p>
+    <p>Only allowlisted admins can sign in.</p>
   </div>
 
   <button type="button" class="btn-google" onclick={doGoogle}>
@@ -63,31 +38,6 @@
     </svg>
     Sign in with Google
   </button>
-
-  <div class="signin-divider"><span>or</span></div>
-
-  {#if magicLinkSent}
-    <div class="signin-sent">
-      <p><strong>Check your email.</strong> Click the link we sent to <code>{email}</code>. It'll bring you back here and sign you in.</p>
-      <button type="button" class="btn-linkish" onclick={() => { magicLinkSent = false; email = ""; }}>
-        Try another email
-      </button>
-    </div>
-  {:else}
-    <label class="signin-field">
-      <span>Email</span>
-      <input
-        type="email"
-        placeholder="you@example.com"
-        bind:value={email}
-        autocomplete="email"
-        onkeydown={(e) => { if (e.key === "Enter") doMagicLink(); }}
-      />
-    </label>
-    <button type="button" class="btn-email" onclick={doMagicLink} disabled={sending}>
-      {sending ? "Sending…" : "Email me a sign-in link"}
-    </button>
-  {/if}
 
   {#if error}
     <p class="signin-error">{error}</p>
@@ -146,7 +96,7 @@
     font-size: 0.9rem;
     line-height: 1.5;
   }
-  .btn-google, .btn-email {
+  .btn-google {
     appearance: none;
     display: inline-flex;
     align-items: center;
@@ -164,78 +114,9 @@
     cursor: pointer;
     transition: background 0.12s, border-color 0.12s;
   }
-  .btn-google:hover, .btn-email:hover {
+  .btn-google:hover {
     background: var(--surface-hover);
     border-color: var(--accent);
-  }
-  .btn-email {
-    background: var(--accent);
-    color: #0c1017;
-    border-color: var(--accent);
-  }
-  .btn-email:hover {
-    background: var(--accent-hover);
-  }
-  .btn-email:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  .signin-divider {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .signin-divider::before, .signin-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border-subtle);
-  }
-  .signin-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .signin-field span {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-  .signin-field input {
-    padding: 0.6rem 0.85rem;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 0.95rem;
-  }
-  .signin-field input:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.15);
-  }
-  .signin-sent {
-    padding: 0.85rem 1rem;
-    background: rgba(74, 158, 255, 0.08);
-    border: 1px solid rgba(74, 158, 255, 0.28);
-    border-radius: var(--radius-sm);
-  }
-  .signin-sent p { margin: 0 0 0.5rem; }
-  .btn-linkish {
-    appearance: none;
-    background: none;
-    border: 0;
-    color: var(--accent);
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.85rem;
-    padding: 0;
-    text-decoration: underline;
   }
   .signin-error {
     margin: 0;

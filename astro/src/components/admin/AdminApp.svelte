@@ -289,7 +289,7 @@
           </span>
           <span class="admin-user-email">{authState.user.email}</span>
           {#if authState.admin?.role === "owner"}
-            <span class="admin-user-role">owner</span>
+            <span class="admin-user-role">super admin</span>
           {/if}
         </span>
       {/if}
@@ -538,6 +538,8 @@
     onClose={() => (manageOpen = false)}
     clubs={clubs}
     seasons={seasons}
+    isOwner={authState.admin?.role === "owner"}
+    currentUid={authState.user?.uid ?? ""}
     onActivity={logActivity}
   />
 {/if}

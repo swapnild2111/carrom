@@ -14,6 +14,7 @@ import {
   addDoc,
   setDoc,
   updateDoc,
+  deleteDoc,
   serverTimestamp,
   collection,
   writeBatch,
@@ -350,4 +351,55 @@ export async function bulkRemoveAggregateSlams(input: {
     season: input.season,
   });
   return removedIds;
+}
+
+// ── Admin management (owner-only) ───────────────────────────────
+
+/**
+ * Queue a new admin by email. Creates a pending_admins_by_email doc so the
+ * target auto-promotes on their first sign-in. Owner-only.
+ */
+export async function addPendingAdmin(input: {
+  email: string;
+  displayName: string;
+  role: "owner" | "editor";
+}): Promise<void> {
+  const actor = requireAdmin();
+  const db = getDb();
+  const emailKey = input.email.trim().toLowerCase();
+  if (!emailKey) throw new Error("Email is required.");
+  const data = {
+    email: emailKey,
+    displayName: input.displayName.trim(),
+    role: input.role,
+    addedBy: actor.uid,
+    addedByEmail: actor.email,
+    addedAt: serverTimestamp(),
+  };
+  await setDoc(doc(db, "pending_admins_by_email", emailKey), data);
+  await writeAuditLog(db, actor, "admins", emailKey, "create", null, { ...data, pending: true });
+}
+
+/**
+ * Remove an existing admin by UID. Deletes their /admins/{uid} doc. Owner-only.
+ * Cannot be used to remove yourself.
+ */
+export async function removeAdmin(uid: string, email: string): Promise<void> {
+  const actor = requireAdmin();
+  if (uid === actor.uid) throw new Error("You cannot remove yourself.");
+  const db = getDb();
+  await deleteDoc(doc(db, "admins", uid));
+  await writeAuditLog(db, actor, "admins", uid, "delete", { email }, null);
+}
+
+/**
+ * Cancel a pending admin invitation (delete from pending_admins_by_email).
+ * Owner-only.
+ */
+export async function cancelPendingAdmin(email: string): Promise<void> {
+  const actor = requireAdmin();
+  const db = getDb();
+  const emailKey = email.trim().toLowerCase();
+  await deleteDoc(doc(db, "pending_admins_by_email", emailKey));
+  await writeAuditLog(db, actor, "admins", emailKey, "delete", { email: emailKey, pending: true }, null);
 }

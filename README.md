@@ -14,79 +14,43 @@
 
 ## About
 
-Public tracker for the Thane District carrom community — leaderboard, per-player profiles, per-club rosters, and season awards. Admins log slams as they're played; the site updates within a few seconds of a `firebase deploy` and always reflects the latest Firestore data at build time.
+Public tracker for the Thane District carrom community — leaderboard, per-player profiles, per-club rosters, and season awards.
 
 **Live**: https://carrom-thane.web.app/
 
 ## Architecture
 
-- **[Astro](https://astro.build)** static site with **Svelte** islands for interactive pieces (season picker, admin drawer, charts)
-- **[Firestore](https://firebase.google.com/docs/firestore)** as source of truth (players, clubs, slams, seasons, admins, audit log)
-- **[Firebase Auth](https://firebase.google.com/docs/auth)** for admin sign-in — Google popup or email magic-link
-- **[Firebase Hosting](https://firebase.google.com/docs/hosting)** serves the pre-rendered site at `carrom-thane.web.app`
-- **Chart.js** for the home page visualizations, code-split so first paint stays fast
-- Every read page is **pre-rendered at build time** — the Astro build fetches Firestore via the Admin SDK and bakes the data into HTML. First paint is instant; admin edits appear on the public site on the next deploy.
+- **[Astro](https://astro.build)** static site with **Svelte** islands for interactive pieces (season picker, charts, admin surface)
+- **[Firestore](https://firebase.google.com/docs/firestore)** as the data store (players, clubs, slams, seasons)
+- **[Firebase Auth](https://firebase.google.com/docs/auth)** for sign-in — Google account only
+- **[Firebase Hosting](https://firebase.google.com/docs/hosting)** serves the site at `carrom-thane.web.app`
+- Every read page is **pre-rendered at build time** — Firestore data is baked into HTML at deploy time; first paint is instant with no client-side loading state
 
-Full local-dev / deploy details: [`astro/README.md`](astro/README.md).
+Full local-dev and deploy details: [`astro/README.md`](astro/README.md).
 
 ## Repo layout
 
 ```
-astro/                    Astro + Svelte app (all frontend + Firestore rules)
+astro/                    Astro + Svelte app
   src/
-    pages/                Home, admin, player detail, club detail, awards
-    components/           Layout + admin + charts (islands)
-    lib/                  Firestore reads/writes, auth wrapper, TS schema
-  firestore.rules         Security rules (deploy with `firebase deploy --only firestore:rules`)
-  firebase.json           Hosting + Firestore config
-  package.json            Astro, Svelte, Firebase SDK, Chart.js
-scripts/                  Admin helpers (Python + Firebase Admin SDK)
-  seed_admin.py           Seed first admin after they've signed in
-  add_pending_admin.py    Queue admin by email — auto-promotes on their first sign-in
-  set_season_ceremony_url.py  Attach a YouTube URL to a season's awards page
-  export_firestore_backup.py  Dumps all collections to a gzipped JSON file
+    pages/                Home, player detail, club detail, awards, admin
+    components/           Layout, charts, admin surface
+    lib/                  Firestore reads/writes, auth, schema
+  firestore.rules         Security rules
+  firebase.json           Hosting config
+scripts/                  Maintenance helpers (Python + Firebase Admin SDK)
 .github/workflows/
-  deploy.yml              Build Astro + deploy to Firebase Hosting live channel on push
-  firestore-backup.yml    Nightly backup to the `backups` branch
+  deploy.yml              Build + deploy to Firebase Hosting on push to main
+  firestore-backup.yml    Nightly Firestore backup to the backups branch
 ```
-
-## Admin workflow
-
-Admins visit `/admin/`, sign in with Google, and edit through the drawer:
-
-- Slam +1 / +5 / −1 accumulate as **pending** deltas — nothing writes until you click Save
-- Save closes the drawer and applies the batch to Firestore in one round-trip
-- Every write stamps `createdBy` / `updatedBy` = signed-in UID (enforced by security rules) and appends an entry to `/audit_log`
-- Recent activity is visible in the bell icon at the top of the admin surface
-
-An owner can add another admin by email — see the section below.
-
-## Adding a new admin
-
-The queued email must match the account the target admin will sign in with.
-
-```bash
-export GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json
-python scripts/add_pending_admin.py --project carrom-thane \
-    new-admin@example.com \
-    --role owner \
-    --display-name "Full Name"
-```
-
-The next time that person signs in at `/admin/`, the client detects their pending record, creates `/admins/{uid}` with the queued role, and deletes the pending entry. Reload — they now have admin access.
-
-`--role editor` limits them to editing data (players, clubs, slams, seasons). `--role owner` also lets them add or remove other admins.
 
 ## Deploying
 
-Read pages are pre-rendered at build time — Firestore is instantly writeable, but the public HTML is regenerated only when a fresh build runs. See [`astro/README.md`](astro/README.md#how-data-gets-into-pages) for the full explanation.
+Any push to `main` triggers `.github/workflows/deploy.yml`, which builds the Astro site with current Firestore data and deploys to `carrom-thane.web.app`.
 
-Two trigger paths, both landing on the same build+deploy → `carrom-thane.web.app`:
+After data edits, click the gold **"Publish now ↗"** button in the admin topbar to trigger a rebuild on demand (~1 min).
 
-1. **On code change**: any push to `main` runs `.github/workflows/deploy.yml`.
-2. **On demand** after admin edits: click the gold **"Publish now ↗"** button in the admin topbar. It opens the deploy workflow's Actions page — hit **Run workflow → Run workflow** and the deploy starts within ~1 min. Same effect from CLI: `gh workflow run "Deploy Astro to Firebase Hosting" -R swapnild2111/carrom`.
-
-Manual deploy from a workstation (bypasses GitHub Actions):
+Manual deploy from a workstation:
 
 ```bash
 cd astro
@@ -96,13 +60,7 @@ firebase deploy --project carrom-thane
 
 ## Backups
 
-`.github/workflows/firestore-backup.yml` runs nightly at 21:00 UTC. It dumps every collection to a gzipped JSON file and commits to the `backups` branch. The branch keeps ~30 days of history. Manual on-demand backup:
-
-```bash
-export GOOGLE_APPLICATION_CREDENTIALS=~/.config/carrom-thane-admin.json
-python scripts/export_firestore_backup.py --project carrom-thane \
-    --output backups/$(date -u +%Y-%m-%d).json.gz
-```
+`.github/workflows/firestore-backup.yml` runs nightly at 21:00 UTC, dumping all collections to a gzipped JSON file committed to the `backups` branch (~30 days of history).
 
 ## License
 
